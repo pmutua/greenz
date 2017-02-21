@@ -4,7 +4,7 @@
 	background-color:#FFF;
 	margin-left:auto;
 	margin-right:auto;
-	
+	border: 5px solid black;
 }
 
 #pageHeader{
@@ -21,8 +21,17 @@
 
 #blog-slogan{
 	position:relative;
-	width:240;
-	left:200;
-	top:-127px;
+	width:240px;
+	left:715px;
+	top:-124px;
+
+}
+
+#search-box{
+	position:relative;
+	width:740px;
+	left:-80px;
+	top:230px;
+
 
 }
