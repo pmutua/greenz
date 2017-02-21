@@ -1,0 +1,28 @@
+#PageWrapper{
+	font:14px/1.4 'Open Sans Condensed';/*Get font */
+	width:1000px;
+	background-color:#FFF;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+#pageHeader{
+	height:127px;
+	width:1000px;
+
+
+}
+
+#logo{
+	position:relative;
+	left:15px;
+}
+
+#blog-slogan{
+	position:relative;
+	width:240;
+	left:200;
+	top:-127px;
+
+}
