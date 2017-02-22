@@ -3,6 +3,7 @@
 .nav-pills {
 	font-size: 30px;
 	background-color: black;
+	opacity:.7;
 	
 	margin-bottom: 10%;
 }
@@ -38,6 +39,10 @@ h1 {
 
 }
 
+
+
+
+
 body {
 	color: white;
 	font: 56px/1.4 'Open Sans Condensed';
@@ -52,7 +57,4 @@ body {
 
 
 }
-
-.pageTwo{
-	background-image: url("")
-}
+/*no need of adding another image as background*/
