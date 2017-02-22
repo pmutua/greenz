@@ -21,6 +21,10 @@ h1 {
 .block{
 	background-color: black;
 	opacity:.7;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	
 }
 
 body {
