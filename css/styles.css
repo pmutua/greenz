@@ -27,6 +27,7 @@ h1 {
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 10px;
+	padding-top:5px;
 	
 }
 
@@ -39,8 +40,9 @@ body {
 /*button color*/
 .btn-default{
 	background-color: black;
-	border-color:black;
-	color:blue;
+	border-color: black;
+	color: white;
+
 
 }
 
