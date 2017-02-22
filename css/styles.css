@@ -1,12 +1,19 @@
 
 /*set font and size of font in nav*/
 .nav-pills{
-	font:56px/1.4 'Open Sans Condensed';
+	
 	font-size: 30px;
-	background-color:white;
+	background-color:black;
+	opacity: 
 
 }
 
-body{
-	background: white;
+
+
+.page-wrapper{
+	background-image: url("../images/emile-perron-190221.jpg");
+	background-size: cover;
+	height: 800px;
+	font:56px/1.4 'Open Sans Condensed';
+
 }
