@@ -15,5 +15,6 @@
 	background-size: cover;
 	height: 800px;
 	font:56px/1.4 'Open Sans Condensed';
+	margin-top: -10%; /*fix margin at header side*/
 
 }
