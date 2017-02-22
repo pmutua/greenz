@@ -31,6 +31,13 @@ h1 {
 	
 }
 
+
+
+.panel-footer {
+	height: 300px;
+
+}
+
 body {
 	color: white;
 	font: 56px/1.4 'Open Sans Condensed';
