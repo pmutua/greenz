@@ -35,11 +35,6 @@ h1 {
 
 
 
-.panel-footer {
-	height: 300px;
-
-}
-
 
 
 
@@ -66,15 +61,14 @@ body {
 }
 
 .pageThree{
-	background-image:url("../images/roman-mager-59976.jpg");
-	color:white;
+	
 	
 	
 }
 
 .panel-footer {
-	background-image:url("../images/luca-bravo-207676.jpg");
-	height:640;
+	background-color:grey;
+
 
 
 }
