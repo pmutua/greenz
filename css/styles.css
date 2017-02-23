@@ -58,4 +58,6 @@ body {
 
 
 }
-/*no need of adding another image as background*/
+.pageTwo{
+	background-image:url("..images/luca-bravo-207696.jpg");
+}
