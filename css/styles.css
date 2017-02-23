@@ -59,5 +59,16 @@ body {
 
 }
 .pageTwo{
-	background-image:url("..images/luca-bravo-207696.jpg");
+	background-image:url("../images/luca-bravo-207676.jpg");
+	color:white;
+	
+	
+}
+
+
+.panel-footer {
+	background-image:url("../images/luca-bravo-207676.jpg");
+	height:640;
+
+
 }
