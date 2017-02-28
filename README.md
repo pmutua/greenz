@@ -1,4 +1,4 @@
-# website portfolio
+# Portfolio Website
 [Project site]( https://pmutua.github.io/)
 Author: [Philip Mutua](pmutua@live.com)
 ## Description
