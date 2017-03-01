@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # project name 
 pmutua.github.io
 ##Author:
@@ -16,3 +17,26 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+=======
+# Portfolio Website
+[Project site]( https://pmutua.github.io/)
+Author: [Philip Mutua](pmutua@live.com)
+## Description
+This is my personal website portfolio i created 
+The wesite comprises of different pages you can navigate through :
+### Technologies Used
+* HTML
+* CSS
+* Bootstrap
+## Setup and Installation
+Make sure you have git installed. On the terminal, navigate to your workspace directory and run
+
+```bash
+$ git clone https://github.com/brianmarete/hello-world.git
+
+```
+## Contributing
+pull requests are encouraged 
+## License
+This project is released under the [MIT License](./LICENSE.md)
+>>>>>>> 3f00a64708e033e9bb0e2bf435d69d585b1d9dbb

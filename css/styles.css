@@ -1,74 +1,46 @@
 /*set font and size of font in nav*/
-
 .nav-pills {
-	font-size: 30px;
-	background-color: black;
-	opacity:.7;
-	
-	margin-bottom: 10%;
-}
+font-size: 30px;
+background-color: black;
+opacity:.7;
 
+margin-bottom: 10%;
+}
 h1 {
-	padding: 0;
-	margin-top: 0px;
-	font-size: 10em;
+padding: 0;
+margin-top: 0px;
+font-size: 10em;
 }
-
 .pageOne{
-	background-image: url("../images/emile-perron-190221.jpg");
-	background-size: cover;
-	height: 800px;
-	
-}
+background-image: url("../images/emile-perron-190221.jpg");
+background-size: cover;
+height: 800px;
 
+}
 .block{
-	background-color: black;
-	opacity:.7;
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 10px;
-	color:black;/*add color to text*/
+background-color: black;
+opacity:.7;
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+border-radius: 10px;
+color:black;/*add color to text*/
 
-	
 }
-
-
-
-
-
-
-
 body {
-
-	font: 56px/1.4 'Open Sans Condensed';
+font: 56px/1.4 'Open Sans Condensed';
+margin-bottom: 150px;
 }
-
 }
 /*button color*/
 .btn-default{
-	background-color: black;
-	border-color: black;
-	color: white;
-
-
+background-color: black;
+border-color: black;
+color: white;
 }
-.pageTwo{
-
-	color:black;
-	
-	
-}
-
-
-
 .panel-footer {
-	background-color:grey;
-
-
-
+background-color:grey;
 }
-
 .jumbotron {
 background: #358CCE;
 color: #FFF;
@@ -82,89 +54,67 @@ color: #FFF;
 .h1 small {
 font-size: 24px;
 }
-
 .panel-default{
-    text-align:center;
-    cursor:pointer;
-    font-family: 'Raleway',sans-serif;
+text-align:center;
+cursor:pointer;
+font-family: 'Raleway',sans-serif;
 }
 .panel-default > .panel-footer {
-    color: #fff;
-    background-color: #47c8ed;    
-    display:none;
-    text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+color: #fff;
+background-color: #47c8ed;
+display:none;
+text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
 }
 .panel-default i{
-    font-size: 5em;
-    }
-
+font-size: 5em;
+}
 html {
-  position: relative;
-  min-height: 100%;
+position: relative;
+min-height: 100%;
 }
-
-body {
-  margin-bottom: 150px;
-}
-
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 150px;
-  background-color: #111;
-  text-align: center;
+position: absolute;
+bottom: 0;
+width: 100%;
+height: 150px;
+background-color: #111;
+text-align: center;
 }
-
 .container{
-  margin-top: 50px;
-  color: #fff;
-  width: 100%;
+margin-top: 50px;
+color: #fff;
+width: 100%;
 }
-
 .fa-twitter {
-    color: #4099FF;
+color: #4099FF;
 }
-
 .fa-facebook {
-    color: #3B5998;
+color: #3B5998;
 }
-
 .fa-youtube-play {
-    color: #e52d27;
+color: #e52d27;
 }
-
 .fa-rss {
-    color: #FF6600;
+color: #FF6600;
 }
-
 .fa-vine {
-    color: #00a478;
+color: #00a478;
 }
-
 .fa-flickr {
-    color: #ff0084;
+color: #ff0084;
 }
-
 .fa-twitch {
-    color: #6441A5;
+color: #6441A5;
 }
-
 .fa-linkedin {
-    color: #007bb6;
+color: #007bb6;
 }
-
 .fa {
-    opacity: 0.7;
-    transition: 1s;
-    -webkit-transition: 1s;
+opacity: 0.7;
+transition: 1s;
+-webkit-transition: 1s;
 }
-
 .fa:hover{
-    opacity: 1;
-    transition: 1s;
-    -webkit-transition: 1s;
-
-#footer-down{
-	padding-bottom:50px;
-}
+opacity: 1;
+transition: 1s;
+-webkit-transition: 1s;
