@@ -1,14 +1,3 @@
-#Personal Portfolio Website
-
-##Author:
-Philip mutua
-##Description:
-This is my personal portfolio website i created.
-##Installation Instructions
-In your terminal type  git clone [then paste the link provided here]
-##link for page
-To view follow this link:
-Git hub profile repo is at <http://pmutua.github.io/>
 
 # Portfolio Website
 [Project site]( https://pmutua.github.io/)
