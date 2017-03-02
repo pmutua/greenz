@@ -1,5 +1,5 @@
-# project name 
-pmutua.github.io
+#pmutua.github.io
+
 ##Author:
 Philip mutua
 ##Description:
