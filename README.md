@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # project name 
 pmutua.github.io
 ##Author:
@@ -39,4 +38,4 @@ $ git clone https://github.com/brianmarete/hello-world.git
 pull requests are encouraged 
 ## License
 This project is released under the [MIT License](./LICENSE.md)
->>>>>>> 3f00a64708e033e9bb0e2bf435d69d585b1d9dbb
+
