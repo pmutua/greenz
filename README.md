@@ -9,6 +9,7 @@ The wesite comprises of different pages you can navigate through :
 * HTML
 * CSS
 * Bootstrap
+
 ## Setup and Installation
 Make sure you have git installed. On the terminal, navigate to your workspace directory and run
 
