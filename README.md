@@ -14,7 +14,7 @@ The wesite comprises of different pages you can navigate through :
 Make sure you have git installed. On the terminal, navigate to your workspace directory and run
 
 ```bash
-$ git clone https://github.com/pmutua.git 
+$ git clone https://github.com/pmutua/pmutua.github.io.git
 
 ```
 ## Contributing
