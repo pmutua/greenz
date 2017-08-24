@@ -15,12 +15,11 @@
 
 
 # Portfolio Website
-[Project site]( https://philipmutua.github.io/)
+[View Demo]( https://philipmutua.github.io/)
 Author: [Philip Mutua](pmutua@live.com)
 
 ## Description
-This is my personal website portfolio i created 
-The wesite comprises of different pages you can navigate through :
+Personal website portfolio 
 ### Technologies Used
 * HTML
 * CSS
