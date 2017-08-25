@@ -2437,3 +2437,11 @@ a.brand-text>span {
     height: 3vmin;
     margin-right: 1vmin;
 }
+
+
+/* Download button */
+
+.download-resume {
+    margin-top: -5%;
+    margin-bottom: 5%;
+}
