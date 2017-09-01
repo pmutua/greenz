@@ -202,9 +202,372 @@ body {
     overflow: hidden;
     position: fixed;
     width: 100%;
-    z-index: 9999
+    z-index: 9999;
+    background: #373940;
 }
 
+.socket {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    top: 50%;
+    margin-top: -100px;
+}
+
+.hex-brick {
+    background: #ABF8FF;
+    width: 30px;
+    height: 17px;
+    position: absolute;
+    top: 5px;
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.h2 {
+    transform: rotate(60deg);
+    -webkit-transform: rotate(60deg);
+}
+
+.h3 {
+    transform: rotate(-60deg);
+    -webkit-transform: rotate(-60deg);
+}
+
+.gel {
+    height: 30px;
+    width: 30px;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.center-gel {
+    margin-left: -15px;
+    margin-top: -15px;
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: pulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.c1 {
+    margin-left: -47px;
+    margin-top: -15px;
+}
+
+.c2 {
+    margin-left: -31px;
+    margin-top: -43px;
+}
+
+.c3 {
+    margin-left: 1px;
+    margin-top: -43px;
+}
+
+.c4 {
+    margin-left: 17px;
+    margin-top: -15px;
+}
+
+.c5 {
+    margin-left: -31px;
+    margin-top: 13px;
+}
+
+.c6 {
+    margin-left: 1px;
+    margin-top: 13px;
+}
+
+.c7 {
+    margin-left: -63px;
+    margin-top: -43px;
+}
+
+.c8 {
+    margin-left: 33px;
+    margin-top: -43px;
+}
+
+.c9 {
+    margin-left: -15px;
+    margin-top: 41px;
+}
+
+.c10 {
+    margin-left: -63px;
+    margin-top: 13px;
+}
+
+.c11 {
+    margin-left: 33px;
+    margin-top: 13px;
+}
+
+.c12 {
+    margin-left: -15px;
+    margin-top: -71px;
+}
+
+.c13 {
+    margin-left: -47px;
+    margin-top: -71px;
+}
+
+.c14 {
+    margin-left: 17px;
+    margin-top: -71px;
+}
+
+.c15 {
+    margin-left: -47px;
+    margin-top: 41px;
+}
+
+.c16 {
+    margin-left: 17px;
+    margin-top: 41px;
+}
+
+.c17 {
+    margin-left: -79px;
+    margin-top: -15px;
+}
+
+.c18 {
+    margin-left: 49px;
+    margin-top: -15px;
+}
+
+.c19 {
+    margin-left: -63px;
+    margin-top: -99px;
+}
+
+.c20 {
+    margin-left: 33px;
+    margin-top: -99px;
+}
+
+.c21 {
+    margin-left: 1px;
+    margin-top: -99px;
+}
+
+.c22 {
+    margin-left: -31px;
+    margin-top: -99px;
+}
+
+.c23 {
+    margin-left: -63px;
+    margin-top: 69px;
+}
+
+.c24 {
+    margin-left: 33px;
+    margin-top: 69px;
+}
+
+.c25 {
+    margin-left: 1px;
+    margin-top: 69px;
+}
+
+.c26 {
+    margin-left: -31px;
+    margin-top: 69px;
+}
+
+.c27 {
+    margin-left: -79px;
+    margin-top: -15px;
+}
+
+.c28 {
+    margin-left: -95px;
+    margin-top: -43px;
+}
+
+.c29 {
+    margin-left: -95px;
+    margin-top: 13px;
+}
+
+.c30 {
+    margin-left: 49px;
+    margin-top: 41px;
+}
+
+.c31 {
+    margin-left: -79px;
+    margin-top: -71px;
+}
+
+.c32 {
+    margin-left: -111px;
+    margin-top: -15px;
+}
+
+.c33 {
+    margin-left: 65px;
+    margin-top: -43px;
+}
+
+.c34 {
+    margin-left: 65px;
+    margin-top: 13px;
+}
+
+.c35 {
+    margin-left: -79px;
+    margin-top: 41px;
+}
+
+.c36 {
+    margin-left: 49px;
+    margin-top: -71px;
+}
+
+.c37 {
+    margin-left: 81px;
+    margin-top: -15px;
+}
+
+.r1 {
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .2s;
+    -webkit-animation-name: pulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .2s;
+}
+
+.r2 {
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .4s;
+    -webkit-animation-name: pulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .4s;
+}
+
+.r3 {
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .6s;
+    -webkit-animation-name: pulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .6s;
+}
+
+.r1>.hex-brick {
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .2s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .2s;
+}
+
+.r2>.hex-brick {
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .4s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .4s;
+}
+
+.r3>.hex-brick {
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: .6s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: .6s;
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(0.01);
+        transform: scale(0.01);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes fade {
+    0% {
+        background: #ABF8FF;
+    }
+    50% {
+        background: #90BBBF;
+    }
+    100% {
+        background: #ABF8FF;
+    }
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(0.01);
+        transform: scale(0.01);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes fade {
+    0% {
+        background: #ABF8FF;
+    }
+    50% {
+        background: #389CA6;
+    }
+    100% {
+        background: #ABF8FF;
+    }
+}
+
+
+}
 .loader {
     height: 50px;
     width: 50px;
@@ -212,7 +575,6 @@ body {
     left: calc(50% - 50px);
     top: calc(50% - 50px)
 }
-
 .circle-loader {
     -webkit-animation: rotate 2s linear infinite;
     animation: rotate 2s linear infinite;
@@ -222,7 +584,6 @@ body {
     top: 20%;
     width: 50px
 }
-
 .circle-loader .path {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
@@ -231,90 +592,79 @@ body {
     stroke-linecap: round;
     stroke: #3f88f8
 }
-
 @keyframes rotate {
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg)
     }
 }
-
 @keyframes dash {
     0% {
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0
     }
+    
     50% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -35
     }
+    
     100% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -124
     }
 }
-
 #about {
     background: #134E5E;
     /* fallback for old browsers */
+    
     background: -webkit-linear-gradient(to right, #71B280, #134E5E);
     /* Chrome 10-25, Safari 5.1-6 */
+    
     background: linear-gradient(to right, #71B280, #134E5E);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 .padd-tb-120 {
     padding-top: 120px;
     padding-bottom: 120px
 }
-
 .padd-tb-80 {
     padding-top: 80px;
     padding-bottom: 80px
 }
-
 .padd-tb-60 {
     padding-top: 60px;
     padding-bottom: 60px
 }
-
 .padd-tb-73 {
     padding-top: 73px;
     padding-bottom: 73px
 }
-
 .padd-tb-55 {
     padding-top: 55px;
     padding-bottom: 55px
 }
-
 .row {
     margin-bottom: 0
 }
-
 .bottom-50 {
     margin-bottom: 50px
 }
-
 .btn-large {
     height: 50px;
     line-height: 50px;
     text-transform: inherit;
     margin-bottom: 0
 }
-
 .container {
     position: relative
 }
-
 .italic {
     font-style: italic
 }
-
 .overflow-hidden {
     overflow: hidden
 }
-
 .section-call-to-area {
     display: block;
     width: 100%;
@@ -323,35 +673,28 @@ body {
     left: 0px;
     min-height: 1px
 }
-
 .section-call-to-area .row {
     position: relative
 }
-
 .section-call-to-btn:hover,
 .section-call-to-btn {
     position: absolute;
     bottom: -25px;
     background-color: #fff
 }
-
 .section-call-to-btn i {
     color: #444444
 }
-
 .section-call-to-btn.button-middle {
     left: 50%;
     margin-left: -27px
 }
-
 .section-call-to-btn.button-right-1 {
     right: 47px
 }
-
 .section-call-to-btn.button-right-2 {
     right: 16px
 }
-
 #testimonialSlider .owl-item>div,
 #teamSlider .owl-item>div,
 #educationSlider .owl-item>div,
@@ -359,7 +702,6 @@ body {
     width: 100%;
     margin: 10px 0
 }
-
 .title {
     font-size: 48px;
     line-height: 1.1;
@@ -368,62 +710,49 @@ body {
     text-transform: uppercase;
     margin-bottom: 35px
 }
-
 .regular-text {
     font-size: 16px;
     font-weight: 400
 }
-
 #dowload-cv {
     align-content: left;
 }
-
 .btn-large {
     text-transform: uppercase
 }
-
 section.cyan {
     color: #fff
 }
-
 .main-section {
     overflow: hidden
 }
-
 section.brand-bg .title {
     color: #fff
 }
-
 .inline-menu li a {
     font-size: 13px;
     font-weight: 500
 }
-
 .btn-floating.btn-up {
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
 }
-
 .btn-floating.btn-up,
 .btn-floating.btn-hidden {
     -webkit-transition: all 1.3s ease;
     transition: all 1.3s ease
 }
-
 .btn-hidden {
     -webkit-transform: translateX(1000px) !important;
     -ms-transform: translateX(1000px) !important;
     transform: translateX(1000px) !important
 }
-
 .btn-floating.btn-show {
     -webkit-transition: all .3s ease !important;
     transition: all .3s ease !important
 }
-
 .btn-floating.btn-large i {
     line-height: 59.5px
 }
-
 header.nav {
     box-shadow: 0 1px 6px rgba(0, 0, 0, .35);
     width: 100%;
@@ -433,45 +762,36 @@ header.nav {
     -webkit-transition: top .5s;
     transition: top .5s
 }
-
 header.nav.hide-menu {
     top: -90px
 }
-
 .primary-nav {
     height: inherit;
     line-height: inherit;
     background-color: transparent!important;
     box-shadow: none
 }
-
 .primary-nav .brand-logo {
     position: static;
     font-size: inherit
 }
-
 .primary-nav .brand-logo img {
     height: 32px;
     margin: 25px 5px 0
 }
-
 .mobile-profile {
     display: none
 }
-
 .side-nav li {
     margin-left: 40px
 }
-
 .side-nav li,
 .side-nav li:hover {
     background-color: transparent
 }
-
 .side-nav li:first-child {
     margin-left: 0
 }
-
 .side-nav li a {
     color: #727272;
     padding: 25px 0;
@@ -482,24 +802,19 @@ header.nav.hide-menu {
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out
 }
-
 .side-nav li.current a,
 .side-nav li a:hover {
     background-color: transparent
 }
-
 .side-nav li i {
     display: none
 }
-
 .static-menu {
     margin-left: 40px
 }
-
 .static-menu li:hover {
     background-color: transparent
 }
-
 .static-menu li a {
     line-height: 27px;
     padding: 22px 0;
@@ -508,12 +823,10 @@ header.nav.hide-menu {
     border-bottom: 6px solid transparent;
     background-color: transparent
 }
-
 .static-menu li i:hover,
 .static-menu li a:hover {
     background-color: transparent
 }
-
 .static-menu li a i {
     line-height: inherit;
     height: inherit;
@@ -522,13 +835,10 @@ header.nav.hide-menu {
     margin: 0;
     vertical-align: middle
 }
-
 .static-menu li:last-child {
     margin-left: 12px
 }
-
 .static-menu {}
-
 .static-menu form {
     width: 300px;
     position: relative;
@@ -536,11 +846,9 @@ header.nav.hide-menu {
     max-width: 100%;
     padding-left: 35px
 }
-
 #initSearchIcon {
     cursor: pointer
 }
-
 .static-menu .search {
     width: 100%;
     margin-bottom: 0;
@@ -549,7 +857,6 @@ header.nav.hide-menu {
     margin: 0;
     padding: 13px 0px
 }
-
 .static-menu .search,
 .static-menu .search:hover,
 .static-menu .search:focus,
@@ -557,7 +864,6 @@ header.nav.hide-menu {
     border: none;
     box-shadow: none
 }
-
 .static-menu form button {
     line-height: inherit;
     height: inherit;
@@ -569,14 +875,12 @@ header.nav.hide-menu {
     left: 0;
     top: 0
 }
-
 .static-menu form i {
     height: inherit;
     line-height: inherit;
     font-size: 26px;
     color: #727272
 }
-
 .submenu-ul {
     min-width: 170px;
     overflow: visible!important;
@@ -584,7 +888,6 @@ header.nav.hide-menu {
     height: auto!important;
     padding: 20px
 }
-
 .submenu-ul li {
     color: #cccbcb;
     font-size: 13px;
@@ -593,15 +896,12 @@ header.nav.hide-menu {
     line-height: 1.1;
     margin-bottom: 21px
 }
-
 .submenu-ul li:last-child {
     margin-bottom: 0
 }
-
 .submenu-ul li:hover {
     background: transparent
 }
-
 .submenu-ul li a {
     padding: 0;
     color: #727272;
@@ -609,11 +909,9 @@ header.nav.hide-menu {
     display: block;
     line-height: 1.1
 }
-
 .submenu-ul li a:hover {
     background-color: transparent
 }
-
 a.brand-text {
     color: #727272;
     padding: 28px 0 15px 0;
@@ -626,70 +924,57 @@ a.brand-text {
     font-size: 22px;
     font-weight: 400
 }
-
 .ct-widget.ct-ignition {
     left: calc(100vw - 125px) !important
 }
-
 .ct-widget.ct-toolbox.ct-widget--active {
     left: calc(100vw - 230px) !important
 }
-
 #home {
     background: url('../themes/philip_mutua_portfolio/assets/images/home-bg.jpg') no-repeat fixed center center / cover
 }
-
 #home .sec-overlay {
     background: rgba(0, 0, 0, .7);
     width: 100%;
     height: 100%
 }
-
 .home-inner {
     display: table;
     height: 80vh;
     padding-top: 80px;
     width: 100%
 }
-
 .home-content {
     color: #fff;
     display: table-cell;
     vertical-align: middle
 }
-
 .home-title {
     font-size: 72px;
     font-weight: 700;
     margin-bottom: 15px;
     text-transform: uppercase
 }
-
 .home-subtitle {
     font-size: 18px;
     font-weight: 300;
     margin-bottom: 38px;
     text-transform: uppercase
 }
-
 .home-content>a.btn-large i {
     font-size: 20px;
     margin-right: 10px
 }
-
 .home-content>a.btn-large {
     height: 45px;
     line-height: 45px
 }
-
 .about-inner {
     margin: 10px 0
 }
-
 .person-about .title {
     margin-bottom: 15px
 }
-
 .about-subtitle {
     font-size: 24px;
     font-weight: 600;
@@ -710,22 +995,28 @@ a.brand-text {
     border-top-right-radius: 3px;
     background: #f7f7f7;
     /* Old browsers */
+    
     background: -moz-linear-gradient(top, #f7f7f7 0%, #B8B8B8 100%);
     /* FF3.6+ */
+    
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #B8B8B8));
     /* Chrome,Safari4+ */
+    
     background: -webkit-linear-gradient(top, #f7f7f7 0%, #B8B8B8 100%);
     /* Chrome10+,Safari5.1+ */
+    
     background: -o-linear-gradient(top, #f7f7f7 0%, #B8B8B8 100%);
     /* Opera 11.10+ */
+    
     background: -ms-linear-gradient(top, #f7f7f7 0%, #B8B8B8 100%);
     /* IE10+ */
+    
     background: linear-gradient(to bottom, #f7f7f7 0%, #B8B8B8 100%);
     /* W3C */
+    
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#B8B8B8', GradientType=0);
     /* IE6-9 */
 }
-
 
 }
 .person-about .subtitle {
@@ -748,7 +1039,10 @@ a.brand-text {
     margin-bottom: 35px
 }
 .person-info {
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 30px rgba(0,
+    0,
+    0,
+    0.4);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -793,7 +1087,10 @@ a.brand-text {
     background: url('../themes/philip_mutua_portfolio/assets/images/skills-bg.jpg') no-repeat scroll center center / cover
 }
 #skill .sec-overlay {
-    background: rgba(255, 255, 255, .60);
+    background: rgba(255,
+    255,
+    255,
+    .60);
     height: 100%;
     width: 100%;
     padding-top: 60px;
@@ -856,8 +1153,14 @@ a.brand-text {
     height: 0px;
     -webkit-transition: all 1.2s;
     transition: all 1.2s;
-    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
-    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1)
+    -webkit-transition-timing-function: cubic-bezier(0.7,
+    0,
+    0.3,
+    1);
+    transition-timing-function: cubic-bezier(0.7,
+    0,
+    0.3,
+    1)
 }
 .skill-visiable {
     position: relative
@@ -1042,8 +1345,16 @@ a.brand-text {
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0);
-    -webkit-transition: -webkit-transform 0.25s cubic-bezier(.4, 0, .2, 1), opacity 0.25s;
-    transition: transform 0.25s cubic-bezier(.4, 0, .2, 1), opacity 0.25s
+    -webkit-transition: -webkit-transform 0.25s cubic-bezier(.4,
+    0,
+    .2,
+    1),
+    opacity 0.25s;
+    transition: transform 0.25s cubic-bezier(.4,
+    0,
+    .2,
+    1),
+    opacity 0.25s
 }
 .p-overlay {
     position: absolute;
@@ -1241,7 +1552,10 @@ a.brand-text {
     filter: alpha(opacity=100);
     border-radius: 20px;
     background: #fff;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2)
+    box-shadow: 0px 1px 1px rgba(0,
+    0,
+    0,
+    0.2)
 }
 .blog-inner .card-element-wrapper {
     margin-bottom: 10px
@@ -1289,7 +1603,10 @@ a.brand-text {
     background: url('../themes/philip_mutua_portfolio/assets/images/fun-facts-bg.jpg') no-repeat scroll center center / cover
 }
 #funfacts .sec-inner {
-    background: rgba(255, 255, 255, .92);
+    background: rgba(255,
+    255,
+    255,
+    .92);
     height: 100%;
     width: 100%
 }
@@ -1348,6 +1665,18 @@ span.num {
 }
 #map img {
     max-width: inherit
+}
+#contact {
+    background: #134E5E;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right,
+    #71B280,
+    #134E5E);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,
+    #71B280,
+    #134E5E);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .contact-info {
     display: block;
@@ -1439,7 +1768,14 @@ span.num {
 }
 .sweet-alert button {
     border-radius: 4px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important
+    box-shadow: 0 2px 5px 0 rgba(0,
+    0,
+    0,
+    0.16),
+    0 2px 10px 0 rgba(0,
+    0,
+    0,
+    0.12) !important
 }
 .social-icons {
     float: left
@@ -1496,6 +1832,18 @@ span.num {
     margin: 0 auto;
     max-width: 1170px;
     width: 90%
+}
+#team {
+    background: #134E5E;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right,
+    #71B280,
+    #134E5E);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,
+    #71B280,
+    #134E5E);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 @media only screen and (min-width:768px) {
     .container {
@@ -1577,56 +1925,45 @@ span.num {
         box-shadow: none !important;
         text-shadow: none !important
     }
-    
     a,
     a:visited {
         text-decoration: underline
     }
-    
     a[href]:after {
         content: " (" attr(href) ")"
     }
-    
     abbr[title]:after {
         content: " (" attr(title) ")"
     }
-    
     .ir a:after,
     a[href^="javascript:"]:after,
     a[href^="#"]:after {
         content: ""
     }
-    
     pre,
     blockquote {
         border: 1px solid #999;
         page-break-inside: avoid
     }
-    
     thead {
         display: table-header-group;
     }
-    
     tr,
     img {
         page-break-inside: avoid
     }
-    
     img {
         max-width: 100% !important
     }
-    
     @page {
         margin: 0.5cm
     }
-    
     p,
     h2,
     h3 {
         orphans: 3;
         widows: 3
     }
-    
     h2,
     h3 {
         page-break-after: avoid
@@ -1639,7 +1976,6 @@ span.num {
         -webkit-transform: translate3d(0, 20px, 0);
         transform: translate3d(0, 20px, 0)
     }
-    
     100% {
         opacity: 1;
         filter: alpha(opacity=100);
@@ -1654,7 +1990,6 @@ span.num {
         -webkit-transform: translate3d(0, 20px, 0);
         transform: translate3d(0, 20px, 0)
     }
-    
     100% {
         opacity: 1;
         filter: alpha(opacity=100);
@@ -1671,7 +2006,6 @@ span.num {
         opacity: 1;
         filter: alpha(opacity=100)
     }
-    
     100% {
         opacity: 0;
         filter: alpha(opacity=0);
@@ -1684,7 +2018,6 @@ span.num {
         opacity: 1;
         filter: alpha(opacity=100)
     }
-    
     100% {
         opacity: 0;
         filter: alpha(opacity=0);
@@ -1711,7 +2044,6 @@ span.num {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg)
     }
-    
     to {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg)
@@ -1722,17 +2054,19 @@ span.num {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg)
     }
-    
     to {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg)
     }
 }
 .path {
-    stroke-dasharray: 1, 200;
+    stroke-dasharray: 1,
+    200;
     stroke-dashoffset: 0;
-    -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
-    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    -webkit-animation: dash 1.5s ease-in-out infinite,
+    color 6s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite,
+    color 6s ease-in-out infinite;
     stroke-linecap: round;
     stroke: #000
 }
@@ -1741,12 +2075,10 @@ span.num {
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0
     }
-    
     50% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -35
     }
-    
     100% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -124
@@ -1757,12 +2089,10 @@ span.num {
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0
     }
-    
     50% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -35
     }
-    
     100% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -124
@@ -1777,11 +2107,9 @@ span.num {
     .home-title {
         font-size: 54px
     }
-    
     .home-subtitle {
         font-size: 16px
     }
-    
     #about .padd-tb-120 {
         padding-bottom: 80px;
         padding-top: 80px
@@ -1791,51 +2119,40 @@ span.num {
     .home-inner {
         min-height: 400px
     }
-    
     #dowload-cv {
         text-align: center;
     }
-    
     .person-about {
         margin-bottom: 40px
     }
-    
     .title {
         font-size: 42px
     }
-    
     .section-head {
         margin-bottom: 40px
     }
-    
     .skill-graph .single-skill {
         height: 450px
     }
-    
     .after-li {
         height: 250px
     }
-    
     .primary-nav .brand-logo {
         left: 75px;
         max-width: 300px;
         position: absolute
     }
-    
     .primary-nav .brand-logo {
         display: none
     }
-    
     .primary-nav .brand-text {
         margin-left: 75px
     }
-    
     .side-nav li a,
     .side-nav li.current a,
     .side-nav li a:hover {
         border: none
     }
-    
     nav a.button-collapse {
         color: #727272;
         float: left;
@@ -1844,40 +2161,33 @@ span.num {
         top: 8px;
         z-index: 99
     }
-    
     ul.side-nav {
         z-index: 999
     }
-    
     .side-nav li:first-child,
     .side-nav li {
         margin-left: 0
     }
-    
     nav ul li {
         border-bottom: 1px solid rgba(0, 0, 0, 0.05)
     }
-    
     .side-nav li a {
         text-transform: none;
         line-height: 10px;
         padding: 0
     }
-    
     .side-nav li i {
         display: inline-block;
         font-size: 15px;
         line-height: 60px;
         width: 40px
     }
-    
     .mobile-profile {
         background: url('../themes/philip_mutua_portfolio/assets/images/home-bg.jpg') no-repeat scroll center center / cover;
         display: block;
         min-height: 160px;
         position: relative
     }
-    
     .profile-inner {
         background: none repeat scroll 0 0 rgba(60, 70, 80, 0.7);
         height: 100%;
@@ -1887,19 +2197,16 @@ span.num {
         top: 0;
         width: 100%
     }
-    
     .pp-container {
         display: block;
         margin: 5px 0;
         width: 60px
     }
-    
     .pp-container img {
         border-radius: 50%;
         width: 100%;
         display: block
     }
-    
     .mobile-profile h3 {
         color: #fff;
         font-size: 16px;
@@ -1907,49 +2214,39 @@ span.num {
         margin: 8px auto 5px;
         text-align: left
     }
-    
     .mobile-profile h5 {
         color: #fff;
         font-size: 13px;
         text-align: left
     }
-    
     .contact-form .submit-wrap {
         margin-top: 40px
     }
-    
     .about-inner {
         margin: 50px 0
     }
-    
     .padd-tb-120 {
         padding-bottom: 80px;
         padding-top: 80px
     }
-    
     #portfolio-item-loader {
         margin: 0 auto;
         display: block
     }
-    
     #skill .sec-overlay {
         padding-bottom: 80px;
         padding-top: 70px
     }
-    
     .portfolio-wrap {
         padding-bottom: 80px
     }
-    
     .portfolio-top {
         margin-bottom: 50px;
         padding-bottom: 15px
     }
-    
     .experience-wrap {
         padding: 80px 0
     }
-    
     .about-inner,
     .skill-inner,
     .experience-inner,
@@ -1961,7 +2258,6 @@ span.num {
     .contact-inner {
         padding: 0 20px
     }
-    
     #map {
         height: 495px
     }
@@ -1970,24 +2266,20 @@ span.num {
     .skill-left {
         margin-top: 0
     }
-    
     .skill-inner {
         margin-top: 0
     }
-    
     .btn-wrapp {
         display: block;
         margin: 0 auto;
         position: static;
         width: 142px
     }
-    
     .btn-wrapp a {
         display: inline-block;
         margin-bottom: 0;
         margin-top: 50px
     }
-    
     .btn-wrapp a:first-child {
         margin-right: 25px
     }
@@ -1996,49 +2288,38 @@ span.num {
     .home-inner {
         height: calc(100vh - 100px)
     }
-    
     .section-head {
         margin-bottom: 30px
     }
-    
     .home-title {
         font-size: 42px
     }
-    
     .home-subtitle {
         font-size: 14px
     }
-    
     .title {
         font-size: 36px;
         line-height: 1.1
     }
-    
     .modal .title {
         font-size: 18px;
         line-height: 1.2
     }
-    
     .section-title {
         margin-bottom: 20px
     }
-    
     .person-about .subtitle {
         font-size: 24px
     }
-    
     .about-wrap {
         padding: 30px 0
     }
-    
     .person-img img {
         margin-bottom: 25px
     }
-    
     .funfact-box .card-panel {
         margin-bottom: 30px
     }
-    
     .education-wrap,
     .experience-wrap,
     .team-wrap,
@@ -2049,33 +2330,26 @@ span.num {
         padding-bottom: 80px;
         padding-top: 80px
     }
-    
     .portfolio-top {
         padding-top: 80px;
         padding-bottom: 15px
     }
-    
     .portfolio-category li {
         margin-bottom: 15px;
         margin-right: 20px
     }
-    
     .skill-graph .single-skill {
         height: 335px
     }
-    
     .after-li {
         height: 200px
     }
-    
     .skill-right {
         padding-top: 30px
     }
-    
     .skill-title {
         padding-top: 5px
     }
-    
     .contact-info li {
         border: none;
         float: none;
@@ -2084,18 +2358,15 @@ span.num {
         padding-right: 10px;
         text-align: left
     }
-    
     #map {
         border-radius: 0;
         height: 250px;
         width: 100%;
         margin-bottom: 30px
     }
-    
     .cform-wrapper {
         border-radius: 0
     }
-    
     .social-icons {
         display: block;
         float: none;
@@ -2103,7 +2374,6 @@ span.num {
         text-align: center;
         width: 100%
     }
-    
     .copyright {
         display: block;
         float: none;
@@ -2111,12 +2381,10 @@ span.num {
         text-align: center;
         width: 100%
     }
-    
     .thumb-slides-container {
         margin: 0 auto;
         max-width: 450px
     }
-    
     .protfolio-item li {
         float: left;
         margin-right: 0.5%;
@@ -2128,7 +2396,6 @@ span.num {
     a.brand-text {
         padding: 25px 0 15px 0
     }
-    
     .person-img {
         margin-bottom: 20px
     }
@@ -2137,68 +2404,54 @@ span.num {
     .home-title {
         font-size: 36px
     }
-    
     .home-subtitle {
         font-size: 13px
     }
-    
     .title {
         font-size: 32px
     }
-    
     .static-menu form {
         width: 170px
     }
-    
     .section-head {
         margin-bottom: 30px
     }
-    
     #dowload-cv {
         text-align: center;
     }
-    
     .about-subtitle {
         font-size: 20px;
         margin-bottom: 0px
     }
-    
     .skill-graph .single-skill {
         height: 335px
     }
-    
     .thumb-slides-container {
         margin: 0 auto;
         max-width: 285px
     }
-    
     #message-success {
         float: left;
         margin: 24px auto;
         position: relative;
         width: 100%
     }
-    
     #message-success p {
         width: 100%;
         text-align: center
     }
-    
     .protfolio-item li {
         float: left;
         margin-right: 0;
         margin-bottom: 20px;
         width: 100%
     }
-    
     .portfolio-category li {
         margin-right: 10px
     }
-    
     .portfolio-category li a {
         font-size: 12px
     }
-    
     .about-inner,
     .skill-inner,
     .experience-inner,
@@ -2216,15 +2469,12 @@ span.num {
     .home-title {
         font-size: 32px
     }
-    
     #dowload-cv {
         text-align: center;
     }
-    
     .home-subtitle {
         font-size: 12px
     }
-    
     .thumb-slides-container {
         max-width: 250px
     }
@@ -2294,31 +2544,24 @@ a.tags,
     0% {
         stroke: #74CFAE
     }
-    
     20% {
         stroke: #74CFAE
     }
-    
     25% {
         stroke: #74CFAE
     }
-    
     45% {
         stroke: #74CFAE
     }
-    
     50% {
         stroke: #74CFAE
     }
-    
     70% {
         stroke: #74CFAE
     }
-    
     75% {
         stroke: #74CFAE
     }
-    
     95% {
         stroke: #74CFAE
     }
@@ -2327,31 +2570,24 @@ a.tags,
     0% {
         stroke: #74CFAE
     }
-    
     20% {
         stroke: #74CFAE
     }
-    
     25% {
         stroke: #74CFAE
     }
-    
     45% {
         stroke: #74CFAE
     }
-    
     50% {
         stroke: #74CFAE
     }
-    
     70% {
         stroke: #74CFAE
     }
-    
     75% {
         stroke: #74CFAE
     }
-    
     95% {
         stroke: #74CFAE
     }
