@@ -254,6 +254,15 @@ body {
     }
 }
 
+#about {
+    background: #134E5E;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #71B280, #134E5E);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #71B280, #134E5E);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .padd-tb-120 {
     padding-top: 120px;
     padding-bottom: 120px
@@ -363,6 +372,10 @@ body {
 .regular-text {
     font-size: 16px;
     font-weight: 400
+}
+
+#dowload-cv {
+    align-content: left;
 }
 
 .btn-large {
@@ -1779,6 +1792,10 @@ span.num {
         min-height: 400px
     }
     
+    #dowload-cv {
+        text-align: center;
+    }
+    
     .person-about {
         margin-bottom: 40px
     }
@@ -2113,7 +2130,7 @@ span.num {
     }
     
     .person-img {
-        margin-bottom: 30px
+        margin-bottom: 20px
     }
 }
 @media only screen and (max-width:479px) {
@@ -2137,9 +2154,13 @@ span.num {
         margin-bottom: 30px
     }
     
+    #dowload-cv {
+        text-align: center;
+    }
+    
     .about-subtitle {
         font-size: 20px;
-        margin-bottom: 25px
+        margin-bottom: 0px
     }
     
     .skill-graph .single-skill {
@@ -2194,6 +2215,10 @@ span.num {
 @media only screen and (max-width:359px) {
     .home-title {
         font-size: 32px
+    }
+    
+    #dowload-cv {
+        text-align: center;
     }
     
     .home-subtitle {
