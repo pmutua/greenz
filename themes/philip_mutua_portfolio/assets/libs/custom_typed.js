@@ -1,5 +1,17 @@
   var typed6 = new Typed('.element', {
-      strings: ['Hi,My name is Philip Mutua I am a creative,innovative and dynamic Full Stack Engineer living in Kenya, Nairobi.', 'I love making things ', 'I believe that web technologies are revolutionizing our world in many ways and it feels really great to be part of that change as a software engineer', 'The feeling that i have created  a web app that will provide a solution for a problem out there is Awsome.', 'My current toolset that I use to create products and solutions includes ^1000\n `Angular...`^1000\n `Emberr...` ^1000\n`Ruby on Rails`', 'I work also with all the other various frameworks,libraries and technologies related to them.', 'When I\nm not working,I am usually with my two year Pitbull ,who loves to run and exercise even more than I do.iam very much a kid at heart ,love to cook ,watch soccer manchester united yeah baby),play video games and travel whenever I can.', 'Feel free to ask me any questions.', 'I can help you in your project in all from ,^1000\n `UI mockups`,^1000\n `back-end` ,^1000\n`front-end` ^1000\n`Web development`'],
+      strings: ['Hi,My name is Philip Mutua I am a creative,innovative and dynamic Full Stack Developer living in Kenya, Nairobi.',
+          'I love making things and understanding how they work. ',
+          '<ul>My current toolset that I use to create products and solutions includes: ^1000\n `<li>Angular 2 JS</li>`^1000\n `<li>Ember JS</li>` ^1000\n`<li>Ruby on Rails stack</li>`</ul>',
+          'As a web developer,I am comfortable working with both Back end and Front-end technologies and I enjoy using my unequivocal love for making things, and my mission-driven work ethic to literally make things happen.',
+
+
+          'I teach people too!<hr>^3000\n`I provide workshops on social media, blogging and using Medium. I’ve had some great feedback. `',
+          '',
+          'When I\nm not working,I enjoy playing basketball, I also love watching my favourite soccer team play on the screen with my friends and travel whenever I can.',
+          'Feel free to ask me any questions.', 'I can help you in your project in all from ,^1000\n `UI mockups`,^1000\n `Front end` ,^1000\n`Back end`',
+          'There are really no limits in terms of functionality, so whatever you want to be online, we can work together to make that happen.',
+
+      ],
       typeSpeed: 40,
       backSpeed: 0,
       fadeOut: true,
