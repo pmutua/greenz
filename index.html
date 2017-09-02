@@ -1279,21 +1279,21 @@
                                     <!-- Contact Form start -->
                                     <div class="col s12 m5">
                                         <div class="clearfix card-panel grey lighten-5 cform-wrapper">
-                                            <form id="contactForm" role="form" data-request="zw_custom_contact_form::onMailSent" data-request-update="'zw_custom_contact_form/confirm': '.confirm-container'" data-request-error="$('.form-loader-area').hide()" data-request-success="$('#contactForm').trigger('reset');$('.form-loader-area').hide()">
+                                            <form id="contactForm" action="https://formspree.io/pmutua@live.com" method="POST">
                                                 <div class="input-field">
-                                                    <input id="contact_name" type="text" name="name" class="validate input-box">
+                                                    <input id="inputName" type="text" name="name" class="validate input-box">
                                                     <label for="contact_name" class="input-label">Name</label>
                                                 </div>
                                                 <div class="input-field">
-                                                    <input id="email" type="email" name="email" class="validate input-box">
+                                                    <input id="inputEmail" type="email" name="_replyto" class="validate input-box">
                                                     <label for="email" class="input-label">Email</label>
                                                 </div>
-                                                <div class="input-field">
+                                                <!-- <div class="input-field">
                                                     <input id="subject" type="text" name="subject" class="validate input-box">
                                                     <label for="subject" class="input-label">Subject</label>
-                                                </div>
+                                                </div> -->
                                                 <div class="input-field textarea-input">
-                                                    <textarea id="textarea1" name="body" class="validate materialize-textarea" style="height: 22px;"></textarea>
+                                                    <textarea id="inputMessage" name="body" class="validate materialize-textarea" style="height: 22px;"></textarea>
                                                     <label for="textarea1" class="input-label">Message</label>
                                                 </div>
                                                 <div class="input-field submit-wrap clearfix">
@@ -1471,6 +1471,9 @@
             }
         });
     </script>
+    <script href="https://cdnjs.cloudflare.com/ajax/libs/alertify.js/0.5.0/alertify.min.js">
+    </script>
+
     <script src="modules/system/assets/js/framework.js"></script>
     <script src="plugins/devinx/contactus/assets/js/main.js"></script>
     <script src="themes/philip_mutua_portfolio/assets/libs/typed.min.js"></script>
