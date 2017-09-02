@@ -1030,7 +1030,7 @@ a.brand-text {
 }
 .person-img img {
     max-width: 100%;
-    height: auto
+    height: 300px;
 }
 .person-about p {
     color: #727272;
@@ -2620,6 +2620,7 @@ a.brand-text>span {
 #toolbox ul {
     font-weight: 300;
     text-align: center;
+    height:260px;
 }
 #toolbox ul li {
     display: inline-block;
