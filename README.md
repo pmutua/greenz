@@ -15,20 +15,22 @@
 
 
 # Portfolio Website
-[View Demo]( https://philipmutua.github.io/)
+
 Author: [Philip Mutua](pmutua@live.com)
 
 ## Description
 Personal website portfolio 
 ### Technologies Used
-* HTML
-* CSS
-* Materialize
-* Vanilla JavaScript
-* Jquery 
-* Framework JS
-* Owl-carousel
-* Font Awsome
+* [HTML]()
+* [CSS]()
+* [Materialize]()
+* [JavaScript ]()
+* [Alertify.js]()
+* [Jquery ]()
+* [Owl-carousel]()
+* [Font Awsome]()
+* [Google Maps ApI]()
+* [Formspree](https://formspree.io/)
 
 ## Setup and Installation
 Make sure you have git installed. On the terminal, navigate to your workspace directory and run
@@ -36,7 +38,7 @@ Make sure you have git installed. On the terminal, navigate to your workspace di
 ```bash
 $ git clone https://github.com/pmutua/philipmutua.github.io.git
 
-cd  ~/philipmutua
+cd  ~/pmutua
 
 run index.html on browser
 
