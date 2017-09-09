@@ -47,7 +47,7 @@
     padding: 5px;
     list-style: none;
     background: #141414;
-    color: #45D40C;
+    color: #BCF6FF;
     font: 0.8em 'Andale Mono', Consolas, 'Courier New';
     line-height: 1.6em;
     -webkit-border-bottom-right-radius: 3px;
@@ -69,5 +69,5 @@
     word-wrap: break-word;
     position: relative;
     padding: 0 0 0 15px;
-    font-size: 1rem;
+    font-size: .85rem;
 }
