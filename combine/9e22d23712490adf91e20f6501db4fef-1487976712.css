@@ -956,9 +956,10 @@ a.brand-text {
     text-transform: uppercase
 }
 .home-subtitle {
-    font-size: 18px;
-    font-weight: 300px;
-    margin-bottom: 38px;
+    font-size: 20px;
+    /* font-weight: 300px;
+    margin-bottom: 38px; */
+    
     text-transform: uppercase
 }
 .home-content>a.btn-large i {
