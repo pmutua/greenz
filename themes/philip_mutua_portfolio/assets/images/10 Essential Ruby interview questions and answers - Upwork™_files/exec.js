@@ -1,0 +1,1 @@
+(function() { if (typeof _troq.unqueue !== 'undefined') {_troq.unqueue(_troq,'1505286172'); }_troq.callSeg();_troq.callSync();})();

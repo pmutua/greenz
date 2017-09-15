@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style>.gitter-hidden{box-sizing:border-box;display:none}.gitter-icon{box-sizing:border-box;width:22px;height:22px;fill:currentColor}.gitter-chat-embed{box-sizing:border-box;z-index:100;position:fixed;top:0;left:60%;bottom:0;right:0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;background-color:#fff;border-left:1px solid #333;box-shadow:-12px 0 18px 0 rgba(50,50,50,.3);-webkit-transition:-webkit-transform .3s cubic-bezier(.16,.22,.22,1.7);transition:-webkit-transform .3s cubic-bezier(.16,.22,.22,1.7);transition:transform .3s cubic-bezier(.16,.22,.22,1.7);transition:transform .3s cubic-bezier(.16,.22,.22,1.7),-webkit-transform .3s cubic-bezier(.16,.22,.22,1.7)}@context border-box{.gitter-chat-embed{box-sizing:border-box;background-color:#fff}}.gitter-chat-embed.is-collapsed:not(.is-loading){box-sizing:border-box;-webkit-transform:translateX(110%);transform:translateX(110%)}.gitter-chat-embed:after{box-sizing:border-box;content:'';z-index:-1;position:absolute;top:0;left:100%;bottom:0;right:-100%;background-color:#fff}@context border-box{.gitter-chat-embed:after{box-sizing:border-box;background-color:#fff}}@media(max-width:1150px){.gitter-chat-embed{box-sizing:border-box;left:45%}}@media(max-width:944px){.gitter-chat-embed{box-sizing:border-box;left:30%}}@media(max-width:600px){.gitter-chat-embed{box-sizing:border-box;left:15%}}@media(max-width:500px){.gitter-chat-embed{box-sizing:border-box;left:0;border-left:none}}.gitter-chat-embed>iframe{box-sizing:border-box;-webkit-box-flex:1;-ms-flex:1;flex:1;width:100%;height:100%;border:0}.gitter-chat-embed-loading-wrapper{box-sizing:border-box;position:absolute;top:0;left:0;bottom:0;right:0;display:none;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-ms-grid-row-align:center;align-items:center}.is-loading .gitter-chat-embed-loading-wrapper{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}.gitter-chat-embed-loading-indicator{box-sizing:border-box;opacity:.75;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNzkyIDE3OTIiIGZpbGw9IiMzYTMxMzMiPjxwYXRoIGQ9Ik01MjYgMTM5NHEwIDUzLTM3LjUgOTAuNXQtOTAuNSAzNy41cS01MiAwLTkwLTM4dC0zOC05MHEwLTUzIDM3LjUtOTAuNXQ5MC41LTM3LjUgOTAuNSAzNy41IDM3LjUgOTAuNXptNDk4IDIwNnEwIDUzLTM3LjUgOTAuNXQtOTAuNSAzNy41LTkwLjUtMzcuNS0zNy41LTkwLjUgMzcuNS05MC41IDkwLjUtMzcuNSA5MC41IDM3LjUgMzcuNSA5MC41em0tNzA0LTcwNHEwIDUzLTM3LjUgOTAuNXQtOTAuNSAzNy41LTkwLjUtMzcuNS0zNy41LTkwLjUgMzcuNS05MC41IDkwLjUtMzcuNSA5MC41IDM3LjUgMzcuNSA5MC41em0xMjAyIDQ5OHEwIDUyLTM4IDkwdC05MCAzOHEtNTMgMC05MC41LTM3LjV0LTM3LjUtOTAuNSAzNy41LTkwLjUgOTAuNS0zNy41IDkwLjUgMzcuNSAzNy41IDkwLjV6bS05NjQtOTk2cTAgNjYtNDcgMTEzdC0xMTMgNDctMTEzLTQ3LTQ3LTExMyA0Ny0xMTMgMTEzLTQ3IDExMyA0NyA0NyAxMTN6bTExNzAgNDk4cTAgNTMtMzcuNSA5MC41dC05MC41IDM3LjUtOTAuNS0zNy41LTM3LjUtOTAuNSAzNy41LTkwLjUgOTAuNS0zNy41IDkwLjUgMzcuNSAzNy41IDkwLjV6bS02NDAtNzA0cTAgODAtNTYgMTM2dC0xMzYgNTYtMTM2LTU2LTU2LTEzNiA1Ni0xMzYgMTM2LTU2IDEzNiA1NiA1NiAxMzZ6bTUzMCAyMDZxMCA5My02NiAxNTguNXQtMTU4IDY1LjVxLTkzIDAtMTU4LjUtNjUuNXQtNjUuNS0xNTguNXEwLTkyIDY1LjUtMTU4dDE1OC41LTY2cTkyIDAgMTU4IDY2dDY2IDE1OHoiLz48L3N2Zz4=);-webkit-animation:spin 2s infinite linear;animation:spin 2s infinite linear}@-webkit-keyframes spin{0%{box-sizing:border-box;-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{box-sizing:border-box;-webkit-transform:rotate(359.9deg);transform:rotate(359.9deg)}}@keyframes spin{0%{box-sizing:border-box;-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{box-sizing:border-box;-webkit-transform:rotate(359.9deg);transform:rotate(359.9deg)}}.gitter-chat-embed-action-bar{position:absolute;top:0;left:0;right:0;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;padding-bottom:.7em;background:-webkit-linear-gradient(top,#fff,#fff 50%,hsla(0,0%,100%,0));background:linear-gradient(180deg,#fff 0,#fff 50%,hsla(0,0%,100%,0))}.gitter-chat-embed-action-bar,.gitter-chat-embed-action-bar-item{box-sizing:border-box;display:-webkit-box;display:-ms-flexbox;display:flex}.gitter-chat-embed-action-bar-item{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:40px;height:40px;padding-left:0;padding-right:0;opacity:.65;background:none;background-position:50%;background-repeat:no-repeat;background-size:22px 22px;border:0;outline:none;cursor:pointer;cursor:hand;-webkit-transition:all .2s ease;transition:all .2s ease}.gitter-chat-embed-action-bar-item:focus,.gitter-chat-embed-action-bar-item:hover{box-sizing:border-box;opacity:1}.gitter-chat-embed-action-bar-item:active{box-sizing:border-box;-webkit-filter:hue-rotate(80deg) saturate(150);filter:hue-rotate(80deg) saturate(150)}.gitter-chat-embed-action-bar-item-pop-out{box-sizing:border-box;margin-right:-4px;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMTcxLjQyOSIgZmlsbD0iIzNhMzEzMyI+PHBhdGggZD0iTTE1Ny4xNDMsMTAzLjU3MXYzNS43MTRjMCw4Ljg1NC0zLjE0NCwxNi40MjYtOS40MzEsMjIuNzEzcy0xMy44NTgsOS40MzEtMjIuNzEyLDkuNDMxSDMyLjE0MyBjLTguODU0LDAtMTYuNDI1LTMuMTQ0LTIyLjcxMi05LjQzMVMwLDE0OC4xNCwwLDEzOS4yODVWNDYuNDI5YzAtOC44NTQsMy4xNDQtMTYuNDI1LDkuNDMxLTIyLjcxMiBjNi4yODctNi4yODcsMTMuODU4LTkuNDMxLDIyLjcxMi05LjQzMWg3OC41NzJjMS4wNDEsMCwxLjg5NiwwLjMzNSwyLjU2NiwxLjAwNGMwLjY3LDAuNjcsMS4wMDQsMS41MjUsMS4wMDQsMi41NjdWMjUgYzAsMS4wNDItMC4zMzQsMS44OTctMS4wMDQsMi41NjdjLTAuNjcsMC42Ny0xLjUyNSwxLjAwNC0yLjU2NiwxLjAwNEgzMi4xNDNjLTQuOTExLDAtOS4xMTUsMS43NDktMTIuNjEyLDUuMjQ2IHMtNS4yNDYsNy43MDEtNS4yNDYsMTIuNjEydjkyLjg1NmMwLDQuOTExLDEuNzQ5LDkuMTE1LDUuMjQ2LDEyLjYxMnM3LjcwMSw1LjI0NSwxMi42MTIsNS4yNDVIMTI1YzQuOTEsMCw5LjExNS0xLjc0OCwxMi42MTEtNS4yNDUgYzMuNDk3LTMuNDk3LDUuMjQ2LTcuNzAxLDUuMjQ2LTEyLjYxMnYtMzUuNzE0YzAtMS4wNDIsMC4zMzQtMS44OTcsMS4wMDQtMi41NjdjMC42Ny0wLjY2OSwxLjUyNS0xLjAwNCwyLjU2Ny0xLjAwNGg3LjE0MyBjMS4wNDIsMCwxLjg5NywwLjMzNSwyLjU2NywxLjAwNEMxNTYuODA5LDEwMS42NzQsMTU3LjE0MywxMDIuNTI5LDE1Ny4xNDMsMTAzLjU3MXogTTIwMCw3LjE0M3Y1Ny4xNDMgYzAsMS45MzUtMC43MDcsMy42MDktMi4xMjEsNS4wMjJjLTEuNDEzLDEuNDE0LTMuMDg4LDIuMTIxLTUuMDIxLDIuMTIxYy0xLjkzNSwwLTMuNjA5LTAuNzA3LTUuMDIyLTIuMTIxbC0xOS42NDQtMTkuNjQzIGwtNzIuNzY3LDcyLjc2OWMtMC43NDQsMC43NDQtMS42LDEuMTE1LTIuNTY3LDEuMTE1cy0xLjgyMy0wLjM3MS0yLjU2Ny0xLjExNUw3Ny41NjcsMTA5LjcxYy0wLjc0NC0wLjc0NC0xLjExNi0xLjYtMS4xMTYtMi41NjcgYzAtMC45NjcsMC4zNzItMS44MjIsMS4xMTYtMi41NjZsNzIuNzY4LTcyLjc2OGwtMTkuNjQ0LTE5LjY0M2MtMS40MTMtMS40MTQtMi4xMi0zLjA4OC0yLjEyLTUuMDIyYzAtMS45MzUsMC43MDctMy42MDksMi4xMi01LjAyMiBDMTMyLjEwNSwwLjcwNywxMzMuNzc5LDAsMTM1LjcxNSwwaDU3LjE0M2MxLjkzNCwwLDMuNjA4LDAuNzA3LDUuMDIxLDIuMTIxQzE5OS4yOTMsMy41MzQsMjAwLDUuMjA4LDIwMCw3LjE0M3oiLz48L3N2Zz4=)}.gitter-chat-embed-action-bar-item-collapse-chat{box-sizing:border-box;background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNzEuNDI5IDE3MS40MjkiIGZpbGw9IiMzYTMxMzMiPjxwYXRoIGQ9Ik0xMjIuNDMzLDEwNi4xMzhsLTE2LjI5NSwxNi4yOTVjLTAuNzQ0LDAuNzQ0LTEuNiwxLjExNi0yLjU2NiwxLjExNmMtMC45NjgsMC0xLjgyMy0wLjM3Mi0yLjU2Ny0xLjExNmwtMTUuMjktMTUuMjkgbC0xNS4yOSwxNS4yOWMtMC43NDQsMC43NDQtMS42LDEuMTE2LTIuNTY3LDEuMTE2cy0xLjgyMy0wLjM3Mi0yLjU2Ny0xLjExNmwtMTYuMjk0LTE2LjI5NWMtMC43NDQtMC43NDQtMS4xMTYtMS42LTEuMTE2LTIuNTY2IGMwLTAuOTY4LDAuMzcyLTEuODIzLDEuMTE2LTIuNTY3bDE1LjI5LTE1LjI5bC0xNS4yOS0xNS4yOWMtMC43NDQtMC43NDQtMS4xMTYtMS42LTEuMTE2LTIuNTY3czAuMzcyLTEuODIzLDEuMTE2LTIuNTY3IEw2NS4yOSw0OC45OTZjMC43NDQtMC43NDQsMS42LTEuMTE2LDIuNTY3LTEuMTE2czEuODIzLDAuMzcyLDIuNTY3LDEuMTE2bDE1LjI5LDE1LjI5bDE1LjI5LTE1LjI5IGMwLjc0NC0wLjc0NCwxLjYtMS4xMTYsMi41NjctMS4xMTZjMC45NjcsMCwxLjgyMiwwLjM3MiwyLjU2NiwxLjExNmwxNi4yOTUsMTYuMjk0YzAuNzQ0LDAuNzQ0LDEuMTE2LDEuNiwxLjExNiwyLjU2NyBzLTAuMzcyLDEuODIzLTEuMTE2LDIuNTY3bC0xNS4yOSwxNS4yOWwxNS4yOSwxNS4yOWMwLjc0NCwwLjc0NCwxLjExNiwxLjYsMS4xMTYsMi41NjcgQzEyMy41NDksMTA0LjUzOSwxMjMuMTc3LDEwNS4zOTQsMTIyLjQzMywxMDYuMTM4eiBNMTQ2LjQyOSw4NS43MTRjMC0xMS4wMTItMi43MTctMjEuMTY4LTguMTQ4LTMwLjQ2OSBzLTEyLjc5Ny0xNi42NjctMjIuMDk4LTIyLjA5OFM5Ni43MjYsMjUsODUuNzE0LDI1cy0yMS4xNjgsMi43MTYtMzAuNDY5LDguMTQ3UzM4LjU3OSw0NS45NDUsMzMuMTQ3LDU1LjI0NlMyNSw3NC43MDMsMjUsODUuNzE0IHMyLjcxNiwyMS4xNjgsOC4xNDcsMzAuNDY5czEyLjc5NywxNi42NjYsMjIuMDk4LDIyLjA5OHMxOS40NTcsOC4xNDgsMzAuNDY5LDguMTQ4czIxLjE2OC0yLjcxNywzMC40NjktOC4xNDggczE2LjY2Ni0xMi43OTcsMjIuMDk4LTIyLjA5OFMxNDYuNDI5LDk2LjcyNiwxNDYuNDI5LDg1LjcxNHogTTE3MS40MjksODUuNzE0YzAsMTUuNTUxLTMuODMyLDI5Ljg5My0xMS40OTYsNDMuMDI0IGMtNy42NjQsMTMuMTMzLTE4LjA2MiwyMy41My0zMS4xOTQsMzEuMTk0Yy0xMy4xMzIsNy42NjQtMjcuNDc0LDExLjQ5Ni00My4wMjQsMTEuNDk2cy0yOS44OTItMy44MzItNDMuMDI0LTExLjQ5NiBjLTEzLjEzMy03LjY2NC0yMy41MzEtMTguMDYyLTMxLjE5NC0zMS4xOTRDMy44MzIsMTE1LjYwNywwLDEwMS4yNjUsMCw4NS43MTRTMy44MzIsNTUuODIyLDExLjQ5Niw0Mi42OSBjNy42NjQtMTMuMTMzLDE4LjA2Mi0yMy41MzEsMzEuMTk0LTMxLjE5NEM1NS44MjIsMy44MzIsNzAuMTY0LDAsODUuNzE0LDBzMjkuODkzLDMuODMyLDQzLjAyNCwxMS40OTYgYzEzLjEzMyw3LjY2NCwyMy41MywxOC4wNjIsMzEuMTk0LDMxLjE5NEMxNjcuNTk3LDU1LjgyMiwxNzEuNDI5LDcwLjE2NCwxNzEuNDI5LDg1LjcxNHoiLz48L3N2Zz4=)}.gitter-open-chat-button{z-index:100;position:fixed;bottom:0;right:10px;padding:1em 3em;background-color:#36bc98;border:0;border-top-left-radius:.5em;border-top-right-radius:.5em;font-family:sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;text-align:center;text-decoration:none;cursor:pointer;cursor:hand;-webkit-transition:all .3s ease;transition:all .3s ease}.gitter-open-chat-button,.gitter-open-chat-button:visited{box-sizing:border-box;color:#fff}.gitter-open-chat-button:focus,.gitter-open-chat-button:hover{box-sizing:border-box;background-color:#3ea07f;color:#fff}.gitter-open-chat-button:focus{box-sizing:border-box;box-shadow:0 0 8px rgba(62,160,127,.6);outline:none}.gitter-open-chat-button:active{box-sizing:border-box;color:#eee}.gitter-open-chat-button.is-collapsed{box-sizing:border-box;-webkit-transform:translateY(120%);transform:translateY(120%)}</style><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<script type="text/javascript" src="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/17c82925e3"></script><script src="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/nr-1044.js"></script><script type="text/javascript" async="" src="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"17c82925e3","applicationID":"2418536","transactionName":"d1xcEEpcDg1RS05aU0dAXQpLHBEJW04=","queueTime":2,"applicationTime":207,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Odin Project empowers aspiring web developers to learn together">
+    <meta name="keywords" content="learn web development, learn ruby on rails, ruby on rails, ruby, rails">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.theodinproject.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="https://www.theodinproject.com/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.theodinproject.com/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="https://www.theodinproject.com/manifest.json">
+    <link rel="mask-icon" href="https://www.theodinproject.com/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+      Working With External APIs | The Odin Project
+    </title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="lOA2DA8EWrt3gbLr4F8cF9AGnEkAIpT1ZXNiROc6lYuwLL+AbohNL94NIq8P1oTptqyY6K46K3fX50roRft6PQ==">
+
+
+    <!-- Grabbing the Open Sand Condensed web fonts from Google -->
+    <!-- NOTE: THIS IS A MAJOR CAUSE OF PAGE SLOWNESS!!!  -->
+    <link href="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/css.css" rel="stylesheet" type="text/css">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" media="all" href="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/application-42a9cb7543fec74c030090565a15b9886e9e80f69cb9a603.css">
+
+    <!-- Pull in any custom style mods from subordinate layouts -->
+    <style type="text/css"> </style>
+
+    <!-- Javascripts
+    ================================================== -->
+    <!-- SHOULD BE Placed at the end of the document so the pages load faster BUT then my page-specific JS wouldn't run -->
+    <script src="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/application-1ff9e29dca4235ee21c224539d373f0cfce1007cbd1633aa2.js"></script>
+
+    <!-- Google Analytics Tracking Snippet -->
+<!-- Only load it if we're in a production environment! -->
+  
+  
+
+  <script type="text/javascript">  
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-41005438-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+    <!-- Include the moot.it forums code if we're on the forums page -->
+
+  </head>
+
+  <body cz-shortcut-listen="true">
+    <div id="global-content-wrapper">
+      <!-- turn off "global" navbar if directed to (e.g. on home page) -->
+
+            <div class="navbar navbar-fixed-top mouse--enter scroll--down" id="top-navbar">
+
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="brand-box">
+  <a href="https://www.theodinproject.com/home">
+    <img class="logo-img" src="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/odin_head_silhouette_2_circle_simple_transparent-b2ee08a8bce.gif" alt="Odin head silhouette 2 circle simple transparent">
+    <span class="logo-text">
+      The Odin Project
+    </span>
+  </a>
+</div>
+
+          <div class="container nav-collapse">
+            <ul class="nav pull-right nav-links">
+              <li class="top-link"><a href="https://www.theodinproject.com/courses">Curriculum</a></li>
+              <li><a class="gitter-chat-link" target="_blank" href="https://gitter.im/TheOdinProject/theodinproject">Chat</a></li>
+
+                <li data-no-turbolinks=""><a class="top-link" id="login-link" href="https://www.theodinproject.com/login">Login</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+        <div class="nav-spacer"></div>
+
+        <!-- Admin Flash is only meant to render if NOT homepage  -->
+          
+
+
+        <div class="container">
+          <div class="row">
+            
+            
+<div id="lesson-nav" class="mouse--enter scroll--down">
+  <div class="inner-nav">
+    <a href="https://www.theodinproject.com/courses">Course List</a> &gt;&gt;
+    <a href="https://www.theodinproject.com/courses/ruby-on-rails">Ruby on Rails</a> &gt;&gt;
+    <a href="https://www.theodinproject.com/courses/ruby-on-rails#section-apis-mailers-and-advanced-topics">APIs, Mailers and Advanced Topics</a> &gt;&gt;
+      2:
+    Working With External APIs
+  </div>
+</div>
+
+<div class="alert alert-info scroll-effect-alert">
+  <strong>Scroll up</strong> or <strong>hover</strong> over the breadcrumbs to view the navigation bar
+  <button type="button" class="close" data-dismiss="alert">×</button>
+</div>
+
+<!-- progress-tracking bar -->
+<!--  This bar allows users who are signed in to view their progress
+      as they move through a course.  It is generated totally
+      using CSS and HTML (instead of Javascript) -->
+
+
+
+<!-- END progress-tracking bar -->
+
+<div class="individual-lesson ">
+  <div class="container">
+
+
+    <h2>Working With External APIs</h2>
+    <h3>Introduction</h3>
+
+<p>It's pretty easy to turn your application into an API, but what about
+ grabbing data from other APIs across the internet?  That's where things
+ usually get a bit more challenging because they're all different and 
+you've got to authenticate yourself.</p>
+
+<p>Most popular services offer APIs so developers can interface with 
+them (they love it if you can get more people using their platform).  
+Facebook, Twitter, Instagram, Flickr, Dropbox, AirBnB... They've all got
+ APIs.  Just Google "companyX API docs" and you'll get to their 
+developers section.</p>
+
+<p>If you go to the documentation for an API, it can sometimes be a bit 
+overwhelming because much of the material sort of assumes that you know 
+what you're doing, but some are definitely better than others.  There 
+are also elements that are common across almost all of them.  The more 
+you work with APIs (and get the hang of the authentication flow), the 
+easier they get.  You'll be making mashups in no time.</p>
+
+<p>This lesson will cover some general steps that are common across APIs
+ and will do high level overviews of some of the methods for 
+authenticating with APIs like Omniauth.  Try to gain as much conceptual 
+understanding as you can here and use the documentation each gem or API 
+provides to help with the implementation.  If you find great free 
+learning resources that explain APIs, please let us know (try using the 
+suggestion box at the bottom of the page)!</p>
+
+<h3>Points to Ponder</h3>
+
+<p><em>Look through these now and then use them to test yourself after doing the assignment</em></p>
+
+<ul>
+<li>What's the best way to locate an API's docs?</li>
+<li>What are the steps you'll almost always have to go through when setting up your app to use an API?</li>
+<li>What is an API key?</li>
+<li>How is API use typically controlled?</li>
+<li>How do you avoid including an API's secret token in your Github repo (e.g. hard coding it)?</li>
+<li>Why is it important to know which API version you're using?</li>
+<li>What is a RESTful API and why does that make your life easier?</li>
+<li>What (basically) is OAuth?</li>
+<li>Why would a user prefer to sign into your site using Facebook instead of giving you a new password?</li>
+<li>How (basically) does this process work from the user's perspective?</li>
+<li>How (basically) does this process work from your (the application developer's) perspective?</li>
+<li>What are the basic rules of thumb for not abusing APIs?</li>
+<li>What is OmniAuth and why does it save you tons of time/pain?</li>
+<li>What is an SDK and why are they useful for working with APIs?</li>
+</ul>
+
+<h3>First Steps</h3>
+
+<p>You will need to register yourself and your application with the API 
+provider.  They will track and monitor your usage this way.  Typically, 
+there is a free tier of usage and it will cost you if you're going over 
+your limits, whether they are expressed in terms of total MB downloaded,
+ number of requests, or number of transactions (for instance).  Usually,
+ even if you're a user of their service, you will need to separately go 
+to their developer portal.</p>
+
+<p>You will need to get an <strong>API key</strong> from the API 
+provider, which often is the last part of registration.  This key will 
+uniquely identify your application to the API provider and you will send
+ it along with every request.  It's sort of like a user on your site 
+automatically submitting their session cookie with each request so you 
+know they're logged in.  </p>
+
+<p>You'll typically also get a "secret key" or similarly named code.  
+Whereas the API key is usually public, the secret key is an added layer 
+of security that's required for the more secure APIs and you will use it
+ to generate a cryptographic token that authenticates any requests you 
+make.  You will need to make sure you don't include this secret key in 
+your Git repo!  Use the <code>figaro</code> gem or environment variables to put the key on the server instead of hard coding it.</p>
+
+<h3>API Rates and Security Tokens</h3>
+
+<p>Most APIs require a different type of "security clearance" for different requests:  </p>
+
+<ol>
+<li>You can usually make innocuous requests like asking for Tweets (with
+ Twitter's API of course) with straightforward and unauthenticated GET 
+requests.  You can make these from any command line or a browser tool 
+like <a href="http://getpostman.com/" target="_blank">Chrome's Rest Client</a>. These types of API requests are usually severely rate limited to incentivize you to sign up.<br></li>
+<li>The next layer is making requests that include your API key. These 
+are still usually fairly innocuous things (like getting public data) and
+ limited by the API's pricing tiers.</li>
+<li>More sensitive requests like asking for specific user data or 
+submitting/modifying/deleting data will likely require you to use an 
+authentication process involving your secret token.  We'll cover the 
+basics of this in the project.  Rates for these requests are subject to 
+the API pricing tiers.</li>
+<li>Oftentimes, you actually want to make requests on behalf of a user. 
+ For instance, showing a user a dashboard of all his tweets and Facebook
+ posts together would require asking Twitter for that user's tweets and 
+Facebook for that user's posts.  This can involve a LOT of requests over
+ a large user base, but luckily you're actually able to make them on the
+ user's behalf by asking for the user's permission.  We'll cover this as
+ well later, but basically you send the user to the API provider's site 
+to sign in, then the API provider will give you a user-specific token to
+ use when making requests on their behalf in the future.  Rates for this
+ are usually more advantageous because they are covered in a per-user 
+bucket.  We typically use the OAuth protocol for this, as described 
+below.</li>
+</ol>
+
+<h3>Versions</h3>
+
+<p>Tech companies, especially if they've been around for a while, 
+typically have several versions of their API.  Usually, they built a 
+first draft version when they were a startup and then had to build a 
+real one later, but still have to support the original since so many 
+other applications are likely to be using it.  </p>
+
+<p>Just go for the latest version unless you have a compelling reason 
+not to (it's usually got a separate section of documentation for each 
+version).  Pay attention to which version's docs you're looking at... 
+there's nothing like the frustration of realizing you've been looking at
+ the v1 API instead of the v2 API docs.</p>
+
+<h3>RESTful APIs</h3>
+
+<p>Just like your routes should ideally be set up in a RESTful way, so 
+too should APIs.  These days, most APIs are RESTful, meaning the usual 
+batch of GET/PUT/PATCH/DELETE requests will retrieve resources as 
+expected.  The good part about setting up your application routes 
+RESTfully is that your API will be the same way.</p>
+
+<p>Working with RESTful APIs at least takes a lot of the headache out of
+ the process since you can usually sort of guess what you should be 
+doing, then can head over to the docs to figure out how exactly and what
+ format you'll get the results back in.  For instance, just like you'd 
+expect the GET request to the <code>/users</code> route in your app to 
+display a page listing all its users, a GET request to a RESTful API for
+ the same route should probably give you back a JSON or XML object 
+filled with all the users (or at least some paginated sample of them).</p>
+
+<h3>Oauth and Login via API</h3>
+
+<p>You've seen sites where their homepage lets you log in using Facebook
+ or Twitter or LinkedIn.  After logging in with one of those third-party
+ services you magically have a new account with them but don't need to 
+give them a new password.</p>
+
+<p>OAuth is usually behind this.  It solves the very real problem of 
+user data privacy and access control.  The idea is that the user 
+shouldn't need to give your awesome application their password in order 
+for you to make requests on their behalf.  So OAuth allows Facebook to 
+act as a sort of intermediary when dealing with the user.</p>
+
+<p>This has two great use cases -- logging in the user with an external 
+site like Facebook and making requests for or submissions of data on the
+ User's behalf.</p>
+
+<p>In the first case, you never actually discover the user's Facebook 
+password.  They get redirected to Facebook's website to sign in, where 
+they authorize you to use some of their data (which you'll have to 
+configure when you set up this process).  Facebook then calls you back 
+(by sending a request to a URL of your choosing with the proper data) 
+and gives you a special access token for that user.  You can then use 
+that to get any additional data that the user has authorized you to 
+access (like their name and email address).  Now you can create a new 
+user in your database with that data and everyone's relatively happy.</p>
+
+<p>From the user's perspective, they only need to remember their 
+Facebook password to log into your site so it's easy for them.  They 
+also don't need to trust you with their password.  As long as they trust
+ Facebook, they can use your site.  Also, if your site is doing bad 
+things with their data (like when SocialCam spammed the hell out of 
+everyone's Facebook timeline for a while), they can tell Facebook to 
+stop allowing you to use their data and Facebook will turn off access 
+for the token they gave you.  </p>
+
+<p>From Facebook's perspective, they retain majority ownership of the 
+user and nestle deeper into everyone's lives (for better or for worse).</p>
+
+<p>Once you have the user token, you are allowed to make requests or 
+submissions based on whatever permissions Facebook (and the user) 
+authorized you to.  That could involve asking who their friends are, 
+posting on their timeline, or "liking" something.  You just need to 
+include the token as a part of your authentication process for the 
+request.</p>
+
+<h4>Restrictions</h4>
+
+<p>Every site, in addition to rate limiting their API, will have terms 
+of use.  This usually covers what you're allowed to do with the data you
+ gather.  For instance, they probably aren't going to allow you to store
+ a whole bunch of their data in your own database (harvesting).  They 
+also probably won't allow you to do anything SPAMmy or which will hurt 
+their user's experience.  Common sense should be your initial guide, but
+ consult the TOU documentation for specifics.  Basically, if you'll be 
+hurting their user's experience or taking their precious data, you can't
+ do it.</p>
+
+<p>It should be noted that any time you develop using someone else's 
+API, you're putting yourself at their mercy.  If you're using it to the 
+point where you pay for data, they'll love you.  If you get too 
+successful and become competitive with them, they've got you by the neck
+ and will cut you off or demand exorbitant fees.  Just be cognizant of 
+those risks.</p>
+
+<h4>OAuth 2.0 Basics</h4>
+
+<p>OAuth 2.0 is actually pretty complicated, so I'll just cover the 
+basic process.  You don't really need to care how exactly it works 
+behind the scenes until you start really developing with it or trying to
+ create your own API that uses it.  You <strong>will</strong> need to 
+understand the steps involved in the user experience because, well, the 
+user is the reason you're building your application.</p>
+
+<p>Basically (still using Facebook as an example):</p>
+
+<ol>
+<li>User tries to access a page on your app and you ask the user to login</li>
+<li>User chooses the "Login With Facebook" option</li>
+<li>User is redirected to a Facebook page asking them to review the 
+permissions you are asking for and telling them to sign in.  The URI 
+will contain parameters that tell Facebook who your application is and 
+possibly which URI they should submit their response to (or maybe you 
+specified this as a part of your API registration process with them).</li>
+<li>User decides you seem like a fun application so he'll allow you to 
+see his email address and post to his timeline.  He signs in to his 
+Facebook account.  Facebook creates an authorization code and sends it 
+back to your application's callback URI.</li>
+<li>The user waits while your application takes that authorization code 
+and uses it to ask Facebook for the real good stuff.  Facebook makes 
+sure your application is the same one the user authorized, then POSTs 
+back to you a unique authentication token for the user (which likely 
+expires in 90 days) and any data you asked for up front (like email 
+address).</li>
+<li>You store the user's unique token in your database and use it, along
+ with your application key(s), to make any subsequent requests on the 
+user's behalf.</li>
+</ol>
+
+<p>See <a href="http://tutorials.jenkov.com/oauth2/overview.html" target="_blank">this brief overview of OAuth 2.0</a> for an overview.  Then check out <a href="http://net.tutsplus.com/tutorials/oauth-2-0-the-good-the-bad-the-ugly/" target="_blank">this more substantive explanation from tutsplus.com</a>.</p>
+
+<h4>Implementing OAuth 2.0 in Rails -- Use Omniauth!</h4>
+
+<p>This sounds horribly complicated! Someone must have made a gem for it...</p>
+
+<p>Luckily someone has.  Many someones, actually.  There is a generic OAuth gem called <code>omniauth</code> (docs available <a href="https://github.com/intridea/omniauth" target="_blank">on Github</a>) and then a separate gem which provides a specific authentication strategy for every major API (see the list <a href="https://github.com/intridea/omniauth/wiki/List-of-Strategies" target="_blank">HERE</a>).  Once you've gone through things with one of them, you'll become comfortable with all of them.</p>
+
+<p>I'll leave it to the projects to walk through using Omniauth since 
+it's much easier to learn by doing than reading a bunch of bullet 
+points.</p>
+
+<h3>SDKs</h3>
+
+<p>In addition to or instead of API access, many companies provide SDKs 
+(software development kits).  Usually these are Javascript libraries 
+that contain all the code necessary to access their API.  This can be 
+useful because you're then able to access the API with simple Javascript
+ methods instead of doing backflips on your own backend.  It comes with 
+the downside, however, of expanding your code base and forcing you to 
+use their conventions for everything.  </p>
+
+<p>We won't cover SDKs explicitly in this course but they should be well within reach to pick up by reading the documentation.</p>
+
+<h3>Your Assignment</h3>
+
+<ol>
+<li>Watch <a href="http://railscasts.com/episodes/241-simple-omniauth?view=asciicast" target="_blank">this Railscast on using Omniauth to allow Twitter Signin</a>.</li>
+<li>Read through the <a href="https://github.com/intridea/omniauth" target="_blank">Omniauth documentation</a></li>
+<li>Pick an API that you really might like to interface with or a web 
+product you use almost every day (e.g. Google, Facebook, Instagram...). 
+ Google for its docs, e.g. with "instagram api documentation", and have a
+ look at them.  Some docs are better than others, but they will be your 
+source for understanding which methods you can call, what they will 
+return, how to register your application to get an API key, and more 
+useful tidbits.</li>
+</ol>
+
+<h3>Conclusion</h3>
+
+<p>APIs are fundamental to making rich web applications and they're also
+ a lot of fun -- it makes your app feel a lot more "real" when you're 
+able to let your users log in using Facebook or if you can display 
+information from different sources across the web.  If you're building a
+ startup, it improves the user experience enough that you'll likely see 
+an uptick in conversion rates.    </p>
+
+<p>Working with external APIs can be incredibly rewarding because you're
+ able to leverage functionality that others have spent a lot of time 
+perfecting but also incredibly frustrating because they're all different
+ and you have to rely on gems which are doing things behind the scenes 
+that you're not entirely sure of.  Over time, you'll start to see a lot 
+of similarities between APIs and the procedure for working with them 
+will feel more and more comfortable.  To help get you there, the next 
+project will have you working with an API and your final project will 
+have you implementing signin via API as well.  </p>
+
+<h3>Additional Resources</h3>
+
+<p><em>This section contains helpful links to other content. It isn't 
+required, so consider it supplemental for if you need to dive deeper 
+into something</em></p>
+
+<ul>
+<li>See <a href="http://stackoverflow.com/questions/6228870/interfacing-with-a-third-party-api-in-rails-opeing-urls-and-parsing-xml-json" target="_blank">This SO Post on interfacing with third-party APIs</a> for tips.</li>
+</ul>
+
+
+    <div class="chat-link-box">
+  <a class="btn btn-success btn-block chat-link-btn" href="https://gitter.im/TheOdinProject/theodinproject" target="_blank">Discuss this Lesson on our Chat</a>
+</div>
+
+
+
+      <div id="right-box" class="adimage" data-ad-id="11">
+  <p>
+    From the creators of The Odin Project...
+  </p>
+  <a href="http://www.vikingcodeschool.com/?utm_source=theodinproject&amp;utm_medium=sideunit&amp;utm_campaign=display&amp;ref=The+Odin+Project" target="_blank">
+    <div class="alt-txt">
+      The Viking Code School
+    </div>
+    <img src="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/viking_ad_180x150.png" alt="Viking ad 180x150">
+</a></div>
+
+      <div id="lower-adbox" class="adimage" data-ad-id="2">
+  <a href="http://www.vikingcodeschool.com/?utm_source=theodinproject&amp;utm_medium=lowerbanner&amp;utm_campaign=display&amp;ref=The+Odin+Project" target="_blank">
+    <div class="alt-txt lower-alt-txt">
+      
+    </div>
+    <img src="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/viking_ad_468x60.png" alt="Viking ad 468x60">
+</a></div>
+
+
+    <div id="info-box">
+      <div class="social_sharing_buttons pull-left">
+  <!-- Twitter Button -->
+  <a data-toggle="tooltip" title="Tweet this lesson" href="https://twitter.com/share?text=Check%20out%20this%20awesome%20lesson%20from%20@TheOdinProject%20&amp;hashtags=learntocode&amp;url=https://www.theodinproject.com/courses/ruby-on-rails/lessons/working-with-external-apis" target="_blank"><span class="fa fa-twitter-square"></span></a>
+  <!-- Facebook Button -->
+  <a data-toggle="tooltip" title="Share on Facebook" href="https://www.facebook.com/dialog/share?app_id=1391239864499204&amp;href=https://www.theodinproject.com/courses/ruby-on-rails/lessons/working-with-external-apis&amp;redirect_uri=https://www.theodinproject.com/courses/ruby-on-rails/lessons/working-with-external-apis" target="_blank"><span class="fa fa-facebook-square"></span></a>
+  <!-- Google+ Button -->
+  <a data-toggle="tooltip" title="Share on Google+" href="https://plus.google.com/share?url=https://www.theodinproject.com/courses/ruby-on-rails/lessons/working-with-external-apis" target="_blank"><span class="fa fa-google-plus-square"></span></a>
+  <!-- Pinterest Button -->
+  <a data-toggle="tooltip" title="Pin this lesson" href="https://www.pinterest.com/pin/create/button/?url=https://www.theodinproject.com/courses/ruby-on-rails/lessons/working-with-external-apis&amp;media=https://www.theodinproject.com/assets/odin_big_silhouette-44fe3c8e9804811a8869034728e0b0812e7d11e02c009243f5aed70f3079261a.gif&amp;description=Working+With+External+APIs" target="__blank"><span class="fa fa-pinterest-square"></span></a>
+</div>
+
+      <div class="contribution-links pull-right tilt" data-toggle="popover" html="true" data-placement="left" data-content="View it on github &lt;a target=&quot;_blank&quot; href=&quot;https://github.com/TheOdinProject/curriculum/tree/master/rails/api_interfacing.md&quot;&gt;here&lt;/a&gt;,
+                     and learn how to contribute &lt;a target=&quot;_blank&quot; href=&quot;https://github.com/TheOdinProject/curriculum/blob/master/contributing.md&quot;&gt;here&lt;/a&gt;." data-original-title="" title="">
+
+    <img class="octocat" title="How to contribute" src="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/octocat-771b954fb6bda11a4f884d883078ac980aac67eee6ee66e98c9b.png" alt="Octocat">
+</div>
+
+      <div class="content_license pull-right">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="View License" target="_blank">
+    <img src="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/cc_license_88x31-4572dc02a05d818494227024fef400a6ed6672f2b5c.png" alt="Cc license 88x31">
+  </a>
+</div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="action-box">
+      <div class="lc-end-wrapper">
+        <!--
+This partial displays the section at the bottom of the page where a user can mark
+a lesson completed or not completed.  It will also be rendered with the unobtrusive
+javscript that is used with the AJAX form which allows the user to do the checking
+and unchecking 
+(so once on initial page load and again any time the user clicks the
+checkbox).
+-->
+  
+
+      <div class="checkbox-container lc-disabled">            
+          <h3>
+            Mark Lesson Completed
+          </h3>
+      </div>
+
+    <a class="lc-signin-link" href="https://www.theodinproject.com/login">Sign in to track your progress</a> 
+<div class="lc-hover"></div>
+<div class="lc-waiting"></div>
+      </div>
+
+      <div class="lnav">
+
+        <div class="lnav-prev lnav-wrap  ">
+            <a title="Go back to &quot;APIs and Building Your Own&quot;" href="https://www.theodinproject.com/courses/ruby-on-rails/lessons/apis-and-building-your-own?ref=lnav">
+              <div class="lnav-prev-icon icon"></div>
+              <div class="lnav-text">
+                <p>Prev</p><p>Lesson</p>
+              </div>
+</a>        </div>
+
+        <div class="lnav-index lnav-wrap">
+          <a title="Go back to &quot;Ruby on Rails&quot;" href="https://www.theodinproject.com/courses/ruby-on-rails?ref=lnav">
+            <div class="lnav-course-icon icon "></div>
+            <div class="lnav-text">
+              <p>View</p><p>Course</p>
+            </div>
+</a>        </div>
+
+        <div class="lnav-next lnav-wrap ">
+            <a title="Move on to &quot;APIs&quot;" href="https://www.theodinproject.com/courses/ruby-on-rails/lessons/apis?ref=lnav">
+              <div class="lnav-next-icon icon "></div>
+              <div class="lnav-text">
+                <p>Next</p><p>Lesson</p>
+              </div>
+</a>        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function(){
+    $(".individual-lesson a[href^='http://']").attr("target","_blank");
+    $(".individual-lesson a[href^='https://']").attr("target","_blank");
+  });
+
+  // Invoke scroll effect, file lesson_header_onScroll.coffee
+  window.lesson.applyScrollEffect([$('.navbar-fixed-top'), $('#lesson-nav')], { showOnHover: true });
+</script>
+
+          </div><!--/row-->
+        </div> <!-- /container -->
+
+
+    </div>
+
+    <footer id="footer">
+
+  <div class="footer-links">
+    <a href="http://1000hours.io/">Blog</a>
+    <a href="https://www.theodinproject.com/about">About</a>
+    <a href="https://www.theodinproject.com/faq">FAQ</a>
+    <a href="https://www.theodinproject.com/contributing">Contributing</a>
+    <br>
+    <a href="https://www.theodinproject.com/contact">Contact</a>
+    <a href="https://www.theodinproject.com/press">Press</a>
+    <a href="https://www.theodinproject.com/legal">Legal</a>
+    <a href="https://www.theodinproject.com/sitemap">Sitemap</a>
+  </div>
+  <div class="footer-form">
+    <form id="footer-suggestion-form" class="form-inline" action="/suggestion" method="post" data-remote="true">
+
+      <input name="pathname" value="/courses/ruby-on-rails/lessons/working-with-external-apis" id="suggestion-pathname" type="hidden">
+
+      <input name="suggestion" id="feedback-text-box" class="input-large" placeholder="What can we do to improve this site?" type="text">
+
+      <button type="submit" class="btn" id="suggestion-button">
+        Tell Us!
+      </button>
+
+    </form>
+  </div>
+
+</footer>
+
+<script>
+  // Suggestion From Submission - 
+  // 1. Make sure empty form doesn't submit,
+  // 2. After form submission, gray out and disable the form
+  // 
+  $(document).ready(function(){
+    // Cache the jquery selection since we'll refer to it more than once
+    var $suggestionForm = $('#footer-suggestion-form');           
+
+    // Upon form submission, intercept call and check if form was empty and if so, dont submit.
+    $suggestionForm.submit(function( event ) {
+      if ( $("#feedback-text-box").val().length === 0 ) {
+        event.preventDefault();                 // Cancel the submit action 
+        return false;                           // Preven't the disabling of the form
+      }
+    });
+    
+    
+    $suggestionForm.bind("ajax:complete", function(event, xhr, status){
+      //console.log($("#footer-suggestion-form input"));
+      $("#footer-suggestion-form input").attr("disabled","disabled");
+      $("#footer-suggestion-form button").attr("disabled","disabled").html("Thanks!");
+      //console.log("did it!");
+    });
+    $("#suggestion-pathname").val(location.pathname);
+  });
+</script>
+
+
+    <div class="chat-floating-btn">
+  <i class="fa fa-comments" aria-hidden="true"></i>
+</div>
+
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'theodinproject/theodinproject',
+    activationElement: '.chat-floating-btn'
+  };
+</script>
+<script src="Working%20With%20External%20APIs%20%7C%20The%20Odin%20Project_files/sidecar.js" async="" defer="defer"></script>
+
+  
+
+
+
+<aside class="gitter-chat-embed is-collapsed"><div class="gitter-chat-embed-action-bar"><a class="gitter-chat-embed-action-bar-item gitter-chat-embed-action-bar-item-pop-out" aria-label="Open Chat in Gitter.im" href="https://gitter.im/theodinproject/theodinproject" target="_blank"></a><button class="gitter-chat-embed-action-bar-item gitter-chat-embed-action-bar-item-collapse-chat" aria-label="Collapse Gitter Chat"></button></div><div class="gitter-chat-embed-loading-wrapper">
+        <div class="gitter-chat-embed-loading-indicator gitter-icon"></div>
+      </div></aside></body></html>
