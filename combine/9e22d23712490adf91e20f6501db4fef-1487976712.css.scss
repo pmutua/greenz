@@ -634,7 +634,7 @@ body {
 }
 .padd-tb-120 {
     padding-top: 120px;
-    padding-bottom: 120px
+    padding-bottom: 120px;
 }
 .padd-tb-80 {
     padding-top: 80px;
@@ -1287,16 +1287,19 @@ a.brand-text {
 .education-inner .card .card-image img {
     max-width: 100%
 }
+#portfolio {
+    background: url('../themes/philip_mutua_portfolio/assets/images/home-bg.jpg') no-repeat fixed center center / cover
+}
 .portfolio-wrap {
-    padding-bottom: 120px
+    padding-bottom: 120px;
 }
 .portfolio-top {
     padding-bottom: 3px;
-    margin-bottom: 50px
+    margin-bottom: 50px;
 }
 .portfolio-top .title {
     color: #74CFAE;
-    margin-bottom: 60px
+    margin-bottom: 60px;
 }
 .portfolio-category li {
     float: left;
@@ -1304,7 +1307,7 @@ a.brand-text {
 }
 .portfolio-category li a {
     display: block;
-    color: black;
+    color: white;
     text-transform: uppercase;
     text-decoration: none;
     padding-bottom: 10px;
@@ -1317,10 +1320,11 @@ a.brand-text {
 }
 .portfolio-category li.active a,
 .portfolio-category li a:hover {
-    border-color: #74CFAE
+    border-color: white;
 }
 .protfolio-item {
-    margin-bottom: 50px background: #134E5E;
+    margin-bottom: 50px;
+    background: white;
 }
 .protfolio-item li {
     float: left;
@@ -2131,7 +2135,7 @@ span.num {
         text-align: center;
     }
     .person-about {
-        margin-bottom: 40px
+        margin-bottom: 50px
     }
     .title {
         font-size: 42px
