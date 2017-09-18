@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Jetstrap - The Bootstrap Interface Builder</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Bootstrap,Twitter Bootstrap,Mockup,Builder,Interface Builder,CSS Framework,Drag and drop,WYSIWYG,Codiqa,Drifty,Twitter">
+  <meta name="description" content="Rapid interface builder for Twitter Bootstrap. Generates real Bootstrap HTML, CSS, and Javascript. Easy and fast!">
+
+  <meta property="og:title" content="Jetstrap: The Twitter Bootstrap Builder Tool">
+  <meta property="og:url" content="https://jetstrap.com/">
+  <meta property="og:site_name" content="Jetstrap for Bootstrap">
+  <meta name="og:description" content="Rapid interface builder for Twitter Bootstrap. Generates real Bootstrap HTML, CSS, and Javascript. Easy and fast!">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="http://jetstrap-site.s3.amazonaws.com/images/social/twitter.png">
+
+  <link rel="stylesheet" href="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/normalize.css" type="text/css">
+  <link rel="stylesheet" href="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/bootstrap.css">
+  <link rel="stylesheet" href="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/site.css" type="text/css">
+  <link rel="stylesheet" href="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/common.css" type="text/css">
+  <link rel="icon" href="https://s3.amazonaws.com/jetstrap-site/images/common/jetstrap_favicon.png">
+  
+<link rel="stylesheet" href="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/hellobar.css">
+<style>
+  body {
+  }
+  header {
+      height: 110px;
+  }
+  #hellobar-container {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+</style>
+<script type="text/javascript" async="" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/ga.js"></script><script id="twitter-wjs" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/widgets.js"></script><script src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/cbgapi.loaded_0" async=""></script><script type="text/javascript" async="" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/plusone.js" gapi_processed="true"></script><script id="facebook-jssdk" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/all.js"></script><script type="text/javascript" async="" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/mixpanel-2.js"></script><script src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/hellobar.js"></script>
+
+  <!-- start Mixpanel --><script type="text/javascript">(function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?
+  g=a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1})(document,window.mixpanel||[]);
+  mixpanel.init("ebf718d309dd2bc0e1c4d55d2fe550b8");</script><!-- end Mixpanel -->
+  <style>
+    #ionic-header {
+      background-color: #EB6C55;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px;
+      line-height: 16px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+    header {
+    }
+    #content-wrapper {
+      padding-top: 110px;
+    }
+    #ionic-header a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  
+    @media only screen and (min-width: 768px) {
+        /* tablets and desktop */
+    }
+    
+    @media only screen and (max-width: 400px) {
+      header {
+        position: absolute;
+      }
+      .grid-row [class*="grid"] {
+        float: none !important;
+        margin: 0px;
+        margin-bottom: 20px;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+        /* phones */
+      #index .details .icons {
+        margin: auto;
+        float: none;
+      }
+      #hellobar-container > * {
+        overflow: hidden;
+      }
+      .wrapped-content {
+        width: 100%;
+      }
+      #cta-content .wrapped-content {
+        padding-top: 90px;
+      }
+      #cta-content .bottom {
+        width: 100%;
+        margin-top: 15px;
+      }
+      header a.link {
+        margin-right: 5px;
+      }
+
+      .grid-row [class*="grid"] {
+        float: left;
+        margin-left: 10px;
+      }
+      .grid-row {
+        width: 100%;
+        max-width: 100%;
+      }
+      .grid-row .grid-3 {
+        max-width: 30%;
+      }
+    }
+
+    @media only screen and (max-width: 767px) and (orientation: portrait) {
+        /* portrait phones */
+    }
+  </style>
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://z-m-static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><script type="text/javascript" charset="utf-8" async="" src="https://platform.twitter.com/js/tweet.0208435ebbf1bf42bb6971d1bc6165a0.js"></script></head>
+<body>
+  <header class="">
+    
+    <div id="ionic-header">
+      Psst! Sneak peak - Build amazing native HTML5 apps with our upcoming <a href="http://ionicframework.com/" target="_blank">Ionic Framework</a>
+    </div>
+
+    <div class="wrapped-content">
+      <div class="l">
+        <a href="https://jetstrap.com/#top" class="jetstrap-logo"></a>
+      </div>
+      <div class="r">
+        <a href="https://jetstrap.com/#features" class="link">Tour</a>
+        <a href="https://jetstrap.com/#social" class="link">Buzz</a>
+        <a href="https://jetstrap.com/plans" class="link">Plans</a>
+        <a href="http://blog.jetstrap.com/" class="link" target="_blank">Blog</a>
+        
+        <a id="header-login-button" href="#login-modal" role="button" data-toggle="modal" class="button flat-blue-button no-right-border">Log in</a><a href="https://jetstrap.com/plans" class="button flat-gray-button no-left-border">Sign up</a>
+        
+      </div>
+    </div>
+  </header>
+  <div id="content-wrap">
+    
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="f3249a50810e3da" allowtransparency="true" allowfullscreen="true" scrolling="no" style="display: none;" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/ping.html" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_https" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" style="border: medium none;" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/5oivrH7Newv.html" frameborder="0"></iframe></div></div></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=161488157275753";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<a name="top"></a>
+<div id="index" data-spy="scroll">
+<div id="cta-content">
+  <div class="wrapped-content">
+    <h1 class="proxima-bold"><i>THE</i> BOOTSTRAP 3 BUILDER</h1>
+    <h2 class="proxima-regular">Not just a mock-up tool, <b>Jetstrap</b> is the premier interface-building tool for <b><a target="_blank" href="http://getbootstrap.com/">Bootstrap 3</a>.</b>
+    <div class="bottom clearfix">
+      <a href="https://jetstrap.com/plans" class="proxima-bold button get-started orange-gradient">GET STARTED NOW</a>
+      <a href="https://jetstrap.com/demo" class="video-text"><img src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/play_arrow_icon.png"> OR TRY THE DEMO</a>
+    </div>
+  </h2></div>
+</div>
+
+<div id="faq" class="wrapped-content">
+  <div class="grid-row clearfix">
+    <div class="grid-3">
+      <div class="big-icon-plane"></div><h3>What is Jetstrap?</h3>
+      Jetstrap is a 100% web-based interface building tool for Twitter Bootstrap. No software
+      to download, just log in and build. Your work is accessible from anywhere.
+    </div>
+    <div class="grid-3">
+      <div class="big-icon-wrench"></div><h3>Who is it for?</h3>
+      Built for developers, designers, and idea-people alike, Jetstrap helps
+      you get awesome websites up and running fast, with less work
+      and digging through docs.
+    </div>
+    <div class="grid-3">
+      <div class="big-icon-heart"></div><h3>Why you'll love it</h3>
+      Life is too short to dig through docs when you just want to build.
+ Grab snippets of clean markup and quickly use complicated components. 
+Take off faster!
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!--a name="demo"></a>
+<div id="demo" class="wrapped-content clearfix">
+  <div class="l">
+    <div class="demo-video"></div>
+  </div>
+  <div class="l">
+    <h4>Meet your new favorite web tool.</h4>
+    <p class="text">
+      Watch how easy it is to get a high fidelity, beautiful responsive web page up
+      and running. Drag-and-drop a large set of official Bootstrap components right to
+      your page. You'll be pounding out awesomeness in no time.
+    </p>
+    <p class="watch">
+      <img src="https://s3.amazonaws.com/jetstrap-site/images/website/index/watch_video_arrow.jpg" /><a href="#" class="watch-video">Watch the video</a>
+    </p>
+  </div>
+</div>
+
+<div class="hr"></div-->
+
+<a name="features"></a>
+<div id="features" class="details wrapped-content">
+  <h2>SIMPLE, POWERFUL, AND SO <u>DAMN USEFUL</u>.</h2>
+  <div class="clearfix">
+    <div class="icons l">
+      <div class="icon">
+        <img src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/feature_bootstrap.jpg" alt="Bootstrap">
+        <h5>100% Bootstrap</h5>
+      </div>
+      <div class="icon">
+        <img src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/feature_htmlcss.jpg" alt="HTML/CSS">
+        <h5>Clean HTML export</h5>
+      </div>
+      <div class="icon">
+        <img src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/feature_dragdrop.jpg" alt="Drag Drop">
+        <h5>Drag and Drop</h5>
+      </div>
+    </div>
+    <div class="highlight l">
+      <img class="display-image phone hidden" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/phone_screen.png">
+      <img class="display-image laptop" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/laptop_screen.png">
+      <img class="display-image desktop hidden" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/fullscreen_screen.png">
+      <div class="display-options clearfix">
+        <a href="#phone" class="proxima-bold button display" data-size="phone">phone</a><a href="#laptop" class="proxima-bold button display selected" data-size="laptop">laptop</a><a href="#desktop" class="proxima-bold button display" data-size="desktop">desktop</a>
+      </div>
+    </div>
+    <div class="icons l">
+      <div class="icon">
+        <img src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/feature_responsive.jpg" alt="Responsive">
+        <h5>Responsive</h5>
+      </div>
+      <div class="icon">
+        <img src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/feature_fast.jpg" alt="Fast">
+        <h5>Lightning fast</h5>
+      </div>
+      <div class="icon">
+        <img src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/feature_webbased.jpg" alt="Web Based">
+        <h5>Web Based</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<a name="social"></a>
+<div id="social" class="details wrapped-content">
+  <h2>FALLING IN LOVE WITH JETSTRAP IS <s>KINDA</s> VERY CONTAGIOUS...</h2>
+  <div class="tweets clearfix">
+    <div class="clearfix">
+      <iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: absolute; visibility: hidden; display: block; width: 0px; height: 0px; padding: 0px; border: medium none;" frameborder="0"></iframe><blockquote class="twitter-tweet twitter-tweet-error" data-partner="tweetdeck" data-twitter-extracted-i1505704599586664286="true"><p>There is none higher. Wow thank you for changing my life. <a href="http://t.co/cP2QHwgZ3h" title="http://jetstrap.com/">jetstrap.com</a> via @<a href="https://twitter.com/jetstrap">jetstrap</a></p>— Stuart Starr (@stueynet) <a href="https://twitter.com/stueynet/status/306984022024810497">February 28, 2013</a></blockquote>
+      <iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: absolute; visibility: hidden; display: block; width: 0px; height: 0px; padding: 0px; border: medium none;" frameborder="0"></iframe><blockquote class="twitter-tweet twitter-tweet-error" data-partner="tweetdeck" data-twitter-extracted-i1505704599586664286="true"><p>Intro’ing my students to @<a href="https://twitter.com/jetstrap">jetstrap</a>, an amazing mockup tool that outputs Bootstrap pages saving hours of development when the design is done.</p>— Mike Griffith (@mgriffith) <a href="https://twitter.com/mgriffith/status/306215024911859712">February 26, 2013</a></blockquote>
+      <iframe id="twitter-widget-2" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: static; visibility: visible; display: block; width: 500px; height: 184px; padding: 0px; border: medium none; max-width: 100%; min-width: 220px; margin-top: 10px; margin-bottom: 10px;" data-tweet-id="301649119779381249" title="Twitter Tweet" frameborder="0"></iframe>
+    </div>
+    <div class="clearfix">
+      <iframe id="twitter-widget-3" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: static; visibility: visible; display: block; width: 500px; height: 184px; padding: 0px; border: medium none; max-width: 100%; min-width: 220px; margin-top: 10px; margin-bottom: 10px;" data-tweet-id="266045987791970306" title="Twitter Tweet" frameborder="0"></iframe>
+      <iframe id="twitter-widget-4" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: static; visibility: visible; display: block; width: 500px; height: 194.4px; padding: 0px; border: medium none; max-width: 100%; min-width: 220px; margin-top: 10px; margin-bottom: 10px;" data-tweet-id="257843004604301312" title="Twitter Tweet" frameborder="0"></iframe>
+      <iframe id="twitter-widget-5" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: static; visibility: visible; display: block; width: 500px; height: 206.4px; padding: 0px; border: medium none; max-width: 100%; min-width: 220px; margin-top: 10px; margin-bottom: 10px;" data-tweet-id="256305199273111552" title="Twitter Tweet" frameborder="0"></iframe>
+    </div>
+    <div class="clearfix">
+      <iframe id="twitter-widget-6" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: static; visibility: visible; display: block; width: 500px; height: 184px; padding: 0px; border: medium none; max-width: 100%; min-width: 220px; margin-top: 10px; margin-bottom: 10px;" data-tweet-id="247459470735732737" title="Twitter Tweet" frameborder="0"></iframe>
+      <iframe id="twitter-widget-7" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: static; visibility: visible; display: block; width: 500px; height: 194.4px; padding: 0px; border: medium none; max-width: 100%; min-width: 220px; margin-top: 10px; margin-bottom: 10px;" data-tweet-id="247286446275325953" title="Twitter Tweet" frameborder="0"></iframe>
+      <iframe id="twitter-widget-8" scrolling="no" allowtransparency="true" allowfullscreen="true" class="twitter-tweet twitter-tweet-rendered" style="position: absolute; visibility: hidden; display: block; width: 0px; height: 0px; padding: 0px; border: medium none;" frameborder="0"></iframe><blockquote class="twitter-tweet twitter-tweet-error" data-twitter-extracted-i1505704599586664286="true"><p>@<a href="https://twitter.com/jetstrap">jetstrap</a> awesome tool! plz add styling customization i.e. colors, images, fonts etc.</p>— William Franceschine (@Franceschine) <a href="https://twitter.com/Franceschine/status/246734240119652353" data-datetime="2012-09-14T22:16:41+00:00">September 14, 2012</a></blockquote>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<a name="about"></a>
+<div id="about" class="about wrapped-content clearfix">
+  <h2 class="proxima-bold">We love making awesome stuff.</h2>
+  <p class="text">
+  Our <a class="link" target="_blank" href="http://drifty.com/">devoted team</a>
+ is made up of developers and designers - people who love building for 
+the web. We decided to create a product that other people just like us 
+would love to use.
+  Teaching and supporting developers that use Jetstrap is important to 
+us. Say hello to us on <a class="link" target="_blank" href="https://twitter.com/jetstrap">Twitter</a>!
+  </p>
+  <div class="team-image"></div>
+</div>
+
+<div class="hr"></div>
+
+<div id="newsletter">
+  <div class="wrapped-content">
+    <h2 class="proxima-bold">Sign up for our Newsletter!</h2>
+    <h4 class="header-text">Be among the first to know about upcoming features, tips, news, and job offers</h4>
+    <div class="newsletter">
+      <form action="https://codiqa.createsend.com/t/t/s/ckjuh/" method="post" id="subForm">
+        <div>
+          <input name="cm-ckjuh-ckjuh" id="ckjuh-ckjuh" class="email-input" placeholder="Enter your email address" type="text"> <button class="flat-blue-button proxima-bold subscribe">SUBSCRIBE</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+    <div id="login-modal" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="login-top clearfix">
+        <div class="left">
+          <div class="header-text proxima-bold">Log in</div>
+          <form id="login-form" method="post">
+            <div style="display:none"><input name="csrfmiddlewaretoken" value="TsQyXgJBgHwEpr9qXrEZluQ7TMNxs5pV" type="hidden"></div>
+            <input name="email" autofocus="autofocus" placeholder="Email" class="email input" type="text">
+            <input name="password" placeholder="Password" class="password input" type="password">
+            <button href="#" id="login-button" class="proxima-bold blue-gradient login-button">LOG IN <img class="hidden" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/login_loader.gif" alt="Loading" title="Loading"></button>
+            <a href="https://jetstrap.com/user/pwreset" class="reset link">Forget your password?</a>
+          </form>
+        </div>
+        <div class="right">
+          <div class="header-text proxima-bold">Or did you sign up with...</div>
+          <a href="https://jetstrap.com/login/twitter" class="button clearfix">
+            <div class="twitter button-icon">
+              <img class="login-icon" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/login_twitter_icon.png" alt="Twitter Logo">
+            </div>
+            <div class="proxima-bold twitter button-right">I signed up with Twitter</div>
+          </a>
+          <a href="https://jetstrap.com/login/google-oauth2" class="button clearfix">
+            <div class="google button-icon">
+              <img class="login-icon" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/login_google_icon.png" alt="Google Logo">
+            </div>
+            <div class="proxima-bold google button-right">I signed up with Google</div>
+          </a>
+          <a href="https://jetstrap.com/login/github" class="button clearfix">
+            <div class="github button-icon">
+              <img class="login-icon" src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/login_github_icon.png" alt="Github Logo">
+            </div>
+            <div class="proxima-bold github button-right">I signed up with Github</div>
+          </a>
+        </div>
+      </div>
+      <a href="https://jetstrap.com/plans" class="login-bottom blue-gradient clearfix">Don't have an account? <span class="proxima-bold"><b>Sign up</b></span></a>
+      <div id="login-response-text" class="login-response-text hidden clearfix proxima-bold"></div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-top">
+      <div class="wrapped-content">
+        <div class="l">
+          <a href="https://jetstrap.com/" class="link">Home</a>
+          <a href="https://jetstrap.com/plans" class="link">Plans</a>
+          <a href="http://blog.jetstrap.com/" class="link" target="_blank">Blog</a>
+          <a href="https://jetstrap.com/help" class="link">Help</a>
+          <a href="http://docs.jetstrap.com/" class="link" target="_blank">Docs</a>
+        </div>
+        <div class="r">
+          <a class="social-link twitter" href="https://twitter.com/jetstrap"></a>
+          <a class="social-link facebook" href="https://www.facebook.com/Jetstrap"></a>
+          <a class="social-link google" href="https://plus.google.com/116021408276300205608/posts"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="wrapped-content">
+        <div class="l">© 2013 Drifty Co. <a href="https://jetstrap.com/tos">Terms of Service</a> <a href="https://jetstrap.com/privacy">Privacy</a></div>
+        <div class="r">Piloted by <a href="http://www.drifty.com/"><b>Drifty Co.</b></a> in Madison, Wisconsin</div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/jquery.js"></script>
+  <script src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/underscore-min.js"></script>
+  <script src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/backbone-min.js"></script>
+  <script src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/bootstrap.js"></script>
+  
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script src="Jetstrap%20-%20The%20Bootstrap%20Interface%20Builder_files/other_scripts.js" type="text/javascript"></script>
+<script>
+  $('a').click(function() {
+    var h = $(this).attr('href');
+    if (h.substring(0,2) == '/#') {
+      h = h.substring(2);
+      if (h == 'home') {
+        $('html, body').stop().animate({
+          scrollTop: 0
+        });
+      } else {
+        $('html, body').stop().animate({
+          scrollTop: $('a[name="' + h + '"]').offset().top - 92
+        });
+      }
+      return false;
+    }
+    return true;
+  });
+
+  $('.button.display').click(function() {
+    $('.button.display', $(this).parent()).removeClass('selected');
+    $('.display-image', $(this).parent().parent()).addClass('hidden');
+    $(this).addClass('selected');
+    console.log('.display-image[data-size=\"' + $(this).data('size') + '\"]');
+    $('.display-image.' + $(this).data('size'), $(this).parent().parent()).removeClass('hidden');
+    return false;
+  });
+
+  $('.demo-video, .watch-video').click(function() {
+    $.fancybox('http://youtube.com/embed/AuTo_6id3J8?autoplay=1&rel=0', {
+      'padding'		: 0,
+      'autoScale'		: false,
+      'width'			: 700,
+      'height'		: 465,
+      'type'			: 'iframe',
+      'swf'       : {'wmode':'transparent','allowfullscreen':'true'}
+    });
+    return false;
+  });
+/*
+  new HelloBar( 'Get Bootstrap tips and Jetstrap VIP discounts and features delivered right to your inbox <form action="http://codiqa.createsend.com/t/t/s/ckjuh/" method="post" id="subForm"><input type="text" name="cm-ckjuh-ckjuh" id="ckjuh-ckjuh" class="email-input" type="text" placeholder="Your email address" style="width: 120px; padding: 1px; margin-top: 2px" /> <button class="flat-blue-button proxima-bold subscribe" style="padding: 2px 8px; font-size: 11px; margin-top: -7px;">SUBSCRIBE</button></form>', {
+		showWait: 1,
+		positioning: 'sticky',
+		fonts: 'ProximaNova-Regular, Helvetica, sans-serif',
+		forgetful: true,
+    helloBarLogo: false,
+    borderSize: 0,
+    barColor: '#dc574e'
+	}, 1.0 );
+  */
+</script>
+
+
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33987438-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+  <!-- Start Visual Website Optimizer Asynchronous Code -->
+<!--
+<script type='text/javascript'>
+var _vwo_code=(function(){
+var account_id=44811,
+settings_tolerance=2000,
+library_tolerance=2500,
+use_existing_jquery=false,
+// DO NOT EDIT BELOW THIS LINE
+f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+</script>
+-->
+<!-- End Visual Website Optimizer Asynchronous Code -->
+  <script>
+    $(function() {
+      $('#login-modal').on('shown', function () {
+        $('#login-form input:text').first().focus();
+      });
+
+      showLoadingIndicator = function(which) {
+        if (which == "login") {
+          $('#login-modal .login-button img').removeClass('hidden');
+        } else if (which == "signup") {
+          $('#create-account-button img').removeClass('hidden')
+        }
+      }
+
+      $('#login-button').click(function() {
+        var data = $('#login-form').serialize();
+        var loginTimeout = window.setTimeout(function() {
+          showLoadingIndicator("login")
+        }, 400);
+        $('#login-response-text').fadeOut(100);
+        $.ajax({
+          url: '/account/login',
+          data: data,
+          success: function (response) {
+            window.clearTimeout(loginTimeout);
+            $('#login-modal .login-button img').addClass('hidden')
+            if (response['result'] != 'ok') {
+              $('#login-form input[name="email"]').focus()
+              switch (response['error']) {
+                case 'error_required':
+                  setLoginResponseText('All fields are required');
+                  break;
+                case 'error_password':
+                  setLoginResponseText('Invalid password');
+                  break;
+                case 'error_nonexistant_user':
+                  setLoginResponseText('That user does not exist');
+                  break;
+                case 'error_social':
+                  setLoginResponseText('That email is associated with a social account. Try ' + response['data']);
+                  break;
+                default:
+                  setLoginResponseText('Unexpected error while trying to log in, <a class="error-link" href="mailto:support@jetstrap.com?subject=Signin_Failure" target="_blank">support</a> has been notified');
+                  break;
+              }
+            } else {
+              redirect = $('#login-modal').find('[name="redirect"]');
+              if (redirect.length) {
+                window.location.href = redirect.val();
+                $('#login-modal [name="redirect"]').remove();
+              } else {
+                window.location.href = '/dash';
+              }
+            }
+          },
+          type: 'POST',
+          dataype: 'json'
+        });
+        return false;
+      });
+
+      setLoginResponseText = function(message) {
+        var text = $('#login-response-text');
+        text.html(message)
+        text.fadeIn(100);
+      }
+
+      
+
+      
+
+      $("body").bind("ajaxSend", function(elm, xhr, s){
+        if (s.type == "POST") {
+          xhr.setRequestHeader('X-CSRF-Token', 'TsQyXgJBgHwEpr9qXrEZluQ7TMNxs5pV');
+        }
+      });
+    });
+  </script>
+
+
+<iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe></body></html>
