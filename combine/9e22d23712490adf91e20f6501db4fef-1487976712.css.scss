@@ -982,53 +982,29 @@ a.brand-text {
     margin: 10px 0
 }
 .person-about .title {
-    // margin-bottom: 15px
+    // margin-bottom: 15px                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 }
 .about-subtitle {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 15px;
+    // font-weight: 600;
     margin-bottom: 10px;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     text-align: center;
-    color: #525252;
+    color: white !important;
     padding: 5px 0;
     margin: 0;
-    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+    // text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
     border: 1px solid #CCCCCC;
-    border-bottom: none;
+    // border-bottom: none;
     -webkit-border-top-left-radius: 3px;
     -webkit-border-top-right-radius: 3px;
     -moz-border-radius-topleft: 3px;
     -moz-border-radius-topright: 3px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    background: #f7f7f7;
-    /* Old browsers */
-    
-    background: -moz-linear-gradient(top, #f7f7f7 0%, #B8B8B8 100%);
-    /* FF3.6+ */
-    
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #B8B8B8));
-    /* Chrome,Safari4+ */
-    
-    background: -webkit-linear-gradient(top, #f7f7f7 0%, #B8B8B8 100%);
-    /* Chrome10+,Safari5.1+ */
-    
-    background: -o-linear-gradient(top, #f7f7f7 0%, #B8B8B8 100%);
-    /* Opera 11.10+ */
-    
-    background: -ms-linear-gradient(top, #f7f7f7 0%, #B8B8B8 100%);
-    /* IE10+ */
-    
-    background: linear-gradient(to bottom, #f7f7f7 0%, #B8B8B8 100%);
-    /* W3C */
-    
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#B8B8B8', GradientType=0);
-    /* IE6-9 */
+    // background: #f7f7f7;
 }
-
-}
-.person-about .subtitle {
+.person-about .subtitle .paper {
     font-weight: 100;
     font-size: 35px;
     margin-bottom: 20px
@@ -1048,10 +1024,7 @@ a.brand-text {
     // margin-bottom: 35px
 }
 .person-info {
-    box-shadow: 0 0 30px rgba(0,
-    0,
-    0,
-    0.4);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -1096,10 +1069,7 @@ a.brand-text {
     background: url('../themes/philip_mutua_portfolio/assets/images/skills-bg.jpg') no-repeat scroll center center / cover
 }
 #skill .sec-overlay {
-    background: rgba(255,
-    255,
-    255,
-    .60);
+    background: rgba(255, 255, 255, .60);
     height: 100%;
     width: 100%;
     padding-top: 60px;
@@ -1162,14 +1132,8 @@ a.brand-text {
     height: 0px;
     -webkit-transition: all 1.2s;
     transition: all 1.2s;
-    -webkit-transition-timing-function: cubic-bezier(0.7,
-    0,
-    0.3,
-    1);
-    transition-timing-function: cubic-bezier(0.7,
-    0,
-    0.3,
-    1)
+    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1)
 }
 .skill-visiable {
     position: relative
@@ -1357,16 +1321,8 @@ a.brand-text {
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0);
-    -webkit-transition: -webkit-transform 0.25s cubic-bezier(.4,
-    0,
-    .2,
-    1),
-    opacity 0.25s;
-    transition: transform 0.25s cubic-bezier(.4,
-    0,
-    .2,
-    1),
-    opacity 0.25s
+    -webkit-transition: -webkit-transform 0.25s cubic-bezier(.4, 0, .2, 1), opacity 0.25s;
+    transition: transform 0.25s cubic-bezier(.4, 0, .2, 1), opacity 0.25s
 }
 .p-overlay {
     position: absolute;
@@ -1564,10 +1520,7 @@ a.brand-text {
     filter: alpha(opacity=100);
     border-radius: 20px;
     background: #fff;
-    box-shadow: 0px 1px 1px rgba(0,
-    0,
-    0,
-    0.2)
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2)
 }
 .blog-inner .card-element-wrapper {
     margin-bottom: 10px
@@ -1615,10 +1568,7 @@ a.brand-text {
     background: url('../themes/philip_mutua_portfolio/assets/images/fun-facts-bg.jpg') no-repeat scroll center center / cover
 }
 #funfacts .sec-inner {
-    background: rgba(255,
-    255,
-    255,
-    .92);
+    background: rgba(255, 255, 255, .92);
     height: 100%;
     width: 100%
 }
@@ -1681,13 +1631,11 @@ span.num {
 #contact {
     background: #134E5E;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right,
-    #71B280,
-    #134E5E);
+    
+    background: -webkit-linear-gradient(to right, #71B280, #134E5E);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right,
-    #71B280,
-    #134E5E);
+    
+    background: linear-gradient(to right, #71B280, #134E5E);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .contact-info {
@@ -1780,14 +1728,7 @@ span.num {
 }
 .sweet-alert button {
     border-radius: 4px;
-    box-shadow: 0 2px 5px 0 rgba(0,
-    0,
-    0,
-    0.16),
-    0 2px 10px 0 rgba(0,
-    0,
-    0,
-    0.12) !important
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important
 }
 .social-icons {
     float: left
@@ -1848,13 +1789,11 @@ span.num {
 #team {
     background: #134E5E;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right,
-    #71B280,
-    #134E5E);
+    
+    background: -webkit-linear-gradient(to right, #71B280, #134E5E);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right,
-    #71B280,
-    #134E5E);
+    
+    background: linear-gradient(to right, #71B280, #134E5E);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 @media only screen and (min-width:768px) {
@@ -1937,45 +1876,56 @@ span.num {
         box-shadow: none !important;
         text-shadow: none !important
     }
+    
     a,
     a:visited {
         text-decoration: underline
     }
+    
     a[href]:after {
         content: " (" attr(href) ")"
     }
+    
     abbr[title]:after {
         content: " (" attr(title) ")"
     }
+    
     .ir a:after,
     a[href^="javascript:"]:after,
     a[href^="#"]:after {
         content: ""
     }
+    
     pre,
     blockquote {
         border: 1px solid #999;
         page-break-inside: avoid
     }
+    
     thead {
         display: table-header-group;
     }
+    
     tr,
     img {
         page-break-inside: avoid
     }
+    
     img {
         max-width: 100% !important
     }
+    
     @page {
         margin: 0.5cm
     }
+    
     p,
     h2,
     h3 {
         orphans: 3;
         widows: 3
     }
+    
     h2,
     h3 {
         page-break-after: avoid
@@ -1988,6 +1938,7 @@ span.num {
         -webkit-transform: translate3d(0, 20px, 0);
         transform: translate3d(0, 20px, 0)
     }
+    
     100% {
         opacity: 1;
         filter: alpha(opacity=100);
@@ -2002,6 +1953,7 @@ span.num {
         -webkit-transform: translate3d(0, 20px, 0);
         transform: translate3d(0, 20px, 0)
     }
+    
     100% {
         opacity: 1;
         filter: alpha(opacity=100);
@@ -2018,6 +1970,7 @@ span.num {
         opacity: 1;
         filter: alpha(opacity=100)
     }
+    
     100% {
         opacity: 0;
         filter: alpha(opacity=0);
@@ -2030,6 +1983,7 @@ span.num {
         opacity: 1;
         filter: alpha(opacity=100)
     }
+    
     100% {
         opacity: 0;
         filter: alpha(opacity=0);
@@ -2056,6 +2010,7 @@ span.num {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg)
     }
+    
     to {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg)
@@ -2066,19 +2021,17 @@ span.num {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg)
     }
+    
     to {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg)
     }
 }
 .path {
-    stroke-dasharray: 1,
-    200;
+    stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
-    -webkit-animation: dash 1.5s ease-in-out infinite,
-    color 6s ease-in-out infinite;
-    animation: dash 1.5s ease-in-out infinite,
-    color 6s ease-in-out infinite;
+    -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
     stroke-linecap: round;
     stroke: #000
 }
@@ -2087,10 +2040,12 @@ span.num {
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0
     }
+    
     50% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -35
     }
+    
     100% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -124
@@ -2101,10 +2056,12 @@ span.num {
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0
     }
+    
     50% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -35
     }
+    
     100% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -124
@@ -2119,9 +2076,11 @@ span.num {
     .home-title {
         font-size: 54px
     }
+    
     .home-subtitle {
         font-size: 16px
     }
+    
     #about .padd-tb-120 {
         padding-bottom: 80px;
         padding-top: 80px
@@ -2131,40 +2090,51 @@ span.num {
     .home-inner {
         min-height: 400px
     }
+    
     #dowload-cv {
         text-align: center;
     }
+    
     .person-about {
         margin-bottom: 50px
     }
+    
     .title {
         font-size: 42px
     }
+    
     .section-head {
         margin-bottom: 40px
     }
+    
     .skill-graph .single-skill {
         height: 450px
     }
+    
     .after-li {
         height: 250px
     }
+    
     .primary-nav .brand-logo {
         left: 75px;
         max-width: 300px;
         position: absolute
     }
+    
     .primary-nav .brand-logo {
         display: none
     }
+    
     .primary-nav .brand-text {
         margin-left: 75px
     }
+    
     .side-nav li a,
     .side-nav li.current a,
     .side-nav li a:hover {
         border: none
     }
+    
     nav a.button-collapse {
         color: #727272;
         float: left;
@@ -2173,33 +2143,40 @@ span.num {
         top: 8px;
         z-index: 99
     }
+    
     ul.side-nav {
         z-index: 999
     }
+    
     .side-nav li:first-child,
     .side-nav li {
         margin-left: 0
     }
+    
     nav ul li {
         border-bottom: 1px solid rgba(0, 0, 0, 0.05)
     }
+    
     .side-nav li a {
         text-transform: none;
         line-height: 10px;
         padding: 0
     }
+    
     .side-nav li i {
         display: inline-block;
         font-size: 15px;
         line-height: 60px;
         width: 40px
     }
+    
     .mobile-profile {
         background: url('../themes/philip_mutua_portfolio/assets/images/home-bg.jpg') no-repeat scroll center center / cover;
         display: block;
         min-height: 160px;
         position: relative
     }
+    
     .profile-inner {
         background: none repeat scroll 0 0 rgba(60, 70, 80, 0.7);
         height: 100%;
@@ -2209,16 +2186,19 @@ span.num {
         top: 0;
         width: 100%;
     }
+    
     .pp-container {
         display: block;
         margin: 5px 0;
         width: 60px
     }
+    
     .pp-container img {
         border-radius: 50%;
         width: 100%;
         display: block
     }
+    
     .mobile-profile h3 {
         color: #fff;
         font-size: 16px;
@@ -2226,39 +2206,49 @@ span.num {
         margin: 8px auto 5px;
         text-align: left
     }
+    
     .mobile-profile h5 {
         color: #fff;
         font-size: 13px;
         text-align: left
     }
+    
     .contact-form .submit-wrap {
         margin-top: 40px
     }
+    
     .about-inner {
         margin: 50px 0
     }
+    
     .padd-tb-120 {
         padding-bottom: 80px;
         padding-top: 80px
     }
+    
     #portfolio-item-loader {
         margin: 0 auto;
         display: block
     }
+    
     #skill .sec-overlay {
         padding-bottom: 80px;
         padding-top: 70px
     }
+    
     .portfolio-wrap {
         padding-bottom: 80px
     }
+    
     .portfolio-top {
         margin-bottom: 50px;
         padding-bottom: 15px
     }
+    
     .experience-wrap {
         padding: 80px 0
     }
+    
     .about-inner,
     .skill-inner,
     .experience-inner,
@@ -2270,6 +2260,7 @@ span.num {
     .contact-inner {
         padding: 0 10px
     }
+    
     #map {
         height: 495px
     }
@@ -2278,20 +2269,24 @@ span.num {
     .skill-left {
         margin-top: 0
     }
+    
     .skill-inner {
         margin-top: 0
     }
+    
     .btn-wrapp {
         display: block;
         margin: 0 auto;
         position: static;
         width: 142px
     }
+    
     .btn-wrapp a {
         display: inline-block;
         margin-bottom: 0;
         margin-top: 50px
     }
+    
     .btn-wrapp a:first-child {
         margin-right: 25px
     }
@@ -2300,38 +2295,49 @@ span.num {
     .home-inner {
         height: calc(100vh - 100px)
     }
+    
     .section-head {
         margin-bottom: 30px
     }
+    
     .home-title {
         font-size: 42px
     }
+    
     .home-subtitle {
         font-size: 14px
     }
+    
     .title {
         font-size: 36px;
         line-height: 1.1
     }
+    
     .modal .title {
         font-size: 18px;
         line-height: 1.2
     }
+    
     .section-title {
         margin-bottom: 20px
     }
+    
     .person-about .subtitle {
         font-size: 24px
     }
+    
     .about-wrap {
         padding: 30px 0
     }
+    
     .person-img img {
         margin-bottom: 25px
     }
+    
     .funfact-box .card-panel {
         margin-bottom: 30px
     }
+    
     .education-wrap,
     .experience-wrap,
     .team-wrap,
@@ -2342,26 +2348,33 @@ span.num {
         padding-bottom: 80px;
         padding-top: 80px
     }
+    
     .portfolio-top {
         padding-top: 80px;
         padding-bottom: 15px
     }
+    
     .portfolio-category li {
         margin-bottom: 15px;
         margin-right: 20px
     }
+    
     .skill-graph .single-skill {
         height: 335px
     }
+    
     .after-li {
         height: 200px
     }
+    
     .skill-right {
         padding-top: 30px
     }
+    
     .skill-title {
         padding-top: 5px
     }
+    
     .contact-info li {
         border: none;
         float: none;
@@ -2370,15 +2383,18 @@ span.num {
         padding-right: 10px;
         text-align: left
     }
+    
     #map {
         border-radius: 0;
         height: 250px;
         width: 100%;
         margin-bottom: 30px
     }
+    
     .cform-wrapper {
         border-radius: 0
     }
+    
     .social-icons {
         display: block;
         float: none;
@@ -2386,6 +2402,7 @@ span.num {
         text-align: center;
         width: 100%
     }
+    
     .copyright {
         display: block;
         float: none;
@@ -2393,10 +2410,12 @@ span.num {
         text-align: center;
         width: 100%
     }
+    
     .thumb-slides-container {
         margin: 0 auto;
         max-width: 450px
     }
+    
     .protfolio-item li {
         float: left;
         margin-right: 0.5%;
@@ -2408,6 +2427,7 @@ span.num {
     a.brand-text {
         padding: 25px 0 15px 0
     }
+    
     .person-img {
         margin-bottom: 20px
     }
@@ -2416,54 +2436,68 @@ span.num {
     .home-title {
         font-size: 36px
     }
+    
     .home-subtitle {
         font-size: 13px
     }
+    
     .title {
         font-size: 32px
     }
+    
     .static-menu form {
         width: 170px
     }
+    
     .section-head {
         margin-bottom: 30px
     }
+    
     #dowload-cv {
         text-align: center;
     }
+    
     .about-subtitle {
         font-size: 20px;
         margin-bottom: 0px
     }
+    
     .skill-graph .single-skill {
         height: 335px
     }
+    
     .thumb-slides-container {
         margin: 0 auto;
         max-width: 285px
     }
+    
     #message-success {
         float: left;
         margin: 24px auto;
         position: relative;
         width: 100%
     }
+    
     #message-success p {
         width: 100%;
         text-align: center
     }
+    
     .protfolio-item li {
         float: left;
         margin-right: 0;
         margin-bottom: 20px;
         width: 100%
     }
+    
     .portfolio-category li {
         margin-right: 10px
     }
+    
     .portfolio-category li a {
         font-size: 12px
     }
+    
     .about-inner,
     .skill-inner,
     .experience-inner,
@@ -2481,12 +2515,15 @@ span.num {
     .home-title {
         font-size: 32px
     }
+    
     #dowload-cv {
         text-align: center;
     }
+    
     .home-subtitle {
         font-size: 12px
     }
+    
     .thumb-slides-container {
         max-width: 250px
     }
@@ -2556,24 +2593,31 @@ a.tags,
     0% {
         stroke: #74CFAE
     }
+    
     20% {
         stroke: #74CFAE
     }
+    
     25% {
         stroke: #74CFAE
     }
+    
     45% {
         stroke: #74CFAE
     }
+    
     50% {
         stroke: #74CFAE
     }
+    
     70% {
         stroke: #74CFAE
     }
+    
     75% {
         stroke: #74CFAE
     }
+    
     95% {
         stroke: #74CFAE
     }
@@ -2582,24 +2626,31 @@ a.tags,
     0% {
         stroke: #74CFAE
     }
+    
     20% {
         stroke: #74CFAE
     }
+    
     25% {
         stroke: #74CFAE
     }
+    
     45% {
         stroke: #74CFAE
     }
+    
     50% {
         stroke: #74CFAE
     }
+    
     70% {
         stroke: #74CFAE
     }
+    
     75% {
         stroke: #74CFAE
     }
+    
     95% {
         stroke: #74CFAE
     }
@@ -2638,7 +2689,7 @@ a.brand-text>span {
     display: inline-block;
     vertical-align: baseline;
     margin: 0.5vmin;
-    margin-bottom:5px;
+    margin-bottom: 5px;
 }
 #toolbox ul li img {
     vertical-align: baseline;
@@ -2686,8 +2737,7 @@ section .intro {
     font-size: 1.5em;
     line-height: 1.6;
     font-weight: 400;
-    font-family: 'lux',
-    sans-serif;
+    font-family: 'lux', sans-serif;
     color: #222;
     background-color: #f6f6f6;
     overflow-y: scroll;
@@ -2741,18 +2791,23 @@ h6 {
     h1 {
         font-size: 5.0rem;
     }
+    
     h2 {
         font-size: 4.2rem;
     }
+    
     h3 {
         font-size: 3.6rem;
     }
+    
     h4 {
         font-size: 3.0rem;
     }
+    
     h5 {
         font-size: 2.4rem;
     }
+    
     h6 {
         font-size: 1.5rem;
     }
@@ -2770,32 +2825,15 @@ section.intro {
     height: 100vh;
     width: 100%;
     background: #f6f6f6;
-    background: -moz-radial-gradient(center,
-    ellipse cover,
-    #f6f6f6 1%,
-    #d3d3d3 100%);
-    background: -webkit-gradient(radial,
-    center center,
-    0px,
-    center center,
-    100%,
-    color-stop(1%,
-    #f6f6f6),
-    color-stop(100%,
-    #d3d3d3));
+    background: -moz-radial-gradient(center, ellipse cover, #f6f6f6 1%, #d3d3d3 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%, #f6f6f6), color-stop(100%, #d3d3d3));
     /* background: -webkit-radial-gradient(center, ellipse cover, #f6f6f6 1%,#d3d3d3 100%); */
-    background: -o-radial-gradient(center,
-    ellipse cover,
-    #f6f6f6 1%,
-    #d3d3d3 100%);
-    background: -ms-radial-gradient(center,
-    ellipse cover,
-    #f6f6f6 1%,
-    #d3d3d3 100%);
+    
+    background: -o-radial-gradient(center, ellipse cover, #f6f6f6 1%, #d3d3d3 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #f6f6f6 1%, #d3d3d3 100%);
     /* background: radial-gradient(ellipse at center, #f6f6f6 1%,#d3d3d3 100%); */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6',
-    endColorstr='#d3d3d3',
-    GradientType=1);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#d3d3d3', GradientType=1);
     overflow: hidden;
     z-index: 1;
 }
@@ -2813,10 +2851,7 @@ section.intro {
     display: flex;
     align-items: center;
     height: 100%;
-    box-shadow: inset 0px 0px 64px 0px rgba(50,
-    50,
-    50,
-    0.75);
+    box-shadow: inset 0px 0px 64px 0px rgba(50, 50, 50, 0.75);
 }
 .hex-bg-big-text {
     position: absolute;
@@ -2950,6 +2985,7 @@ p.code-title {
 .hex-master-wrap {
     position: relative;
     /* width: 50%; */
+    
     min-width: 50%;
     height: 50%;
 }
@@ -2983,10 +3019,7 @@ p.code-title {
     left: 42px;
     width: 50%;
     height: 83%;
-    background-color: rgba(255,
-    255,
-    255,
-    0);
+    background-color: rgba(255, 255, 255, 0);
     border-top: 1px solid;
     border-bottom: 1px solid;
     border-color: white;
@@ -3080,6 +3113,7 @@ p.code-title {
     background-repeat: no-repeat;
     background-position: 50%;
     /* background-image: url(http://placekitten.com/240/240); */
+    
     visibility: visible;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
