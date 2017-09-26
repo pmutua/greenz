@@ -2429,7 +2429,20 @@ span.num {
     }
     
     .person-img {
-        margin-bottom: 20px
+        margin-bottom: 20px;
+    }
+    
+    #aboutme {
+        font-size: 30px;
+        ;
+    }
+    
+    #quote {
+        font-size: 11px
+    }
+    
+    #about-text {
+        font-size: 15px
     }
 }
 @media only screen and (max-width:479px) {
