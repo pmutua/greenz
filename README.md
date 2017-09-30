@@ -30,7 +30,6 @@ Personal website portfolio
 * [JQuery ]()
 * [Owl-carousel]()
 * [Font Awsome]()
-* [Google Maps ApI]()
 * [Formspree](https://formspree.io/)
 
 ## Setup and Installation
