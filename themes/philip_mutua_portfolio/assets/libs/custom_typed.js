@@ -24,7 +24,7 @@
 
 
   var typed2 = new Typed('.element2', {
-      strings: ['<span style="color:white !important">HI!</span>', 'I&rsquo;m', '<span>Philip Mutua</span>'],
+      strings: ['<span style="color:white !important">HI!</span>', 'I&rsquo;m', '<span style="color:white;font-family: "Open Sans Condensed", sans-serif;">Philip Mutua</span>'],
       typeSpeed: 0,
       backSpeed: 0,
       fadeOut: true,
