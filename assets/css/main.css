@@ -279,7 +279,7 @@ a:after {
     Wrap Sections
    ========================================================================== */
 
-#headerwrap {
+#home {
     background: url(../img/header_bg.jpg) no-repeat center top;
     margin-top: -50px;
     padding-top: 120px;
@@ -298,7 +298,7 @@ a:after {
     background-size: cover;
 }
 
-#headerwrap h1 {
+#home h1 {
     color: #ffffff;
     margin-top: 90px;
     padding-bottom: 30px;
@@ -308,7 +308,7 @@ a:after {
     text-shadow: 2px 2px 2px #000;
 }
 
-#headerwrap p {
+#home p {
     color: #ffffff;
     font-size: 40px;
     font-weight: 400;
@@ -600,10 +600,10 @@ screen and (max-device-width:1050px) {
 }
 
 @media screen and (max-width:769px) {
-    #headerwrap h1 {
+    #homewrap h1 {
         font-size: 80px;
     }
-    #headerwrap p {
+    #homewrap p {
         font-size: 30px;
         line-height: 38px;
     }
