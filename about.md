@@ -2,14 +2,12 @@
 layout: about
 title: About
 description: >
-  **Hydejack** is a Jekyll theme with JavaScript powers, combining the best of static sites and modern web apps.
-  It features a suite of JavaScript that makes the page feel like an app, without sacrificing backwards-compatibility,
-  page-load speed or SEO.
+  **Learn:** if you are here to learn then I have a couple of tutorials I have posted to get you started and I'm always researching useful tips or info about web technologies. 
 menu: true
-order: 4
+order: 1
 ---
 
-**Hydejack** is the complete package for professionals on the web.
+**Let's talk business**  I'm always open to business opportunities in the technology and I offer web dev consultancy so don't be shy and drop me a line I see what I can do for you.**Let's talk business**
 It features a blog suitable for both prose and technical documentation,
 a showcase for your projects, and a resume that is well-integrated with the design.
 

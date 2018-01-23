@@ -1,6 +1,6 @@
-# file: _projects/hyde-v2.md
+
 ---
-layout:      project
+layout:      projects
 title:       Hyde v2*
 date:        2 Jan 2014
 screenshot:

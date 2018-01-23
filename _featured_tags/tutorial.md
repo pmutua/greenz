@@ -1,7 +1,7 @@
 ---
 layout: list
-title: Hydejack
-slug: hydejack
+title: Tutorials
+slug: tutorial
 menu: true
 order: 2
 description: >
