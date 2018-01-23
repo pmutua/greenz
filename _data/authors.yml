@@ -2,17 +2,20 @@
 # Must be the same as `author` in `_config.yml`.
 # Change `author1` to your shortname.
 author1:
-  name:              philip  putua
+  name:              Philip Mutua
   email:             pmutua@live.com
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:    
-    Hi, I'm [Philip](https://jsonresume.org/) and I'm the guy who built this site and I enjoy working with web technology and anything related to it. 
+    Hi, I'm [Philip](https://jsonresume.org/) and I am a Software Engineer and I build things with code.
 
 
     My coding journey has taken me through varied, intensive and demanding projects that have sharpened my skills,
     gaining in-depth knowledge in architecturing, creating, testing and debugging web applications.
+    
+
+    Open `_data/authors.yml` to edit this text.
     
 
 
