@@ -1,7 +1,7 @@
 
 ---
 layout:      projects
-title:       Hyde v2*
+title:       "Hyde v2*""
 date:        2 Jan 2014
 screenshot:
   src:       /assets/img/projects/hyde-v2@0,25x.jpg
@@ -18,6 +18,9 @@ links:
     url:     http://hyde.getpoole.com
   - title:   Source
     url:     https://github.com/poole/hyde
-author:      mdo
-big_project: true
+<!-- author:      mdo -->
+<!-- big_project: true -->
 ---
+---
+---
+

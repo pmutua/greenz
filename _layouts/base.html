@@ -72,9 +72,28 @@ layout: compress
 
 <head>
   {% include head.html %}
+  <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/demo.css" />
+  <link rel="stylesheet" type="text/css" href="{{ site.url }}/css/component.css" />
+  <script src="{{ site.url }}/js/modernizr.custom.js"></script>
 </head>
 
 <body>
   {% include body.html %}
   {% include templates.html %}
+
+  <script src="{{ site.url }}/js/imagesloaded.pkgd.min.js"></script>
+  <script src="{{ site.url }}/js/masonry.pkgd.min.js"></script>
+  <script src="{{ site.url }}/js/classie.js"></script>
+  <script src="{{ site.url }}/js/cbpGridGallery.js"></script>
+  <script>
+    new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+  </script>
 </body>
+
+
+
+
+
+
+
+  
