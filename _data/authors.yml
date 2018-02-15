@@ -8,15 +8,13 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:    
-    Hi, I'm [Philip](https://jsonresume.org/) and I am a Software Engineer and I build things with code.
+    Hi, I'm [Philip](https://twitter.com/itsphilipmutua) and I am a Software Engineer based in Nairobi, Kenya.
 
 
-    My coding journey has taken me through varied, intensive and demanding projects that have sharpened my skills,
-    gaining in-depth knowledge in architecturing, creating, testing and debugging web applications.
     
-
-    Open `_data/authors.yml` to edit this text.
+    I specialize in building back end logic for web apps and devops.
     
+   
 
 
 

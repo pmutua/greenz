@@ -2,14 +2,16 @@
 layout: about
 title: About
 description: >
-  **Learn:** if you are here to learn then I have a couple of tutorials I have posted to get you started and I'm always researching useful tips or info about web technologies. 
+  
+  When I am not coding I prefer writing articles about things I like and also tutorials for people who want to get started with coding. I believe in life long learning and helpers other people who are wiling and also 
+  passionate in coding. I have a couple of tutorials here I have posted to get you started if you would like to learn I'm always researching useful tips or info about web technologies. 
+    
+  
+  
 menu: true
 order: 1
 ---
-
-**Let's talk business**  I'm always open to business opportunities in the technology and I offer web dev consultancy so don't be shy and drop me a line I see what I can do for you.**Let's talk business**
-It features a blog suitable for both prose and technical documentation,
-a showcase for your projects, and a resume that is well-integrated with the design.
+  
 
 > Your presence on the web --- A [blog], a [portfolio] and a [resume].
 {:.lead}

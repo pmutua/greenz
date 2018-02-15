@@ -17,6 +17,7 @@ url:                   https://domain.tld
 # Otherwise, set to /<name of repository> (with leading /, but without the < >).
 baseurl:               ''
 
+repository: 'https://github.com/pmutua/pmutua.github.io.git '
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
 lang:                  en
@@ -27,14 +28,12 @@ title:                 Philip Mutua
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Building solutions with technology. "Best Theme by a Mile".
-  Combines the best of static sites and modern web apps.
-  Open `_config.yml` to edit this text.
+  Building solutions with technology.
 
 # A shorter description for the sidebar.
 tagline:               >
   Building solutions with code.
-  Open `_config.yml` to edit this text.
+  
 
 # A list of keywords for your blog
 keywords:              []
@@ -194,6 +193,7 @@ plugins:
   # - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-github-metadata
   # - jekyll-titles-from-headings
 
 # Theme
@@ -293,3 +293,7 @@ defaults:
     values:
       menu: true
       order: 4
+
+
+exclude:
+  - vendor
