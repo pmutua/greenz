@@ -3,8 +3,7 @@ layout: about
 title: About
 description: >
   
-  When I am not coding I prefer writing articles about things I like and also tutorials for people who want to get started with coding. I believe in life long learning and helpers other people who are wiling and also 
-  passionate in coding. I have a couple of tutorials here I have posted to get you started if you would like to learn I'm always researching useful tips or info about web technologies. 
+  When I am not coding I prefer writing articles and tutorials about coding. I believe in life long learning and sharing coding experiences. 
     
   
   
@@ -13,7 +12,7 @@ order: 1
 ---
   
 
-> Your presence on the web --- A [blog], a [portfolio] and a [resume].
+> View --- A [blog], a [portfolio] and a [resume].
 {:.lead}
 
 ## Download
