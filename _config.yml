@@ -184,6 +184,7 @@ plugins:
   # - jekyll-avatar
   # - jekyll-default-layout
   - jekyll-feed
+  - jemoji
   # - jekyll-gist
   # - jekyll-optional-front-matter
   - jekyll-paginate

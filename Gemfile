@@ -20,6 +20,7 @@ group :jekyll_plugins do
   # gem "jekyll-avatar"
   # gem "jekyll-default-layout"
   gem "jekyll-feed"
+  gem 'jemoji'
   gem "jekyll-github-metadata"
   # gem "jekyll-gist"
   # gem "jekyll-optional-front-matter"
