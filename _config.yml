@@ -295,6 +295,4 @@ defaults:
       menu: true
       order: 4
 
-
-exclude:
-  - vendor
+      
