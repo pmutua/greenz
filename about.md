@@ -15,7 +15,7 @@ order: 1
 > Topics I find worth observing include:
 {:.lead}
 
-Blockchain, Machine Learning and IOT.
+  Blockchain, Machine Learning and IOT.
 
 [^4]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
 
