@@ -21,8 +21,8 @@
 
 <!-- layout: base -->
 
-layout: base
----	
+layout: default
+--- 
 
 
 {% assign plugins = site.plugins | default:site.gems %}
@@ -48,7 +48,7 @@ layout: base
 
 <!-- Projects -->
 {% if site.projects.size > 0 %}
-  <h2 class="hr">{{ strings.projects | default:"Projetcs" }}</h2>
+  <h2 class="hr">{{ strings.projects | default:"Projects" }}</h2>
   <ul class="related-projects">
     {% for project in site.projects limit:5 %}
       {% include post-list-item.html post=post %}
