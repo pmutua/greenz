@@ -43,17 +43,13 @@ layout: default
 
   {% include message.html text=page.description hide=page.hide_description alt="" %}
 
+  {% include project.html project=page link_title=false %}
+
   {{ content }}
 </article>
 
 <!-- Projects -->
-{% if site.projects.size > 0 %}
-  <h2 class="hr">{{ strings.projects | default:"Projects" }}</h2>
-  <ul class="related-projects">
-    {% for project in site.projects limit:5 %}
-      {% include post-list-item.html post=post %}
-    {% endfor %}
-  </ul>
-{% endif %}
+
+
 
 
