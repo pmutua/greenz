@@ -25,7 +25,7 @@ layout: base
 {% include project.html project=page link_title=false %}
 
 <hr class="dingbat related" />
-
+<img src="{{ project.screenshot.src }}" alt="img"/>
 {% assign addons = site.hydejack.post_addons %}
 {% unless addons %}{% assign addons = "about,newsletter,related,random" | split:"," %}{% endunless %}
 {% for addon in addons %}
