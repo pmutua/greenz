@@ -5,5 +5,6 @@
   <a href="{{ project.url | relative_url }}" class="h4 flip-title">
     <span>{{ project.title }}</span>
   </a>
+  <img src="{{ project.screenshot.src }}" alt="img"/>
   <time class="heading faded fine" datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date:format }}</time>
 </li>
