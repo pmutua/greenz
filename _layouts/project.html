@@ -30,8 +30,8 @@ layout: base
 {% unless addons %}{% assign addons = "about,newsletter,related,random" | split:"," %}{% endunless %}
 {% for addon in addons %}
   {% case addon %}
-  {% when 'about' %}
-     {% include about.html %}
+  {% when 'welcome' %}
+     {% include welcome.html %}
   {% when 'related' %}
     {% include related-projects.html project=project %}
   {% else %}
