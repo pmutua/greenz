@@ -13,12 +13,14 @@
 <div class="card">
   <h2>  <a href="{{ project.url | relative_url }}" class="h4 flip-title">
     <span>{{ project.title }}</span>
-  </a></h2>
+  </a></h2>	
+  <p><small><b>{{ project.caption }}</b></small></p>
+  <p><time class="heading faded fine" datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date:format }}</time></p> 
   <img src="{{ project.screenshot.src }}" alt="img" style="width:100%"/>
-  <div class="container">
-    <h4><b>Technologies Used:</b></h4> 
-    <p><time class="heading faded fine" datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date:format }}</time></p> 
-  </div>
+<!--   <div class="container">
+	  <p>{{ project.description }}</p>
+ 
+  </div> -->
 </div>
 
 
