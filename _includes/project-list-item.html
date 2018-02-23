@@ -13,9 +13,9 @@
 <div class="card">
   <h2>  <a href="{{ project.url | relative_url }}" class="h4 flip-title">
     <span>{{ project.title }}</span>
-  </a></h2>	
-  <p><small><b>{{ project.caption }}</b></small></p>
+  </a></h2>	 
   <p><time class="heading faded fine" datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date:format }}</time></p> 
+  <p><b>{{ project.caption }}</b></p>
   <img src="{{ project.screenshot.src }}" alt="img" style="width:100%"/>
 <!--   <div class="container">
 	  <p>{{ project.description }}</p>
