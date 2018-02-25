@@ -12,10 +12,10 @@ order: 1
 ---
   
 
-> Topics I like covering:
+> Topics I find interesting:
 {:.lead}
 
-Building web applications, Blockchain, Machine Learning and IOT.
+RESTful APIs,Micro Services,Machine Learning,Blockchain,Game Programming and IOT.
 
 [^4]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
 
