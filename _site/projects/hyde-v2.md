@@ -1,6 +1,6 @@
 
 ---
-layout:      projects
+layout:      project
 title:       "Hyde v2*""
 date:        2 Jan 2014
 screenshot:
