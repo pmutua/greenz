@@ -1,21 +1,12 @@
 {% assign project = include.project %}
 {% assign format = include.format | default:site.data.strings.date_formats.related_project | default:"%d %b %Y" %}
 
-<!-- <li>
-  <a href="{{ project.url | relative_url }}" class="h4 flip-title">
-    <span>{{ project.title }}</span>
-  </a>
-  <img src="{{ project.screenshot.src }}" alt="img"/>
-  <time class="heading faded fine" datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date:format }}</time>
-</li> -->
-
-
 <div class="card">
-  <h2>  <a href="{{ project.url | relative_url }}" class="h4 flip-title">
-    <span>{{ project.title }}</span>
-  </a></h2>	 
-  <p><time class="heading faded fine" datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date:format }}</time></p> 
-  <p><b>{{ project.caption }}</b></p>
+	<p><a href="{{ project.url | relative_url }}" class="h4 flip-title">
+    <span>{{ project.title }}
+</a></span> - <time class="heading faded fine" datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date:format }}</time> </p>
+<p><small><b>{{ project.caption }}</b></small></p>
+ 
   <img src="{{ project.screenshot.src }}" alt="img" style="width:100%"/>
 <!--   <div class="container">
 	  <p>{{ project.description }}</p>
@@ -25,6 +16,8 @@
 
 
 <style>
+	/*// Copyright (c) 2017 Philip Mutua <https://philipmutua.com */
+
 	.card {
 	    /* Add shadows to create the "card" effect */
 	    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

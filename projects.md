@@ -3,11 +3,11 @@ layout:          project-list
 title:           Projects*
 
 description: >
-  **Learn:** if you are here to learn then I have a couple of tutorials I have posted to get you started and I'm always researching useful tips or info about web technologies. 
+  Here is a preview of a couple of **applications** I have built so far.
 
 
 
-show_collection: projects
+show_collection: project
 <!-- big_project:     true -->
 menu:            true
 order:           4
