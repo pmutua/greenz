@@ -1,7 +1,7 @@
 ---
 layout: list
 title: Blog
-slug: hyde
+slug: blog
 menu: true
 order: 1
 description: >
