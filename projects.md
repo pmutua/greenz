@@ -1,6 +1,6 @@
 ---
 layout:          project-list
-title:           Projects*
+title:           Portfolio*
 
 description: >
   Here is a preview of a couple of **applications** I have built so far.
@@ -8,7 +8,12 @@ description: >
 
 
 show_collection: project
-<!-- big_project:     true -->
+big_project:     true
 menu:            true
-order:           4
+order:           3
+accent_color: '#268bd2'
+accent_image:
+  background: '#202020'
+  overlay:    false
 ---
+
