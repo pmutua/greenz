@@ -1,141 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-02-25T12:53:39+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
-</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">Best practices working with Django models in Python</title><link href="http://localhost:4000/2018/02/25/best-practices-working-with-Django-models-in-Python/" rel="alternate" type="text/html" title="Best practices working with Django models in Python" /><published>2018-02-25T00:00:00+03:00</published><updated>2018-02-25T00:00:00+03:00</updated><id>http://localhost:4000/2018/02/25/best-practices-working-with-Django-models-in-Python</id><content type="html" xml:base="http://localhost:4000/2018/02/25/best-practices-working-with-Django-models-in-Python/">&lt;p&gt;&lt;a href=&quot;https://django.com&quot;&gt;Django&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href=&quot;https://github.com/mojombo/jekyll/blob/master/README.markdown&quot;&gt;the project’s readme&lt;/a&gt;:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-02-27T09:13:21+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
+</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">How to install Unity 5.5.1 Stable Release Update on Linux</title><link href="http://localhost:4000/2018/02/27/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux/" rel="alternate" type="text/html" title="How to install Unity 5.5.1 Stable Release Update on Linux" /><published>2018-02-27T00:00:00+03:00</published><updated>2018-02-27T00:00:00+03:00</updated><id>http://localhost:4000/2018/02/27/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux</id><content type="html" xml:base="http://localhost:4000/2018/02/27/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux/">&lt;p&gt;&lt;a href=&quot;https://unity3d.com/&quot;&gt;Unity &lt;/a&gt; is a cross-platform game engine developed by Unity Technologies, which is primarily used to develop both three-dimensional and two-dimensional video games and simulations for computers, consoles, and mobile devices.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;1. Correct Model Naming&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Furthermore, it’s a complete ecosystem for anyone who aims to build a business on creating high-end content and connecting to their most loyal and enthusiastic players and customersr.&lt;/p&gt;
 
-&lt;p&gt;It is generally recommended to use singular nouns for model naming, for example: &lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Post&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;Article&lt;/code&gt;. That is, the last component of the name should be a noun, e.g.: Some New Shiny Item. It is correct to use singular numbers when one unit of a model does not contain information about several objects.&lt;/p&gt;
+&lt;p&gt;Before we proceed with how to install unity, lets see some of the supported platforms, as well as updates to this release.ple:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;2. Relationship Field Naming&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Supported Target Platforms For Linux&lt;/strong&gt;
+The Unity Editor for Linux supports export to the following platforms:&lt;/p&gt;
 
-&lt;p&gt;For relationships such as ForeignKey, OneToOneKey, ManyToMany it is sometimes better to specify a name. Imagine there is a model called Article, - in which one of the relationships is ForeignKey for model User. If this field contains information about the author of the article, then author will be a more appropriate name than user.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Linux, Windows as well as Mac Standalone&lt;/li&gt;
+  &lt;li&gt;Android, WebGL, Tizen as well as SamsungTV&lt;/li&gt;
+  &lt;li&gt;Legacy WebPlayer&lt;/li&gt;
+  &lt;li&gt;iOS project deployment (experimental in 5.5 build&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;3. Correct Related-Name&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Note that your desktop machines needs a modern graphics card with vendor-supported graphics drivers (provided by NVIDIA, AMD, or Intel) for it to run on Linux.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;It is reasonable to indicate a related-name in plural as related-name addressing returns queryset. Please, do set adequate related-names. In the majority of cases, the name of the model in plural will be just right. For example:&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&quot;https://unity3d.com/unity/whats-new/unity-5.5.1&quot;&gt;release notes&lt;/a&gt; for complete details.&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Owner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;owner&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ForeignKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Owner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;related_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'items'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;h5 id=&quot;how-to-install-unity-551f1-build-update-on-ubuntu-1704-ubuntu-1610-ubuntu-1604-ubuntu-1504-ubuntu-1404&quot;&gt;How to install Unity 5.5.1f1 build update on Ubuntu 17.04, Ubuntu 16.10, Ubuntu 16.04, Ubuntu 15.04, Ubuntu 14.04&lt;/h5&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get install gdebi
+
+wget http://beta.unity3d.com/download/f5287bef00ff/unity-editor_amd64-5.5.1xf1Linux.deb
+
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;gdebi unity-editor_amd64-5.5.1xf1Linux.deb 
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;4. Do not use ForeignKey with unique=True&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&quot;how-to-remove-unity-from-ubuntu&quot;&gt;How to remove Unity from Ubuntu&lt;/h5&gt;
 
-&lt;p&gt;There is no point in using &lt;code class=&quot;highlighter-rouge&quot;&gt;ForeignKey&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;unique=True&lt;/code&gt; as there exists &lt;code class=&quot;highlighter-rouge&quot;&gt;OneToOneField&lt;/code&gt; for such cases.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;5. Attributes and Methods Order in a Model&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Preferable attributes and methods order in a model (an empty string between the points).&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;constants (for choices and other)
-fields of the model
-custom manager indication
-meta
-def __unicode__ (python 2) or def __str__ (python 3)
-other special methods
-def clean
-def save
-def get_absolut_url
-other methods
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;6. Adding a Model via Migration&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;If you need to add a model, then, having created a class of a model, execute serially &lt;code class=&quot;highlighter-rouge&quot;&gt;manage.py&lt;/code&gt; commands &lt;code class=&quot;highlighter-rouge&quot;&gt;makemigrations&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;migrate&lt;/code&gt; (or use South for Django 1.6 and below).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;7. Denormalisations&lt;/strong&gt;
-You should not allow thoughtless use of denormalization in relational databases. Always try to avoid it, except for the cases when you denormalise data consciously for whatever the reason may be (e.g. productivity). If at the stage of database designing you understand that you need to denormalise much of the data, a good option could be the use of NoSQL. However, if most of data does not require denormalisation, which cannot be avoided, think about a relational base with JsonField to store some data.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;8. BooleanField&lt;/strong&gt;
-Do not use &lt;code class=&quot;highlighter-rouge&quot;&gt;null=True&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;blank=True&lt;/code&gt; for BooleanField. It should also be pointed out that it is better to specify default values for such fields. If you realise that the field can remain empty, you need &lt;code class=&quot;highlighter-rouge&quot;&gt;NullBooleanField&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;9. Business Logic in Models&lt;/strong&gt;
-The best place to allocate business logic for your project is in models, namely method models and model manager. It is possible that method models can only provoke some methods/functions. If it is inconvenient or impossible to allocate logic in models, you need to replace its forms or serializers in tasks.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;10. Field Duplication in ModelForm&lt;/strong&gt;
-Do not duplicate model fields in ModelForm or ModelSerializer without need. If you want to specify that the form uses all model fields, use MetaFields. If you need to redefine a widget for a field with nothing else to be changed in this field, make use of Meta widgets to indicate widgets.&lt;/p&gt;
-
-&lt;p&gt;** 11. Do not use ObjectDoesNotExist**
-Using &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelName.DoesNotExist&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;ObjectDoesNotExist&lt;/code&gt; makes your exception intercepting more specialised, which is a positive practice.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;12. Use of choices&lt;/strong&gt;
-While using &lt;code class=&quot;highlighter-rouge&quot;&gt;choices&lt;/code&gt;, it is recommended to:&lt;/p&gt;
-
-&lt;p&gt;keep strings instead of numbers in the database (although this is not the best option from the point of optional database use, it is more convenient in practise as strings are more demonstrable, which allows the use of clear filters with get options from the box in &lt;code class=&quot;highlighter-rouge&quot;&gt;REST frameworks&lt;/code&gt;).
-variables for variants storage are constants. That is why they must be indicated in uppercase.
-indicate the variants before the fields lists.
-if it is a list of the statuses, indicate it in chronological order (e.g. new, in_progress, completed).
-you can use Choices from the model_utils library. Take model Article, for instance:
-from model_utils import Choices&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	    &lt;span class=&quot;n&quot;&gt;STATUSES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Choices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-	        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'draft'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'draft'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
-	        &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'published'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'published'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	    &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IntegerField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;choices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STATUSES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STATUSES&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;draft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	    &lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;13. Why do you need an extra .all()?&lt;/strong&gt;
-Using ORM, do not add an extra method call all before &lt;code class=&quot;highlighter-rouge&quot;&gt;filter()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;count()&lt;/code&gt;, etc.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;14. Many flags in a model?&lt;/strong&gt;
-	If it is justified, replace several BooleanFields with one field, status-like. e.g.&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	    &lt;span class=&quot;n&quot;&gt;is_published&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BooleanField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	    &lt;span class=&quot;n&quot;&gt;is_verified&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BooleanField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	    &lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Assume the logic of our application presupposes that the article is not published and checked initially, then it is checked and marked is_verified in True and then it is published. You can notice that article cannot be published without being checked. So there are 3 conditions in total, but with 2 boolean fields we do not have 4 possible variants, and you should make sure there are no articles with wrong boolean fields conditions combinations. That is why using one status field instead of two boolean fields is a better option:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	    &lt;span class=&quot;n&quot;&gt;STATUSES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Choices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'new'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'verified'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'published'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-	    &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IntegerField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;choices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STATUSES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STATUSES&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;draft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	    &lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;This example may not be very illustrative, but imagine that you have 3 or more such boolean fields in your model, and validation control for these field value combinations can be really tiresome.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;15. Redundant model name in a field name&lt;/strong&gt;
-Do not add model names to fields if there is no need to do so, e.g. if table User has a field user_status - you should rename the field into status, as long as there are no other statuses in this model.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;16. Dirty data should not be found in a base&lt;/strong&gt;
-Always use PositiveIntegerField instead of IntegerField if it is not senseless, because “bad” data must not go to the base. For the same reason you should always use unique,unique_together for logically unique data and never use required=False in every field.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;17. Getting the earliest/latest object&lt;/strong&gt;
-You can use ModelName.objects.earliest(‘created’/’earliest’) instead of order_by(‘created’)[0] and you can also put get_latest_by in Meta model. You should keep in mind that latest/earliest as well as get can cause an exception DoesNotExist. Therefore, order_by(‘created’).first() is the most useful variant.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;18. Never make len(queryset)&lt;/strong&gt;
-Do not use &lt;code class=&quot;highlighter-rouge&quot;&gt;len&lt;/code&gt; to get queryset’s objects amount. The count method can be used for this purpose. Like this: len(ModelName.objects.all()), firstly the query for selecting all data from the table will be carried out, then this data will be transformed into a Python object, and the length of this object will be found with the help of len. It is highly recommended not to use this method as count will address to a corresponding SQL function COUNT(). With count, an easier query will be carried out in that database and fewer resources will be required for python code performance.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;19. if queryset is a bad idea&lt;/strong&gt;
-Do not use queryset as a boolean value: instead of if queryset: do something use if queryset.exists(): do something. Remember, that querysets are lazy, and if you use queryset as a boolean value, an inappropriate query to a database will be carried out.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;20. Using help_text as documentation&lt;/strong&gt;
-Using model help_text in fields as a part of documentation will definitely facilitate the understanding of the data structure by you, your colleagues, and admin users.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;21. Money Information Storage&lt;/strong&gt;
-Do not use FloatField to store information about the quantity of money. Instead, use DecimalField for this purpose. You can also keep this information in cents, units, etc.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;22. Remove _id&lt;/strong&gt;
-Do not add _id suffix to ForeignKeyField and OneToOneField.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;23. Define __unicode__ or __str__&lt;/strong&gt;
-In all non abstract models, add methods &lt;code class=&quot;highlighter-rouge&quot;&gt;__unicode__(python 2)&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;__str__(python 3)&lt;/code&gt;. These methods must always return strings.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;24. Transparent fields list&lt;/strong&gt;
-Do not use Meta.exclude for a model’s fields list description in ModelForm. It is better to use Meta.fields for this as it makes the fields list transparent. Do not use Meta.fields=”&lt;strong&gt;all&lt;/strong&gt;” for the same reason.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;25. Do not heap all files loaded by user in the same folder&lt;/strong&gt;
-Sometimes even a separate folder for each FileField will not be enough if a large amount of downloaded files is expected. Storing many files in one folder means the file system will search for the needed file more slowly. To avoid such problems, you can do the following:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_upload_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'account/avatars/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strftime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Y/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;m/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-	&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AbstractUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	    &lt;span class=&quot;n&quot;&gt;avatar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ImageField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blank&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;upload_to&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_upload_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It’s an immensely useful tool and one we encourage you to use here with Hyde.&lt;/p&gt;
-
-&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="blog" /><summary type="html">Django is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From the project’s readme:</summary></entry><entry><title type="html">Example content</title><link href="http://localhost:4000/2017/11/22/example-content/" rel="alternate" type="text/html" title="Example content" /><published>2017-11-22T00:00:00+03:00</published><updated>2017-11-22T00:00:00+03:00</updated><id>http://localhost:4000/2017/11/22/example-content</id><content type="html" xml:base="http://localhost:4000/2017/11/22/example-content/">&lt;p&gt;Text can be &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, or &lt;del&gt;strikethrough&lt;/del&gt;.&lt;/p&gt;
+&lt;p&gt;```bash
+sudo apt-get remove unity-editor&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Unity is a cross-platform game engine developed by Unity Technologies, which is primarily used to develop both three-dimensional and two-dimensional video games and simulations for computers, consoles, and mobile devices.</summary></entry><entry><title type="html">Example content</title><link href="http://localhost:4000/2017/11/22/example-content/" rel="alternate" type="text/html" title="Example content" /><published>2017-11-22T00:00:00+03:00</published><updated>2017-11-22T00:00:00+03:00</updated><id>http://localhost:4000/2017/11/22/example-content</id><content type="html" xml:base="http://localhost:4000/2017/11/22/example-content/">&lt;p&gt;Text can be &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, or &lt;del&gt;strikethrough&lt;/del&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;another-page&quot;&gt;Link to another page&lt;/a&gt;.&lt;/p&gt;
 

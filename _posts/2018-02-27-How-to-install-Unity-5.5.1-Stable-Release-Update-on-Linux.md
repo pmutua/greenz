@@ -2,12 +2,12 @@
 layout: post
 title: How to install Unity 5.5.1 Stable Release Update on Linux
 
-description: >
-Unity, a flexible and powerful development platform for creating multiplatform 3D and 2D games as well as an interactive experiences on Linux. With Unity, you can target more devices easily, and with a single click you can deploy your game to mobile, VR, desktop, Web, Console as well as TV platforms.
+description: > 
+  Unity, a flexible and powerful development platform for creating multiplatform 3D and 2D games as well as an interactive experiences on 	 Linux. With Unity, you can target more devices easily, and with a single click you can deploy your game to mobile, VR, desktop, Web, 		Console as well as TV platforms.
   
 tags: [tutorial]
 author: author1
-canonical_url:
+
 ---
 
 [Unity ](https://unity3d.com/) is a cross-platform game engine developed by Unity Technologies, which is primarily used to develop both three-dimensional and two-dimensional video games and simulations for computers, consoles, and mobile devices.
