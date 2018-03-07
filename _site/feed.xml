@@ -1,5 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-03-06T08:57:23+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
-</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">How to install Unity 5.5.1 Stable Release Update on Linux</title><link href="http://localhost:4000/2018/02/27/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux/" rel="alternate" type="text/html" title="How to install Unity 5.5.1 Stable Release Update on Linux" /><published>2018-02-27T00:00:00+03:00</published><updated>2018-02-27T00:00:00+03:00</updated><id>http://localhost:4000/2018/02/27/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux</id><content type="html" xml:base="http://localhost:4000/2018/02/27/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux/">&lt;p&gt;&lt;a href=&quot;https://unity3d.com/&quot;&gt;Unity &lt;/a&gt; is a cross-platform game engine developed by Unity Technologies, which is primarily used to develop both three-dimensional and two-dimensional video games and simulations for computers, consoles, and mobile devices.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-03-07T19:40:26+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
+</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">How to Reset Migrations in Django</title><link href="http://localhost:4000/2018/03/07/how-to-reset-migrations-in-django/" rel="alternate" type="text/html" title="How to Reset Migrations in Django" /><published>2018-03-07T00:00:00+03:00</published><updated>2018-03-07T00:00:00+03:00</updated><id>http://localhost:4000/2018/03/07/how-to-reset-migrations-in-django</id><content type="html" xml:base="http://localhost:4000/2018/03/07/how-to-reset-migrations-in-django/">&lt;p&gt;The Django migration system was developed and optmized to work with large number of migrations.Sometimes you might need to reset your migrations when you have undesirable results from your database. This tutorial is only if you are in development and you dont mind cleaning up your database.&lt;/p&gt;
+
+&lt;p&gt;Anyway, if you want to perform a clean-up, I will present an option in this tutorial.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Scenario:&lt;/strong&gt;
+The project is still in the development environment and you want to perform a full clean up. You don’t mind throwing the whole database away.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-remove-the-all-migrations-files-within-your-project&quot;&gt;1. Remove the all migrations files within your project&lt;/h3&gt;
+
+&lt;p&gt;Go through each of your projects apps migration folder and remove everything inside, except the
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;__init__.py &lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Or if you are using a unix-like OS you can run the following script (inside your project dir):&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find . -path &quot;*/migrations/*.py&quot; -not -name &quot;__init__.py&quot; -delete&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;find . -path &quot;*/migrations/*.pyc&quot;  -delete&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-drop-the-current-database-or-delete-the-dbsqlite3-if-it-is-your-case&quot;&gt;2. Drop the current database, or delete the &lt;code class=&quot;highlighter-rouge&quot;&gt;db.sqlite3&lt;/code&gt; if it is your case.&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt; to where &lt;code class=&quot;highlighter-rouge&quot;&gt;db.sqlite3&lt;/code&gt; is located within your project  and type &lt;code class=&quot;highlighter-rouge&quot;&gt;rm db.sqlite3&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-create-the-initial-migrations-and-generate-the-database-schema&quot;&gt;3. Create the initial migrations and generate the database schema:&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py makemigrations&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py migrate&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you have a new clean database schema.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">The Django migration system was developed and optmized to work with large number of migrations.Sometimes you might need to reset your migrations when you have undesirable results from your database. This tutorial is only if you are in development and you dont mind cleaning up your database.</summary></entry><entry><title type="html">How to install Unity 5.5.1 Stable Release Update on Linux</title><link href="http://localhost:4000/2018/02/27/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux/" rel="alternate" type="text/html" title="How to install Unity 5.5.1 Stable Release Update on Linux" /><published>2018-02-27T00:00:00+03:00</published><updated>2018-02-27T00:00:00+03:00</updated><id>http://localhost:4000/2018/02/27/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux</id><content type="html" xml:base="http://localhost:4000/2018/02/27/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux/">&lt;p&gt;&lt;a href=&quot;https://unity3d.com/&quot;&gt;Unity &lt;/a&gt; is a cross-platform game engine developed by Unity Technologies, which is primarily used to develop both three-dimensional and two-dimensional video games and simulations for computers, consoles, and mobile devices.&lt;/p&gt;
 
 &lt;p&gt;Furthermore, it’s a complete ecosystem for anyone who aims to build a business on creating high-end content and connecting to their most loyal and enthusiastic players and customersr.&lt;/p&gt;
 
@@ -1262,47 +1290,4 @@ help with loading speed as well (burred images get compressed by JPG much better
 
 &lt;hr /&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/qwtel/hydejack/releases&quot;&gt;Get &lt;em&gt;The Fast One&lt;/em&gt; on GitHub&lt;/a&gt;&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author><category term="hydejack" /><summary type="html">This major release increases page load speed dramatically. The page now scores roughly 90/100 on Google’s PageSpeed Insights (up from ~50) and has a high score on similar tools.</summary></entry><entry><title type="html">Social Media Impocalypse (v4)</title><link href="http://localhost:4000/2016/08/30/social-media-impocalypse/" rel="alternate" type="text/html" title="Social Media Impocalypse (v4)" /><published>2016-08-30T00:00:00+03:00</published><updated>2016-08-30T00:00:00+03:00</updated><id>http://localhost:4000/2016/08/30/social-media-impocalypse</id><content type="html" xml:base="http://localhost:4000/2016/08/30/social-media-impocalypse/">&lt;h2 id=&quot;breaking&quot;&gt;Breaking&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Structure of &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; has changed
-    &lt;ul&gt;
-      &lt;li&gt;Social media usernames are now located under &lt;code class=&quot;highlighter-rouge&quot;&gt;author: social: &amp;lt;platform&amp;gt;: &amp;lt;username&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;disqus&lt;/code&gt; is now a top-level entry (moved from &lt;code class=&quot;highlighter-rouge&quot;&gt;author&lt;/code&gt;).&lt;/li&gt;
-      &lt;li&gt;Now has &lt;code class=&quot;highlighter-rouge&quot;&gt;font&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;font_accent&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;google_fonts&lt;/code&gt; fields that are mandatory.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Now defaults to the &lt;code class=&quot;highlighter-rouge&quot;&gt;blog&lt;/code&gt; layout, old style is available via &lt;code class=&quot;highlighter-rouge&quot;&gt;blog-by-tag&lt;/code&gt; layout, see &lt;code class=&quot;highlighter-rouge&quot;&gt;archive.html&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!--more--&gt;
-
-&lt;p class=&quot;message&quot;&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: This post is outdated and only included for legacy reasons.
-See the &lt;a href=&quot;/docs/7.5.0/&quot; class=&quot;heading flip-title&quot;&gt;Documentation&lt;/a&gt; for up-to-date instructions.&lt;/p&gt;
-
-&lt;h2 id=&quot;new-features&quot;&gt;New features&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Added &lt;em&gt;a lot&lt;/em&gt; of social media icons, configurable via &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;New &lt;code class=&quot;highlighter-rouge&quot;&gt;blog&lt;/code&gt; layout. Classic, paginated.&lt;/li&gt;
-  &lt;li&gt;Fonts are configurable via &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;design&quot;&gt;Design&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Link underlines are now fixed-sized for all font sizes (no thicker lines for headlines, etc)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;fixes&quot;&gt;Fixes&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Correctly set the meta description field using either the &lt;code class=&quot;highlighter-rouge&quot;&gt;description&lt;/code&gt; field or &lt;code class=&quot;highlighter-rouge&quot;&gt;post.excerpt&lt;/code&gt; as a fallback (used
-to contain the unmodified markdown).&lt;/li&gt;
-  &lt;li&gt;Fixed various URL bugs relating to &lt;code class=&quot;highlighter-rouge&quot;&gt;site.baseurl&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;internal&quot;&gt;Internal&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Refactoring, preventing code duplications, heavier usage of &lt;code class=&quot;highlighter-rouge&quot;&gt;includes&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/qwtel/hydejack/releases&quot;&gt;Get &lt;em&gt;Social Media Impocalypse&lt;/em&gt; on GitHub&lt;/a&gt;&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author><category term="hydejack" /><summary type="html">Breaking Structure of _config.yml has changed Social media usernames are now located under author: social: &amp;lt;platform&amp;gt;: &amp;lt;username&amp;gt;. disqus is now a top-level entry (moved from author). Now has font, font_accent and google_fonts fields that are mandatory. Now defaults to the blog layout, old style is available via blog-by-tag layout, see archive.html.</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://github.com/qwtel/hydejack/releases&quot;&gt;Get &lt;em&gt;The Fast One&lt;/em&gt; on GitHub&lt;/a&gt;&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author><category term="hydejack" /><summary type="html">This major release increases page load speed dramatically. The page now scores roughly 90/100 on Google’s PageSpeed Insights (up from ~50) and has a high score on similar tools.</summary></entry></feed>
