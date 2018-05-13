@@ -1,5 +1,342 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-03-08T06:22:32+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
-</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">How to Reset Migrations in Django</title><link href="http://localhost:4000/2018/03/07/how-to-reset-migrations-in-django/" rel="alternate" type="text/html" title="How to Reset Migrations in Django" /><published>2018-03-07T00:00:00+03:00</published><updated>2018-03-07T00:00:00+03:00</updated><id>http://localhost:4000/2018/03/07/how-to-reset-migrations-in-django</id><content type="html" xml:base="http://localhost:4000/2018/03/07/how-to-reset-migrations-in-django/">&lt;p&gt;The Django migration system was developed and optmized to work with large number of migrations.Sometimes you might need to reset your migrations when you have undesirable results from your database. This tutorial is only if you are in development and you dont mind cleaning up your database.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-05-13T20:00:28+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
+</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">How to Use Celery and RabbitMQ with Django</title><link href="http://localhost:4000/2018/04/26/how-to-use-celery-with-django/" rel="alternate" type="text/html" title="How to Use Celery and RabbitMQ with Django" /><published>2018-04-26T00:00:00+03:00</published><updated>2018-04-26T00:00:00+03:00</updated><id>http://localhost:4000/2018/04/26/how-to-use-celery-with-django</id><content type="html" xml:base="http://localhost:4000/2018/04/26/how-to-use-celery-with-django/">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;ul&gt;
+	&lt;li&gt;Why Should I Use Celery?&lt;/li&gt;
+	&lt;li&gt;Installation&lt;/li&gt;
+	&lt;li&gt;Installing RabbitMQ on Ubuntu 16.04&lt;/li&gt;
+	&lt;li&gt;Installing RabbitMQ on Mac&lt;/li&gt;
+	&lt;li&gt;Installing RabbitMQ on Windows and Other OSs&lt;/li&gt;
+	&lt;li&gt;Celery Basic Setup&lt;/li&gt;
+	&lt;li&gt;Creating Our First Celery Task&lt;/li&gt;
+	&lt;li&gt;Starting The Worker Process&lt;/li&gt;
+	&lt;li&gt;Managing The Worker Process in Production with Supervisord&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Why Should I Use Celery?&lt;/h2&gt;
+&lt;p&gt;Web applications works with request and response cycles. When the user access a certain URL of your application the Web browser send a request to your server. Django receive this request and do something with it. Usually it involves executing queries in the database, processing data. While Django does his thing and process the request, the user have to wait. When Django finalize its job processing the request, it sends back a response to the user who finally will see something.&lt;/p&gt;
+
+&lt;p&gt;Ideally this request and response cycle should be fast, otherwise we would leave the user waiting for way too long. And even worse, our Web server can only serve a certain number of users at a time. So, if this process is slow, it can limit the amount of pages your application can serve at a time.&lt;/p&gt;
+
+&lt;p&gt;For the most part we can work around this issue using cache, optimizing database queries, and so on. But there are some cases that theres no other option: the heavy work have to be done. A report page, export of big amount of data, video/image processing are a few examples of cases where you may want to use Celery.&lt;/p&gt;
+
+&lt;p&gt;We don’t use Celery through the whole project, but only for specific tasks that are time-consuming. The idea here is to respond to the user as quick as possible, and pass the time-consuming tasks to the queue so to be executed in the background, and always keep the server ready to respond to new requests.&lt;/p&gt;
+
+&lt;h1 id=&quot;installation&quot;&gt;Installation&lt;/h1&gt;
+&lt;p&gt;The easiest way to install Celery is using pip:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pip install Celery&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we have to install RabbitMQ.&lt;/p&gt;
+
+&lt;h1 id=&quot;installing-rabbitmq-on-ubuntu-1604&quot;&gt;Installing RabbitMQ on Ubuntu 16.04&lt;/h1&gt;
+&lt;p&gt;To install it on a newer Ubuntu version is very straightforward:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install -y erlang&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install rabbitmq-server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then enable and start the RabbitMQ service:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable rabbitmq-server&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl start rabbitmq-server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Check the status to make sure everything is running smooth:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl status rabbitmq-server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Installing RabbitMQ on Mac
+Homebrew is the most straightforward option:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;brew install rabbitmq&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The RabbitMQ scripts are installed into &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/sbin&lt;/code&gt;. You can add it to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash_profile&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;.profile&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.bash_profile&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then add it to the bottom of the file:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+export PATH=$PATH:/usr/local/sbin
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Restart the terminal to make sure the changes are in effect.&lt;/p&gt;
+
+&lt;p&gt;Now you can start the RabbitMQ server using the following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rabbitmq-server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/2018/03/07/how-to-reset-migrations-in-django/&quot;&gt;Read Part 2&lt;/a&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><category term="blog" /><summary type="html">Table of Contents Why Should I Use Celery? Installation Installing RabbitMQ on Ubuntu 16.04 Installing RabbitMQ on Mac Installing RabbitMQ on Windows and Other OSs Celery Basic Setup Creating Our First Celery Task Starting The Worker Process Managing The Worker Process in Production with Supervisord</summary></entry><entry><title type="html">How to Use Celery and RabbitMQ with Django - PART 2</title><link href="http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-2/" rel="alternate" type="text/html" title="How to Use Celery and RabbitMQ with Django - PART 2" /><published>2018-04-26T00:00:00+03:00</published><updated>2018-04-26T00:00:00+03:00</updated><id>http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-2</id><content type="html" xml:base="http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-2/">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;ul&gt;
+	&lt;li&gt;Installing RabbitMQ on Windows and Other OSs&lt;/li&gt;
+	&lt;li&gt;Celery Basic Setup&lt;/li&gt;
+	&lt;li&gt;Creating Our First Celery Task&lt;/li&gt;
+	&lt;li&gt;Starting The Worker Process&lt;/li&gt;
+	&lt;li&gt;Managing The Worker Process in Production with Supervisor&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;installing-rabbitmq-on-windows-and-other-oss&quot;&gt;Installing RabbitMQ on Windows and Other OSs&lt;/h1&gt;
+&lt;p&gt;Unfortunately I don’t have access to a Windows computer to try things out, but you can find the installation guide for &lt;a href=&quot;https://www.rabbitmq.com/install-windows.html&quot;&gt;Windows on RabbitMQ’s Website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For other operating systems, check the Downloading and Installing &lt;a href=&quot;https://www.rabbitmq.com/download.html&quot;&gt;RabbitMQ on their Website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;celery-basic-setup&quot;&gt;Celery Basic Setup&lt;/h1&gt;
+&lt;p&gt;First, consider the following Django project named mysite with an app named core:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	mysite/
+	 |-- mysite/
+	 |    |-- core/
+	 |    |    |-- migrations/
+	 |    |    |-- templates/
+	 |    |    |-- apps.py
+	 |    |    |-- models.py
+	 |    |    +-- views.py
+	 |    |-- templates/
+	 |    |-- __init__.py
+	 |    |-- settings.py
+	 |    |-- urls.py
+	 |    +-- wsgi.py
+	 |-- manage.py
+	 +-- requirements.txt
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add the &lt;code class=&quot;highlighter-rouge&quot;&gt;CELERY_BROKER_URL&lt;/code&gt; configuration to the &lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CELERY_BROKER_URL = 'amqp://localhost'&lt;/code&gt;
+Alongside with the &lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;urls.py&lt;/code&gt; files, let’s create a new file named&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;celery.py&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;celery&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Celery&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setdefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'DJANGO_SETTINGS_MODULE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'mysite.settings'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Celery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mysite'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config_from_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'django.conf:settings'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'CELERY'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;autodiscover_tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;__init__.py&lt;/code&gt; file in the project root:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__init__.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.celery&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;celery_app&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;__all__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'celery_app'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will make sure our Celery app is important every time Django starts.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;creating-our-first-celery-task&quot;&gt;Creating Our First Celery Task&lt;/h1&gt;
+&lt;p&gt;We can create a file named tasks.py inside a Django app and put all our Celery tasks into this file. The Celery app we created in the project root will collect all tasks defined across all Django apps listed in the &lt;code class=&quot;highlighter-rouge&quot;&gt;INSTALLED_APPS&lt;/code&gt; configuration.&lt;/p&gt;
+
+&lt;p&gt;Just for testing purpose, let’s create a Celery task that generates a number of random User accounts.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;core/tasks.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;string&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib.auth.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.utils.crypto&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_random_string&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;celery&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shared_task&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@shared_task&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_random_user_accounts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'user_{}'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_random_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ascii_letters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'{}@example.com'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_random_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'{} random users created with success!'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;important&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bits&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;are&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;celery&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shared_task&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@shared_task&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;name_of_your_function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optional_param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# do something heavy&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Then&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Celery&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;forms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;forms&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.core.validators&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MinValueValidator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MaxValueValidator&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenerateRandomUserForm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;forms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IntegerField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;validators&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;MinValueValidator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;MaxValueValidator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then your view:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;views.py&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib.auth.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;messages&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.views.generic.edit&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FormView&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.shortcuts&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.forms&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GenerateRandomUserForm&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.tasks&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create_random_user_accounts&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenerateRandomUserView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FormView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;template_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'core/generate_random_users.html'&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;form_class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GenerateRandomUserForm&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;form_valid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cleaned_data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'total'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;create_random_user_accounts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;messages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'We are generating your random users! Wait a moment and refresh this page.'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'users_list'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The important bit is here:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;create_random_user_accounts.delay(total)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Instead of calling the &lt;code class=&quot;highlighter-rouge&quot;&gt;create_random_user_accounts&lt;/code&gt; directly, I’m calling &lt;code class=&quot;highlighter-rouge&quot;&gt;create_random_user_accounts.delay()&lt;/code&gt;. This way we are instructing Celery to execute this function in the background.&lt;/p&gt;
+
+&lt;p&gt;Then Django keep processing my view &lt;code class=&quot;highlighter-rouge&quot;&gt;GenerateRandomUserView&lt;/code&gt; and returns smoothly to the user.&lt;/p&gt;
+
+&lt;p&gt;But before you try it, check the next section to learn how to start the Celery worker process.&lt;/p&gt;
+
+&lt;h1 id=&quot;starting-the-worker-process&quot;&gt;Starting The Worker Process&lt;/h1&gt;
+&lt;p&gt;Open a new terminal tab, and run the following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;celery -A mysite worker -l info&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we can test it. I submitted 500 in my form to create 500 random users.&lt;/p&gt;
+
+&lt;p&gt;The response is immediate:&lt;/p&gt;
+
+&lt;p&gt;Meanwhile, checking the Celery Worker Process:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2017-08-20 19:11:17,485: INFO/MainProcess] Received task:
+mysite.core.tasks.create_random_user_accounts[8799cfbd-deae-41aa-afac-95ed4cc859b0]
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then after a few seconds, if we refresh the page, the users are there:&lt;/p&gt;
+
+&lt;p&gt;If we check the Celery Worker Process again, we can see it completed the execution:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2017-08-20 19:11:45,721: INFO/ForkPoolWorker-2] Task
+mysite.core.tasks.create_random_user_accounts[8799cfbd-deae-41aa-afac-95ed4cc859b0] succeeded &lt;span class=&quot;k&quot;&gt;in
+&lt;/span&gt;28.225658523035236s: &lt;span class=&quot;s1&quot;&gt;'500 random users created with success!'&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;managing-the-worker-process-in-production-with-supervisor&quot;&gt;Managing The Worker Process in Production with Supervisor&lt;/h1&gt;
+&lt;p&gt;If you are deploying your application to a VPS like &lt;a href=&quot;https://m.do.co/c/074832454ff1&quot;&gt;DigitalOcean&lt;/a&gt; you will want to run the worker process in the background. In my tutorials I like to use Supervisord to manage the Gunicorn workers, so it’s usually a nice fit with Celery.&lt;/p&gt;
+
+&lt;p&gt;First install it (on Ubuntu):&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install supervisor&lt;/code&gt;
+Then create a file named &lt;strong&gt;mysite-celery.conf&lt;/strong&gt; in the folder: &lt;strong&gt;/etc/supervisor/conf.d/mysite-celery.conf&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;program:mysite-celery]
+&lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/mysite/bin/celery worker &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt; mysite &lt;span class=&quot;nt&quot;&gt;--loglevel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;INFO
+&lt;span class=&quot;nv&quot;&gt;directory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/mysite/mysite
+&lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nobody
+&lt;span class=&quot;nv&quot;&gt;numprocs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;nv&quot;&gt;stdout_logfile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/mysite/logs/celery.log
+&lt;span class=&quot;nv&quot;&gt;stderr_logfile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/mysite/logs/celery.log
+&lt;span class=&quot;nv&quot;&gt;autostart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;autorestart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
+&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;startsecs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;10
+
+&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Need to &lt;span class=&quot;nb&quot;&gt;wait &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;currently executing tasks to finish at shutdown.
+&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Increase this &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;you have very long running tasks.
+stopwaitsecs &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 600
+
+&lt;span class=&quot;nv&quot;&gt;stopasgroup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Set Celery priority higher than default &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;999&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; so, &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;rabbitmq is supervised, it will start first.
+&lt;span class=&quot;nv&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1000
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In the example below, I’m considering my Django project is inside a virtual environment. The path to my virtual environment is &lt;strong&gt;/home/mysite/&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now reread the configuration and add the new process:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;supervisorctl reread
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;supervisorctl update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;If you are not familiar with deploying Django to a production server and working with Supervisor, maybe this part will make more sense if you check this post from the blog: &lt;a href=&quot;https://simpleisbetterthancomplex.com/tutorial/2016/10/14/how-to-deploy-to-digital-ocean.html&quot;&gt;How to Deploy a Django Application to Digital Ocean&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><category term="blog" /><summary type="html">Table of Contents Installing RabbitMQ on Windows and Other OSs Celery Basic Setup Creating Our First Celery Task Starting The Worker Process Managing The Worker Process in Production with Supervisor</summary></entry><entry><title type="html">How to Use Celery and RabbitMQ with Django - Part 1</title><link href="http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-1/" rel="alternate" type="text/html" title="How to Use Celery and RabbitMQ with Django - Part 1" /><published>2018-04-26T00:00:00+03:00</published><updated>2018-04-26T00:00:00+03:00</updated><id>http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-1</id><content type="html" xml:base="http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-1/">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
+&lt;ul&gt;
+	&lt;li&gt;Why Should I Use Celery?&lt;/li&gt;
+	&lt;li&gt;Installation&lt;/li&gt;
+	&lt;li&gt;Installing RabbitMQ on Ubuntu 16.04&lt;/li&gt;
+	&lt;li&gt;Installing RabbitMQ on Mac&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Why Should I Use Celery?&lt;/h2&gt;
+&lt;p&gt;Web applications works with request and response cycles. When the user access a certain URL of your application the Web browser send a request to your server. Django receive this request and do something with it. Usually it involves executing queries in the database, processing data. While Django does his thing and process the request, the user have to wait. When Django finalize its job processing the request, it sends back a response to the user who finally will see something.&lt;/p&gt;
+
+&lt;p&gt;Ideally this request and response cycle should be fast, otherwise we would leave the user waiting for way too long. And even worse, our Web server can only serve a certain number of users at a time. So, if this process is slow, it can limit the amount of pages your application can serve at a time.&lt;/p&gt;
+
+&lt;p&gt;For the most part we can work around this issue using cache, optimizing database queries, and so on. But there are some cases that theres no other option: the heavy work have to be done. A report page, export of big amount of data, video/image processing are a few examples of cases where you may want to use Celery.&lt;/p&gt;
+
+&lt;p&gt;We don’t use Celery through the whole project, but only for specific tasks that are time-consuming. The idea here is to respond to the user as quick as possible, and pass the time-consuming tasks to the queue so to be executed in the background, and always keep the server ready to respond to new requests.&lt;/p&gt;
+
+&lt;h1 id=&quot;installation&quot;&gt;Installation&lt;/h1&gt;
+&lt;p&gt;The easiest way to install Celery is using pip:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pip install Celery&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we have to install RabbitMQ.&lt;/p&gt;
+
+&lt;h1 id=&quot;installing-rabbitmq-on-ubuntu-1604&quot;&gt;Installing RabbitMQ on Ubuntu 16.04&lt;/h1&gt;
+&lt;p&gt;To install it on a newer Ubuntu version is very straightforward:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install -y erlang&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install rabbitmq-server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then enable and start the RabbitMQ service:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable rabbitmq-server&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl start rabbitmq-server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Check the status to make sure everything is running smooth:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl status rabbitmq-server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Installing RabbitMQ on Mac
+Homebrew is the most straightforward option:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;brew install rabbitmq&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The RabbitMQ scripts are installed into &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/sbin&lt;/code&gt;. You can add it to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash_profile&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;.profile&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.bash_profile&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then add it to the bottom of the file:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+export PATH=$PATH:/usr/local/sbin
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Restart the terminal to make sure the changes are in effect.&lt;/p&gt;
+
+&lt;p&gt;Now you can start the RabbitMQ server using the following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rabbitmq-server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/2018/04/26/how-to-use-celery-with-django-part-2/&quot;&gt;Continue To Read Part 2&lt;/a&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><category term="blog" /><summary type="html">Table of Contents Why Should I Use Celery? Installation Installing RabbitMQ on Ubuntu 16.04 Installing RabbitMQ on Mac</summary></entry><entry><title type="html">How to Reset Migrations in Django</title><link href="http://localhost:4000/2018/03/07/how-to-reset-migrations-in-django/" rel="alternate" type="text/html" title="How to Reset Migrations in Django" /><published>2018-03-07T00:00:00+03:00</published><updated>2018-03-07T00:00:00+03:00</updated><id>http://localhost:4000/2018/03/07/how-to-reset-migrations-in-django</id><content type="html" xml:base="http://localhost:4000/2018/03/07/how-to-reset-migrations-in-django/">&lt;p&gt;The Django migration system was developed and optmized to work with large number of migrations.Sometimes you might need to reset your migrations when you have undesirable results from your database. This tutorial is only if you are in development and you dont mind cleaning up your database.&lt;/p&gt;
 
 &lt;p&gt;Anyway, if you want to perform a clean-up, I will present an option in this tutorial.&lt;/p&gt;
 
@@ -1122,172 +1459,4 @@ Compression
   &lt;li&gt;Fixed bug that caused layout to break in IE11.&lt;/li&gt;
   &lt;li&gt;Fixed bug that caused the project animation to “jump” when using long project titles.&lt;/li&gt;
   &lt;li&gt;No more empty attributes on &lt;code class=&quot;highlighter-rouge&quot;&gt;img&lt;/code&gt; tags.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author><category term="hydejack" /><summary type="html">In this release I’ve added a “Other Projects” section to the bottom of each project page, making it easier for users to navigate through your collection and discover other projects. Also, it’s now possible to display larger (data-) tables that were previously cut off (especially on mobile devices).</summary></entry><entry><title type="html">Third Party Scripts (v6.3)</title><link href="http://localhost:4000/2017/06/06/third-party-scripts/" rel="alternate" type="text/html" title="Third Party Scripts (v6.3)" /><published>2017-06-06T00:00:00+03:00</published><updated>2017-06-06T00:00:00+03:00</updated><id>http://localhost:4000/2017/06/06/third-party-scripts</id><content type="html" xml:base="http://localhost:4000/2017/06/06/third-party-scripts/">&lt;p&gt;This release makes including third party plugins easier.
-Until now, the push state approach to loading new pages has been interfering with embedded &lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt; tags.
-This version changes this by simulating the sequential loading of script tags on a fresh page load.&lt;/p&gt;
-
-&lt;p&gt;This approach should work in a majority of cases, but can still cause problems with scripts that can’t be added more than once per page.
-If an issue can’t be resolved, there’s now the option to disable push state by setting &lt;code class=&quot;highlighter-rouge&quot;&gt;disable_push_state: true&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;config.yml&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;whats-happening&quot;&gt;What’s happening?&lt;/h2&gt;
-&lt;p&gt;The problem is as follows:
-When the browser encounters a &lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt; tag while parsing a HTML page it will stop (possibly to make a request to fetch
-an external script) and then execute the code before continuing parsing the page
-(it’s easy to how this can make your page really slow, but that’s a different topic).&lt;/p&gt;
-
-&lt;p&gt;In any case, due of this behavior you can do things like include jQuery,
-then run code that depends on jQuery in the next script tag:&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.../jquery.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'#tabs'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;someJQueryFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// works&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I’d consider this an anti-pattern for the reason mentioned above,
-but it remains common and has the advantage of being easy to understand.&lt;/p&gt;
-
-&lt;p&gt;However, things break when Hydejack dynamically inserts new content into the page.
-It works fine for standard markdown content like &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; tags,
-but when inserting &lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt; tags the browser will execute them immediately and in parallel,
-because in most cases this is what you’d want.
-However, this means that &lt;code class=&quot;highlighter-rouge&quot;&gt;$('#tabs').someJQueryFunction();&lt;/code&gt; will run while the HTTP request for jQuery is still
-in progress — and we get an error that &lt;code class=&quot;highlighter-rouge&quot;&gt;$&lt;/code&gt; isn’t defined, or similar.&lt;/p&gt;
-
-&lt;p&gt;From this description the solution should be obvious: Insert the &lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt; tags one-by-one,
-to simulate how they would get executed if it was a fresh page request.
-In fact this is how Hydejack is now handling things (and thanks to rxjs’ &lt;code class=&quot;highlighter-rouge&quot;&gt;concatMap&lt;/code&gt; it was easy to implement),
-but unfortunately this is not a magic solution that can fix all problems:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Some scripts may throw when running on the same page twice&lt;/li&gt;
-  &lt;li&gt;Some scripts rely on the document’s &lt;code class=&quot;highlighter-rouge&quot;&gt;load&lt;/code&gt; event, which has fired long before the script was inserted&lt;/li&gt;
-  &lt;li&gt;unkown-unkowns&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;But what will “magically” solve all third party script problems, is disabling dynamic page loading altogether,
-for which there’s now an option.
-To make this a slightly less bitter pill to swallow,
-there’s now a CSS-only “intro” animation that looks similar to the dynamic one.
-Maybe you won’t even notice the difference.&lt;/p&gt;
-
-&lt;h2 id=&quot;patch-notes&quot;&gt;Patch Notes&lt;/h2&gt;
-&lt;h3 id=&quot;minor&quot;&gt;Minor&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Support embedding &lt;code class=&quot;highlighter-rouge&quot;&gt;script&lt;/code&gt; tags in markdown content&lt;/li&gt;
-  &lt;li&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;disable_push_state&lt;/code&gt; option to &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;disable_drawer&lt;/code&gt; option to &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Rename syntax highlighting file to &lt;code class=&quot;highlighter-rouge&quot;&gt;syntax.scss&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Added &lt;a href=&quot;/docs/7.5.0/scripts/&quot;&gt;chapter on third party scripts&lt;/a&gt; to documentation&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;design&quot;&gt;Design&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Add subtle intro animation&lt;/li&gt;
-  &lt;li&gt;Rename “Check out X for more” to “See X for more” on welcome* page&lt;/li&gt;
-  &lt;li&gt;Replace “»” with “→” in “read more”-type of links&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;fixes&quot;&gt;Fixes&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Fix default color in gem-based theme&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author><category term="hydejack" /><summary type="html">This release makes including third party plugins easier. Until now, the push state approach to loading new pages has been interfering with embedded script tags. This version changes this by simulating the sequential loading of script tags on a fresh page load.</summary></entry><entry><title type="html">JavaScripten (v6)</title><link href="http://localhost:4000/2017/05/03/javascripten/" rel="alternate" type="text/html" title="JavaScripten (v6)" /><published>2017-05-03T00:00:00+03:00</published><updated>2017-05-03T00:00:00+03:00</updated><id>http://localhost:4000/2017/05/03/javascripten</id><content type="html" xml:base="http://localhost:4000/2017/05/03/javascripten/">&lt;p&gt;Hydejack has always featured a JavaScript-heavy sidebar, but other than that, JS has been used sparingly.
-This changes with this release, which adds a ton of (optional) code that changes the feel of the theme dramatically.&lt;/p&gt;
-
-&lt;h2 id=&quot;major&quot;&gt;Major&lt;/h2&gt;
-&lt;p&gt;Pages are now loaded and swapped through JavaScript. This has a number of effects.
-First of all, it looks cool, but the animations aren’t just about aesthetics:
-They also help to hide the network time of fetching the next page, making the entire site feel faster.
-At the same time, the &lt;abbr title=&quot;Flash of Unstyled Content&quot;&gt;FOUC&lt;/abbr&gt; introduced in the last release will no longer occur (except on the initial page load).&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Most JS is now unified in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_js&lt;/code&gt; directory and written in ES2016.&lt;/li&gt;
-  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;blog-by-tag&lt;/code&gt; layout has been renamed to &lt;code class=&quot;highlighter-rouge&quot;&gt;list&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;public&lt;/code&gt; folder has been renamed to &lt;code class=&quot;highlighter-rouge&quot;&gt;assets&lt;/code&gt; to make the theme compatible with Jekyll’s gem-based themes.&lt;/li&gt;
-  &lt;li&gt;Tags are now supported via Jekyll Collections instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;_data&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;The sidebar can now add links to all kinds of pages.&lt;/li&gt;
-  &lt;li&gt;Categories are now supported.&lt;/li&gt;
-  &lt;li&gt;Author information moved to &lt;code class=&quot;highlighter-rouge&quot;&gt;_data/authors.yml&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Added support for multiple authors.&lt;/li&gt;
-  &lt;li&gt;Using &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll-feed&lt;/code&gt; plugin (supported on GitHub Pages) instead of custom solution.&lt;/li&gt;
-  &lt;li&gt;Added &lt;code class=&quot;highlighter-rouge&quot;&gt;about&lt;/code&gt; layout.&lt;/li&gt;
-  &lt;li&gt;Added &lt;code class=&quot;highlighter-rouge&quot;&gt;not-found&lt;/code&gt; layout.&lt;/li&gt;
-  &lt;li&gt;Added &lt;code class=&quot;highlighter-rouge&quot;&gt;redirect&lt;/code&gt; layout&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See the &lt;a href=&quot;/docs/7.5.0/upgrade/&quot;&gt;the migration guide&lt;/a&gt; for instructions on how to upgrade.&lt;/p&gt;
-
-&lt;h2 id=&quot;minor&quot;&gt;Minor&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;The “accent” font (heading font) is now used for all headings.
-This gives the theme a “bolder” look and was necessary for the animation: link =&amp;gt; heading.&lt;/li&gt;
-  &lt;li&gt;Changed default text font from “PT Serif” to “Noto Serif”.&lt;/li&gt;
-  &lt;li&gt;Added &lt;a href=&quot;/docs/7.5.0/writing/&quot;&gt;CSS classes&lt;/a&gt; for styling markdown content.&lt;/li&gt;
-  &lt;li&gt;Links have a new style.
-They now always display an underline to make the choice of the link color less critical (darker colors were hard to
-distinguish from regular text).&lt;/li&gt;
-  &lt;li&gt;Made social media icons larger and easier to tap.&lt;/li&gt;
-  &lt;li&gt;Social media icons are now also part of the “about” sections of a post.&lt;/li&gt;
-  &lt;li&gt;Added support for a copyright notice at the bottom. Can be set via the config variable &lt;code class=&quot;highlighter-rouge&quot;&gt;copyright&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Changed responsive breakpoints and added support for very large displays.&lt;/li&gt;
-  &lt;li&gt;The site is now printable.&lt;/li&gt;
-  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;blog&lt;/code&gt; layout now only shows the excerpt instead of the full post.&lt;/li&gt;
-  &lt;li&gt;Links to external pages are now marked with a symbol.&lt;/li&gt;
-  &lt;li&gt;Added margin above social media icons to prevent accidental tapping&lt;/li&gt;
-  &lt;li&gt;Added gem files so that &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt; work&lt;/li&gt;
-  &lt;li&gt;Disabled HTML minification when running via &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Added dingbat to signal end of post&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;fixes&quot;&gt;Fixes&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Related posts is no longer blank for posts that do not belong to a category.&lt;/li&gt;
-  &lt;li&gt;Footnotes now use the text version of “leftwards arrow with hook” instead of the emoji on iOS.&lt;/li&gt;
-  &lt;li&gt;Text is no longer invisible while waiting for Google Fonts to load.&lt;/li&gt;
-  &lt;li&gt;Always show scrollbar to prevent layout “jumps”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/qwtel/hydejack/releases/tag/v7.5.0&quot;&gt;Get &lt;em&gt;JavaScripten&lt;/em&gt; on GitHub&lt;/a&gt;&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author><category term="hydejack" /><summary type="html">Hydejack has always featured a JavaScript-heavy sidebar, but other than that, JS has been used sparingly. This changes with this release, which adds a ton of (optional) code that changes the feel of the theme dramatically.</summary></entry><entry><title type="html">The Fast One (v5)</title><link href="http://localhost:4000/2016/09/17/the-fast-one/" rel="alternate" type="text/html" title="The Fast One (v5)" /><published>2016-09-17T00:00:00+03:00</published><updated>2016-09-17T00:00:00+03:00</updated><id>http://localhost:4000/2016/09/17/the-fast-one</id><content type="html" xml:base="http://localhost:4000/2016/09/17/the-fast-one/">&lt;p&gt;This major release increases page load speed dramatically.
-The page now scores roughly 90/100 on &lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F&quot;&gt;Google’s PageSpeed Insights&lt;/a&gt; (up from ~50) and
-has a high score on similar tools.&lt;/p&gt;
-
-&lt;p class=&quot;message&quot;&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: This post is outdated and only included for legacy reasons.
-See the &lt;a href=&quot;/docs/7.5.0/&quot; class=&quot;heading flip-title&quot;&gt;Documentation&lt;/a&gt; for up-to-date instructions.&lt;/p&gt;
-
-&lt;p&gt;Most importantly, the critical rendering path is no longer blocked by loading styles or scripts,
-meaning the site becomes visible faster.&lt;/p&gt;
-
-&lt;p&gt;Page load speed matters to Google, but is also &lt;em&gt;very&lt;/em&gt; apparent to visitors with slow internet connections.&lt;/p&gt;
-
-&lt;p&gt;However, as a side effect of these optimizations, the site now has a visible &lt;abbr title=&quot;Flash Of Unstyled Content&quot;&gt;FOUC&lt;/abbr&gt;.
-Future versions might address this,
-but it is the currency in which loading speed is being payed for and can not be fully avoided.&lt;/p&gt;
-
-&lt;h2 id=&quot;major&quot;&gt;Major&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;HTML, CSS and JS served minified.&lt;/li&gt;
-  &lt;li&gt;JS downloading starts only after the rest of the page is rendered.&lt;/li&gt;
-  &lt;li&gt;Critical CSS (above-the-fold) is inlined into the document, the rest is fetched later.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In order to minify the CSS and make it more modular it has been rewritten in SCSS.&lt;/p&gt;
-
-&lt;h2 id=&quot;minor&quot;&gt;Minor&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Colored focus outline in page color&lt;/li&gt;
-  &lt;li&gt;Tabindex for tab navigation&lt;/li&gt;
-  &lt;li&gt;Social media icons easier tappable with finger&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;trivia&quot;&gt;Trivia&lt;/h2&gt;
-
-&lt;p&gt;Not strictly part of the release, but the images have been blurred to increase text readability and
-help with loading speed as well (burred images get compressed by JPG much better).&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/qwtel/hydejack/releases&quot;&gt;Get &lt;em&gt;The Fast One&lt;/em&gt; on GitHub&lt;/a&gt;&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author><category term="hydejack" /><summary type="html">This major release increases page load speed dramatically. The page now scores roughly 90/100 on Google’s PageSpeed Insights (up from ~50) and has a high score on similar tools.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author><category term="hydejack" /><summary type="html">In this release I’ve added a “Other Projects” section to the bottom of each project page, making it easier for users to navigate through your collection and discover other projects. Also, it’s now possible to display larger (data-) tables that were previously cut off (especially on mobile devices).</summary></entry></feed>

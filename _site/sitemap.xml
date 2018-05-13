@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://localhost:4000/tag/blog/</loc>
-<lastmod>2018-03-08T06:22:32+03:00</lastmod>
+<lastmod>2018-05-13T20:00:28+03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/tag/tutorial/</loc>
-<lastmod>2018-03-08T06:22:32+03:00</lastmod>
+<lastmod>2018-05-13T20:00:28+03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/2012/02/07/example-content/</loc>
@@ -63,6 +63,18 @@
 <url>
 <loc>http://localhost:4000/2018/03/07/how-to-reset-migrations-in-django/</loc>
 <lastmod>2018-03-07T00:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-1/</loc>
+<lastmod>2018-04-26T00:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-2/</loc>
+<lastmod>2018-04-26T00:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2018/04/26/how-to-use-celery-with-django/</loc>
+<lastmod>2018-04-26T00:00:00+03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/projects/2017-11-02-zumblr/</loc>
@@ -151,5 +163,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page-3/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page-4/</loc>
 </url>
 </urlset>
