@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://localhost:4000/tag/blog/</loc>
-<lastmod>2018-06-03T09:24:49+03:00</lastmod>
+<lastmod>2018-06-03T09:31:22+03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/tag/tutorial/</loc>
-<lastmod>2018-06-03T09:24:49+03:00</lastmod>
+<lastmod>2018-06-03T09:31:22+03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/2012/02/07/example-content/</loc>
@@ -97,14 +97,6 @@
 <lastmod>2018-05-28T00:00:00+03:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/2018/05/30/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/</loc>
-<lastmod>2018-05-30T00:00:00+03:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/2018/05/30/documenting-your-django-application-with-sphinx/</loc>
-<lastmod>2018-05-30T00:00:00+03:00</lastmod>
-</url>
-<url>
 <loc>http://localhost:4000/2018/05/30/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</loc>
 <lastmod>2018-05-30T00:00:00+03:00</lastmod>
 </url>
@@ -119,6 +111,14 @@
 <url>
 <loc>http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/</loc>
 <lastmod>2018-06-02T00:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2018/06/03/documenting-your-django-application-with-sphinx/</loc>
+<lastmod>2018-06-03T00:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/</loc>
+<lastmod>2018-06-03T00:00:00+03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/projects/2017-11-02-zumblr/</loc>

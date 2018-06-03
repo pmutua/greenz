@@ -1,5 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-06-03T09:24:49+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
-</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">Consuming JSON APIs with Go</title><link href="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/" rel="alternate" type="text/html" title="Consuming JSON APIs with Go" /><published>2018-06-02T00:00:00+03:00</published><updated>2018-06-02T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/02/Consuming%20JSON%20APIs%20with%20Go</id><content type="html" xml:base="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/">&lt;p&gt;To authenticate with the numverify API, simply attach your access_key to the base endpoint URL:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-06-03T09:31:22+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
+</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">How To Install and Use Docker on Ubuntu 16.04</title><link href="http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/" rel="alternate" type="text/html" title="How To Install and Use Docker on Ubuntu 16.04" /><published>2018-06-03T00:00:00+03:00</published><updated>2018-06-03T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/03/How%20To%20Install%20and%20Use%20Docker%20on%20Ubuntu%2016.04%20.md</id><content type="html" xml:base="http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+
+&lt;p&gt;To follow this tutorial, you will need the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;64-bit Ubuntu 16.04 server&lt;/li&gt;
+  &lt;li&gt;Non-root user with sudo privileges Initial Setup Guide for Ubuntu 16.04 explains how to set this up.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  Note: Docker requires a 64-bit version of Ubuntu as well as a kernel version equal to or greater than 3.10. The default 64-bit Ubuntu 16.04 server meets these requirements.
+&lt;/blockquote&gt;
+
+&lt;p&gt;All the commands in this tutorial should be run as a non-root user. If root access is required for the command, it will be preceded by &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;. &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04&quot;&gt;Initial Setup Guide for Ubuntu 16.04&lt;/a&gt; explains how to add users and give them sudo access.&lt;/p&gt;
+
+&lt;h1 id=&quot;step-1--installing-docker&quot;&gt;Step 1 — Installing Docker&lt;/h1&gt;
+
+&lt;p&gt;The Docker installation package available in the official Ubuntu 16.04 repository may not be the latest version. To get the latest and greatest version, install Docker from the official Docker repository. This section shows you how to do just that.&lt;/p&gt;
+
+&lt;p&gt;First, add the GPG key for the official Docker repository to the system:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Add the Docker repository to APT sources:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, update the package database with the Docker packages from the newly added repo:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get update&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You should see output similar to the follow:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output of apt-cache policy docker-ce
+
+docker-ce:
+  Installed: (none)
+  Candidate: 17.03.1~ce-0~ubuntu-xenial
+  Version table:
+     17.03.1~ce-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     17.03.0~ce-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; is not installed, but the candidate for installation is from the Docker repository for Ubuntu 16.04. The &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; version number might be different.&lt;/p&gt;
+
+&lt;p&gt;Finally, install Docker:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get install -y docker-ce&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Prerequisites</summary></entry><entry><title type="html">Documenting Your Django Application with Sphinx.</title><link href="http://localhost:4000/2018/06/03/documenting-your-django-application-with-sphinx/" rel="alternate" type="text/html" title="Documenting Your Django Application with Sphinx." /><published>2018-06-03T00:00:00+03:00</published><updated>2018-06-03T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/03/documenting-%20your%20django%20-application-with%20sphinx</id><content type="html" xml:base="http://localhost:4000/2018/06/03/documenting-your-django-application-with-sphinx/">&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Find out more by visiting the project on GitHub.</summary></entry><entry><title type="html">Consuming JSON APIs with Go</title><link href="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/" rel="alternate" type="text/html" title="Consuming JSON APIs with Go" /><published>2018-06-02T00:00:00+03:00</published><updated>2018-06-02T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/02/Consuming%20JSON%20APIs%20with%20Go</id><content type="html" xml:base="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/">&lt;p&gt;To authenticate with the numverify API, simply attach your access_key to the base endpoint URL:&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&lt;/code&gt;&lt;/p&gt;
 
@@ -262,102 +316,7 @@ sudo usermod -a -G docker $USER&lt;/p&gt;
 
 &lt;p&gt;After doing that, you should be able to run the command without any issues. Run &lt;code class=&quot;highlighter-rouge&quot;&gt;docker run hello-world&lt;/code&gt; as a normal user in order to check if it works. Reboot if the issue still persists.&lt;/p&gt;
 
-&lt;p&gt;Logging out and logging back in is required because the group change will not have an effect unless your session is closed.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Problem: You are trying to run a docker container or do the docker tutorial, but you only get an error message like this:</summary></entry><entry><title type="html">A Simple Hello World program in Go lang.</title><link href="http://localhost:4000/2018/05/30/documenting-your-django-application-with-sphinx/" rel="alternate" type="text/html" title="A Simple Hello World program in Go lang." /><published>2018-05-30T00:00:00+03:00</published><updated>2018-05-30T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/30/documenting-%20your%20django%20-application-with%20sphinx</id><content type="html" xml:base="http://localhost:4000/2018/05/30/documenting-your-django-application-with-sphinx/">&lt;p&gt;A couple of days ago I found my self learning &lt;code class=&quot;highlighter-rouge&quot;&gt;go&lt;/code&gt; programming language,I took a glance on it’s syntax and it was quite different from what I’m used to. I come from using dynamic typed, interpreted languages like Python,Ruby and JavaScript.&lt;code class=&quot;highlighter-rouge&quot;&gt;Go&lt;/code&gt; is sort of different it’s a static typed,compiled language just like C++ and Java.&lt;/p&gt;
-
-&lt;p&gt;In my opinion,&lt;code class=&quot;highlighter-rouge&quot;&gt;go&lt;/code&gt;’s syntax is quite simple to write. You will be amazed by how you can make a simple 
-hello world program with just a few lines of code.&lt;/p&gt;
-
-&lt;p&gt;In this tutorial I’m going to show you how to make a simple “Hello World” program.&lt;/p&gt;
-
-&lt;p&gt;Before you get started you need to install &lt;code class=&quot;highlighter-rouge&quot;&gt;go&lt;/code&gt; in your computer depending on your operating system.
-If you have already installed &lt;code class=&quot;highlighter-rouge&quot;&gt;go&lt;/code&gt; then jump to the part below.&lt;/p&gt;
-
-&lt;p&gt;First create a directory in your prefered workspace. For instance we are going to make a &lt;strong&gt;hello_world&lt;/strong&gt; folder.&lt;/p&gt;
-
-&lt;p&gt;Then inside the &lt;strong&gt;hello_world&lt;/strong&gt; folder create a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;main.go&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Open &lt;code class=&quot;highlighter-rouge&quot;&gt;main.go&lt;/code&gt; file with your favourite text editor, then add the code below. That’s it! and there you have your hello world program. Pretty cool right? : )&lt;/p&gt;
-
-&lt;p&gt;NB:// Always use double &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;&quot;&lt;/code&gt; quotes not single &lt;code class=&quot;highlighter-rouge&quot;&gt;''&lt;/code&gt; quotes when specifying your &lt;code class=&quot;highlighter-rouge&quot;&gt;import&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-golang highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; 
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; 
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printIn&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;explanation&quot;&gt;Explanation&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;How do I run the code in the project?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What does &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;/code&gt; ?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What does import “fmt” mean?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What is the &lt;code class=&quot;highlighter-rouge&quot;&gt;func&lt;/code&gt; thing?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;How is &lt;code class=&quot;highlighter-rouge&quot;&gt;main.go file organized&lt;/code&gt;?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;It’s an immensely useful tool and one we encourage you to use here with Hyde.&lt;/p&gt;
-
-&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">A couple of days ago I found my self learning go programming language,I took a glance on it’s syntax and it was quite different from what I’m used to. I come from using dynamic typed, interpreted languages like Python,Ruby and JavaScript.Go is sort of different it’s a static typed,compiled language just like C++ and Java.</summary></entry><entry><title type="html">How To Install and Use Docker on Ubuntu 16.04</title><link href="http://localhost:4000/2018/05/30/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/" rel="alternate" type="text/html" title="How To Install and Use Docker on Ubuntu 16.04" /><published>2018-05-30T00:00:00+03:00</published><updated>2018-05-30T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/30/How%20To%20Install%20and%20Use%20Docker%20on%20Ubuntu%2016.04%20.md</id><content type="html" xml:base="http://localhost:4000/2018/05/30/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
-
-&lt;p&gt;To follow this tutorial, you will need the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;64-bit Ubuntu 16.04 server&lt;/li&gt;
-  &lt;li&gt;Non-root user with sudo privileges Initial Setup Guide for Ubuntu 16.04 explains how to set this up.)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  Note: Docker requires a 64-bit version of Ubuntu as well as a kernel version equal to or greater than 3.10. The default 64-bit Ubuntu 16.04 server meets these requirements.
-&lt;/blockquote&gt;
-
-&lt;p&gt;All the commands in this tutorial should be run as a non-root user. If root access is required for the command, it will be preceded by &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;. &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04&quot;&gt;Initial Setup Guide for Ubuntu 16.04&lt;/a&gt; explains how to add users and give them sudo access.&lt;/p&gt;
-
-&lt;h1 id=&quot;step-1--installing-docker&quot;&gt;Step 1 — Installing Docker&lt;/h1&gt;
-
-&lt;p&gt;The Docker installation package available in the official Ubuntu 16.04 repository may not be the latest version. To get the latest and greatest version, install Docker from the official Docker repository. This section shows you how to do just that.&lt;/p&gt;
-
-&lt;p&gt;First, add the GPG key for the official Docker repository to the system:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Add the Docker repository to APT sources:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Next, update the package database with the Docker packages from the newly added repo:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get update&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;You should see output similar to the follow:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output of apt-cache policy docker-ce
-
-docker-ce:
-  Installed: (none)
-  Candidate: 17.03.1~ce-0~ubuntu-xenial
-  Version table:
-     17.03.1~ce-0~ubuntu-xenial 500
-        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
-     17.03.0~ce-0~ubuntu-xenial 500
-        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
-
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Notice that &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; is not installed, but the candidate for installation is from the Docker repository for Ubuntu 16.04. The &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; version number might be different.&lt;/p&gt;
-
-&lt;p&gt;Finally, install Docker:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get install -y docker-ce&lt;/code&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Prerequisites</summary></entry><entry><title type="html">Paper Wallet Guide-How to Protect Your Cryptocurrency.</title><link href="http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/" rel="alternate" type="text/html" title="Paper Wallet Guide-How to Protect Your Cryptocurrency." /><published>2018-05-28T00:00:00+03:00</published><updated>2018-05-28T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/28/Paper%20Wallet%20Guide:%20How%20to%20Protect%20Your%20Cryptocurrency</id><content type="html" xml:base="http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/">&lt;h1 id=&quot;what-is-a-cryptocurrency-wallet&quot;&gt;What is a cryptocurrency wallet?&lt;/h1&gt;
+&lt;p&gt;Logging out and logging back in is required because the group change will not have an effect unless your session is closed.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Problem: You are trying to run a docker container or do the docker tutorial, but you only get an error message like this:</summary></entry><entry><title type="html">Paper Wallet Guide-How to Protect Your Cryptocurrency.</title><link href="http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/" rel="alternate" type="text/html" title="Paper Wallet Guide-How to Protect Your Cryptocurrency." /><published>2018-05-28T00:00:00+03:00</published><updated>2018-05-28T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/28/Paper%20Wallet%20Guide:%20How%20to%20Protect%20Your%20Cryptocurrency</id><content type="html" xml:base="http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/">&lt;h1 id=&quot;what-is-a-cryptocurrency-wallet&quot;&gt;What is a cryptocurrency wallet?&lt;/h1&gt;
 
 &lt;p&gt;A cryptocurrency wallet is a digital wallet that you can use to store, send and receive various cryptocurrencies. The wallet doesn’t exactly “store” your money as a real-world wallet does. Instead, it saves your public and private keys which in turn helps you send and receive money.&lt;/p&gt;
 
