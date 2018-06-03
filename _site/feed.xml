@@ -1,5 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-06-03T08:53:51+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
-</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">Consuming JSON APIs with Go</title><link href="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/" rel="alternate" type="text/html" title="Consuming JSON APIs with Go" /><published>2018-06-02T00:00:00+03:00</published><updated>2018-06-02T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/02/Consuming%20JSON%20APIs%20with%20Go</id><content type="html" xml:base="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/">&lt;p&gt;numverify.go&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-06-03T09:24:49+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
+</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">Consuming JSON APIs with Go</title><link href="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/" rel="alternate" type="text/html" title="Consuming JSON APIs with Go" /><published>2018-06-02T00:00:00+03:00</published><updated>2018-06-02T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/02/Consuming%20JSON%20APIs%20with%20Go</id><content type="html" xml:base="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/">&lt;p&gt;To authenticate with the numverify API, simply attach your access_key to the base endpoint URL:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In addition to the “access_key” parameter, there is only one required parameter (“number”) to start validating phone numbers.&lt;/p&gt;
+
+&lt;p&gt;Type the following in your browser window:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&amp;amp;number=41443607070&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The API response is returned in JSON format.&lt;/p&gt;
+
+&lt;p&gt;Show format here&lt;/p&gt;
+
+&lt;p&gt;numverify.go&lt;/p&gt;
 
 &lt;p&gt;JSON-to-Go is an excellent tool that instantly converts JSON into a Go type definition. Using it, I get:&lt;/p&gt;
 
@@ -130,7 +144,7 @@ func main() {
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;func (dec *Decoder) Decode(v interface{}) error&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Finally, we extract the information from our populated “Numverify” struct variable “record”.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">numverify.go</summary></entry><entry><title type="html">Writable nested serializer with existing objects using Django Rest Framework 3.2.2”</title><link href="http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/" rel="alternate" type="text/html" title="Writable nested serializer with existing objects using Django Rest Framework 3.2.2”" /><published>2018-06-01T00:00:00+03:00</published><updated>2018-06-01T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/01/-writable%20-nested-%20serializer-with-%20existing-objects-%20using-Django-Rest-Framework-%203.2.2</id><content type="html" xml:base="http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/">&lt;p&gt;django-rest-framework 3.0 create or update in nested serializer&lt;/p&gt;
+&lt;p&gt;Finally, we extract the information from our populated “Numverify” struct variable “record”.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">To authenticate with the numverify API, simply attach your access_key to the base endpoint URL:</summary></entry><entry><title type="html">Writable nested serializer with existing objects using Django Rest Framework 3.2.2”</title><link href="http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/" rel="alternate" type="text/html" title="Writable nested serializer with existing objects using Django Rest Framework 3.2.2”" /><published>2018-06-01T00:00:00+03:00</published><updated>2018-06-01T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/01/-writable%20-nested-%20serializer-with-%20existing-objects-%20using-Django-Rest-Framework-%203.2.2</id><content type="html" xml:base="http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/">&lt;p&gt;django-rest-framework 3.0 create or update in nested serializer&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 &lt;span class=&quot;n&quot;&gt;Firstly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;support&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creating&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;updating&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;existing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt;
@@ -291,7 +305,374 @@ If you have already installed &lt;code class=&quot;highlighter-rouge&quot;&gt;go
 
 &lt;p&gt;It’s an immensely useful tool and one we encourage you to use here with Hyde.&lt;/p&gt;
 
-&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">A couple of days ago I found my self learning go programming language,I took a glance on it’s syntax and it was quite different from what I’m used to. I come from using dynamic typed, interpreted languages like Python,Ruby and JavaScript.Go is sort of different it’s a static typed,compiled language just like C++ and Java.</summary></entry><entry><title type="html">Writable nested serializer with existing objects using Django Rest Framework 3.2.2”</title><link href="http://localhost:4000/2018/05/27/serialization-in-django-rest-framework/" rel="alternate" type="text/html" title="Writable nested serializer with existing objects using Django Rest Framework 3.2.2”" /><published>2018-05-27T00:00:00+03:00</published><updated>2018-05-27T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/27/serialization-in-django-rest-framework</id><content type="html" xml:base="http://localhost:4000/2018/05/27/serialization-in-django-rest-framework/">&lt;p&gt;Note: The code for this tutorial is available in the &lt;a href=&quot;https://github.com/encode/rest-framework-tutorial&quot;&gt;tomchristie/rest-framework-tutorial&lt;/a&gt; repository on GitHub. The completed implementation is also online as a sandbox version for testing, &lt;a href=&quot;https://restframework.herokuapp.com/&quot;&gt;available here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">A couple of days ago I found my self learning go programming language,I took a glance on it’s syntax and it was quite different from what I’m used to. I come from using dynamic typed, interpreted languages like Python,Ruby and JavaScript.Go is sort of different it’s a static typed,compiled language just like C++ and Java.</summary></entry><entry><title type="html">How To Install and Use Docker on Ubuntu 16.04</title><link href="http://localhost:4000/2018/05/30/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/" rel="alternate" type="text/html" title="How To Install and Use Docker on Ubuntu 16.04" /><published>2018-05-30T00:00:00+03:00</published><updated>2018-05-30T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/30/How%20To%20Install%20and%20Use%20Docker%20on%20Ubuntu%2016.04%20.md</id><content type="html" xml:base="http://localhost:4000/2018/05/30/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+
+&lt;p&gt;To follow this tutorial, you will need the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;64-bit Ubuntu 16.04 server&lt;/li&gt;
+  &lt;li&gt;Non-root user with sudo privileges Initial Setup Guide for Ubuntu 16.04 explains how to set this up.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  Note: Docker requires a 64-bit version of Ubuntu as well as a kernel version equal to or greater than 3.10. The default 64-bit Ubuntu 16.04 server meets these requirements.
+&lt;/blockquote&gt;
+
+&lt;p&gt;All the commands in this tutorial should be run as a non-root user. If root access is required for the command, it will be preceded by &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;. &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04&quot;&gt;Initial Setup Guide for Ubuntu 16.04&lt;/a&gt; explains how to add users and give them sudo access.&lt;/p&gt;
+
+&lt;h1 id=&quot;step-1--installing-docker&quot;&gt;Step 1 — Installing Docker&lt;/h1&gt;
+
+&lt;p&gt;The Docker installation package available in the official Ubuntu 16.04 repository may not be the latest version. To get the latest and greatest version, install Docker from the official Docker repository. This section shows you how to do just that.&lt;/p&gt;
+
+&lt;p&gt;First, add the GPG key for the official Docker repository to the system:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Add the Docker repository to APT sources:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, update the package database with the Docker packages from the newly added repo:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get update&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You should see output similar to the follow:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output of apt-cache policy docker-ce
+
+docker-ce:
+  Installed: (none)
+  Candidate: 17.03.1~ce-0~ubuntu-xenial
+  Version table:
+     17.03.1~ce-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+     17.03.0~ce-0~ubuntu-xenial 500
+        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice that &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; is not installed, but the candidate for installation is from the Docker repository for Ubuntu 16.04. The &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; version number might be different.&lt;/p&gt;
+
+&lt;p&gt;Finally, install Docker:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get install -y docker-ce&lt;/code&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Prerequisites</summary></entry><entry><title type="html">Paper Wallet Guide-How to Protect Your Cryptocurrency.</title><link href="http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/" rel="alternate" type="text/html" title="Paper Wallet Guide-How to Protect Your Cryptocurrency." /><published>2018-05-28T00:00:00+03:00</published><updated>2018-05-28T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/28/Paper%20Wallet%20Guide:%20How%20to%20Protect%20Your%20Cryptocurrency</id><content type="html" xml:base="http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/">&lt;h1 id=&quot;what-is-a-cryptocurrency-wallet&quot;&gt;What is a cryptocurrency wallet?&lt;/h1&gt;
+
+&lt;p&gt;A cryptocurrency wallet is a digital wallet that you can use to store, send and receive various cryptocurrencies. The wallet doesn’t exactly “store” your money as a real-world wallet does. Instead, it saves your public and private keys which in turn helps you send and receive money.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-are-public-and-private-keys&quot;&gt;What are public and private keys?&lt;/h1&gt;
+
+&lt;p&gt;Let’s think of a real world situation before we understand what public and private keys are. Imagine a vending machine. Can anyone and put their money inside the machine right? But, they can’t take out the money because they don’t have the key, they can only put money in the machine. The only person who can take out the money is the owner of the machine who has the key.&lt;/p&gt;
+
+&lt;p&gt;In this example, the vending machine is the public address which anyone uses to send money to you. You are the machine owner, and the key that he is carrying is your private key. Using this private key only you can access your money and do what you please with it.&lt;/p&gt;
+
+&lt;p&gt;The public key is the address that anyone can use to send you the money, while the private key is what you will use to send money to anyone else. Remember, ONLY you should know what your private key is, otherwise anyone can use your wallet to send your money to any other addresses.&lt;/p&gt;
+
+&lt;p&gt;Under no circumstances should you ever lose your private key. Let’s put this in super simple terms. If you lose your private key, then you are SCREWED (yes, uppercase has been used to emphasize the gravity of the situation). You should use at least two different techniques to save and store your private keys. We will discuss these various techniques a little later in the article.&lt;/p&gt;
+
+&lt;p&gt;As of right now, let’s discuss the two methods of storage that you can use to store your cryptos, hot storage, and cold storage.&lt;/p&gt;
+
+&lt;h1 id=&quot;hot-storage-vs-cold-storage&quot;&gt;Hot Storage Vs Cold Storage&lt;/h1&gt;
+
+&lt;p&gt;Let’s understand the basic distinction between the two with a real-world example. Hot storage is like the wallets that you carry around in your pocket. The Cold storage is somewhat akin to your savings bank account. Keep this distinction in mind as we move forward. If you want to use your currency frequently then you must use hot storage. On the other hand, if you want to store your money for a long time then you must use cold storage.&lt;/p&gt;
+
+&lt;h1 id=&quot;hot-storage&quot;&gt;Hot Storage&lt;/h1&gt;
+
+&lt;p&gt;Hot storage, in simple terms, is when you keep your cryptocurrency in a device which is directly connected to the internet. This connection is what makes a device “hot”.&lt;/p&gt;
+
+&lt;p&gt;You should think of exchange wallets, desktop clients, and mobile wallets (any wallet that exists on a device that will ever connect to the internet) as a hot wallet. It’s easy to access funds on a hot wallet, and if you live somewhere that accepts cryptos for micropayments, there’s nothing wrong with using one for day-to-day spending. Think of it like fiat (government issued) currency. You might walk around with a portion of your wealth in a wallet for convenience but the majority you keep secured away. Your hot wallet should behave in the same way as a real-world wallet. You use it to carry a small amount of cash for ease of access. That is all.&lt;/p&gt;
+
+&lt;p&gt;While transacting with hot wallets is very simple, there is a huge drawback when it comes to them. They are easily hackable. The whole crypto-space has been gaining a lot of value recently and where there’s value, crime is never far behind. Recent ransomware attacks and previous compromises of large exchanges should be sufficient beacons to newcomers.&lt;/p&gt;
+
+&lt;p&gt;Even though you’ll not be storing a great deal of value on your hot wallet, it’s vital that you follow the backup steps within the restoration section of your wallet to avoid losing funds through human error. With your private key, and seed phrase intact, you should be able to restore any wallet painlessly enough.&lt;/p&gt;
+
+&lt;h2 id=&quot;pros-of-hot-storage&quot;&gt;Pros of hot storage&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Quick to access funds.&lt;/li&gt;
+  &lt;li&gt;A wide number of options, and support for different devices.&lt;/li&gt;
+  &lt;li&gt;User-friendly UIs make sending and receiving simple.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;cons-of-hot-storage&quot;&gt;Cons of hot storage&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Exposed to cybercrime. Sophisticated hackers, ransomware, and other malicious actors are a constant threat.&lt;/li&gt;
+  &lt;li&gt;Damaging the device could destroy the wallet. Without carefully backing up private keys, and seed words you could permanently lose your cryptocurrency investment.&lt;/li&gt;
+  &lt;li&gt;You could still lose/damage/have stolen the restoration details.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now let’s explore the different kinds of hot storage wallets that you can use.&lt;/p&gt;
+
+&lt;h1 id=&quot;online-wallets-aka-cloud-wallet&quot;&gt;Online Wallets aka Cloud Wallet&lt;/h1&gt;
+
+&lt;p&gt;These wallets are the easiest to use among all. The creation is super simple because it’s basically creating your own account on any of the exchange services. Furthermore, you can access this wallet from any server or any device in the world as long as it is connected to the net. Having said that, there is one big problem when it comes to online wallets. Your private key is going to be saved on another server. This is basically like serving up your key to hackers on a silver platter. Do NOT use online wallets to store huge amounts of your money. Store the bare minimum that you need for exchange purposes.&lt;/p&gt;
+
+&lt;h1 id=&quot;desktopmobile-wallets&quot;&gt;Desktop/Mobile Wallets&lt;/h1&gt;
+
+&lt;p&gt;Desktop or mobile wallets are also popular choices for a hot wallet. These represent a much better option in terms of security. Desktop wallets are downloaded and installed on a single PC or laptop and they are only accessible from that one device where it was downloaded. While it is a safer alternative than an online wallet, it can still be very inconvenient because you will not get access to your money unless you are on the device from which you downloaded the wallet. MultiBit and Armory are great examples of desktop wallets.&lt;/p&gt;
+
+&lt;p&gt;Mobile wallets are pretty convenient to use because all you need to do is to download an app into your phone.  MyCelium is a really popular app(for both Android and iPhone) that people use for their mobile wallets, CoPay is a great option as well.&lt;/p&gt;
+
+&lt;p&gt;The real problem with desktop/mobile wallets are the dangers associated with virus attacks. A hacker can easily put Trojans in your system to phish for your details. Apart from that, you can easily lose your cryptos if your desktop or mobile is damaged.&lt;/p&gt;
+
+&lt;h1 id=&quot;multi-signature-wallets&quot;&gt;Multi-Signature Wallets&lt;/h1&gt;
+
+&lt;p&gt;The easiest way of understanding how a multi-signature (multi-sig) wallet works like is by thinking of a safe which needs multiple keys to operate. A multi-signature wallet is great for 2 purposes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To create more security for your wallet and save yourself from human error.&lt;/li&gt;
+  &lt;li&gt;To create a more democratic wallet which can be used by one or more people.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How does multi-signature wallet save you from human error? Let’s take the example of BitGo, one of the premier multi-sig wallet service providers in the world. They issue 3 private keys. One is held by the company itself, one is held by the user and the third one is a backup that the user can keep for themselves or give to someone trustworthy for safe keeping To do any sort of transaction in a BitGo wallet you will need at least 2/3 keys to operate. So even if you have a hacker behind you, it will super difficult for them to get their hands on 2 private keys. And on top of that, even if you lose your private key for whatever reason, you still have that backup key that you had given to your friend.&lt;/p&gt;
+
+&lt;p&gt;Now, how does a multi-signature wallet create a more democratic environment? Imagine that you are working in a company with 10 people and you need 8 approvals in order to make a transaction. Using a software like Electrum you can simply create a custom multi-sig wallet with 10 keys. This way you can make seamless democratic transactions in your company.&lt;/p&gt;
+
+&lt;p&gt;Even with all its amazing features, at the end of the day, a multi-signature wallet is still a hot wallet so you must use it economically. The Bitfinex hack (more on it in a bit) happened despite the fact that it had multi-signature security. Plus, at the end of the day, the company whose wallet you are using still has one of the private keys. It completely depends on their ethics as to what they can do or not do to your funds.&lt;/p&gt;
+
+&lt;h1 id=&quot;risks-of-hot-storage&quot;&gt;Risks of Hot Storage&lt;/h1&gt;
+
+&lt;p&gt;Different hot wallets carry different security risks. The least secure are undoubtedly those hosted on Exchange sites. Leaving your currency where you bought it might seem like a great idea because “if it starts to crash, I can change it back to dollars quickly”. In reality, all you’re doing by leaving cryptos on an exchange is trusting an unlicensed entity with your money. They hold your private keys, and they ward off daily attacks. In the past, they’ve even succumbed to such threats. Exchanges are a huge target for criminals because they store a lot of value. If you’re day trading, this risk is part of the deal. If you’re holding long-term, you want to avoid it all together.&lt;/p&gt;
+
+&lt;p&gt;The Bitfinex hack is a great example of the dangers of hot storage. In early August 2016, the folks at Bitfinex noticed that several of their security measures were being compromised. Before long, over $72 million worth of BTC had been stolen by a hacker. It was so bad that the value of BTC fell 20% within a day:&lt;/p&gt;
+
+&lt;p&gt;So what do you do to your cryptocurrency to keep it safe from malicious attacks like this? You use cold storage. Let’s find out what that is all about.&lt;/p&gt;
+
+&lt;h1 id=&quot;cold-storage&quot;&gt;Cold Storage&lt;/h1&gt;
+
+&lt;p&gt;When you keep your currency in a device which is completely offline it’s called cold storage. For those seeking the most secure form of storage, cold wallets are the way to go. These are best suited to long-term holders, who don’t require access to their coins for months, or years at a time.&lt;/p&gt;
+
+&lt;p&gt;They aren’t without their own set of risks but if you follow the instructions correctly, and take every precaution possible, these are greatly minimized. Given the amount of attention that cryptocurrency has been receiving over the last few years, it has unfortunately piqued the interest of attackers. In the light of that, it’s a far more secure option to use cold storage as means of storing your money.&lt;/p&gt;
+
+&lt;p&gt;San Francisco-based bitcoin wallet and exchange service CoinBase holds up 97% of its coin reserves in hardware and paper wallets. What are hardware and paper wallets? You will get to know about it in a minute. For now, let’s check out the pros and cons of cold storage:&lt;/p&gt;
+
+&lt;h2 id=&quot;pros-of-cold-storage&quot;&gt;Pros of Cold Storage:&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- A great place to hold large amounts of coin for a long period of time.
+- Provides a safety net against hackers and people with malicious intent since it is completely offline.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;cons-of-cold-storage&quot;&gt;Cons of Cold Storage&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- It is still susceptible to external damage, theft and general human carelessness.
+- It is not ideal for quick and daily transactions.
+- Setting it up can be a little intimidating for beginners.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that we have seen both the pros and cons let’s take a look some cold storage wallets that you can use to store your coins&lt;/p&gt;
+
+&lt;h1 id=&quot;hardware-wallets&quot;&gt;Hardware wallets&lt;/h1&gt;
+
+&lt;p&gt;Hardware wallets are physical devices where you can store your cryptocurrency. They come in a few forms but the most common is the USB stick style typified by the Nano Ledger series. Although many swear by them, hardware wallets are still prone to compromise. Firstly, you’re trusting that the company who made your wallet hasn’t logged all the private keys with a plan to raid wallets in the future. This applies to those bought from the company themselves, but particularly if a hardware wallet has been acquired second hand. Under no circumstances should anyone ever use a pre-owned hardware wallet.&lt;/p&gt;
+
+&lt;p&gt;Although loss or damage can spell disaster for the unprepared, hardware wallets can be restored. Therefore, it’s just as important to back up your hardware wallet, as it is your online hot wallets. You should keep restoration details in a safe place that only you, and anyone you plan to leave the money to know about. Remember, your restoration details open the wallet. Think very carefully about who (if anyone) you share them with. It’s also vitally important that you transfer all coins to a new wallet, should something unfortunate happen between you and anyone else who knows your private keys (spouse, etc.)&lt;/p&gt;
+
+&lt;p&gt;Here are some hardware wallets that you can use:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- Ledger Nano S.
+- Trezor.
+- Keepkey.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;paper-wallets&quot;&gt;Paper wallets&lt;/h1&gt;
+
+&lt;p&gt;Without a doubt, the safest way to store any cryptocurrency is using a paper wallet. By following a few pointers below, you can set one up entirely for free. This truly makes you the master of your investment, and if precautions are followed, there’s no possibility of your private keys being known by anyone else. Of course, this means that keeping a record of them is even more important. Losing private keys means you’ll forfeit the entire contents of your paper wallet (but then again, that’s true for every wallet out there.)&lt;/p&gt;
+
+&lt;h1 id=&quot;what-is-a-paper-wallet&quot;&gt;What is a paper wallet?&lt;/h1&gt;
+
+&lt;p&gt;To keep it very simple, paper wallets are an offline cold storage method of saving cryptocurrency. It includes printing out your public and private keys on a piece of paper which you then store and save in a secure place. The keys are printed in the form of QR codes which you can scan in the future for all your transactions. The reason why it is so safe is that it gives complete control to you, the user. You do not need to worry about the well-being of a piece of hardware, nor do you have to worry about hackers or any piece of malware. You just need to take care of a piece of paper.&lt;/p&gt;
+
+&lt;h1 id=&quot;do-you-need-a-paper-wallet&quot;&gt;Do you need a paper wallet?&lt;/h1&gt;
+
+&lt;p&gt;The answer to this question will largely depend on your circumstances. If you plan to spend the summer day trading a few coins, perhaps you don’t. Alternatively, if you’re in for the long haul, and don’t intend to touch any portion of your stash, then a paper wallet is the most secure option available to you.&lt;/p&gt;
+
+&lt;h1 id=&quot;setting-up-a-paper-wallet&quot;&gt;Setting up a paper wallet&lt;/h1&gt;
+
+&lt;p&gt;Paper wallets are formed by using a program to randomly generate a public and private key. The keys will be unique, and the program that generates them is open source. Those with advanced knowledge of coding can check the backend of the program themselves for randomicity in results. What’s more, we’ll be generating our keys offline. This eradicates the exposure to online threats, and deleting the simple program after use will destroy any trace of them.&lt;/p&gt;
+
+&lt;p&gt;Don’t worry if it sounds confusing, it’s not. You’ll need no specific knowledge of coding, or encryption. All you do need is a computer, an internet connection, something to record your keys on.&lt;/p&gt;
+
+&lt;p&gt;Anyway, let’s create our paper wallet. Follow these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ensure your computer is entirely free from any form of malicious software. A brand-new computer would be ideal but is often not feasible.&lt;/li&gt;
+  &lt;li&gt;Visit the page &lt;a href=&quot;WalletGenerator.net&quot;&gt;WalletGenerator.net&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download the zip file by clicking here:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Once downloaded open the “index.html” file but before that make sure that your internet is off. This entire process is done to make sure that your wallet is hacker free.
+How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now it is time to generate your wallet. Keep hovering over the highlighted text and it will generate more characters. Or if you want, you can manually type in random characters. Just keep doing it until the counter goes to “0”.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The moment the count goes to zero your wallet will be generated.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Print the page or make multiple copies of the numbers from it. (Important: Ensure printer is not connected to Wi-Fi at this point).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Delete saved web page. You can now safely reconnect to the internet.&lt;/li&gt;
+  &lt;li&gt;Store your private keys in their long term, private, secure home.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;setting-up-a-paper-wallet-for-ethereum&quot;&gt;Setting up a paper wallet for Ethereum&lt;/h1&gt;
+
+&lt;p&gt;Now if you notice the list of cryptocurrencies supported by walletgenerator, you will see that Ethereum is missing from the list. So, what do you need to do to create a paper wallet for Ethereum? It is really easy, just follow these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First, go to &lt;a href=&quot;MyEtherWallet.com&quot;&gt;MyEtherWallet.com&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Next, click on the help tab.
+How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Scroll down and click on option 5:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Now open the link highlighted here:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;After that download this zip file into your computer:&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Now open the zip file in your computer and click on the index.html file. Before doing that, switch off your internet so that you are offline.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Now create a new password and generate your wallet, be sure that you are putting in a strong password:
+Now you will have to download your keystore file which is basically your wallet file. Be sure to keep a backup of this file. - After you are done with that click on “I understand. Continue.”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;And there you go, your wallet has been generated. What you see here is your private key. DO NOT share this with anyone.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;cryptocurrency is so hot right now. Bitcoin’s price has been climbing for the better part of a year, topping $2,000 per coin for the first time in May, and rising to a record high above $2,500 — before dropping down just above $2,400 a coin as of Friday afternoon, per CoinDesk. Those numbers mean nothing to you? This one might: If you had made a small investment in bitcoin back in 2010 — buying just $100 worth, when each unit was worth a fraction of a cent — your stash would be valued today at more than $70 million. Talk about an early retirement! Even if you had been late to the party and bought bitcoin last year, you would be feeling pretty good. At one point, bitcoin prices were up roughly 180% for the year, as CNBC reported. Compare that with the broad stock market, which returned between 7.9% and 15%, depending on which index you look at.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You should now print your wallet by clicking on the “Print” button. This is what you will get. Notice that you can see both your private and public keys here:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+
+&lt;p&gt;And there you go. That is how you create an Ethereum paper wallet.&lt;/p&gt;
+
+&lt;h1 id=&quot;paper-wallet-risks&quot;&gt;Paper wallet risks&lt;/h1&gt;
+
+&lt;p&gt;While paper wallets substantially decrease the threat of compromise from the virtual world, they aren’t without their own set of risks.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Coercion&lt;/strong&gt;: There are always going to be people willing to break the law to get at something valuable. Just as crooks tear off in Lamborghinis after raiding a property, so too might they stumble upon your safe. They don’t know what’s in there but presumably, it’s valuable. Anyway, you get where this is going, and the moral of the story is simple: don’t go bragging about your crypto investments. It doesn’t matter if it’s online, or in person, it’s never a clever idea. Don’t make yourself a target.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Fragility&lt;/strong&gt;: At the end of the day, it is still paper. Paper can be easily damaged or it can get worn out over time. This is why you should always make multiple backups.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Stealing&lt;/strong&gt;: Since it is written on a piece of paper, anyone who can read it or take a photograph of it can steal your money.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Not immune to disasters&lt;/strong&gt;: It is just a piece of paper, it is not immune to natural disasters and can easily be destroyed if you have not taken any backups.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Type of printer used&lt;/strong&gt;: The quality of printer used can also have a detrimental effect. Non-laser printers may cause the ink to run if the paper gets wet.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Human Errors&lt;/strong&gt;: Humans are prone to mistakes and you can simply forget the location of your paper or accidentally tear it.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;importance-of-private-keys-and-restoration-methods&quot;&gt;Importance of private keys and restoration methods&lt;/h1&gt;
+
+&lt;p&gt;In the same way that we’ve mentioned restoration details previously, the private key to your paper wallet is its single most important detail. You must guard it with your life. If you lose it, you lose your money. It’s as simple as that. Then you should get it tattooed on your chest, right? Well, no. As well providing you access to your funds when you need them, anyone with the key can also get at them. It must be kept totally secret.&lt;/p&gt;
+
+&lt;p&gt;Owing to their importance, it’s wise to store your paper wallet in multiple secure locations. This will help alleviate against certain “acts of God” – think Hurricane, sudden evacuation, or similar. However, the more locations you use to store your keys, the higher the risk of compromise.&lt;/p&gt;
+
+&lt;h1 id=&quot;under-lock-and-key&quot;&gt;Under lock and key&lt;/h1&gt;
+
+&lt;p&gt;Some prefer to store their private keys in a physical location. A safe is usually favored for this. Only those allowed access to the funds must know the combination (and preferably existence) of your security box. Of course, small home safe deposit boxes are often much less durable than they’re made out to be, and will usually be a target for home invaders. If you have sole access to a high-quality safe, you should use this, otherwise risking a lower end model may be your best option. Either way, only those who have ownership of the coins stored on the paper wallet must know the combination to the lock.
+Cloud-Based Storage&lt;/p&gt;
+
+&lt;p&gt;In the (very near) future, self-encrypting, decentralized “cloud” based storage will likely be an option. Its reliability remains to be tested but it could alleviate warranted concerns over storing private keys digitally. Like exchanges, existing cloud-based storage services are hackable, and can fall victim to malicious attacks. Storing your most sensitive documents is usually not recommended. However, it’s possible to encrypt the data yourself and store it online. By encrypting it, you limit the number of people who can view a document in its raw state. Uploading an encrypted version of a private key to the web is a suitable option for some.&lt;/p&gt;
+
+&lt;h5 id=&quot;engraving-into-metal&quot;&gt;Engraving Into Metal&lt;/h5&gt;
+
+&lt;p&gt;You may also choose to engrave the keys to a metal and keep it safe somewhere. The quality of the metal that you choose will be paramount here because over time a low-quality metal may deteriorate very fast.&lt;/p&gt;
+
+&lt;h4 id=&quot;memory&quot;&gt;Memory&lt;/h4&gt;
+
+&lt;p&gt;It should go without saying that this isn’t ideal. It is possible and incredibly secure (potentially too secure) but the practical barrier of remembering 64 unique characters will discourage the majority. While I am sure there are some who favor this method. It is certainly not recommended.&lt;/p&gt;
+
+&lt;p&gt;Things to remember when considering storing private keys&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Only those that have access to the funds stored must have access to the private keys.&lt;/li&gt;
+  &lt;li&gt;Most ways of practically recording private keys are potentially lost. Think, fire, theft, water damage. If you can engrave metals yourself and can store it in a high-quality safe, this is ideal.&lt;/li&gt;
+  &lt;li&gt;Multiple safe locations are better than one. Additional locations must not compromise security.&lt;/li&gt;
+  &lt;li&gt;All storage has risks. Minimize them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;restoring-a-cold-storage-wallet&quot;&gt;Restoring a cold storage wallet&lt;/h1&gt;
+
+&lt;p&gt;When you want to bring your cryptocurrency back out of cold storage, you need to import the private key into a suitable online wallet. Any wallet which supports importing private keys will work. The process is simple and intuitive for most wallets. The steps we have given below correspond to using the Bitcoin Unlimited wallet.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Open the client and click on “Help”.&lt;/li&gt;
+  &lt;li&gt;Select the Debug Window and click on the Console tab.&lt;/li&gt;
+  &lt;li&gt;Type in the field “importprivkey&lt;private key=&quot;&quot;&gt;” replace &lt;private key=&quot;&quot;&gt; with your private key and the remove quotation marks.&lt;/private&gt;&lt;/private&gt;&lt;/li&gt;
+  &lt;li&gt;Hit enter.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This will import all the data from your paper wallet to your online desktop client. Remember, you are now exposed to all the security risks that exist with hot wallets. It’s not recommended that you keep an amount of crypto in such storage for any more than the minimum time possible. If you’re trading to another crypto, or fiat do some immediately and then store appropriately. If you were using a portion of your balance to make a payment, and want the rest to return to cold storage, it is now recommended that you set up an entirely new paper wallet. Consider your original storage solution compromised.&lt;/p&gt;
+
+&lt;h1 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h1&gt;
+
+&lt;p&gt;Setting up a cold wallet is a straightforward way to help alleviate third-party risks associated with most other cryptocurrency storage methods. While no method is entirely free from threat, storing coins offline drastically reduces the chances of losing your investment through digital means – exchange compromise, exchange insolvency, ransomware attacks, other cybercriminal operations. It is still as important as ever to remain vigilant of real-world threats such as loss, theft, or damage of private keys. Always protect your private keys, and ensure to replace them (setup new cold storage) immediately if there is any indication that their privacy may have become compromised.&lt;/p&gt;
+
+&lt;p&gt;The best solution is diversification. As the old saying goes, “Do not keep all your eggs in one basket.” Always diversify. Keep a portion of your currency (a major portion), in paper wallets and have lots of backups to ensure that you are not going to get screwed. Keep some in hardware wallets and if you really must, keep a few in a hot wallet as well so that you can do quick transactions. Having said that, make sure that most of your money is in cold storage.&lt;/p&gt;
+
+&lt;p&gt;Remember, it is no one else’s responsibility to ensure your crypto investments are kept safe. You are your own master here. Do not take short cuts, and do not underestimate the importance of security. Plenty of people have already been frivolous enough to lose access to their cryptocurrencies through their own fault and others. Minimizing the risks effectively will drastically decrease the chances of you joining this number.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="blog" /><summary type="html">What is a cryptocurrency wallet?</summary></entry><entry><title type="html">Writable nested serializer with existing objects using Django Rest Framework 3.2.2”</title><link href="http://localhost:4000/2018/05/27/serialization-in-django-rest-framework/" rel="alternate" type="text/html" title="Writable nested serializer with existing objects using Django Rest Framework 3.2.2”" /><published>2018-05-27T00:00:00+03:00</published><updated>2018-05-27T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/27/serialization-in-django-rest-framework</id><content type="html" xml:base="http://localhost:4000/2018/05/27/serialization-in-django-rest-framework/">&lt;p&gt;Note: The code for this tutorial is available in the &lt;a href=&quot;https://github.com/encode/rest-framework-tutorial&quot;&gt;tomchristie/rest-framework-tutorial&lt;/a&gt; repository on GitHub. The completed implementation is also online as a sandbox version for testing, &lt;a href=&quot;https://restframework.herokuapp.com/&quot;&gt;available here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;setting-up-a-new-environment&quot;&gt;Setting up a new environment&lt;/h1&gt;
 
@@ -764,276 +1145,4 @@ export PATH=$PATH:/usr/local/sbin
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rabbitmq-server&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/2018/03/07/how-to-reset-migrations-in-django/&quot;&gt;Read Part 2&lt;/a&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><category term="blog" /><summary type="html">Table of Contents Why Should I Use Celery? Installation Installing RabbitMQ on Ubuntu 16.04 Installing RabbitMQ on Mac Installing RabbitMQ on Windows and Other OSs Celery Basic Setup Creating Our First Celery Task Starting The Worker Process Managing The Worker Process in Production with Supervisord</summary></entry><entry><title type="html">How to Use Celery and RabbitMQ with Django - PART 2</title><link href="http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-2/" rel="alternate" type="text/html" title="How to Use Celery and RabbitMQ with Django - PART 2" /><published>2018-04-26T00:00:00+03:00</published><updated>2018-04-26T00:00:00+03:00</updated><id>http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-2</id><content type="html" xml:base="http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-2/">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
-&lt;ul&gt;
-	&lt;li&gt;Installing RabbitMQ on Windows and Other OSs&lt;/li&gt;
-	&lt;li&gt;Celery Basic Setup&lt;/li&gt;
-	&lt;li&gt;Creating Our First Celery Task&lt;/li&gt;
-	&lt;li&gt;Starting The Worker Process&lt;/li&gt;
-	&lt;li&gt;Managing The Worker Process in Production with Supervisor&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;installing-rabbitmq-on-windows-and-other-oss&quot;&gt;Installing RabbitMQ on Windows and Other OSs&lt;/h1&gt;
-&lt;p&gt;Unfortunately I don’t have access to a Windows computer to try things out, but you can find the installation guide for &lt;a href=&quot;https://www.rabbitmq.com/install-windows.html&quot;&gt;Windows on RabbitMQ’s Website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;For other operating systems, check the Downloading and Installing &lt;a href=&quot;https://www.rabbitmq.com/download.html&quot;&gt;RabbitMQ on their Website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;celery-basic-setup&quot;&gt;Celery Basic Setup&lt;/h1&gt;
-&lt;p&gt;First, consider the following Django project named mysite with an app named core:&lt;/p&gt;
-
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	mysite/
-	 |-- mysite/
-	 |    |-- core/
-	 |    |    |-- migrations/
-	 |    |    |-- templates/
-	 |    |    |-- apps.py
-	 |    |    |-- models.py
-	 |    |    +-- views.py
-	 |    |-- templates/
-	 |    |-- __init__.py
-	 |    |-- settings.py
-	 |    |-- urls.py
-	 |    +-- wsgi.py
-	 |-- manage.py
-	 +-- requirements.txt
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Add the &lt;code class=&quot;highlighter-rouge&quot;&gt;CELERY_BROKER_URL&lt;/code&gt; configuration to the &lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt; file:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CELERY_BROKER_URL = 'amqp://localhost'&lt;/code&gt;
-Alongside with the &lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;urls.py&lt;/code&gt; files, let’s create a new file named&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;celery.py&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-	&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;celery&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Celery&lt;/span&gt;
-
-	&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setdefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'DJANGO_SETTINGS_MODULE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'mysite.settings'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Celery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mysite'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config_from_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'django.conf:settings'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'CELERY'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;autodiscover_tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;__init__.py&lt;/code&gt; file in the project root:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;__init__.py&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.celery&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;celery_app&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;__all__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'celery_app'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This will make sure our Celery app is important every time Django starts.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;creating-our-first-celery-task&quot;&gt;Creating Our First Celery Task&lt;/h1&gt;
-&lt;p&gt;We can create a file named tasks.py inside a Django app and put all our Celery tasks into this file. The Celery app we created in the project root will collect all tasks defined across all Django apps listed in the &lt;code class=&quot;highlighter-rouge&quot;&gt;INSTALLED_APPS&lt;/code&gt; configuration.&lt;/p&gt;
-
-&lt;p&gt;Just for testing purpose, let’s create a Celery task that generates a number of random User accounts.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;core/tasks.py&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;string&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib.auth.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.utils.crypto&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_random_string&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;celery&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shared_task&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@shared_task&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_random_user_accounts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'user_{}'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_random_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ascii_letters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'{}@example.com'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_random_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'{} random users created with success!'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;important&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bits&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;are&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;celery&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;shared_task&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@shared_task&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;name_of_your_function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optional_param&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;  &lt;span class=&quot;c&quot;&gt;# do something heavy&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Then&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;I&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;view&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Celery&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;forms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;py&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;forms&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.core.validators&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MinValueValidator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MaxValueValidator&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenerateRandomUserForm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;forms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IntegerField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;validators&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;MinValueValidator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;MaxValueValidator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Then your view:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;views.py&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib.auth.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;messages&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.views.generic.edit&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FormView&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.shortcuts&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.forms&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GenerateRandomUserForm&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.tasks&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create_random_user_accounts&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenerateRandomUserView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FormView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;template_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'core/generate_random_users.html'&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;form_class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GenerateRandomUserForm&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;form_valid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cleaned_data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'total'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;create_random_user_accounts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;messages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'We are generating your random users! Wait a moment and refresh this page.'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'users_list'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The important bit is here:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;create_random_user_accounts.delay(total)&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Instead of calling the &lt;code class=&quot;highlighter-rouge&quot;&gt;create_random_user_accounts&lt;/code&gt; directly, I’m calling &lt;code class=&quot;highlighter-rouge&quot;&gt;create_random_user_accounts.delay()&lt;/code&gt;. This way we are instructing Celery to execute this function in the background.&lt;/p&gt;
-
-&lt;p&gt;Then Django keep processing my view &lt;code class=&quot;highlighter-rouge&quot;&gt;GenerateRandomUserView&lt;/code&gt; and returns smoothly to the user.&lt;/p&gt;
-
-&lt;p&gt;But before you try it, check the next section to learn how to start the Celery worker process.&lt;/p&gt;
-
-&lt;h1 id=&quot;starting-the-worker-process&quot;&gt;Starting The Worker Process&lt;/h1&gt;
-&lt;p&gt;Open a new terminal tab, and run the following command:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;celery -A mysite worker -l info&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Now we can test it. I submitted 500 in my form to create 500 random users.&lt;/p&gt;
-
-&lt;p&gt;The response is immediate:&lt;/p&gt;
-
-&lt;p&gt;Meanwhile, checking the Celery Worker Process:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2017-08-20 19:11:17,485: INFO/MainProcess] Received task:
-mysite.core.tasks.create_random_user_accounts[8799cfbd-deae-41aa-afac-95ed4cc859b0]
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Then after a few seconds, if we refresh the page, the users are there:&lt;/p&gt;
-
-&lt;p&gt;If we check the Celery Worker Process again, we can see it completed the execution:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2017-08-20 19:11:45,721: INFO/ForkPoolWorker-2] Task
-mysite.core.tasks.create_random_user_accounts[8799cfbd-deae-41aa-afac-95ed4cc859b0] succeeded &lt;span class=&quot;k&quot;&gt;in
-&lt;/span&gt;28.225658523035236s: &lt;span class=&quot;s1&quot;&gt;'500 random users created with success!'&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;managing-the-worker-process-in-production-with-supervisor&quot;&gt;Managing The Worker Process in Production with Supervisor&lt;/h1&gt;
-&lt;p&gt;If you are deploying your application to a VPS like &lt;a href=&quot;https://m.do.co/c/074832454ff1&quot;&gt;DigitalOcean&lt;/a&gt; you will want to run the worker process in the background. In my tutorials I like to use Supervisord to manage the Gunicorn workers, so it’s usually a nice fit with Celery.&lt;/p&gt;
-
-&lt;p&gt;First install it (on Ubuntu):&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt-get install supervisor&lt;/code&gt;
-Then create a file named &lt;strong&gt;mysite-celery.conf&lt;/strong&gt; in the folder: &lt;strong&gt;/etc/supervisor/conf.d/mysite-celery.conf&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;program:mysite-celery]
-&lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/mysite/bin/celery worker &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt; mysite &lt;span class=&quot;nt&quot;&gt;--loglevel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;INFO
-&lt;span class=&quot;nv&quot;&gt;directory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/mysite/mysite
-&lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nobody
-&lt;span class=&quot;nv&quot;&gt;numprocs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
-&lt;span class=&quot;nv&quot;&gt;stdout_logfile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/mysite/logs/celery.log
-&lt;span class=&quot;nv&quot;&gt;stderr_logfile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/mysite/logs/celery.log
-&lt;span class=&quot;nv&quot;&gt;autostart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;autorestart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true
-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;startsecs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;10
-
-&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Need to &lt;span class=&quot;nb&quot;&gt;wait &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;currently executing tasks to finish at shutdown.
-&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Increase this &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;you have very long running tasks.
-stopwaitsecs &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 600
-
-&lt;span class=&quot;nv&quot;&gt;stopasgroup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Set Celery priority higher than default &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;999&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; so, &lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;rabbitmq is supervised, it will start first.
-&lt;span class=&quot;nv&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1000
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;In the example below, I’m considering my Django project is inside a virtual environment. The path to my virtual environment is &lt;strong&gt;/home/mysite/&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now reread the configuration and add the new process:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;supervisorctl reread
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;supervisorctl update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;If you are not familiar with deploying Django to a production server and working with Supervisor, maybe this part will make more sense if you check this post from the blog: &lt;a href=&quot;https://simpleisbetterthancomplex.com/tutorial/2016/10/14/how-to-deploy-to-digital-ocean.html&quot;&gt;How to Deploy a Django Application to Digital Ocean&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><category term="blog" /><summary type="html">Table of Contents Installing RabbitMQ on Windows and Other OSs Celery Basic Setup Creating Our First Celery Task Starting The Worker Process Managing The Worker Process in Production with Supervisor</summary></entry><entry><title type="html">How to Use Celery and RabbitMQ with Django - Part 1</title><link href="http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-1/" rel="alternate" type="text/html" title="How to Use Celery and RabbitMQ with Django - Part 1" /><published>2018-04-26T00:00:00+03:00</published><updated>2018-04-26T00:00:00+03:00</updated><id>http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-1</id><content type="html" xml:base="http://localhost:4000/2018/04/26/how-to-use-celery-with-django-part-1/">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
-&lt;ul&gt;
-	&lt;li&gt;Why Should I Use Celery?&lt;/li&gt;
-	&lt;li&gt;Installation&lt;/li&gt;
-	&lt;li&gt;Installing RabbitMQ on Ubuntu 16.04&lt;/li&gt;
-	&lt;li&gt;Installing RabbitMQ on Mac&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Why Should I Use Celery?&lt;/h2&gt;
-&lt;p&gt;Web applications works with request and response cycles. When the user access a certain URL of your application the Web browser send a request to your server. Django receive this request and do something with it. Usually it involves executing queries in the database, processing data. While Django does his thing and process the request, the user have to wait. When Django finalize its job processing the request, it sends back a response to the user who finally will see something.&lt;/p&gt;
-
-&lt;p&gt;Ideally this request and response cycle should be fast, otherwise we would leave the user waiting for way too long. And even worse, our Web server can only serve a certain number of users at a time. So, if this process is slow, it can limit the amount of pages your application can serve at a time.&lt;/p&gt;
-
-&lt;p&gt;For the most part we can work around this issue using cache, optimizing database queries, and so on. But there are some cases that theres no other option: the heavy work have to be done. A report page, export of big amount of data, video/image processing are a few examples of cases where you may want to use Celery.&lt;/p&gt;
-
-&lt;p&gt;We don’t use Celery through the whole project, but only for specific tasks that are time-consuming. The idea here is to respond to the user as quick as possible, and pass the time-consuming tasks to the queue so to be executed in the background, and always keep the server ready to respond to new requests.&lt;/p&gt;
-
-&lt;h1 id=&quot;installation&quot;&gt;Installation&lt;/h1&gt;
-&lt;p&gt;The easiest way to install Celery is using pip:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pip install Celery&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Now we have to install RabbitMQ.&lt;/p&gt;
-
-&lt;h1 id=&quot;installing-rabbitmq-on-ubuntu-1604&quot;&gt;Installing RabbitMQ on Ubuntu 16.04&lt;/h1&gt;
-&lt;p&gt;To install it on a newer Ubuntu version is very straightforward:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install -y erlang&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install rabbitmq-server&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Then enable and start the RabbitMQ service:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable rabbitmq-server&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl start rabbitmq-server&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Check the status to make sure everything is running smooth:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl status rabbitmq-server&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Installing RabbitMQ on Mac
-Homebrew is the most straightforward option:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;brew install rabbitmq&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;The RabbitMQ scripts are installed into &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/sbin&lt;/code&gt;. You can add it to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash_profile&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;.profile&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.bash_profile&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Then add it to the bottom of the file:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
-export PATH=$PATH:/usr/local/sbin
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Restart the terminal to make sure the changes are in effect.&lt;/p&gt;
-
-&lt;p&gt;Now you can start the RabbitMQ server using the following command:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rabbitmq-server&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/2018/04/26/how-to-use-celery-with-django-part-2/&quot;&gt;Continue To Read Part 2&lt;/a&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><category term="blog" /><summary type="html">Table of Contents Why Should I Use Celery? Installation Installing RabbitMQ on Ubuntu 16.04 Installing RabbitMQ on Mac</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/2018/03/07/how-to-reset-migrations-in-django/&quot;&gt;Read Part 2&lt;/a&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><category term="blog" /><summary type="html">Table of Contents Why Should I Use Celery? Installation Installing RabbitMQ on Ubuntu 16.04 Installing RabbitMQ on Mac Installing RabbitMQ on Windows and Other OSs Celery Basic Setup Creating Our First Celery Task Starting The Worker Process Managing The Worker Process in Production with Supervisord</summary></entry></feed>

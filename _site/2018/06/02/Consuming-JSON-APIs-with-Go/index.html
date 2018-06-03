@@ -247,7 +247,21 @@ on <a href="/tag/tutorial/" class="flip-title">Tutorials</a>
   </header>
 
   
-    <p>numverify.go</p>
+    <p>To authenticate with the numverify API, simply attach your access_key to the base endpoint URL:</p>
+
+<p><code class="highlighter-rouge">http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY</code></p>
+
+<p>In addition to the “access_key” parameter, there is only one required parameter (“number”) to start validating phone numbers.</p>
+
+<p>Type the following in your browser window:</p>
+
+<p><code class="highlighter-rouge">http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&amp;number=41443607070</code></p>
+
+<p>The API response is returned in JSON format.</p>
+
+<p>Show format here</p>
+
+<p>numverify.go</p>
 
 <p>JSON-to-Go is an excellent tool that instantly converts JSON into a Go type definition. Using it, I get:</p>
 
