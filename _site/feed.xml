@@ -1,5 +1,541 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-06-03T09:31:22+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
-</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">How To Install and Use Docker on Ubuntu 16.04</title><link href="http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/" rel="alternate" type="text/html" title="How To Install and Use Docker on Ubuntu 16.04" /><published>2018-06-03T00:00:00+03:00</published><updated>2018-06-03T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/03/How%20To%20Install%20and%20Use%20Docker%20on%20Ubuntu%2016.04%20.md</id><content type="html" xml:base="http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-06-26T09:39:43+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
+</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html"></title><link href="http://localhost:4000/2018/06/26/2018-07-06-How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04/" rel="alternate" type="text/html" title="" /><published>2018-06-26T09:39:43+03:00</published><updated>2018-06-26T09:39:43+03:00</updated><id>http://localhost:4000/2018/06/26/2018-07-06-How-%20to-%20Install-and-%20Configure%20-GitLab-%20-on%20-Ubuntu-%2016.04</id><content type="html" xml:base="http://localhost:4000/2018/06/26/2018-07-06-How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04/">&lt;p&gt;GitLab is available in four editions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gitlab CE (Community Edition) - self-hosted, free and support from the Community forum.&lt;/li&gt;
+  &lt;li&gt;Gitlab EE (Enterprise Edition) - self-hosted, paid app, comes with additional features.&lt;/li&gt;
+  &lt;li&gt;GitLab.com - SaaS, free.&lt;/li&gt;
+  &lt;li&gt;GitLab.io - Private GitLab instance managed by GitLab Inc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In this tutorial, I will show you step-by-step how to install GitLab CE (Community Edition) on your own Ubuntu 16.04 Xenial Xerus server. In this tutorial, I will be using the ‘omnibus’ package provided by GitLab for easy installation.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-we-will-do&quot;&gt;What we will do:&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Install Packages&lt;/li&gt;
+  &lt;li&gt;Install GitLab&lt;/li&gt;
+  &lt;li&gt;Configure GitLab URL&lt;/li&gt;
+  &lt;li&gt;Generate SSL Let’s encrypt and DHPARAM Certificate&lt;/li&gt;
+  &lt;li&gt;Enable Nginx HTTPS for GitLab&lt;/li&gt;
+  &lt;li&gt;Configure UFW Firewall&lt;/li&gt;
+  &lt;li&gt;Perform the GitLab Installation&lt;/li&gt;
+  &lt;li&gt;Testing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ubuntu 16.04 Server - 64bit&lt;/li&gt;
+  &lt;li&gt;Min RAM 2GB&lt;/li&gt;
+  &lt;li&gt;Root Privileges&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;step-1---install-required-ubuntu-packages&quot;&gt;Step 1 - Install required Ubuntu Packages&lt;/h1&gt;
+
+&lt;p&gt;The first step is to install the packages needed for the GitLab installation. Please log in to the server as root user and upddate the Ubuntu repository.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh root@GitLabServer
+apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now install the packages including curl for downloading the GitLab repository, ca-certificates, and postfix for the SMTP configuration.&lt;/p&gt;
+
+&lt;p&gt;Install all packages with the apt command below.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install curl openssh-server ca-certificates postfix&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;During postfix installation, you will be prompted about the configuration, select ‘Internet Site’.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-1.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;and then enter the server domain name that shall be used for sending an email.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-2.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;step-2---install-gitlab&quot;&gt;Step 2 - Install Gitlab&lt;/h1&gt;
+
+&lt;p&gt;In this step, we will install GitLab using the omnibus packages. Omnibus will install all packages, services, and tools required for running GitLab on your server.&lt;/p&gt;
+
+&lt;p&gt;Add GitLab repository with the curl command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-term.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And then install GitLab CE Community Edition with the apt command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install gitlab-ce&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Wait for the server to download and install the gitlab package. When the installation is complete, you will see the results as below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-nano.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;step-3---configure-gitlab-main-url&quot;&gt;Step 3 - Configure Gitlab Main URL&lt;/h1&gt;
+
+&lt;p&gt;Now we should configure the URL that will be used to access our GitLab server. I will use the domain name ‘gitlab.hakase-labs.co’ for the GitLab URL here (please choose your own domain name) and I’ll use HTTPS for users access security.&lt;/p&gt;
+
+&lt;p&gt;The main configuration of GitLab is in the ‘/etc/gitlab’ directory. Go to that directory and edit the configuration file ‘gitlab.rb’ with vim.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd /etc/gitlab&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim gitlab.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In the GitLab configuration go to line 9 ‘external_url’ and change the URL to your URL ‘gitlab.hakase-labs.co’.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;external_url 'http://gitlab.hakase-labs.co'&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Save the file and exit the editor. In the next step will enable HTTPS for GitLab.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-r.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;step-4---generate-ssl-lets-encrypt-and-dhparam-certificate&quot;&gt;Step 4 - Generate SSL Let’s encrypt and DHPARAM Certificate&lt;/h1&gt;
+
+&lt;p&gt;In this step, we will enable the HTTPS protocol for GitLab. I will use a free SSL certificates provided by let’s encrypt for the gitlab domain name.&lt;/p&gt;
+
+&lt;p&gt;Install letsencrypt command-line tool with apt command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install letsencrypt -y&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;When the installation is complete, generate a new certificate for the gitlab domain name with the command below.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;letsencrypt certonly -d gitlab.hakase-labs.co&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Enter your email address for the SSL certificate renew notification.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-image.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Choose ‘Agree’ for the Let’s Encrypt Terms of Services and wait.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-image-2.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When it’s done, you will see the result below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-0.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;New Let’s encrypt certificate files for GitLab have been generated. You can find the certificate files in the ‘/etc/letsencrypt/live’ directory.&lt;/p&gt;
+
+&lt;p&gt;Next, create a new directory named ‘ssl’ under the GitLab configuration directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir -p /etc/gitlab/ssl/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And generate dhparam pem files in the ssl directory with the openssl command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo openssl dhparam -out /etc/gitlab/ssl/dhparams.pem 2048&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-8.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now change the permissions of the certificate files to 600.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod 600 /etc/gitlab/ssl/*&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The SSL Let’s encrypt cert for GitLab and the DHPARAM certificate has been generated.&lt;/p&gt;
+
+&lt;h1 id=&quot;step-5---enable-nginx-https-for-gitlab&quot;&gt;Step 5 - Enable Nginx HTTPS for GitLab&lt;/h1&gt;
+
+&lt;p&gt;At this stage, we have the certificate files from Letsencrypt in ‘/etc/letsencrypt/live’ directory and the DHPARAM certificate in the ‘/etc/gitlab/ssl’ directory.&lt;/p&gt;
+
+&lt;p&gt;In this step, we will configure a GitLab to use our certificate files. Go to the ‘/etc/gitlab’ directory, then edit ‘gitlab.rb’ configuration with vim.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /etc/gitlab/
+vim gitlab.rb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Change the external url to use ‘https’ instead of ‘http’.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;external_url 'https://gitlab.hakase-labs.co'&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then add the new SSL configuration for gitlab as below.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+nginx[&lt;span class=&quot;s1&quot;&gt;'redirect_http_to_https'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true
+&lt;/span&gt;nginx[&lt;span class=&quot;s1&quot;&gt;'ssl_certificate'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/etc/letsencrypt/live/gitlab.hakase-labs.co/fullchain.pem&quot;&lt;/span&gt;
+nginx[&lt;span class=&quot;s1&quot;&gt;'ssl_certificate_key'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/etc/letsencrypt/live/gitlab.hakase-labs.co/privkey.pem&quot;&lt;/span&gt;
+nginx[&lt;span class=&quot;s1&quot;&gt;'ssl_dhparam'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/etc/gitlab/ssl/dhparams.pem&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+We will enable HTTP to HTTPS redirect in gitlab.gitlab-las.png
+
+Save the file and exit vim.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-las.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we need to run the command below as root to apply the new gitlab configuration.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo gitlab-ctl reconfigure&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You will see the results as below.
+&lt;img src=&quot;../assets/blog-img/gitlab-90.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;HTTPS Configuration for GitLab has been completed.&lt;/p&gt;
+
+&lt;h1 id=&quot;step-6---configure-ufw-firewall&quot;&gt;Step 6 - Configure UFW Firewall&lt;/h1&gt;
+
+&lt;p&gt;In this step, we will enable the UFW firewall. It’s already installed on the system, we just need to start the service. We will run GitLab behind the UFW firewall, so we must open the HTTP and HTTPS ports.&lt;/p&gt;
+
+&lt;p&gt;Enable UFW firewall with the command below.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw enable&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The command will run ufw service and add it to start automatically at the boot time.&lt;/p&gt;
+
+&lt;p&gt;Next, open new ports ssh, HTTP, and HTTPS.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	ufw allow ssh
+	ufw allow http
+	ufw allow https
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-21.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now check the firewall status and make sure ssh, http, and https ports is on the list.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;HTTP and HTTPS ports are configured.&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author></entry><entry><title type="html"></title><link href="http://localhost:4000/2018/06/26/2018-07-06-How-to-create-your-first-Django-library/" rel="alternate" type="text/html" title="" /><published>2018-06-26T09:39:43+03:00</published><updated>2018-06-26T09:39:43+03:00</updated><id>http://localhost:4000/2018/06/26/2018-07-06-How%20to%20create%20your%20first%20Django%20library</id><content type="html" xml:base="http://localhost:4000/2018/06/26/2018-07-06-How-to-create-your-first-Django-library/">&lt;h1 id=&quot;contents&quot;&gt;Contents&lt;/h1&gt;
+
+&lt;h3 id=&quot;how-to-create-your-first-django-library&quot;&gt;How to create your first Django library&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Create your application&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Packaging&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Way to run tests without projects&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Use tox
+        &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On the end, the layout of the package will be like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;django-myapp
+|-- __init__.py
+|-- MANIFEST.in
+|-- README.rst
+|-- LICENSE
+|-- setup.py
+|-- test_settings.py
+|-- myapp
+|   |-- __init__.py
+|   |-- models.py
+|   |-- views.py
+|   &lt;span class=&quot;sb&quot;&gt;`-- tests.py
+`&lt;/span&gt;-- tox.ini
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Whole example project described on this page is on Github: &lt;a href=&quot;https://github.com/hirokiky/django-myapp&quot;&gt;django-myapp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This guide includes about packaging or python environments. If you have created couple of python libraries, you can skip over some steps to &lt;a href=&quot;http://hirokiky.org/tech/create_django_library.html#way-to-run-django-app-tests&quot;&gt;3. Way to run tests without projects&lt;/a&gt;. But at least, I expect you to finish the tutorial of &lt;a href=&quot;https://docs.djangoproject.com/&quot;&gt;django’s document&lt;/a&gt; and create some apps.&lt;/p&gt;
+
+&lt;h1 id=&quot;1-create-your-application&quot;&gt;1. Create your application&lt;/h1&gt;
+
+&lt;p&gt;When you create third-party library, you won’t need to create a project. Just create your application by using startapp sub-command. But wait. you will distribute this application, so you need a parent directory to package it like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;django-myapp
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;django-myapp
+django-admin.py startapp myapp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;OK, just it. Write your codes as same as way you learned at tutorial. “Can’t run tests”…? Yeah, I know it. and I’ll show you about it later.&lt;/p&gt;
+
+&lt;p&gt;And you need to write README and LICENSE file to describe about your package. I won’t use packages without README or documentation:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;README.rst
+&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;LICENSE
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Also It’s good idea to manage packages by using some VCS like git:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git init&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;2-packaging&quot;&gt;2. Packaging&lt;/h1&gt;
+
+&lt;p&gt;To distribute your app/lib, make it as a package. Just thing you need to do is putting setup.py file under the django-myapp directory meaning next to myapp directory.&lt;/p&gt;
+
+&lt;p&gt;The contents of this file will contain information about your package, name, version, description, required packages, and so on:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;setuptools&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abspath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__file__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;README&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;here&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'README.rst'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'django-myapp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'0.1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;packages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'myapp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A line of description'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;long_description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;README&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'yourname'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;author_email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'yourname@example.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'https://github.com/yourname/django-myapp/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;license&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'MIT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;install_requires&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'Django&amp;gt;=1.6,&amp;lt;1.7'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I recommend you to write them at least.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;
+	The name of package like django-cms. This name will use when you specify the package by pip. So if you name it as django-myapp, users will type pip install django-myapp.
+&lt;strong&gt;version&lt;/strong&gt;
+	Version of you package. I recommend to follow semantic versioning
+&lt;strong&gt;packages&lt;/strong&gt;
+	List of python modules you want to contain. Basically, It’s enough to specify the django application you created.
+&lt;strong&gt;description&lt;/strong&gt;
+	A line of description. It will be used, for example, on package list of PyPI.
+&lt;strong&gt;long_description&lt;/strong&gt;
+	Lines of description. Basically it’s good idea to use README file as long_description. This will be used the package page of PyPI like here django-reportmail
+&lt;strong&gt;author&lt;/strong&gt;
+	Your name.
+&lt;strong&gt;author_email&lt;/strong&gt;
+	Your email address
+&lt;strong&gt;url&lt;/strong&gt;
+	A URL for your web site of the package. Basically, it’s enough to put the URL for your repository on Github and so.
+&lt;strong&gt;license&lt;/strong&gt;
+	The name of license you want to use. I always specify ‘MIT’ meaning the MIT license
+&lt;strong&gt;install_requires&lt;/strong&gt;
+	A list of packages that your packages require. It’s django package, so it’s necessary to write ‘Django’ at least.&lt;/p&gt;
+
+&lt;p&gt;All right cool ;)&lt;/p&gt;
+
+&lt;p&gt;And then, It requires &lt;code class=&quot;highlighter-rouge&quot;&gt;MANIFEST.in&lt;/code&gt; file on the project directory to specify which files you want to distribute:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;include &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.txt &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.ini &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.cfg &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.rst
+recursive-include myapp &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.ico &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.png &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.css &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.gif &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.jpg &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.txt &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.js &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.html &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.xml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Without this file, templates of your application won’t be included the package. For more detail, refer &lt;a href=&quot;https://docs.python.org/3.3/distutils/sourcedist.html#specifying-the-files-to-distribute&quot;&gt;official doc about specifying the files to distribute&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s over. After created &lt;code class=&quot;highlighter-rouge&quot;&gt;setup.py&lt;/code&gt;, run this command to register this new package for development:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python setup.py develop&lt;/code&gt;
+For more detail about setup.py, please refer another documents or packages. Python &lt;a href=&quot;http://python-packaging-user-guide.readthedocs.org/&quot;&gt;Packaging User Guide&lt;/a&gt; will help you. And I imitated setup.py of some another packages. Actually I haven’t read documents so much.&lt;/p&gt;
+
+&lt;p&gt;If you want to upload your package to PyPI. just register the application and upload:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python setup.py register
+python setup.py sdist upload
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;From the second time, it’s enough to run the second line. Also you can refer the doc about uploading on Python Packaging User Guide&lt;/p&gt;
+
+&lt;h1 id=&quot;3-way-to-run-tests-without-projects&quot;&gt;3. Way to run tests without projects&lt;/h1&gt;
+&lt;p&gt;Basically django always requires ‘projects’ for all of actions. then how can we run tests? actually It’s easy, you can just use &lt;code class=&quot;highlighter-rouge&quot;&gt;django-admin.py&lt;/code&gt; command and specify settings file for testing. First, create the settings for testing on the project root:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;touch test_settings.py&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And the contents of the file will be like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'myapp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.sqlite3'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;':memory:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;SECRET_KEY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;secret_key_for_testing&quot;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ya, it’s easy. Of cause you can put some additional settings to correspond to tests of your application. And this article about &lt;a href=&quot;http://www.machinalis.com/blog/optimizing-your-tests-in-django/&quot;&gt;optimizing your tests in Django&lt;/a&gt; will be helpful.&lt;/p&gt;
+
+&lt;p&gt;To run the test by using the setting, type this command at the project root:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;django-admin.py test --settings=test_settings&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;4-use-tox&quot;&gt;4. Use tox&lt;/h1&gt;
+
+&lt;p&gt;If you want the package to support multiple versions of Python or Django, It’s the best idea to use &lt;a href=&quot;https://pypi.python.org/pypi/tox&quot;&gt;tox&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ok, let’s consider a case which supporting two versions of Python, Python2.7 and Python3.3. Put a file name tox.ini on the package root:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;touch tox.ini&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And then, write setting like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;tox]
+envlist &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; py27, py33, flake8
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;testenv]
+commands &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+    pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+    django-admin.py &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--settings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;test_settings
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To run those tests, install tox and type like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;tox
+tox
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Three bunches of tests will run. tests with Python2.7, Python3.3 and flake8 testing to check syntax of your codes.&lt;/p&gt;
+
+&lt;p&gt;For more about tox and flake8, refer the official documentations.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tox.readthedocs.org/en/latest/&quot;&gt;tox documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pypi.python.org/pypi/flake8&quot;&gt;flake8&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;conclusion-1&quot;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;It’s over.&lt;/p&gt;
+
+&lt;p&gt;If you have some question or want to point out my mistake please Contact me on &lt;a href=&quot;http://twitter.com/itsphilipmutua&quot;&gt;twitter&lt;/a&gt;. I’ll answer and fix this page as soon as I can.&lt;/p&gt;
+
+&lt;p&gt;For more detail about git, refer the &lt;a href=&quot;http://git-scm.com/&quot;&gt;git official site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author></entry><entry><title type="html"></title><link href="http://localhost:4000/2018/06/26/2018-07-06-How-to-create-your-first-Django-library-(another-copy)/" rel="alternate" type="text/html" title="" /><published>2018-06-26T09:39:43+03:00</published><updated>2018-06-26T09:39:43+03:00</updated><id>http://localhost:4000/2018/06/26/2018-07-06-How%20to%20create%20your%20first%20Django%20library%20(another%20copy)</id><content type="html" xml:base="http://localhost:4000/2018/06/26/2018-07-06-How-to-create-your-first-Django-library-(another-copy)/">&lt;h1 id=&quot;contents&quot;&gt;Contents&lt;/h1&gt;
+
+&lt;p&gt;Command line instructions&lt;/p&gt;
+
+&lt;p&gt;Git global setup
+git config –global user.name “Philip Mutua”
+git config –global user.email “pmutua@live.com”&lt;/p&gt;
+
+&lt;p&gt;Create a new repository
+git clone 
+https://gitlab.com/pmutua/agiza.git&lt;/p&gt;
+
+&lt;p&gt;cd agiza
+touch README.md
+git add README.md
+git commit -m “add README”
+git push -u origin master&lt;/p&gt;
+
+&lt;p&gt;Existing folder
+cd existing_folder
+git init
+git remote add origin 
+https://gitlab.com/pmutua/agiza.git&lt;/p&gt;
+
+&lt;p&gt;git add .
+git commit -m “Initial commit”
+git push -u origin master&lt;/p&gt;
+
+&lt;p&gt;Existing Git repository
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin 
+https://gitlab.com/pmutua/agiza.git
+git push -u origin –all
+git push -u origin –tags&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author></entry><entry><title type="html"></title><link href="http://localhost:4000/2018/06/26/2018-07-06-Git-tip-Show-your-branch-name-on-the-Linux-prompt/" rel="alternate" type="text/html" title="" /><published>2018-06-26T09:39:43+03:00</published><updated>2018-06-26T09:39:43+03:00</updated><id>http://localhost:4000/2018/06/26/2018-07-06-Git%20tip:%20Show-%20your%20-branch-%20name%20-on%20-the%20-Linux-%20prompt</id><content type="html" xml:base="http://localhost:4000/2018/06/26/2018-07-06-Git-tip-Show-your-branch-name-on-the-Linux-prompt/">&lt;p&gt;Git is one of the most popular Source Control Management (SCM) software packages to provide revision control. Subversion (aka SVN) and Mercurial are other popular systems. These systems organize source code in branches and revisions that can be named by means of tagging. Branches can be used to allow you to work on different versions of the software concurrently. A popular way of organizing is to create a branch for every major feature you are building. Another organization can be used to distinguish between a “development” and “production” version, so that you can easily apply a small code change in case of any bugs.&lt;/p&gt;
+
+&lt;p&gt;In any of the above schemes it is important to know which branch you are working on, when committing code to the repository. This post explains how you can add the branch name in red to the prompt.&lt;/p&gt;
+
+&lt;p&gt;Firstly, we have to turn on the colored prompt in “.bashrc”:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# uncomment for a colored prompt, if the terminal has the capability; turned&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# off by default to not distract the user: the focus in a terminal window&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# should be on the output of commands, not on the prompt&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#force_color_prompt=yes&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now add the following code to “.bashrc” for Git branch information:&lt;/p&gt;
+
+&lt;p&gt;```bash&lt;/p&gt;
+
+&lt;h1 id=&quot;add-git-branch-if-its-present-to-bashrc-file&quot;&gt;Add git branch if its present to .bashrc file&lt;/h1&gt;
+&lt;h1 id=&quot;show-git-branch-name&quot;&gt;Show git branch name&lt;/h1&gt;
+&lt;p&gt;force_color_prompt=yes
+color_prompt=yes
+parse_git_branch() {
+ git branch 2&amp;gt; /dev/null | sed -e ‘/^[^&lt;em&gt;]/d’ -e ‘s/&lt;/em&gt; (.*)/(\1)/’
+}
+if [ “$color_prompt” = yes ]; then
+ PS1=’${debian_chroot:+($debian_chroot)}[\033[01;32m]\u@\h[\033[00m]:[\033[01;34m]\w[\033[01;31m]$(parse_git_branch)[\033[00m]$ ‘
+else
+ PS1=’${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)$ ‘
+fi
+unset color_prompt force_color_prompt&lt;/p&gt;
+
+&lt;p&gt;With this change you will be less likely to commit your code to the wrong branch. Enjoy!&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author></entry><entry><title type="html">Documenting Your Django Application with Sphinx.</title><link href="http://localhost:4000/2018/06/05/How-do-I-determine-the-serial-number-of-a-computer-using-the-operating-system/" rel="alternate" type="text/html" title="Documenting Your Django Application with Sphinx." /><published>2018-06-05T00:00:00+03:00</published><updated>2018-06-05T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/05/How%20do%20I%20determine%20the%20serial%20number%20of%20a%20computer%20using%20the%20operating%20system</id><content type="html" xml:base="http://localhost:4000/2018/06/05/How-do-I-determine-the-serial-number-of-a-computer-using-the-operating-system/">&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Find out more by visiting the project on GitHub.</summary></entry><entry><title type="html">Documenting Your Django Application with Sphinx.</title><link href="http://localhost:4000/2018/06/04/documenting-your-django-application-with-sphinx/" rel="alternate" type="text/html" title="Documenting Your Django Application with Sphinx." /><published>2018-06-04T00:00:00+03:00</published><updated>2018-06-04T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/04/documenting-%20your%20django%20-application-with%20sphinx</id><content type="html" xml:base="http://localhost:4000/2018/06/04/documenting-your-django-application-with-sphinx/">&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Find out more by visiting the project on GitHub.</summary></entry><entry><title type="html">Documenting Your Django Application with Sphinx.</title><link href="http://localhost:4000/2018/06/04/documenting-your-django-application-with-sphinx-(copy)/" rel="alternate" type="text/html" title="Documenting Your Django Application with Sphinx." /><published>2018-06-04T00:00:00+03:00</published><updated>2018-06-04T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/04/documenting-%20your%20django%20-application-with%20sphinx%20(copy)</id><content type="html" xml:base="http://localhost:4000/2018/06/04/documenting-your-django-application-with-sphinx-(copy)/">&lt;p&gt;install &lt;a href=&quot;&quot;&gt;sphinx&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For Python 3
+&lt;code class=&quot;highlighter-rouge&quot;&gt;pip3 install sphinx&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For Python 2&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt; to your django project&lt;/p&gt;
+
+&lt;p&gt;Make a directory called &lt;code class=&quot;highlighter-rouge&quot;&gt;docs&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir&lt;/code&gt; docs&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt;  to docs&lt;/p&gt;
+
+&lt;p&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;sphinx-quckstart&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;then configure your &lt;code class=&quot;highlighter-rouge&quot;&gt;conf.py&lt;/code&gt; file&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abspath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'../'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'DJANGO_SETTINGS_MODULE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'mis.settings'&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;django&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Inside your doc folder generate your &lt;code class=&quot;highlighter-rouge&quot;&gt;.rst&lt;/code&gt; files&lt;/p&gt;
+
+&lt;p&gt;For example you have an application called &lt;code class=&quot;highlighter-rouge&quot;&gt;hr&lt;/code&gt; you would like to import everything to document&lt;/p&gt;
+
+&lt;p&gt;you will run &lt;code class=&quot;highlighter-rouge&quot;&gt;sphinx-apidoc -o source ../hr&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then to make them availabe in the index file add them in the &lt;code class=&quot;highlighter-rouge&quot;&gt;index.rst&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.. ERP documentation master file, created by
+   sphinx-quickstart on Wed Jun 13 11:40:12 2018.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root &lt;span class=&quot;sb&quot;&gt;`toctree`&lt;/span&gt; directive.
+
+&lt;span class=&quot;gu&quot;&gt;Welcome to ERP's documentation!
+===============================
+&lt;/span&gt;
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   source/modules&lt;span class=&quot;sb&quot;&gt;
+
+
+&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;Indices and tables
+==================
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;
+*&lt;/span&gt; :ref:&lt;span class=&quot;sb&quot;&gt;`genindex`&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; :ref:&lt;span class=&quot;sb&quot;&gt;`modindex`&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; :ref:&lt;span class=&quot;sb&quot;&gt;`search`&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">install sphinx</summary></entry><entry><title type="html">Documenting Your Django Application with Sphinx.</title><link href="http://localhost:4000/2018/06/04/documenting-your-django-application-with-sphinx-(another-copy)/" rel="alternate" type="text/html" title="Documenting Your Django Application with Sphinx." /><published>2018-06-04T00:00:00+03:00</published><updated>2018-06-04T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/04/documenting-%20your%20django%20-application-with%20sphinx%20(another%20copy)</id><content type="html" xml:base="http://localhost:4000/2018/06/04/documenting-your-django-application-with-sphinx-(another-copy)/">&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Find out more by visiting the project on GitHub.</summary></entry><entry><title type="html">How To Install and Use Docker on Ubuntu 16.04</title><link href="http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/" rel="alternate" type="text/html" title="How To Install and Use Docker on Ubuntu 16.04" /><published>2018-06-03T00:00:00+03:00</published><updated>2018-06-03T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/03/How%20To%20Install%20and%20Use%20Docker%20on%20Ubuntu%2016.04%20.md</id><content type="html" xml:base="http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
 
 &lt;p&gt;To follow this tutorial, you will need the following:&lt;/p&gt;
 
@@ -53,1055 +589,4 @@ docker-ce:
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get install -y docker-ce&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Prerequisites</summary></entry><entry><title type="html">Documenting Your Django Application with Sphinx.</title><link href="http://localhost:4000/2018/06/03/documenting-your-django-application-with-sphinx/" rel="alternate" type="text/html" title="Documenting Your Django Application with Sphinx." /><published>2018-06-03T00:00:00+03:00</published><updated>2018-06-03T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/03/documenting-%20your%20django%20-application-with%20sphinx</id><content type="html" xml:base="http://localhost:4000/2018/06/03/documenting-your-django-application-with-sphinx/">&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Find out more by visiting the project on GitHub.</summary></entry><entry><title type="html">Consuming JSON APIs with Go</title><link href="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/" rel="alternate" type="text/html" title="Consuming JSON APIs with Go" /><published>2018-06-02T00:00:00+03:00</published><updated>2018-06-02T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/02/Consuming%20JSON%20APIs%20with%20Go</id><content type="html" xml:base="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/">&lt;p&gt;To authenticate with the numverify API, simply attach your access_key to the base endpoint URL:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;In addition to the “access_key” parameter, there is only one required parameter (“number”) to start validating phone numbers.&lt;/p&gt;
-
-&lt;p&gt;Type the following in your browser window:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&amp;amp;number=41443607070&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;The API response is returned in JSON format.&lt;/p&gt;
-
-&lt;p&gt;Show format here&lt;/p&gt;
-
-&lt;p&gt;numverify.go&lt;/p&gt;
-
-&lt;p&gt;JSON-to-Go is an excellent tool that instantly converts JSON into a Go type definition. Using it, I get:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-GO&quot;&gt;
-  type Numverify struct {
-  	Valid               bool   `json:&quot;valid&quot;`
-  	Number              string `json:&quot;number&quot;`
-  	LocalFormat         string `json:&quot;local_format&quot;`
-  	InternationalFormat string `json:&quot;international_format&quot;`
-  	CountryPrefix       string `json:&quot;country_prefix&quot;`
-  	CountryCode         string `json:&quot;country_code&quot;`
-  	CountryName         string `json:&quot;country_name&quot;`
-  	Location            string `json:&quot;location&quot;`
-  	Carrier             string `json:&quot;carrier&quot;`
-  	LineType            string `json:&quot;line_type&quot;`
-  }
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Our Go program “numverify.go” is a bare bones program showing you how to access the “numverify” API. Later on you could convert this to a web app and host it on Google App Engine or Heroku.&lt;/p&gt;
-
-&lt;p&gt;Here’s the complete program:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-GO&quot;&gt;
-package main
-
-import (
-	&quot;encoding/json&quot;
-	&quot;fmt&quot;
-	&quot;log&quot;
-	&quot;net/http&quot;
-	&quot;net/url&quot;
-)
-
-type Numverify struct {
-	Valid               bool   `json:&quot;valid&quot;`
-	Number              string `json:&quot;number&quot;`
-	LocalFormat         string `json:&quot;local_format&quot;`
-	InternationalFormat string `json:&quot;international_format&quot;`
-	CountryPrefix       string `json:&quot;country_prefix&quot;`
-	CountryCode         string `json:&quot;country_code&quot;`
-	CountryName         string `json:&quot;country_name&quot;`
-	Location            string `json:&quot;location&quot;`
-	Carrier             string `json:&quot;carrier&quot;`
-	LineType            string `json:&quot;line_type&quot;`
-}
-
-func main() {
-	phone := &quot;14158586273&quot;
-	// QueryEscape escapes the phone string so
-	// it can be safely placed inside a URL query
-	safePhone := url.QueryEscape(phone)
-
-	url := fmt.Sprintf(&quot;http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&amp;amp;number=%s&quot;, safePhone)
-
-	// Build the request
-	req, err := http.NewRequest(&quot;GET&quot;, url, nil)
-	if err != nil {
-		log.Fatal(&quot;NewRequest: &quot;, err)
-		return
-	}
-
-	// For control over HTTP client headers,
-	// redirect policy, and other settings,
-	// create a Client
-	// A Client is an HTTP client
-	client := &amp;amp;http.Client{}
-
-	// Send the request via a client
-	// Do sends an HTTP request and
-	// returns an HTTP response
-	resp, err := client.Do(req)
-	if err != nil {
-		log.Fatal(&quot;Do: &quot;, err)
-		return
-	}
-
-	// Callers should close resp.Body
-	// when done reading from it
-	// Defer the closing of the body
-	defer resp.Body.Close()
-
-	// Fill the record with the data from the JSON
-	var record Numverify
-
-	// Use json.Decode for reading streams of JSON data
-	if err := json.NewDecoder(resp.Body).Decode(&amp;amp;record); err != nil {
-		log.Println(err)
-	}
-
-	fmt.Println(&quot;Phone No. = &quot;, record.InternationalFormat)
-	fmt.Println(&quot;Country   = &quot;, record.CountryName)
-	fmt.Println(&quot;Location  = &quot;, record.Location)
-	fmt.Println(&quot;Carrier   = &quot;, record.Carrier)
-	fmt.Println(&quot;LineType  = &quot;, record.LineType)
-
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;func QueryEscape(s string) string&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;“QueryEscape” escapes the string so it can be safely placed inside a URL query.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fmt.Sprintf&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;“Sprintf” formats and returns a string without printing it anywhere.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;func NewRequest(method, urlStr string, body io.Reader) (*Request, error)&lt;/code&gt;`&lt;/p&gt;
-
-&lt;p&gt;“NewRequest” returns a new “Request” given a method, URL, and an optional body. “NewRequest” returns a “Request” suitable for use with “Client.Do”.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;client := &amp;amp;http.Client{}&lt;/code&gt;`&lt;/p&gt;
-
-&lt;p&gt;A “Client” is an HTTP client.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;resp, err := client.Do(req)&lt;/code&gt;`&lt;/p&gt;
-
-&lt;p&gt;“Do” sends an HTTP request and returns an HTTP response. When “err” is nil, “resp” always contains a non-nil “resp.Body”. Callers should close “resp.Body” when done reading from it. Use “Defer” for closing the body. “resp.Body” is of type “io.Reader”.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;defer resp.Body.Close()&lt;/code&gt;`&lt;/p&gt;
-
-&lt;p&gt;Next, “NewDecoder” returns a new decoder that reads from “io.Reader”. A “Decoder” reads and decodes JSON objects from an input stream.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;func NewDecoder(r io.Reader) *Decoder&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;“Decode” reads the next JSON-encoded value from its input and stores it in the value pointed to by v.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;func (dec *Decoder) Decode(v interface{}) error&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Finally, we extract the information from our populated “Numverify” struct variable “record”.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">To authenticate with the numverify API, simply attach your access_key to the base endpoint URL:</summary></entry><entry><title type="html">Writable nested serializer with existing objects using Django Rest Framework 3.2.2”</title><link href="http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/" rel="alternate" type="text/html" title="Writable nested serializer with existing objects using Django Rest Framework 3.2.2”" /><published>2018-06-01T00:00:00+03:00</published><updated>2018-06-01T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/01/-writable%20-nested-%20serializer-with-%20existing-objects-%20using-Django-Rest-Framework-%203.2.2</id><content type="html" xml:base="http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/">&lt;p&gt;django-rest-framework 3.0 create or update in nested serializer&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;n&quot;&gt;Firstly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;support&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creating&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;updating&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;existing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ever&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wanted&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instances&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;could&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;something&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PageSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Serializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BookSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Serializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PageSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;many&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;# Create the book instance&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-        &lt;span class=&quot;c&quot;&gt;# Create or update each page instance&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pages'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'page_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'text'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Note that I haven’t included the book_id here. When we’re creating book instances we won’t be including a book id. When we’re updating book instances we’ll typically include the book id as part of the URL, rather than in the request data.&lt;/p&gt;
-
-&lt;p&gt;If you want to support both create and update of book instances then you need to think about how you want to handle pages that are not included in the request, but are currently associated with the book instance.&lt;/p&gt;
-
-&lt;p&gt;You might choose to silently ignore those pages and leave them as they are, you might want to raise a validation error, or you might want to delete them.&lt;/p&gt;
-
-&lt;p&gt;Let’s assume that you want to delete any pages not included in the request.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# As before.&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# Update the book instance&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;# Delete any pages not included in the request&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;page_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'page_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pages'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;books&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;# Create or update page instances that are in the request&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pages'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'page_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'text'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It’s also possible that you might want to only support book updates, and not support creation, in which case, only include the update() method.&lt;/p&gt;
-
-&lt;p&gt;There are also various ways you could reduce the number of queries eg. using bulk create/deletion, but the above would do the job in a fairly straightforward way.&lt;/p&gt;
-
-&lt;p&gt;As you can see there are subtleties in the types of behavior you might want when dealing with nested data, so think carefully about exactly what behavior you’re expecting in various cases.&lt;/p&gt;
-
-&lt;p&gt;Also note that I’ve been using &lt;code class=&quot;highlighter-rouge&quot;&gt;Serializer&lt;/code&gt; in the above example rather than &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelSerializer&lt;/code&gt;. In this case it’s simpler just to include all the fields in the serializer class explicitly, rather than relying on the automatic set of fields that &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelSerializer&lt;/code&gt; generates by default.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">django-rest-framework 3.0 create or update in nested serializer</summary></entry><entry><title type="html">django 1.7 &amp;gt; 1.11 migrate gets error “table already exists”</title><link href="http://localhost:4000/%0A.md/2018/05/31/django-1/" rel="alternate" type="text/html" title="django 1.7 &gt; 1.11 migrate gets error “table already exists”" /><published>2018-05-31T00:00:00+03:00</published><updated>2018-05-31T00:00:00+03:00</updated><id>http://localhost:4000/%0A.md/2018/05/31/django-%201</id><content type="html" xml:base="http://localhost:4000/%0A.md/2018/05/31/django-1/">&lt;p&gt;&lt;a href=&quot;https://unity3d.com/&quot;&gt;Unity &lt;/a&gt; is a cross-platform game engine developed by Unity Technologies, which is primarily used to develop both three-dimensional and two-dimensional video games and simulations for computers, consoles, and mobile devices.&lt;/p&gt;
-
-&lt;p&gt;Most of the time when you are building something you will always come across bugs and issues that could make you try to figure out what could be the problem. This always consumes time you could find 
-yourself fixed at a bug that can consume your time. Apparently I have come across such challenges one of them is this kind of migration error below which I thought it would be nic to share.&lt;/p&gt;
-
-&lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt;
-
-&lt;p&gt;I am trying to apply a migration but am getting the error:&lt;/p&gt;
-
-&lt;p&gt;```bash
-django.db.utils.OperationalError: (1050, “Table ‘customers_customer’ already exists”)&lt;/p&gt;
-
-&lt;p&gt;I get this by issuing the following command:&lt;/p&gt;
-
-&lt;p&gt;```bash 
-python manage.py migrate&lt;/p&gt;
-
-&lt;p&gt;My customer table already exists, so what do I do to let the migration know this, not error out, and run my modification to my model?&lt;/p&gt;
-
-&lt;p&gt;I ran this on my local environment with local database with no problem. It is when I pointed my database to production and ran migrate above that I get this error.&lt;/p&gt;
-
-&lt;h1 id=&quot;solution&quot;&gt;Solution&lt;/h1&gt;
-
-&lt;p&gt;If you have the table created in the database, you can run&lt;/p&gt;
-
-&lt;p&gt;```bash
-python manage.py migrate –fake &lt;appname&gt;&lt;/appname&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Mark migrations as run without actually running them&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Or if you want to avoid some actions in your migration, you can edit the migration file under the app/migrations directory and comment the operations you don’t want to do in the migrate execution.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/1.8/topics/migrations/#upgrading-from-south&quot;&gt;Docs:&lt;/a&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py help migrate&lt;/code&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Unity is a cross-platform game engine developed by Unity Technologies, which is primarily used to develop both three-dimensional and two-dimensional video games and simulations for computers, consoles, and mobile devices.</summary></entry><entry><title type="html">Solving Docker permission denied while trying to connect to the Docker daemon socket</title><link href="http://localhost:4000/2018/05/30/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" rel="alternate" type="text/html" title="Solving Docker permission denied while trying to connect to the Docker daemon socket" /><published>2018-05-30T00:00:00+03:00</published><updated>2018-05-30T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/30/solving%20docker-permission-%20denied-while-trying-to-%20connect-to-the-docker-%20daemon-socket</id><content type="html" xml:base="http://localhost:4000/2018/05/30/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/">&lt;p&gt;Problem:
-You are trying to run a docker container or do the docker tutorial, but you only get an error message like this:&lt;/p&gt;
-
-&lt;p&gt;```bash&lt;/p&gt;
-
-&lt;p&gt;docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.26/containers/create: dial unix /var/run/docker.sock: connect: permission denied.
-See ‘docker run –help’.&lt;/p&gt;
-
-&lt;p&gt;Solution:
-The error message tells you that your current user can’t access the docker engine, because you’re lacking permissions to access the unix socket to communicate with the engine.&lt;/p&gt;
-
-&lt;p&gt;As a temporary solution, you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; to run the failed command as root.
-However it is recommended to fix the issue by adding the current user to the &lt;code class=&quot;highlighter-rouge&quot;&gt;docke&lt;/code&gt; group:&lt;/p&gt;
-
-&lt;p&gt;Run this command in your favourite shell and then &lt;strong&gt;completely log out of your account and log back in&lt;/strong&gt; (if in doubt, reboot!):&lt;/p&gt;
-
-&lt;p&gt;```bash
-sudo usermod -a -G docker $USER&lt;/p&gt;
-
-&lt;p&gt;After doing that, you should be able to run the command without any issues. Run &lt;code class=&quot;highlighter-rouge&quot;&gt;docker run hello-world&lt;/code&gt; as a normal user in order to check if it works. Reboot if the issue still persists.&lt;/p&gt;
-
-&lt;p&gt;Logging out and logging back in is required because the group change will not have an effect unless your session is closed.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Problem: You are trying to run a docker container or do the docker tutorial, but you only get an error message like this:</summary></entry><entry><title type="html">Paper Wallet Guide-How to Protect Your Cryptocurrency.</title><link href="http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/" rel="alternate" type="text/html" title="Paper Wallet Guide-How to Protect Your Cryptocurrency." /><published>2018-05-28T00:00:00+03:00</published><updated>2018-05-28T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/28/Paper%20Wallet%20Guide:%20How%20to%20Protect%20Your%20Cryptocurrency</id><content type="html" xml:base="http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/">&lt;h1 id=&quot;what-is-a-cryptocurrency-wallet&quot;&gt;What is a cryptocurrency wallet?&lt;/h1&gt;
-
-&lt;p&gt;A cryptocurrency wallet is a digital wallet that you can use to store, send and receive various cryptocurrencies. The wallet doesn’t exactly “store” your money as a real-world wallet does. Instead, it saves your public and private keys which in turn helps you send and receive money.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-are-public-and-private-keys&quot;&gt;What are public and private keys?&lt;/h1&gt;
-
-&lt;p&gt;Let’s think of a real world situation before we understand what public and private keys are. Imagine a vending machine. Can anyone and put their money inside the machine right? But, they can’t take out the money because they don’t have the key, they can only put money in the machine. The only person who can take out the money is the owner of the machine who has the key.&lt;/p&gt;
-
-&lt;p&gt;In this example, the vending machine is the public address which anyone uses to send money to you. You are the machine owner, and the key that he is carrying is your private key. Using this private key only you can access your money and do what you please with it.&lt;/p&gt;
-
-&lt;p&gt;The public key is the address that anyone can use to send you the money, while the private key is what you will use to send money to anyone else. Remember, ONLY you should know what your private key is, otherwise anyone can use your wallet to send your money to any other addresses.&lt;/p&gt;
-
-&lt;p&gt;Under no circumstances should you ever lose your private key. Let’s put this in super simple terms. If you lose your private key, then you are SCREWED (yes, uppercase has been used to emphasize the gravity of the situation). You should use at least two different techniques to save and store your private keys. We will discuss these various techniques a little later in the article.&lt;/p&gt;
-
-&lt;p&gt;As of right now, let’s discuss the two methods of storage that you can use to store your cryptos, hot storage, and cold storage.&lt;/p&gt;
-
-&lt;h1 id=&quot;hot-storage-vs-cold-storage&quot;&gt;Hot Storage Vs Cold Storage&lt;/h1&gt;
-
-&lt;p&gt;Let’s understand the basic distinction between the two with a real-world example. Hot storage is like the wallets that you carry around in your pocket. The Cold storage is somewhat akin to your savings bank account. Keep this distinction in mind as we move forward. If you want to use your currency frequently then you must use hot storage. On the other hand, if you want to store your money for a long time then you must use cold storage.&lt;/p&gt;
-
-&lt;h1 id=&quot;hot-storage&quot;&gt;Hot Storage&lt;/h1&gt;
-
-&lt;p&gt;Hot storage, in simple terms, is when you keep your cryptocurrency in a device which is directly connected to the internet. This connection is what makes a device “hot”.&lt;/p&gt;
-
-&lt;p&gt;You should think of exchange wallets, desktop clients, and mobile wallets (any wallet that exists on a device that will ever connect to the internet) as a hot wallet. It’s easy to access funds on a hot wallet, and if you live somewhere that accepts cryptos for micropayments, there’s nothing wrong with using one for day-to-day spending. Think of it like fiat (government issued) currency. You might walk around with a portion of your wealth in a wallet for convenience but the majority you keep secured away. Your hot wallet should behave in the same way as a real-world wallet. You use it to carry a small amount of cash for ease of access. That is all.&lt;/p&gt;
-
-&lt;p&gt;While transacting with hot wallets is very simple, there is a huge drawback when it comes to them. They are easily hackable. The whole crypto-space has been gaining a lot of value recently and where there’s value, crime is never far behind. Recent ransomware attacks and previous compromises of large exchanges should be sufficient beacons to newcomers.&lt;/p&gt;
-
-&lt;p&gt;Even though you’ll not be storing a great deal of value on your hot wallet, it’s vital that you follow the backup steps within the restoration section of your wallet to avoid losing funds through human error. With your private key, and seed phrase intact, you should be able to restore any wallet painlessly enough.&lt;/p&gt;
-
-&lt;h2 id=&quot;pros-of-hot-storage&quot;&gt;Pros of hot storage&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Quick to access funds.&lt;/li&gt;
-  &lt;li&gt;A wide number of options, and support for different devices.&lt;/li&gt;
-  &lt;li&gt;User-friendly UIs make sending and receiving simple.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;cons-of-hot-storage&quot;&gt;Cons of hot storage&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Exposed to cybercrime. Sophisticated hackers, ransomware, and other malicious actors are a constant threat.&lt;/li&gt;
-  &lt;li&gt;Damaging the device could destroy the wallet. Without carefully backing up private keys, and seed words you could permanently lose your cryptocurrency investment.&lt;/li&gt;
-  &lt;li&gt;You could still lose/damage/have stolen the restoration details.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now let’s explore the different kinds of hot storage wallets that you can use.&lt;/p&gt;
-
-&lt;h1 id=&quot;online-wallets-aka-cloud-wallet&quot;&gt;Online Wallets aka Cloud Wallet&lt;/h1&gt;
-
-&lt;p&gt;These wallets are the easiest to use among all. The creation is super simple because it’s basically creating your own account on any of the exchange services. Furthermore, you can access this wallet from any server or any device in the world as long as it is connected to the net. Having said that, there is one big problem when it comes to online wallets. Your private key is going to be saved on another server. This is basically like serving up your key to hackers on a silver platter. Do NOT use online wallets to store huge amounts of your money. Store the bare minimum that you need for exchange purposes.&lt;/p&gt;
-
-&lt;h1 id=&quot;desktopmobile-wallets&quot;&gt;Desktop/Mobile Wallets&lt;/h1&gt;
-
-&lt;p&gt;Desktop or mobile wallets are also popular choices for a hot wallet. These represent a much better option in terms of security. Desktop wallets are downloaded and installed on a single PC or laptop and they are only accessible from that one device where it was downloaded. While it is a safer alternative than an online wallet, it can still be very inconvenient because you will not get access to your money unless you are on the device from which you downloaded the wallet. MultiBit and Armory are great examples of desktop wallets.&lt;/p&gt;
-
-&lt;p&gt;Mobile wallets are pretty convenient to use because all you need to do is to download an app into your phone.  MyCelium is a really popular app(for both Android and iPhone) that people use for their mobile wallets, CoPay is a great option as well.&lt;/p&gt;
-
-&lt;p&gt;The real problem with desktop/mobile wallets are the dangers associated with virus attacks. A hacker can easily put Trojans in your system to phish for your details. Apart from that, you can easily lose your cryptos if your desktop or mobile is damaged.&lt;/p&gt;
-
-&lt;h1 id=&quot;multi-signature-wallets&quot;&gt;Multi-Signature Wallets&lt;/h1&gt;
-
-&lt;p&gt;The easiest way of understanding how a multi-signature (multi-sig) wallet works like is by thinking of a safe which needs multiple keys to operate. A multi-signature wallet is great for 2 purposes:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;To create more security for your wallet and save yourself from human error.&lt;/li&gt;
-  &lt;li&gt;To create a more democratic wallet which can be used by one or more people.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How does multi-signature wallet save you from human error? Let’s take the example of BitGo, one of the premier multi-sig wallet service providers in the world. They issue 3 private keys. One is held by the company itself, one is held by the user and the third one is a backup that the user can keep for themselves or give to someone trustworthy for safe keeping To do any sort of transaction in a BitGo wallet you will need at least 2/3 keys to operate. So even if you have a hacker behind you, it will super difficult for them to get their hands on 2 private keys. And on top of that, even if you lose your private key for whatever reason, you still have that backup key that you had given to your friend.&lt;/p&gt;
-
-&lt;p&gt;Now, how does a multi-signature wallet create a more democratic environment? Imagine that you are working in a company with 10 people and you need 8 approvals in order to make a transaction. Using a software like Electrum you can simply create a custom multi-sig wallet with 10 keys. This way you can make seamless democratic transactions in your company.&lt;/p&gt;
-
-&lt;p&gt;Even with all its amazing features, at the end of the day, a multi-signature wallet is still a hot wallet so you must use it economically. The Bitfinex hack (more on it in a bit) happened despite the fact that it had multi-signature security. Plus, at the end of the day, the company whose wallet you are using still has one of the private keys. It completely depends on their ethics as to what they can do or not do to your funds.&lt;/p&gt;
-
-&lt;h1 id=&quot;risks-of-hot-storage&quot;&gt;Risks of Hot Storage&lt;/h1&gt;
-
-&lt;p&gt;Different hot wallets carry different security risks. The least secure are undoubtedly those hosted on Exchange sites. Leaving your currency where you bought it might seem like a great idea because “if it starts to crash, I can change it back to dollars quickly”. In reality, all you’re doing by leaving cryptos on an exchange is trusting an unlicensed entity with your money. They hold your private keys, and they ward off daily attacks. In the past, they’ve even succumbed to such threats. Exchanges are a huge target for criminals because they store a lot of value. If you’re day trading, this risk is part of the deal. If you’re holding long-term, you want to avoid it all together.&lt;/p&gt;
-
-&lt;p&gt;The Bitfinex hack is a great example of the dangers of hot storage. In early August 2016, the folks at Bitfinex noticed that several of their security measures were being compromised. Before long, over $72 million worth of BTC had been stolen by a hacker. It was so bad that the value of BTC fell 20% within a day:&lt;/p&gt;
-
-&lt;p&gt;So what do you do to your cryptocurrency to keep it safe from malicious attacks like this? You use cold storage. Let’s find out what that is all about.&lt;/p&gt;
-
-&lt;h1 id=&quot;cold-storage&quot;&gt;Cold Storage&lt;/h1&gt;
-
-&lt;p&gt;When you keep your currency in a device which is completely offline it’s called cold storage. For those seeking the most secure form of storage, cold wallets are the way to go. These are best suited to long-term holders, who don’t require access to their coins for months, or years at a time.&lt;/p&gt;
-
-&lt;p&gt;They aren’t without their own set of risks but if you follow the instructions correctly, and take every precaution possible, these are greatly minimized. Given the amount of attention that cryptocurrency has been receiving over the last few years, it has unfortunately piqued the interest of attackers. In the light of that, it’s a far more secure option to use cold storage as means of storing your money.&lt;/p&gt;
-
-&lt;p&gt;San Francisco-based bitcoin wallet and exchange service CoinBase holds up 97% of its coin reserves in hardware and paper wallets. What are hardware and paper wallets? You will get to know about it in a minute. For now, let’s check out the pros and cons of cold storage:&lt;/p&gt;
-
-&lt;h2 id=&quot;pros-of-cold-storage&quot;&gt;Pros of Cold Storage:&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- A great place to hold large amounts of coin for a long period of time.
-- Provides a safety net against hackers and people with malicious intent since it is completely offline.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;cons-of-cold-storage&quot;&gt;Cons of Cold Storage&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- It is still susceptible to external damage, theft and general human carelessness.
-- It is not ideal for quick and daily transactions.
-- Setting it up can be a little intimidating for beginners.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now that we have seen both the pros and cons let’s take a look some cold storage wallets that you can use to store your coins&lt;/p&gt;
-
-&lt;h1 id=&quot;hardware-wallets&quot;&gt;Hardware wallets&lt;/h1&gt;
-
-&lt;p&gt;Hardware wallets are physical devices where you can store your cryptocurrency. They come in a few forms but the most common is the USB stick style typified by the Nano Ledger series. Although many swear by them, hardware wallets are still prone to compromise. Firstly, you’re trusting that the company who made your wallet hasn’t logged all the private keys with a plan to raid wallets in the future. This applies to those bought from the company themselves, but particularly if a hardware wallet has been acquired second hand. Under no circumstances should anyone ever use a pre-owned hardware wallet.&lt;/p&gt;
-
-&lt;p&gt;Although loss or damage can spell disaster for the unprepared, hardware wallets can be restored. Therefore, it’s just as important to back up your hardware wallet, as it is your online hot wallets. You should keep restoration details in a safe place that only you, and anyone you plan to leave the money to know about. Remember, your restoration details open the wallet. Think very carefully about who (if anyone) you share them with. It’s also vitally important that you transfer all coins to a new wallet, should something unfortunate happen between you and anyone else who knows your private keys (spouse, etc.)&lt;/p&gt;
-
-&lt;p&gt;Here are some hardware wallets that you can use:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- Ledger Nano S.
-- Trezor.
-- Keepkey.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;paper-wallets&quot;&gt;Paper wallets&lt;/h1&gt;
-
-&lt;p&gt;Without a doubt, the safest way to store any cryptocurrency is using a paper wallet. By following a few pointers below, you can set one up entirely for free. This truly makes you the master of your investment, and if precautions are followed, there’s no possibility of your private keys being known by anyone else. Of course, this means that keeping a record of them is even more important. Losing private keys means you’ll forfeit the entire contents of your paper wallet (but then again, that’s true for every wallet out there.)&lt;/p&gt;
-
-&lt;h1 id=&quot;what-is-a-paper-wallet&quot;&gt;What is a paper wallet?&lt;/h1&gt;
-
-&lt;p&gt;To keep it very simple, paper wallets are an offline cold storage method of saving cryptocurrency. It includes printing out your public and private keys on a piece of paper which you then store and save in a secure place. The keys are printed in the form of QR codes which you can scan in the future for all your transactions. The reason why it is so safe is that it gives complete control to you, the user. You do not need to worry about the well-being of a piece of hardware, nor do you have to worry about hackers or any piece of malware. You just need to take care of a piece of paper.&lt;/p&gt;
-
-&lt;h1 id=&quot;do-you-need-a-paper-wallet&quot;&gt;Do you need a paper wallet?&lt;/h1&gt;
-
-&lt;p&gt;The answer to this question will largely depend on your circumstances. If you plan to spend the summer day trading a few coins, perhaps you don’t. Alternatively, if you’re in for the long haul, and don’t intend to touch any portion of your stash, then a paper wallet is the most secure option available to you.&lt;/p&gt;
-
-&lt;h1 id=&quot;setting-up-a-paper-wallet&quot;&gt;Setting up a paper wallet&lt;/h1&gt;
-
-&lt;p&gt;Paper wallets are formed by using a program to randomly generate a public and private key. The keys will be unique, and the program that generates them is open source. Those with advanced knowledge of coding can check the backend of the program themselves for randomicity in results. What’s more, we’ll be generating our keys offline. This eradicates the exposure to online threats, and deleting the simple program after use will destroy any trace of them.&lt;/p&gt;
-
-&lt;p&gt;Don’t worry if it sounds confusing, it’s not. You’ll need no specific knowledge of coding, or encryption. All you do need is a computer, an internet connection, something to record your keys on.&lt;/p&gt;
-
-&lt;p&gt;Anyway, let’s create our paper wallet. Follow these steps:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Ensure your computer is entirely free from any form of malicious software. A brand-new computer would be ideal but is often not feasible.&lt;/li&gt;
-  &lt;li&gt;Visit the page &lt;a href=&quot;WalletGenerator.net&quot;&gt;WalletGenerator.net&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Download the zip file by clicking here:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Once downloaded open the “index.html” file but before that make sure that your internet is off. This entire process is done to make sure that your wallet is hacker free.
-How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Now it is time to generate your wallet. Keep hovering over the highlighted text and it will generate more characters. Or if you want, you can manually type in random characters. Just keep doing it until the counter goes to “0”.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The moment the count goes to zero your wallet will be generated.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Print the page or make multiple copies of the numbers from it. (Important: Ensure printer is not connected to Wi-Fi at this point).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Delete saved web page. You can now safely reconnect to the internet.&lt;/li&gt;
-  &lt;li&gt;Store your private keys in their long term, private, secure home.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;setting-up-a-paper-wallet-for-ethereum&quot;&gt;Setting up a paper wallet for Ethereum&lt;/h1&gt;
-
-&lt;p&gt;Now if you notice the list of cryptocurrencies supported by walletgenerator, you will see that Ethereum is missing from the list. So, what do you need to do to create a paper wallet for Ethereum? It is really easy, just follow these steps:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;First, go to &lt;a href=&quot;MyEtherWallet.com&quot;&gt;MyEtherWallet.com&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, click on the help tab.
-How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Scroll down and click on option 5:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Now open the link highlighted here:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;After that download this zip file into your computer:&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Now open the zip file in your computer and click on the index.html file. Before doing that, switch off your internet so that you are offline.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Now create a new password and generate your wallet, be sure that you are putting in a strong password:
-Now you will have to download your keystore file which is basically your wallet file. Be sure to keep a backup of this file. - After you are done with that click on “I understand. Continue.”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;And there you go, your wallet has been generated. What you see here is your private key. DO NOT share this with anyone.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;cryptocurrency is so hot right now. Bitcoin’s price has been climbing for the better part of a year, topping $2,000 per coin for the first time in May, and rising to a record high above $2,500 — before dropping down just above $2,400 a coin as of Friday afternoon, per CoinDesk. Those numbers mean nothing to you? This one might: If you had made a small investment in bitcoin back in 2010 — buying just $100 worth, when each unit was worth a fraction of a cent — your stash would be valued today at more than $70 million. Talk about an early retirement! Even if you had been late to the party and bought bitcoin last year, you would be feeling pretty good. At one point, bitcoin prices were up roughly 180% for the year, as CNBC reported. Compare that with the broad stock market, which returned between 7.9% and 15%, depending on which index you look at.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;You should now print your wallet by clicking on the “Print” button. This is what you will get. Notice that you can see both your private and public keys here:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;p&gt;And there you go. That is how you create an Ethereum paper wallet.&lt;/p&gt;
-
-&lt;h1 id=&quot;paper-wallet-risks&quot;&gt;Paper wallet risks&lt;/h1&gt;
-
-&lt;p&gt;While paper wallets substantially decrease the threat of compromise from the virtual world, they aren’t without their own set of risks.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Coercion&lt;/strong&gt;: There are always going to be people willing to break the law to get at something valuable. Just as crooks tear off in Lamborghinis after raiding a property, so too might they stumble upon your safe. They don’t know what’s in there but presumably, it’s valuable. Anyway, you get where this is going, and the moral of the story is simple: don’t go bragging about your crypto investments. It doesn’t matter if it’s online, or in person, it’s never a clever idea. Don’t make yourself a target.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Fragility&lt;/strong&gt;: At the end of the day, it is still paper. Paper can be easily damaged or it can get worn out over time. This is why you should always make multiple backups.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Stealing&lt;/strong&gt;: Since it is written on a piece of paper, anyone who can read it or take a photograph of it can steal your money.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Not immune to disasters&lt;/strong&gt;: It is just a piece of paper, it is not immune to natural disasters and can easily be destroyed if you have not taken any backups.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Type of printer used&lt;/strong&gt;: The quality of printer used can also have a detrimental effect. Non-laser printers may cause the ink to run if the paper gets wet.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Human Errors&lt;/strong&gt;: Humans are prone to mistakes and you can simply forget the location of your paper or accidentally tear it.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;importance-of-private-keys-and-restoration-methods&quot;&gt;Importance of private keys and restoration methods&lt;/h1&gt;
-
-&lt;p&gt;In the same way that we’ve mentioned restoration details previously, the private key to your paper wallet is its single most important detail. You must guard it with your life. If you lose it, you lose your money. It’s as simple as that. Then you should get it tattooed on your chest, right? Well, no. As well providing you access to your funds when you need them, anyone with the key can also get at them. It must be kept totally secret.&lt;/p&gt;
-
-&lt;p&gt;Owing to their importance, it’s wise to store your paper wallet in multiple secure locations. This will help alleviate against certain “acts of God” – think Hurricane, sudden evacuation, or similar. However, the more locations you use to store your keys, the higher the risk of compromise.&lt;/p&gt;
-
-&lt;h1 id=&quot;under-lock-and-key&quot;&gt;Under lock and key&lt;/h1&gt;
-
-&lt;p&gt;Some prefer to store their private keys in a physical location. A safe is usually favored for this. Only those allowed access to the funds must know the combination (and preferably existence) of your security box. Of course, small home safe deposit boxes are often much less durable than they’re made out to be, and will usually be a target for home invaders. If you have sole access to a high-quality safe, you should use this, otherwise risking a lower end model may be your best option. Either way, only those who have ownership of the coins stored on the paper wallet must know the combination to the lock.
-Cloud-Based Storage&lt;/p&gt;
-
-&lt;p&gt;In the (very near) future, self-encrypting, decentralized “cloud” based storage will likely be an option. Its reliability remains to be tested but it could alleviate warranted concerns over storing private keys digitally. Like exchanges, existing cloud-based storage services are hackable, and can fall victim to malicious attacks. Storing your most sensitive documents is usually not recommended. However, it’s possible to encrypt the data yourself and store it online. By encrypting it, you limit the number of people who can view a document in its raw state. Uploading an encrypted version of a private key to the web is a suitable option for some.&lt;/p&gt;
-
-&lt;h5 id=&quot;engraving-into-metal&quot;&gt;Engraving Into Metal&lt;/h5&gt;
-
-&lt;p&gt;You may also choose to engrave the keys to a metal and keep it safe somewhere. The quality of the metal that you choose will be paramount here because over time a low-quality metal may deteriorate very fast.&lt;/p&gt;
-
-&lt;h4 id=&quot;memory&quot;&gt;Memory&lt;/h4&gt;
-
-&lt;p&gt;It should go without saying that this isn’t ideal. It is possible and incredibly secure (potentially too secure) but the practical barrier of remembering 64 unique characters will discourage the majority. While I am sure there are some who favor this method. It is certainly not recommended.&lt;/p&gt;
-
-&lt;p&gt;Things to remember when considering storing private keys&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Only those that have access to the funds stored must have access to the private keys.&lt;/li&gt;
-  &lt;li&gt;Most ways of practically recording private keys are potentially lost. Think, fire, theft, water damage. If you can engrave metals yourself and can store it in a high-quality safe, this is ideal.&lt;/li&gt;
-  &lt;li&gt;Multiple safe locations are better than one. Additional locations must not compromise security.&lt;/li&gt;
-  &lt;li&gt;All storage has risks. Minimize them.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;restoring-a-cold-storage-wallet&quot;&gt;Restoring a cold storage wallet&lt;/h1&gt;
-
-&lt;p&gt;When you want to bring your cryptocurrency back out of cold storage, you need to import the private key into a suitable online wallet. Any wallet which supports importing private keys will work. The process is simple and intuitive for most wallets. The steps we have given below correspond to using the Bitcoin Unlimited wallet.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Open the client and click on “Help”.&lt;/li&gt;
-  &lt;li&gt;Select the Debug Window and click on the Console tab.&lt;/li&gt;
-  &lt;li&gt;Type in the field “importprivkey&lt;private key=&quot;&quot;&gt;” replace &lt;private key=&quot;&quot;&gt; with your private key and the remove quotation marks.&lt;/private&gt;&lt;/private&gt;&lt;/li&gt;
-  &lt;li&gt;Hit enter.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This will import all the data from your paper wallet to your online desktop client. Remember, you are now exposed to all the security risks that exist with hot wallets. It’s not recommended that you keep an amount of crypto in such storage for any more than the minimum time possible. If you’re trading to another crypto, or fiat do some immediately and then store appropriately. If you were using a portion of your balance to make a payment, and want the rest to return to cold storage, it is now recommended that you set up an entirely new paper wallet. Consider your original storage solution compromised.&lt;/p&gt;
-
-&lt;h1 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h1&gt;
-
-&lt;p&gt;Setting up a cold wallet is a straightforward way to help alleviate third-party risks associated with most other cryptocurrency storage methods. While no method is entirely free from threat, storing coins offline drastically reduces the chances of losing your investment through digital means – exchange compromise, exchange insolvency, ransomware attacks, other cybercriminal operations. It is still as important as ever to remain vigilant of real-world threats such as loss, theft, or damage of private keys. Always protect your private keys, and ensure to replace them (setup new cold storage) immediately if there is any indication that their privacy may have become compromised.&lt;/p&gt;
-
-&lt;p&gt;The best solution is diversification. As the old saying goes, “Do not keep all your eggs in one basket.” Always diversify. Keep a portion of your currency (a major portion), in paper wallets and have lots of backups to ensure that you are not going to get screwed. Keep some in hardware wallets and if you really must, keep a few in a hot wallet as well so that you can do quick transactions. Having said that, make sure that most of your money is in cold storage.&lt;/p&gt;
-
-&lt;p&gt;Remember, it is no one else’s responsibility to ensure your crypto investments are kept safe. You are your own master here. Do not take short cuts, and do not underestimate the importance of security. Plenty of people have already been frivolous enough to lose access to their cryptocurrencies through their own fault and others. Minimizing the risks effectively will drastically decrease the chances of you joining this number.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="blog" /><summary type="html">What is a cryptocurrency wallet?</summary></entry><entry><title type="html">Writable nested serializer with existing objects using Django Rest Framework 3.2.2”</title><link href="http://localhost:4000/2018/05/27/serialization-in-django-rest-framework/" rel="alternate" type="text/html" title="Writable nested serializer with existing objects using Django Rest Framework 3.2.2”" /><published>2018-05-27T00:00:00+03:00</published><updated>2018-05-27T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/27/serialization-in-django-rest-framework</id><content type="html" xml:base="http://localhost:4000/2018/05/27/serialization-in-django-rest-framework/">&lt;p&gt;Note: The code for this tutorial is available in the &lt;a href=&quot;https://github.com/encode/rest-framework-tutorial&quot;&gt;tomchristie/rest-framework-tutorial&lt;/a&gt; repository on GitHub. The completed implementation is also online as a sandbox version for testing, &lt;a href=&quot;https://restframework.herokuapp.com/&quot;&gt;available here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;setting-up-a-new-environment&quot;&gt;Setting up a new environment&lt;/h1&gt;
-
-&lt;p&gt;Before we do anything else we’ll create a new virtual environment, using &lt;code class=&quot;highlighter-rouge&quot;&gt;virtualenv&lt;/code&gt;. This will make sure our package configuration is kept nicely isolated from any other projects we’re working on.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;virtualenv env
-source env/bin/activate
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Now that we’re inside a &lt;code class=&quot;highlighter-rouge&quot;&gt;virtualenv&lt;/code&gt; environment, we can install our package requirements.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install django
-pip install djangorestframework
-pip install pygments  # We'll be using this for the code highlighting
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Note: To exit the &lt;code class=&quot;highlighter-rouge&quot;&gt;virtualenv&lt;/code&gt; environment at any time, just type &lt;code class=&quot;highlighter-rouge&quot;&gt;deactivate&lt;/code&gt;. For more information see the &lt;a href=&quot;http://www.virtualenv.org/en/latest/index.html&quot;&gt;virtualenv documentation&lt;/a&gt;.
-Getting started&lt;/p&gt;
-
-&lt;p&gt;Okay, we’re ready to get coding. To get started, let’s create a new project to work with.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  cd ~
-  django-admin.py startproject tutorial
-  cd tutorial
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Once that’s done we can create an app that we’ll use to create a simple Web API.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py startapp snippets&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;We’ll need to add our new snippets app and the rest_framework app to INSTALLED_APPS. Let’s edit the tutorial/settings.py file:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;n&quot;&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;'rest_framework'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;'snippets.apps.SnippetsConfig'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Okay, we’re ready to roll.&lt;/p&gt;
-
-&lt;h1 id=&quot;creating-a-model-to-work-with&quot;&gt;Creating a model to work with&lt;/h1&gt;
-
-&lt;p&gt;For the purposes of this tutorial we’re going to start by creating a simple Snippet model that is used to store code snippets. Go ahead and edit the snippets/models.py file. Note: Good programming practices include comments. Although you will find them in our repository version of this tutorial code, we have omitted them here to focus on the code itself.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pygments.lexers&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_all_lexers&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pygments.styles&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_all_styles&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;LEXERS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_all_lexers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;LANGUAGE_CHOICES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LEXERS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;STYLE_CHOICES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_all_styles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Snippet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;created&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTimeField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auto_now_add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blank&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;linenos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BooleanField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;language&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;choices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LANGUAGE_CHOICES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'python'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;style&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;choices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STYLE_CHOICES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'friendly'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;ordering&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'created'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;We’ll also need to create an initial migration for our snippet model, and sync the database for the first time.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py makemigrations snippets
-python manage.py migrate
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h1 id=&quot;creating-a-serializer-class&quot;&gt;Creating a Serializer class&lt;/h1&gt;
-
-&lt;p&gt;The first thing we need to get started on our Web API is to provide a way of serializing and deserializing the snippet instances into representations such as json. We can do this by declaring serializers that work very similar to Django’s forms. Create a file in the snippets directory named serializers.py and add the following.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rest_framework&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;snippets.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LANGUAGE_CHOICES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;STYLE_CHOICES&lt;/span&gt;
-
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SnippetSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Serializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IntegerField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_only&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allow_blank&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'base_template'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'textarea.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;linenos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BooleanField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;language&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ChoiceField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;choices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LANGUAGE_CHOICES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'python'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;style&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ChoiceField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;choices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;STYLE_CHOICES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'friendly'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
-        Create and return a new `Snippet` instance, given the validated data.
-        &quot;&quot;&quot;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
-        Update and return an existing `Snippet` instance, given the validated data.
-        &quot;&quot;&quot;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'code'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linenos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'linenos'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linenos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;language&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'language'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'style'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The first part of the serializer class defines the fields that get serialized/deserialized. The create() and update() methods define how fully fledged instances are created or modified when calling serializer.save()&lt;/p&gt;
-
-&lt;p&gt;A serializer class is very similar to a Django Form class, and includes similar validation flags on the various fields, such as required, max_length and default.&lt;/p&gt;
-
-&lt;p&gt;The field flags can also control how the serializer should be displayed in certain circumstances, such as when rendering to HTML. The {‘base_template’: ‘textarea.html’} flag above is equivalent to using widget=widgets.Textarea on a Django Form class. This is particularly useful for controlling how the browsable API should be displayed, as we’ll see later in the tutorial.&lt;/p&gt;
-
-&lt;p&gt;We can actually also save ourselves some time by using the ModelSerializer class, as we’ll see later, but for now we’ll keep our serializer definition explicit.&lt;/p&gt;
-
-&lt;h1 id=&quot;working-with-serializers&quot;&gt;Working with Serializers&lt;/h1&gt;
-
-&lt;p&gt;Before we go any further we’ll familiarize ourselves with using our new Serializer class. Let’s drop into the Django shell.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py shell&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Okay, once we’ve got a few imports out of the way, let’s create a couple of code snippets to work with.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;snippets.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;snippets.serializers&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rest_framework.renderers&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSONRenderer&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rest_framework.parsers&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSONParser&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;snippet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'foo = &quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;snippet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;snippet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'print &quot;hello, world&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;snippet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We’ve now got a few snippet instances to play with. Let’s take a look at serializing one of those instances.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;snippet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# {'id': 2, 'title': u'', 'code': u'print &quot;hello, world&quot;\n', 'linenos': False, 'language': u'python', 'style': u'friendly'}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;At this point we’ve translated the model instance into Python native datatypes. To finalize the serialization process we render the data into json.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSONRenderer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# '{&quot;id&quot;: 2, &quot;title&quot;: &quot;&quot;, &quot;code&quot;: &quot;print \\&quot;hello, world\\&quot;\\n&quot;, &quot;linenos&quot;: false, &quot;language&quot;: &quot;python&quot;, &quot;style&quot;: &quot;friendly&quot;}'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Deserialization is similar. First we parse a stream into Python native datatypes…&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.utils.six&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BytesIO&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;stream&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BytesIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSONParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;…then we restore those native datatypes into a fully populated object instance.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_valid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# True&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# OrderedDict([('title', ''), ('code', 'print &quot;hello, world&quot;\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# &amp;lt;Snippet: Snippet object&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Notice how similar the API is to working with forms. The similarity should become even more apparent when we start writing views that use our serializer.&lt;/p&gt;
-
-&lt;p&gt;We can also serialize querysets instead of model instances. To do so we simply add a many=True flag to the serializer arguments.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;many&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# [OrderedDict([('id', 1), ('title', u''), ('code', u'foo = &quot;bar&quot;\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')]), OrderedDict([('id', 2), ('title', u''), ('code', u'print &quot;hello, world&quot;\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')]), OrderedDict([('id', 3), ('title', u''), ('code', u'print &quot;hello, world&quot;'), ('linenos', False), ('language', 'python'), ('style', 'friendly')])]&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h1 id=&quot;using-modelserializers&quot;&gt;Using ModelSerializers&lt;/h1&gt;
-
-&lt;p&gt;Our SnippetSerializer class is replicating a lot of information that’s also contained in the Snippet model. It would be nice if we could keep our code a bit more concise.&lt;/p&gt;
-
-&lt;p&gt;In the same way that Django provides both Form classes and ModelForm classes, REST framework includes both Serializer classes, and ModelSerializer classes.&lt;/p&gt;
-
-&lt;p&gt;Let’s look at refactoring our serializer using the ModelSerializer class. Open the file snippets/serializers.py again, and replace the SnippetSerializer class with the following.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SnippetSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ModelSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;fields&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'code'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'linenos'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'language'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'style'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;One nice property that serializers have is that you can inspect all the fields in a serializer instance, by printing its representation. Open the Django shell with python manage.py shell, then try the following:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;snippets.serializers&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;repr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# SnippetSerializer():&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#    id = IntegerField(label='ID', read_only=True)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#    title = CharField(allow_blank=True, max_length=100, required=False)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#    code = CharField(style={'base_template': 'textarea.html'})&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#    linenos = BooleanField(required=False)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#    language = ChoiceField(choices=[('Clipper', 'FoxPro'), ('Cucumber', 'Gherkin'), ('RobotFramework', 'RobotFramework'), ('abap', 'ABAP'), ('ada', 'Ada')...&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#    style = ChoiceField(choices=[('autumn', 'autumn'), ('borland', 'borland'), ('bw', 'bw'), ('colorful', 'colorful')...&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It’s important to remember that ModelSerializer classes don’t do anything particularly magical, they are simply a shortcut for creating serializer classes:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;An automatically determined set of fields.
-Simple default implementations for the create() and update() methods.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;writing-regular-django-views-using-our-serializer&quot;&gt;Writing regular Django views using our Serializer&lt;/h1&gt;
-
-&lt;p&gt;Let’s see how we can write some API views using our new Serializer class. For the moment we won’t use any of REST framework’s other features, we’ll just write the views as regular Django views.&lt;/p&gt;
-
-&lt;p&gt;Edit the snippets/views.py file, and add the following.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.http&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JsonResponse&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.views.decorators.csrf&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;csrf_exempt&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rest_framework.renderers&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSONRenderer&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rest_framework.parsers&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSONParser&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;snippets.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;snippets.serializers&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The root of our API is going to be a view that supports listing all the existing snippets, or creating a new snippet.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@csrf_exempt&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;snippet_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
-    List all code snippets, or create a new snippet.
-    &quot;&quot;&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'GET'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;snippets&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;snippets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;many&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JsonResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;safe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'POST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSONParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_valid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JsonResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;201&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JsonResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Note that because we want to be able to POST to this view from clients that won’t have a CSRF token we need to mark the view as csrf_exempt. This isn’t something that you’d normally want to do, and REST framework views actually use more sensible behavior than this, but it’ll do for our purposes right now.&lt;/p&gt;
-
-&lt;p&gt;We’ll also need a view which corresponds to an individual snippet, and can be used to retrieve, update or delete the snippet.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@csrf_exempt&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;snippet_detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
-    Retrieve, update or delete a code snippet.
-    &quot;&quot;&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;snippet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Snippet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DoesNotExist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'GET'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;snippet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JsonResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'PUT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JSONParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SnippetSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;snippet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_valid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JsonResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JsonResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'DELETE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;snippet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;204&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Finally we need to wire these views up. Create the snippets/urls.py file:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.conf.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;snippets&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r'^snippets/$'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;snippet_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r'^snippets/(?P&amp;lt;pk&amp;gt;[0-9]+)/$'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;snippet_detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;We also need to wire up the root urlconf, in the tutorial/urls.py file, to include our snippet app’s URLs.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.conf.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r'^'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'snippets.urls'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;It’s worth noting that there are a couple of edge cases we’re not dealing with properly at the moment. If we send malformed json, or if a request is made with a method that the view doesn’t handle, then we’ll end up with a 500 “server error” response. Still, this’ll do for now.
-Testing our first attempt at a Web API&lt;/p&gt;
-
-&lt;p&gt;Now we can start up a sample server that serves our snippets.&lt;/p&gt;
-
-&lt;p&gt;Quit out of the shell…&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;quit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;…and start up Django’s development server.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py runserver
-
-Validating models...
-
-0 errors found
-Django version 1.11, using settings &lt;span class=&quot;s1&quot;&gt;'tutorial.settings'&lt;/span&gt;
-Development server is running at http://127.0.0.1:8000/
-Quit the server with CONTROL-C.
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;In another terminal window, we can test the server.&lt;/p&gt;
-
-&lt;p&gt;We can test our API using curl or httpie. Httpie is a user friendly http client that’s written in Python. Let’s install that.&lt;/p&gt;
-
-&lt;p&gt;You can install httpie using pip:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pip install httpie&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Finally, we can get a list of all of the snippets:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http http://127.0.0.1:8000/snippets/
-
-HTTP/1.1 200 OK
-...
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;: 1,
-    &lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;code&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;foo = &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;linenos&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;language&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;python&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;style&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;friendly&quot;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-  &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;: 2,
-    &lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;code&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;print &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello, world&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;linenos&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;language&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;python&quot;&lt;/span&gt;,
-    &lt;span class=&quot;s2&quot;&gt;&quot;style&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;friendly&quot;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Or we can get a particular snippet by referencing its id:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http http://127.0.0.1:8000/snippets/2/
-
-HTTP/1.1 200 OK
-...
-&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;: 2,
-  &lt;span class=&quot;s2&quot;&gt;&quot;title&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;,
-  &lt;span class=&quot;s2&quot;&gt;&quot;code&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;print &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello, world&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;,
-  &lt;span class=&quot;s2&quot;&gt;&quot;linenos&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-  &lt;span class=&quot;s2&quot;&gt;&quot;language&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;python&quot;&lt;/span&gt;,
-  &lt;span class=&quot;s2&quot;&gt;&quot;style&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;friendly&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Similarly, you can have the same json displayed by visiting these URLs in a web browser.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Note: The code for this tutorial is available in the tomchristie/rest-framework-tutorial repository on GitHub. The completed implementation is also online as a sandbox version for testing, available here.</summary></entry><entry><title type="html">A Simple Hello World program in Go lang.</title><link href="http://localhost:4000/2018/05/23/learning-goLang/" rel="alternate" type="text/html" title="A Simple Hello World program in Go lang." /><published>2018-05-23T00:00:00+03:00</published><updated>2018-05-23T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/23/learning-goLang</id><content type="html" xml:base="http://localhost:4000/2018/05/23/learning-goLang/">&lt;p&gt;A couple of days ago I found my self learning &lt;code class=&quot;highlighter-rouge&quot;&gt;go&lt;/code&gt; programming language,I took a glance on it’s syntax and it was quite different from what I’m used to. I come from using dynamic typed, interpreted languages like Python,Ruby and JavaScript.&lt;code class=&quot;highlighter-rouge&quot;&gt;Go&lt;/code&gt; is sort of different it’s a static typed,compiled language just like C++ and Java.&lt;/p&gt;
-
-&lt;p&gt;In my opinion,&lt;code class=&quot;highlighter-rouge&quot;&gt;go&lt;/code&gt;’s syntax is quite simple to write. You will be amazed by how you can make a simple 
-hello world program with just a few lines of code.&lt;/p&gt;
-
-&lt;p&gt;In this tutorial I’m going to show you how to make a simple “Hello World” program.&lt;/p&gt;
-
-&lt;p&gt;Before you get started you need to install &lt;code class=&quot;highlighter-rouge&quot;&gt;go&lt;/code&gt; in your computer depending on your operating system.
-If you have already installed &lt;code class=&quot;highlighter-rouge&quot;&gt;go&lt;/code&gt; then jump to the part below.&lt;/p&gt;
-
-&lt;p&gt;First create a directory in your prefered workspace. For instance we are going to make a &lt;strong&gt;hello_world&lt;/strong&gt; folder.&lt;/p&gt;
-
-&lt;p&gt;Then inside the &lt;strong&gt;hello_world&lt;/strong&gt; folder create a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;main.go&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Open &lt;code class=&quot;highlighter-rouge&quot;&gt;main.go&lt;/code&gt; file with your favourite text editor, then add the code below. That’s it! and there you have your hello world program. Pretty cool right? : )&lt;/p&gt;
-
-&lt;p&gt;NB:// Always use double &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;&quot;&lt;/code&gt; quotes not single &lt;code class=&quot;highlighter-rouge&quot;&gt;''&lt;/code&gt; quotes when specifying your &lt;code class=&quot;highlighter-rouge&quot;&gt;import&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-golang highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; 
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; 
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printIn&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;explanation&quot;&gt;Explanation&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;How do I run the code in the project?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What does &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;/code&gt; ?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What does import “fmt” mean?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What is the &lt;code class=&quot;highlighter-rouge&quot;&gt;func&lt;/code&gt; thing?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;How is &lt;code class=&quot;highlighter-rouge&quot;&gt;main.go file organized&lt;/code&gt;?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;It’s an immensely useful tool and one we encourage you to use here with Hyde.&lt;/p&gt;
-
-&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">A couple of days ago I found my self learning go programming language,I took a glance on it’s syntax and it was quite different from what I’m used to. I come from using dynamic typed, interpreted languages like Python,Ruby and JavaScript.Go is sort of different it’s a static typed,compiled language just like C++ and Java.</summary></entry><entry><title type="html">How to Use Celery and RabbitMQ with Django</title><link href="http://localhost:4000/2018/04/26/how-to-use-celery-with-django/" rel="alternate" type="text/html" title="How to Use Celery and RabbitMQ with Django" /><published>2018-04-26T00:00:00+03:00</published><updated>2018-04-26T00:00:00+03:00</updated><id>http://localhost:4000/2018/04/26/how-to-use-celery-with-django</id><content type="html" xml:base="http://localhost:4000/2018/04/26/how-to-use-celery-with-django/">&lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
-&lt;ul&gt;
-	&lt;li&gt;Why Should I Use Celery?&lt;/li&gt;
-	&lt;li&gt;Installation&lt;/li&gt;
-	&lt;li&gt;Installing RabbitMQ on Ubuntu 16.04&lt;/li&gt;
-	&lt;li&gt;Installing RabbitMQ on Mac&lt;/li&gt;
-	&lt;li&gt;Installing RabbitMQ on Windows and Other OSs&lt;/li&gt;
-	&lt;li&gt;Celery Basic Setup&lt;/li&gt;
-	&lt;li&gt;Creating Our First Celery Task&lt;/li&gt;
-	&lt;li&gt;Starting The Worker Process&lt;/li&gt;
-	&lt;li&gt;Managing The Worker Process in Production with Supervisord&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;Why Should I Use Celery?&lt;/h2&gt;
-&lt;p&gt;Web applications works with request and response cycles. When the user access a certain URL of your application the Web browser send a request to your server. Django receive this request and do something with it. Usually it involves executing queries in the database, processing data. While Django does his thing and process the request, the user have to wait. When Django finalize its job processing the request, it sends back a response to the user who finally will see something.&lt;/p&gt;
-
-&lt;p&gt;Ideally this request and response cycle should be fast, otherwise we would leave the user waiting for way too long. And even worse, our Web server can only serve a certain number of users at a time. So, if this process is slow, it can limit the amount of pages your application can serve at a time.&lt;/p&gt;
-
-&lt;p&gt;For the most part we can work around this issue using cache, optimizing database queries, and so on. But there are some cases that theres no other option: the heavy work have to be done. A report page, export of big amount of data, video/image processing are a few examples of cases where you may want to use Celery.&lt;/p&gt;
-
-&lt;p&gt;We don’t use Celery through the whole project, but only for specific tasks that are time-consuming. The idea here is to respond to the user as quick as possible, and pass the time-consuming tasks to the queue so to be executed in the background, and always keep the server ready to respond to new requests.&lt;/p&gt;
-
-&lt;h1 id=&quot;installation&quot;&gt;Installation&lt;/h1&gt;
-&lt;p&gt;The easiest way to install Celery is using pip:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pip install Celery&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Now we have to install RabbitMQ.&lt;/p&gt;
-
-&lt;h1 id=&quot;installing-rabbitmq-on-ubuntu-1604&quot;&gt;Installing RabbitMQ on Ubuntu 16.04&lt;/h1&gt;
-&lt;p&gt;To install it on a newer Ubuntu version is very straightforward:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install -y erlang&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install rabbitmq-server&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Then enable and start the RabbitMQ service:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl enable rabbitmq-server&lt;/code&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl start rabbitmq-server&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Check the status to make sure everything is running smooth:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;systemctl status rabbitmq-server&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Installing RabbitMQ on Mac
-Homebrew is the most straightforward option:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;brew install rabbitmq&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;The RabbitMQ scripts are installed into &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/sbin&lt;/code&gt;. You can add it to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bash_profile&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;.profile&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.bash_profile&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Then add it to the bottom of the file:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
-export PATH=$PATH:/usr/local/sbin
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Restart the terminal to make sure the changes are in effect.&lt;/p&gt;
-
-&lt;p&gt;Now you can start the RabbitMQ server using the following command:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rabbitmq-server&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/2018/03/07/how-to-reset-migrations-in-django/&quot;&gt;Read Part 2&lt;/a&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><category term="blog" /><summary type="html">Table of Contents Why Should I Use Celery? Installation Installing RabbitMQ on Ubuntu 16.04 Installing RabbitMQ on Mac Installing RabbitMQ on Windows and Other OSs Celery Basic Setup Creating Our First Celery Task Starting The Worker Process Managing The Worker Process in Production with Supervisord</summary></entry></feed>
+&lt;p&gt;Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Prerequisites</summary></entry><entry><title type="html">Documenting Your Django Application with Sphinx.</title><link href="http://localhost:4000/2018/06/03/documenting-your-django-application-with-sphinx/" rel="alternate" type="text/html" title="Documenting Your Django Application with Sphinx." /><published>2018-06-03T00:00:00+03:00</published><updated>2018-06-03T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/03/documenting-%20your%20django%20-application-with%20sphinx</id><content type="html" xml:base="http://localhost:4000/2018/06/03/documenting-your-django-application-with-sphinx/">&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Find out more by visiting the project on GitHub.</summary></entry></feed>
