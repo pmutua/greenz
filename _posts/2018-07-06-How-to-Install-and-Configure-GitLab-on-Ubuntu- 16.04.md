@@ -1,13 +1,15 @@
 ---
 layout: post
-title: How to create your first Django library.
+title: How to Install and Configure GitLab on Ubuntu 16.04.
 description: >
-	GitLab is an open source GIT repository manager based on Rails and developed by GitLab Inc. It is a web-based GIT repository manager that allows your team to work on code, track bugs and feature requests and to test and deploy applications. GitLab provides features like a wiki, issue tracking, code reviews, activity feeds and merge management. It is capable of hosting multiple projects.
+
 tags: [tutorial]
 author: author1
 canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
 ---
 
+
+GitLab is an open source GIT repository manager based on Rails and developed by GitLab Inc. It is a web-based GIT repository manager that allows your team to work on code, track bugs and feature requests and to test and deploy applications. GitLab provides features like a wiki, issue tracking, code reviews, activity feeds and merge management. It is capable of hosting multiple projects.
 
 GitLab is available in four editions:
 
@@ -42,7 +44,7 @@ In this tutorial, I will show you step-by-step how to install GitLab CE (Communi
 
 The first step is to install the packages needed for the GitLab installation. Please log in to the server as root user and upddate the Ubuntu repository.
 
-```bash 
+```bash
 ssh root@GitLabServer
 apt-get update
 ```
@@ -176,7 +178,7 @@ At this stage, we have the certificate files from Letsencrypt in '/etc/letsencry
 
 In this step, we will configure a GitLab to use our certificate files. Go to the '/etc/gitlab' directory, then edit 'gitlab.rb' configuration with vim.
 
-```bash 
+```bash
 cd /etc/gitlab/
 vim gitlab.rb
 ```
@@ -191,7 +193,7 @@ Then add the new SSL configuration for gitlab as below.
 
 
 
-```bash 
+```bash
 
 nginx['redirect_http_to_https'] = true
 nginx['ssl_certificate'] = "/etc/letsencrypt/live/gitlab.hakase-labs.co/fullchain.pem"
@@ -240,7 +242,7 @@ Next, open new ports ssh, HTTP, and HTTPS.
 
 
 
-```bash 
+```bash
 	ufw allow ssh
 	ufw allow http
 	ufw allow https

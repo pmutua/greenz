@@ -5,7 +5,7 @@ title: Consuming JSON APIs with Go
 description: >
   We live in a time where there is an API for almost anything.
 
-tags: [tutorial]
+tags: [blog]
 author: author1
 
 ---
@@ -22,7 +22,7 @@ Type the following in your browser window:
 
 The API response is returned in JSON format.
 
-Show format here 
+Show format here
 
 numverify.go
 

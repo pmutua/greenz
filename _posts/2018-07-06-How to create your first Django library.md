@@ -2,14 +2,14 @@
 layout: post
 title: How to create your first Django library.
 description: >
-	This is a guide how to create first third-party django library or application, attempting to be kindly. Django documentation tell you way to create django’s projects and applications. But there isn’t (perhaps) way to distribute applications like django-cms, django-blog-zinnia. So, I’ll show you it.
+
 tags: [tutorial]
 author: author1
 canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
 ---
 
 
-# Contents
+This is a guide how to create first third-party django library or application, attempting to be kindly. Django documentation tell you way to create django’s projects and applications. But there isn’t (perhaps) way to distribute applications like django-cms, django-blog-zinnia. So, I’ll show you it.
 
 ### How to create your first Django library
 - 1. Create your application
@@ -182,7 +182,7 @@ Ok, let’s consider a case which supporting two versions of Python, Python2.7 a
 
 And then, write setting like this:
 
-```bash 
+```bash
 [tox]
 envlist = py27, py33, flake8
 
@@ -194,7 +194,7 @@ commands =
 
 To run those tests, install tox and type like this:
 
-```bash 
+```bash
 pip install tox
 tox
 ```

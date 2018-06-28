@@ -1,24 +1,22 @@
 ---
 layout: post
-title: How To Create Installable, Reusable Django Packages
+title: Basic Git commands
 description: >
-	This is a guide how to create first third-party django library or application, attempting to be kindly. Django documentation tell you way to create django’s projects and applications. But there isn’t (perhaps) way to distribute applications like django-cms, django-blog-zinnia. So, I’ll show you it.
+
 tags: [tutorial]
 author: author1
 canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
 ---
 
-
-# Contents
-
+Git commands.
 Command line instructions
 
 Git global setup
-git config --global user.name "Philip Mutua"
-git config --global user.email "pmutua@live.com"
+git config --global user.name "Bruce Wane"
+git config --global user.email "example@email.com"
 
 Create a new repository
-git clone 
+git clone
 https://gitlab.com/pmutua/agiza.git
 
 cd agiza
@@ -30,7 +28,7 @@ git push -u origin master
 Existing folder
 cd existing_folder
 git init
-git remote add origin 
+git remote add origin
 https://gitlab.com/pmutua/agiza.git
 
 git add .
@@ -40,7 +38,7 @@ git push -u origin master
 Existing Git repository
 cd existing_repo
 git remote rename origin old-origin
-git remote add origin 
+git remote add origin
 https://gitlab.com/pmutua/agiza.git
 git push -u origin --all
 git push -u origin --tags
