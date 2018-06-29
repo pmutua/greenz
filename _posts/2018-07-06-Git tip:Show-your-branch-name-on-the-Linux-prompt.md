@@ -29,7 +29,6 @@ Now add the following code to `.bashrc` for Git branch information:
 
 ```bash
 
-# Add git branch if its present to .bashrc file
 # Show git branch name
 force_color_prompt=yes
 color_prompt=yes
