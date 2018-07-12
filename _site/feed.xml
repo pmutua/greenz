@@ -1,808 +1,1111 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-06-28T09:40:12+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
-</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html">Setting Up a Virtual Environment in Python.</title><link href="http://localhost:4000/2018/06/18/Set-Up-Virtual-Env/" rel="alternate" type="text/html" title="Setting Up a Virtual Environment in Python." /><published>2018-06-18T00:00:00+03:00</published><updated>2018-06-18T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/18/Set-Up-Virtual-Env</id><content type="html" xml:base="http://localhost:4000/2018/06/18/Set-Up-Virtual-Env/">&lt;p&gt;When you use virtualenv, you create an isolated environment with its own installation directories which your user has full permissions to. This allows you to install a custom version of Python and its different packages which is not connected to the global installation on the server. This also solves the issue with permissions when installing software.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-07-12T13:15:28+03:00</updated><id>http://localhost:4000/</id><title type="html">Philip Mutua</title><subtitle>Building solutions with technology.
+</subtitle><author><name>philip mutua</name><email>pmutua@live.com</email></author><entry><title type="html"></title><link href="http://localhost:4000/2018/07/12/2018-06-31-How-To-Install-Node.js-on-Ubuntu-16.04/" rel="alternate" type="text/html" title="" /><published>2018-07-12T13:15:28+03:00</published><updated>2018-07-12T13:15:28+03:00</updated><id>http://localhost:4000/2018/07/12/2018-06-31-How-To-Install-%20Node.js-%20on-Ubuntu-16.04</id><content type="html" xml:base="http://localhost:4000/2018/07/12/2018-06-31-How-To-Install-Node.js-on-Ubuntu-16.04/">&lt;p&gt;Introduction&lt;/p&gt;
 
-&lt;h1 id=&quot;pip-and-virtualenv&quot;&gt;pip and virtualenv&lt;/h1&gt;
+&lt;p&gt;Node.js is a JavaScript platform for general-purpose programming that allows users to build network applications quickly. By leveraging JavaScript on both the front- and back-end, development can be more consistent and designed within the same system.&lt;/p&gt;
 
-&lt;p&gt;View the following links for further details on installing and using &lt;code class=&quot;highlighter-rouge&quot;&gt;pip&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;virtualenv&lt;/code&gt;, depending on which version of Python you’re using:&lt;/p&gt;
+&lt;p&gt;In this guide, we’ll show you how to get started with Node.js on an Ubuntu 16.04 server.&lt;/p&gt;
 
-&lt;h3 id=&quot;python-2&quot;&gt;Python 2&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://help.dreamhost.com/hc/en-us/articles/215489338-Installing-and-using-Python-s-virtualenv&quot;&gt;Installing and using virtualenv with Python 3&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://help.dreamhost.com/hc/en-us/articles/115000221112-Using-pip-to-install-Python-2-modules&quot;&gt;Using pip3 to install Python3 modules&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;If you are looking to set up a production Node.js environment, check out this link: How To Set Up a Node.js Application for Production.
+Prerequisites&lt;/p&gt;
 
-&lt;h3 id=&quot;python-3&quot;&gt;Python 3&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://help.dreamhost.com/hc/en-us/articles/115000695551-Installing-and-using-Python-s-virtualenv-using-Python-3&quot;&gt;Installing and using virtualenv with Python 3&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://help.dreamhost.com/hc/en-us/articles/115000699011-Using-pip3-to-install-Python3-modules&quot;&gt;Using pip3 to install Python3 modules&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;This guide assumes that you are using Ubuntu 16.04. Before you begin, you should have a non-root user account with sudo privileges set up on your system. You can learn how to do this by completing steps 1-4 in the initial server setup for Ubuntu 16.04.
+How To Install the Distro-Stable Version for Ubuntu&lt;/p&gt;
 
-&lt;p&gt;First you will create a directory:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir environment_file&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ubuntu 16.04 contains a version of Node.js in its default repositories that can be used to easily provide a consistent experience across multiple systems. At the time of writing, the version in the repositories is v4.2.6. This will not be the latest version, but it should be quite stable and sufficient for quick experimentation with the language.&lt;/p&gt;
 
-&lt;p&gt;Then install python packages in &lt;code class=&quot;highlighter-rouge&quot;&gt;environment_file&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;virtualenv&lt;/code&gt; depending on the python version you would like to install.&lt;/p&gt;
+&lt;p&gt;In order to get this version, we just have to use the apt package manager. We should refresh our local package index first, and then install from the repositories:&lt;/p&gt;
 
-&lt;h1 id=&quot;example&quot;&gt;Example&lt;/h1&gt;
-
-&lt;h4 id=&quot;python36&quot;&gt;Python3.6&lt;/h4&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;virtualenv -p python3.6 environment_file&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;python27&quot;&gt;Python2.7&lt;/h4&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;virtualenv -p python3.6 environment_file&lt;/code&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">When you use virtualenv, you create an isolated environment with its own installation directories which your user has full permissions to. This allows you to install a custom version of Python and its different packages which is not connected to the global installation on the server. This also solves the issue with permissions when installing software.</summary></entry><entry><title type="html">Documenting Your Django Application with Sphinx.</title><link href="http://localhost:4000/2018/06/04/documenting-your-django-application-with-sphinx/" rel="alternate" type="text/html" title="Documenting Your Django Application with Sphinx." /><published>2018-06-04T00:00:00+03:00</published><updated>2018-06-04T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/04/documenting-%20your%20django%20-application-with%20sphinx</id><content type="html" xml:base="http://localhost:4000/2018/06/04/documenting-your-django-application-with-sphinx/">&lt;p&gt;install &lt;a href=&quot;&quot;&gt;sphinx&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;For Python 3
-&lt;code class=&quot;highlighter-rouge&quot;&gt;pip3 install sphinx&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;For Python 2&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt; to your django project&lt;/p&gt;
-
-&lt;p&gt;Make a directory called &lt;code class=&quot;highlighter-rouge&quot;&gt;docs&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir&lt;/code&gt; docs&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt;  to docs&lt;/p&gt;
-
-&lt;p&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;sphinx-quckstart&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;then configure your &lt;code class=&quot;highlighter-rouge&quot;&gt;conf.py&lt;/code&gt; file&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abspath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'../'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'DJANGO_SETTINGS_MODULE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'mis.settings'&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;django&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-
-
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install nodejs
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Inside your doc folder generate your &lt;code class=&quot;highlighter-rouge&quot;&gt;.rst&lt;/code&gt; files&lt;/p&gt;
+&lt;p&gt;If the package in the repositories suits your needs, this is all you need to do to get set up with Node.js. In most cases, you’ll also want to also install npm, which is the Node.js package manager. You can do this by typing:&lt;/p&gt;
 
-&lt;p&gt;For example you have an application called &lt;code class=&quot;highlighter-rouge&quot;&gt;hr&lt;/code&gt; you would like to import everything to document&lt;/p&gt;
-
-&lt;p&gt;you will run &lt;code class=&quot;highlighter-rouge&quot;&gt;sphinx-apidoc -o source ../hr&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Then to make them availabe in the index file add them in the &lt;code class=&quot;highlighter-rouge&quot;&gt;index.rst&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.. ERP documentation master file, created by
-   sphinx-quickstart on Wed Jun 13 11:40:12 2018.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root &lt;span class=&quot;sb&quot;&gt;`toctree`&lt;/span&gt; directive.
-
-&lt;span class=&quot;gu&quot;&gt;Welcome to ERP's documentation!
-===============================
-&lt;/span&gt;
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-   source/modules&lt;span class=&quot;sb&quot;&gt;
-
-
-&lt;/span&gt;&lt;span class=&quot;gu&quot;&gt;Indices and tables
-==================
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;
-*&lt;/span&gt; :ref:&lt;span class=&quot;sb&quot;&gt;`genindex`&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; :ref:&lt;span class=&quot;sb&quot;&gt;`modindex`&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;*&lt;/span&gt; :ref:&lt;span class=&quot;sb&quot;&gt;`search`&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">install sphinx</summary></entry><entry><title type="html">How To Install and Use Docker on Ubuntu 16.04</title><link href="http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/" rel="alternate" type="text/html" title="How To Install and Use Docker on Ubuntu 16.04" /><published>2018-06-03T00:00:00+03:00</published><updated>2018-06-03T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/03/How%20To%20Install%20and%20Use%20Docker%20on%20Ubuntu%2016.04%20.md</id><content type="html" xml:base="http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
-
-&lt;p&gt;To follow this tutorial, you will need the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;64-bit Ubuntu 16.04 server&lt;/li&gt;
-  &lt;li&gt;Non-root user with sudo privileges Initial Setup Guide for Ubuntu 16.04 explains how to set this up.)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  Note: Docker requires a 64-bit version of Ubuntu as well as a kernel version equal to or greater than 3.10. The default 64-bit Ubuntu 16.04 server meets these requirements.
-&lt;/blockquote&gt;
-
-&lt;p&gt;All the commands in this tutorial should be run as a non-root user. If root access is required for the command, it will be preceded by &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;. &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04&quot;&gt;Initial Setup Guide for Ubuntu 16.04&lt;/a&gt; explains how to add users and give them sudo access.&lt;/p&gt;
-
-&lt;h1 id=&quot;step-1--installing-docker&quot;&gt;Step 1 — Installing Docker&lt;/h1&gt;
-
-&lt;p&gt;The Docker installation package available in the official Ubuntu 16.04 repository may not be the latest version. To get the latest and greatest version, install Docker from the official Docker repository. This section shows you how to do just that.&lt;/p&gt;
-
-&lt;p&gt;First, add the GPG key for the official Docker repository to the system:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Add the Docker repository to APT sources:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Next, update the package database with the Docker packages from the newly added repo:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get update&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;You should see output similar to the follow:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output of apt-cache policy docker-ce
-
-docker-ce:
-  Installed: (none)
-  Candidate: 17.03.1~ce-0~ubuntu-xenial
-  Version table:
-     17.03.1~ce-0~ubuntu-xenial 500
-        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
-     17.03.0~ce-0~ubuntu-xenial 500
-        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
-
-
-
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install npm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Notice that &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; is not installed, but the candidate for installation is from the Docker repository for Ubuntu 16.04. The &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; version number might be different.&lt;/p&gt;
+&lt;p&gt;This will allow you to easily install modules and packages to use with Node.js.&lt;/p&gt;
 
-&lt;p&gt;Finally, install Docker:&lt;/p&gt;
+&lt;p&gt;Because of a conflict with another package, the executable from the Ubuntu repositories is called nodejs instead of node. Keep this in mind as you are running software.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get install -y docker-ce&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To check which version of Node.js you have installed after these initial steps, type:&lt;/p&gt;
 
-&lt;p&gt;Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Prerequisites</summary></entry><entry><title type="html">How to install Sphinx to documenting your app.</title><link href="http://localhost:4000/2018/06/03/How-to-install-sphinx/" rel="alternate" type="text/html" title="How to install Sphinx to documenting your app." /><published>2018-06-03T00:00:00+03:00</published><updated>2018-06-03T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/03/How-to-install-sphinx</id><content type="html" xml:base="http://localhost:4000/2018/06/03/How-to-install-sphinx/">&lt;p&gt;Sphinx uses reStructuredText as its markup language, and many of its strengths come from the power and straightforwardness of reStructuredText and its parsing and translating suite, the Docutils.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nodejs -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Among its features are the following:&lt;/p&gt;
+&lt;p&gt;Once you have established which version of Node.js you have installed from the Ubuntu repositories, you can decide whether or not you would like to work with different versions, package archives, or version managers. Next, we’ll discuss these elements along with more flexible and robust methods of installation.
+How To Install Using a PPA&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Output formats: HTML (including derivative formats such as HTML Help, Epub and Qt Help), plain text, manual pages and LaTeX or direct PDF output using rst2pdf&lt;/li&gt;
-  &lt;li&gt;Extensive cross-references: semantic markup and automatic links for functions, classes, glossary terms and similar pieces of information&lt;/li&gt;
-  &lt;li&gt;Hierarchical structure: easy definition of a document tree, with automatic links to siblings, parents and children&lt;/li&gt;
-  &lt;li&gt;Automatic indices: general index as well as a module index&lt;/li&gt;
-  &lt;li&gt;Code handling: automatic highlighting using the Pygments highlighter&lt;/li&gt;
-  &lt;li&gt;Flexible HTML output using the Jinja 2 templating engine&lt;/li&gt;
-  &lt;li&gt;Various extensions are available, e.g. for automatic testing of snippets and inclusion of appropriately formatted docstrings&lt;/li&gt;
-  &lt;li&gt;Setuptools integration&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;An alternative that can get you a more recent version of Node.js is to add a PPA (personal package archive) maintained by NodeSource. This will have more up-to-date versions of Node.js than the official Ubuntu repositories, and allows you to choose between Node.js v4.x (the older long-term support version, which will be supported until April of 2018), Node.js v6.x (supported until April of 2019), and Node.js v8.x (the current LTS version, supported until December of 2019).&lt;/p&gt;
 
-&lt;p&gt;For more information, refer to the the documentation.
+&lt;p&gt;First, you need to install the PPA in order to get access to its contents. Make sure you’re in your home directory, and use curl to retrieve the installation script for your preferred version, making sure to replace 8.x with your preferred version string (if different):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ~
+curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can inspect the contents of this script with nano (or your preferred text editor):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano nodesource_setup.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And run the script under sudo:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo bash nodesource_setup.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The PPA will be added to your configuration and your local package cache will be updated automatically. After running the setup script from nodesource, you can install the Node.js package in the same way you did above:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install nodejs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To check which version of Node.js you have installed after these initial steps, type:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nodejs -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+v8.10.0&lt;/p&gt;
+
+&lt;p&gt;The nodejs package contains the nodejs binary as well as npm, so you don’t need to install npm separately.&lt;/p&gt;
+
+&lt;p&gt;npm uses a configuration file in your home directory to keep track of updates. It will be created the first time you run npm. Execute this command to verify that npm is installed and to create the configuration file:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+5.6.0&lt;/p&gt;
+
+&lt;p&gt;In order for some npm packages to work (those that require compiling code from source, for example), you will need to install the build-essential package:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install build-essential
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You now have the necessary tools to work with npm packages that require compiling code from source.
+How To Install Using NVM&lt;/p&gt;
+
+&lt;p&gt;An alternative to installing Node.js through apt is to use a specially designed tool called nvm, which stands for “Node.js version manager”. Rather than working at the operating system level, nvm works at the level of an independent directory within your home directory. This means that you can install multiple, self-contained versions of Node.js without affecting the entire system.&lt;/p&gt;
+
+&lt;p&gt;Controlling your environment with nvm allows you to access the newest versions of Node.js and retain and manage previous releases. It is a different utility from apt-get, however, and the versions of Node.js that you manage through it are distinct from the distro-stable version of Node.js available from the Ubuntu repositories.&lt;/p&gt;
+
+&lt;p&gt;To start off, we’ll need to get the software packages from our Ubuntu repositories that will allow us to build source packages. The nvm script will leverage these tools to build the necessary components:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install build-essential libssl-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Once the prerequisite packages are installed, you can pull down the nvm installation script from the project’s GitHub page. The version number may be different, but in general, you can download it with curl:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh -o install_nvm.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And inspect the installation script with nano:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano install_nvm.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Run the script with bash:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bash install_nvm.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It will install the software into a subdirectory of your home directory at ~/.nvm. It will also add the necessary lines to your ~/.profile file to use the file.&lt;/p&gt;
+
+&lt;p&gt;To gain access to the nvm functionality, you’ll need to log out and log back in again, or you can source the ~/.profile file so that your current session knows about the changes:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source ~/.profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now that you have nvm installed, you can install isolated Node.js versions.&lt;/p&gt;
+
+&lt;p&gt;To find out the versions of Node.js that are available for installation, you can type:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvm ls-remote
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+…
+         v8.5.0
+         v8.6.0
+         v8.7.0
+         v8.8.0
+         v8.8.1
+         v8.9.0 &lt;br /&gt;
+         v8.9.1 &lt;br /&gt;
+         v8.9.2 &lt;br /&gt;
+         v8.9.3 &lt;br /&gt;
+-&amp;gt;      v8.9.4   (Latest LTS: Carbon)&lt;/p&gt;
+
+&lt;p&gt;As you can see, the newest LTS version at the time of this writing is v8.9.4. You can install that by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvm install 8.9.4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Usually, nvm will switch to use the most recently installed version. You can explicitly tell nvm to use the version we just downloaded by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvm use 8.9.4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When you install Node.js using nvm, the executable is called node. You can see the version currently being used by the shell by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+v8.9.4&lt;/p&gt;
+
+&lt;p&gt;If you have multiple Node.js versions, you can see what is installed by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvm ls
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you wish to default one of the versions, you can type:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvm alias default 8.9.4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This version will be automatically selected when a new session spawns. You can also reference it by the alias like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvm use default
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Each version of Node.js will keep track of its own packages and has npm available to manage these.&lt;/p&gt;
+
+&lt;p&gt;You can have npm install packages to the Node.js project’s ./node_modules directory by using the normal format. For example, for the express module:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install express
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you’d like to install it globally (making it available to the other projects using the same Node.js version), you can add the -g flag:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install -g express
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will install the package in:&lt;/p&gt;
+
+&lt;p&gt;~/.nvm/node_version/lib/node_modules/package_name&lt;/p&gt;
+
+&lt;p&gt;Installing globally will let you run the commands from the command line, but you’ll have to link the package into your local sphere to require it from within a program:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm link express
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can learn more about the options available to you with nvm by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvm help
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Removing Node.js&lt;/p&gt;
+
+&lt;p&gt;You can uninstall Node.js using apt-get or nvm, depending on the version you want to target. To remove the distro-stable version, you will need to work with the apt-get utility at the system level.&lt;/p&gt;
+
+&lt;p&gt;To remove the distro-stable version, type the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get remove nodejs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This command will remove the package and retain the configuration files. These may be of use to you if you intend to install the package again at a later point. If you don’t want to save the configuration files for later use, however, then run the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get purge nodejs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will uninstall the package and remove the configuration files associated with it.
+As a final step, you can remove any unused packages that were automatically installed with the removed package:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get autoremove
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To uninstall a version of Node.js that you have enabled using nvm, first determine whether or not the version you would like to remove is the current active version:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvm current
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If the version you are targeting is not the current active version, you can run:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvm uninstall node_version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This command will uninstall the selected version of Node.js.&lt;/p&gt;
+
+&lt;p&gt;If the version you would like to remove is the current active version, you must first deactive nvm to enable your changes:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvm deactivate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can now uninstall the current version using the uninstall command above, which will remove all files associated with the targeted version of Node.js except the cached files that can be used for reinstallment.
+Conclusion&lt;/p&gt;
+
+&lt;p&gt;As you can see, there are a quite a few ways to get up and running with Node.js on your Ubuntu 16.04 server. Your circumstances will dictate which of the above methods is the best idea for your circumstance. While the packaged version in Ubuntu’s repository is the easiest, the nvm method is definitely much more flexible.&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author></entry><entry><title type="html"></title><link href="http://localhost:4000/2018/07/12/2018-06-30-how-to-install-postgres/" rel="alternate" type="text/html" title="" /><published>2018-07-12T13:15:28+03:00</published><updated>2018-07-12T13:15:28+03:00</updated><id>http://localhost:4000/2018/07/12/2018-06-30--how-to-install-postgres-</id><content type="html" xml:base="http://localhost:4000/2018/07/12/2018-06-30-how-to-install-postgres/">&lt;p&gt;PostgreSQL, or Postgres, is a relational database management system that provides an implementation of the SQL querying language. It is a popular choice for many small and large projects and has the advantage of being standards-compliant and having many advanced features like reliable transactions and concurrency without read locks.&lt;/p&gt;
+
+&lt;p&gt;In this guide, we will demonstrate how to install Postgres on an Ubuntu 16.04 VPS instance and go over some basic ways to use it.
 Installation&lt;/p&gt;
 
-&lt;p&gt;Sphinx is published on PyPI and can be installed from there:&lt;/p&gt;
+&lt;p&gt;Ubuntu’s default repositories contain Postgres packages, so we can install these easily using the apt packaging system.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pip install -U sphinx&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Since this is our first time using apt in this session, we need to refresh our local package index. We can then install the Postgres package and a -contrib package that adds some additional utilities and functionality:&lt;/p&gt;
 
-&lt;p&gt;We also publish beta releases:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pip install -U --pre sphinx&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/sphinx-doc/sphinx&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="blog" /><summary type="html">Sphinx uses reStructuredText as its markup language, and many of its strengths come from the power and straightforwardness of reStructuredText and its parsing and translating suite, the Docutils.</summary></entry><entry><title type="html">Consuming JSON APIs with Go</title><link href="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/" rel="alternate" type="text/html" title="Consuming JSON APIs with Go" /><published>2018-06-02T00:00:00+03:00</published><updated>2018-06-02T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/02/Consuming%20JSON%20APIs%20with%20Go</id><content type="html" xml:base="http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go/">&lt;p&gt;To authenticate with the numverify API, simply attach your access_key to the base endpoint URL:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;In addition to the “access_key” parameter, there is only one required parameter (“number”) to start validating phone numbers.&lt;/p&gt;
-
-&lt;p&gt;Type the following in your browser window:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&amp;amp;number=41443607070&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;The API response is returned in JSON format.&lt;/p&gt;
-
-&lt;p&gt;Show format here&lt;/p&gt;
-
-&lt;p&gt;numverify.go&lt;/p&gt;
-
-&lt;p&gt;JSON-to-Go is an excellent tool that instantly converts JSON into a Go type definition. Using it, I get:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-GO&quot;&gt;
-  type Numverify struct {
-  	Valid               bool   `json:&quot;valid&quot;`
-  	Number              string `json:&quot;number&quot;`
-  	LocalFormat         string `json:&quot;local_format&quot;`
-  	InternationalFormat string `json:&quot;international_format&quot;`
-  	CountryPrefix       string `json:&quot;country_prefix&quot;`
-  	CountryCode         string `json:&quot;country_code&quot;`
-  	CountryName         string `json:&quot;country_name&quot;`
-  	Location            string `json:&quot;location&quot;`
-  	Carrier             string `json:&quot;carrier&quot;`
-  	LineType            string `json:&quot;line_type&quot;`
-  }
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Our Go program “numverify.go” is a bare bones program showing you how to access the “numverify” API. Later on you could convert this to a web app and host it on Google App Engine or Heroku.&lt;/p&gt;
-
-&lt;p&gt;Here’s the complete program:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-GO&quot;&gt;
-package main
-
-import (
-	&quot;encoding/json&quot;
-	&quot;fmt&quot;
-	&quot;log&quot;
-	&quot;net/http&quot;
-	&quot;net/url&quot;
-)
-
-type Numverify struct {
-	Valid               bool   `json:&quot;valid&quot;`
-	Number              string `json:&quot;number&quot;`
-	LocalFormat         string `json:&quot;local_format&quot;`
-	InternationalFormat string `json:&quot;international_format&quot;`
-	CountryPrefix       string `json:&quot;country_prefix&quot;`
-	CountryCode         string `json:&quot;country_code&quot;`
-	CountryName         string `json:&quot;country_name&quot;`
-	Location            string `json:&quot;location&quot;`
-	Carrier             string `json:&quot;carrier&quot;`
-	LineType            string `json:&quot;line_type&quot;`
-}
-
-func main() {
-	phone := &quot;14158586273&quot;
-	// QueryEscape escapes the phone string so
-	// it can be safely placed inside a URL query
-	safePhone := url.QueryEscape(phone)
-
-	url := fmt.Sprintf(&quot;http://apilayer.net/api/validate?access_key=YOUR_ACCESS_KEY&amp;amp;number=%s&quot;, safePhone)
-
-	// Build the request
-	req, err := http.NewRequest(&quot;GET&quot;, url, nil)
-	if err != nil {
-		log.Fatal(&quot;NewRequest: &quot;, err)
-		return
-	}
-
-	// For control over HTTP client headers,
-	// redirect policy, and other settings,
-	// create a Client
-	// A Client is an HTTP client
-	client := &amp;amp;http.Client{}
-
-	// Send the request via a client
-	// Do sends an HTTP request and
-	// returns an HTTP response
-	resp, err := client.Do(req)
-	if err != nil {
-		log.Fatal(&quot;Do: &quot;, err)
-		return
-	}
-
-	// Callers should close resp.Body
-	// when done reading from it
-	// Defer the closing of the body
-	defer resp.Body.Close()
-
-	// Fill the record with the data from the JSON
-	var record Numverify
-
-	// Use json.Decode for reading streams of JSON data
-	if err := json.NewDecoder(resp.Body).Decode(&amp;amp;record); err != nil {
-		log.Println(err)
-	}
-
-	fmt.Println(&quot;Phone No. = &quot;, record.InternationalFormat)
-	fmt.Println(&quot;Country   = &quot;, record.CountryName)
-	fmt.Println(&quot;Location  = &quot;, record.Location)
-	fmt.Println(&quot;Carrier   = &quot;, record.Carrier)
-	fmt.Println(&quot;LineType  = &quot;, record.LineType)
-
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;func QueryEscape(s string) string&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;“QueryEscape” escapes the string so it can be safely placed inside a URL query.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fmt.Sprintf&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;“Sprintf” formats and returns a string without printing it anywhere.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;func NewRequest(method, urlStr string, body io.Reader) (*Request, error)&lt;/code&gt;`&lt;/p&gt;
-
-&lt;p&gt;“NewRequest” returns a new “Request” given a method, URL, and an optional body. “NewRequest” returns a “Request” suitable for use with “Client.Do”.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;client := &amp;amp;http.Client{}&lt;/code&gt;`&lt;/p&gt;
-
-&lt;p&gt;A “Client” is an HTTP client.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;resp, err := client.Do(req)&lt;/code&gt;`&lt;/p&gt;
-
-&lt;p&gt;“Do” sends an HTTP request and returns an HTTP response. When “err” is nil, “resp” always contains a non-nil “resp.Body”. Callers should close “resp.Body” when done reading from it. Use “Defer” for closing the body. “resp.Body” is of type “io.Reader”.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;defer resp.Body.Close()&lt;/code&gt;`&lt;/p&gt;
-
-&lt;p&gt;Next, “NewDecoder” returns a new decoder that reads from “io.Reader”. A “Decoder” reads and decodes JSON objects from an input stream.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;func NewDecoder(r io.Reader) *Decoder&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;“Decode” reads the next JSON-encoded value from its input and stores it in the value pointed to by v.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;func (dec *Decoder) Decode(v interface{}) error&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Finally, we extract the information from our populated “Numverify” struct variable “record”.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="blog" /><summary type="html">To authenticate with the numverify API, simply attach your access_key to the base endpoint URL:</summary></entry><entry><title type="html">Writable nested serializer with existing objects using Django Rest Framework 3.2.2”</title><link href="http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/" rel="alternate" type="text/html" title="Writable nested serializer with existing objects using Django Rest Framework 3.2.2”" /><published>2018-06-01T00:00:00+03:00</published><updated>2018-06-01T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/01/-writable%20-nested-%20serializer-with-%20existing-objects-%20using-Django-Rest-Framework-%203.2.2</id><content type="html" xml:base="http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/">&lt;p&gt;django-rest-framework 3.0 create or update in nested serializer&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;n&quot;&gt;Firstly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;want&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;support&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creating&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instances&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;updating&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;existing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ever&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wanted&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instances&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;could&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;something&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PageSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Serializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BookSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Serializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PageSerializer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;many&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;# Create the book instance&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-        &lt;span class=&quot;c&quot;&gt;# Create or update each page instance&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pages'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'page_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'text'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Note that I haven’t included the book_id here. When we’re creating book instances we won’t be including a book id. When we’re updating book instances we’ll typically include the book id as part of the URL, rather than in the request data.&lt;/p&gt;
+&lt;p&gt;Now that our software is installed, we can go over how it works and how it may be different from similar database management systems you may have used.
+Using PostgreSQL Roles and Databases&lt;/p&gt;
 
-&lt;p&gt;If you want to support both create and update of book instances then you need to think about how you want to handle pages that are not included in the request, but are currently associated with the book instance.&lt;/p&gt;
+&lt;p&gt;By default, Postgres uses a concept called “roles” to handle in authentication and authorization. These are, in some ways, similar to regular Unix-style accounts, but Postgres does not distinguish between users and groups and instead prefers the more flexible term “role”.&lt;/p&gt;
 
-&lt;p&gt;You might choose to silently ignore those pages and leave them as they are, you might want to raise a validation error, or you might want to delete them.&lt;/p&gt;
+&lt;p&gt;Upon installation Postgres is set up to use ident authentication, which means that it associates Postgres roles with a matching Unix/Linux system account. If a role exists within Postgres, a Unix/Linux username with the same name will be able to sign in as that role.&lt;/p&gt;
 
-&lt;p&gt;Let’s assume that you want to delete any pages not included in the request.&lt;/p&gt;
+&lt;p&gt;There are a few ways to utilize this account to access Postgres.
+Switching Over to the postgres Account&lt;/p&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# As before.&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;p&gt;The installation procedure created a user account called postgres that is associated with the default Postgres role. In order to use Postgres, we can log into that account.&lt;/p&gt;
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# Update the book instance&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'title'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;p&gt;Switch over to the postgres account on your server by typing:&lt;/p&gt;
 
-    &lt;span class=&quot;c&quot;&gt;# Delete any pages not included in the request&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;page_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'page_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pages'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;books&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -i -u postgres
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-    &lt;span class=&quot;c&quot;&gt;# Create or update page instances that are in the request&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;validated_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'pages'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'page_id'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'text'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;p&gt;You can now access a Postgres prompt immediately by typing:&lt;/p&gt;
 
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;psql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You will be logged in and able to interact with the database management system right away.&lt;/p&gt;
+
+&lt;p&gt;Exit out of the PostgreSQL prompt by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\q
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You should now be back in the postgres Linux command prompt.
+Accessing a Postgres Prompt Without Switching Accounts&lt;/p&gt;
+
+&lt;p&gt;You can also run the command you’d like with the postgres account directly with sudo.&lt;/p&gt;
+
+&lt;p&gt;For instance, in the last example, we just wanted to get to a Postgres prompt. We could do this in one step by running the single command psql as the postgres user with sudo like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -u postgres psql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will log you directly into Postgres without the intermediary bash shell in between.&lt;/p&gt;
+
+&lt;p&gt;Again, you can exit the interactive Postgres session by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\q
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Create a New Role&lt;/p&gt;
+
+&lt;p&gt;Currently, we just have the postgres role configured within the database. We can create new roles from the command line with the createrole command. The –interactive flag will prompt you for the necessary values.&lt;/p&gt;
+
+&lt;p&gt;If you are logged in as the postgres account, you can create a new user by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;createuser --interactive
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If, instead, you prefer to use sudo for each command without switching from your normal account, you can type:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -u postgres createuser --interactive
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The script will prompt you with some choices and, based on your responses, execute the correct Postgres commands to create a user to your specifications.&lt;/p&gt;
+
+&lt;p&gt;Output
+Enter name of role to add: sammy
+Shall the new role be a superuser? (y/n) y&lt;/p&gt;
+
+&lt;p&gt;You can get more control by passing some additional flags. Check out the options by looking at the man page:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;man createuser
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Create a New Database&lt;/p&gt;
+
+&lt;p&gt;By default, another assumption that the Postgres authentication system makes is that there will be an database with the same name as the role being used to login, which the role has access to.&lt;/p&gt;
+
+&lt;p&gt;So if in the last section, we created a user called sammy, that role will attempt to connect to a database which is also called sammy by default. You can create the appropriate database with the createdb command.&lt;/p&gt;
+
+&lt;p&gt;If you are logged in as the postgres account, you would type something like:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;createdb sammy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If, instead, you prefer to use sudo for each command without switching from your normal account, you would type:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -u postgres createdb sammy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Open a Postgres Prompt with the New Role&lt;/p&gt;
+
+&lt;p&gt;To log in with ident based authentication, you’ll need a Linux user with the same name as your Postgres role and database.&lt;/p&gt;
+
+&lt;p&gt;If you don’t have a matching Linux user available, you can create one with the adduser command. You will have to do this from an account with sudo privileges (not logged in as the postgres user):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo adduser sammy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Once you have the appropriate account available, you can either switch over and connect to the database by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -i -u sammy
+psql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Or, you can do this inline:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -u sammy psql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You will be logged in automatically assuming that all of the components have been properly configured.&lt;/p&gt;
+
+&lt;p&gt;If you want your user to connect to a different database, you can do so by specifying the database like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;psql -d postgres
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Once logged in, you can get check your current connection information by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\conninfo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+You are connected to database “sammy” as user “sammy” via socket in “/var/run/postgresql” at port “5432”.&lt;/p&gt;
+
+&lt;p&gt;This can be useful if you are connecting to non-default databases or with non-default users.
+Create and Delete Tables&lt;/p&gt;
+
+&lt;p&gt;Now that you know how to connect to the PostgreSQL database system, we can to go over how to complete some basic tasks.&lt;/p&gt;
+
+&lt;p&gt;First, we can create a table to store some data. Let’s create a table that describes playground equipment.&lt;/p&gt;
+
+&lt;p&gt;The basic syntax for this command is something like this:&lt;/p&gt;
+
+&lt;p&gt;CREATE TABLE table_name (
+    column_name1 col_type (field_length) column_constraints,
+    column_name2 col_type (field_length),
+    column_name3 col_type (field_length)
+);&lt;/p&gt;
+
+&lt;p&gt;As you can see, we give the table a name, and then define the columns that we want, as well as the column type and the max length of the field data. We can also optionally add table constraints for each column.&lt;/p&gt;
+
+&lt;p&gt;You can learn more about how to create and manage tables in Postgres here.&lt;/p&gt;
+
+&lt;p&gt;For our purposes, we’re going to create a simple table like this:&lt;/p&gt;
+
+&lt;p&gt;CREATE TABLE playground (
+    equip_id serial PRIMARY KEY,
+    type varchar (50) NOT NULL,
+    color varchar (25) NOT NULL,
+    location varchar(25) check (location in (‘north’, ‘south’, ‘west’, ‘east’, ‘northeast’, ‘southeast’, ‘southwest’, ‘northwest’)),
+    install_date date
+);&lt;/p&gt;
+
+&lt;p&gt;We have made a playground table that inventories the equipment that we have. This starts with an equipment ID, which is of the serial type. This data type is an auto-incrementing integer. We have given this column the constraint of primary key which means that the values must be unique and not null.&lt;/p&gt;
+
+&lt;p&gt;For two of our columns (equip_id and install_date), we have not given a field length. This is because some column types don’t require a set length because the length is implied by the type.&lt;/p&gt;
+
+&lt;p&gt;We then give columns for the equipment type and color, each of which cannot be empty. We create a location column and create a constraint that requires the value to be one of eight possible values. The last column is a date column that records the date that we installed the equipment.&lt;/p&gt;
+
+&lt;p&gt;We can see our new table by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+                  List of relations
+ Schema |          Name           |   Type   | Owner 
+——–+————————-+———-+——-
+ public | playground              | table    | sammy
+ public | playground_equip_id_seq | sequence | sammy
+(2 rows)&lt;/p&gt;
+
+&lt;p&gt;Our playground table is here, but we also have something called playground_equip_id_seq that is of the type sequence. This is a representation of the serial type we gave our equip_id column. This keeps track of the next number in the sequence and is created automatically for columns of this type.&lt;/p&gt;
+
+&lt;p&gt;If you want to see just the table without the sequence, you can type:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\dt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+          List of relations
+ Schema |    Name    | Type  | Owner 
+——–+————+——-+——-
+ public | playground | table | sammy
+(1 row)&lt;/p&gt;
+
+&lt;p&gt;Add, Query, and Delete Data in a Table&lt;/p&gt;
+
+&lt;p&gt;Now that we have a table, we can insert some data into it.&lt;/p&gt;
+
+&lt;p&gt;Let’s add a slide and a swing. We do this by calling the table we’re wanting to add to, naming the columns and then providing data for each column. Our slide and swing could be added like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;INSERT INTO playground (type, color, location, install_date) VALUES ('slide', 'blue', 'south', '2014-04-28');
+INSERT INTO playground (type, color, location, install_date) VALUES ('swing', 'yellow', 'northwest', '2010-08-16');
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You should take care when entering the data to avoid a few common hangups. First, keep in mind that the column names should not be quoted, but the column values that you’re entering do need quotes.&lt;/p&gt;
+
+&lt;p&gt;Another thing to keep in mind is that we do not enter a value for the equip_id column. This is because this is auto-generated whenever a new row in the table is created.&lt;/p&gt;
+
+&lt;p&gt;We can then get back the information we’ve added by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT * FROM playground;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+ equip_id | type  | color  | location  | install_date 
+———-+——-+——–+———–+————–
+        1 | slide | blue   | south     | 2014-04-28
+        2 | swing | yellow | northwest | 2010-08-16
+(2 rows)&lt;/p&gt;
+
+&lt;p&gt;Here, you can see that our equip_id has been filled in successfully and that all of our other data has been organized correctly.&lt;/p&gt;
+
+&lt;p&gt;If the slide on the playground breaks and we have to remove it, we can also remove the row from our table by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DELETE FROM playground WHERE type = 'slide';
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If we query our table again, we will see our slide is no longer a part of the table:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT * FROM playground;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+ equip_id | type  | color  | location  | install_date 
+———-+——-+——–+———–+————–
+        2 | swing | yellow | northwest | 2010-08-16
+(1 row)&lt;/p&gt;
+
+&lt;p&gt;How To Add and Delete Columns from a Table&lt;/p&gt;
+
+&lt;p&gt;If we want to modify a table after it has been created to add an additional column, we can do that easily.&lt;/p&gt;
+
+&lt;p&gt;We can add a column to show the last maintenance visit for each piece of equipment by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALTER TABLE playground ADD last_maint date;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you view your table information again, you will see the new column has been added (but no data has been entered):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT * FROM playground;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+ equip_id | type  | color  | location  | install_date | last_maint 
+———-+——-+——–+———–+————–+————
+        2 | swing | yellow | northwest | 2010-08-16   | 
+(1 row)&lt;/p&gt;
+
+&lt;p&gt;We can delete a column just as easily. If we find that our work crew uses a separate tool to keep track of maintenance history, we can get rid of the column here by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALTER TABLE playground DROP last_maint;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;How To Update Data in a Table&lt;/p&gt;
+
+&lt;p&gt;We know how to add records to a table and how to delete them, but we haven’t covered how to modify existing entries yet.&lt;/p&gt;
+
+&lt;p&gt;You can update the values of an existing entry by querying for the record you want and setting the column to the value you wish to use. We can query for the “swing” record (this will match every swing in our table) and change its color to “red”. This could be useful if we gave the swing set a paint job:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UPDATE playground SET color = 'red' WHERE type = 'swing';
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can verify that the operation was successful by querying our data again:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT * FROM playground;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output
+ equip_id | type  | color | location  | install_date 
+———-+——-+——-+———–+————–
+        2 | swing | red   | northwest | 2010-08-16
+(1 row)&lt;/p&gt;
+
+&lt;p&gt;As you can see, our slide is now registered as being red.
+Conclusion&lt;/p&gt;
+
+&lt;p&gt;You are now set up with PostgreSQL on your Ubuntu 16.04 server. However, there is still much more to learn with Postgres. Here are some more guides that cover how to use Postgres:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A comparison of relational database management systems
+Learn how to create and manage tables with Postgres
+Get better at managing roles and permissions
+Craft queries with Postgres with Select
+Learn how to secure PostgreSQL
+Learn how to backup a Postgres database
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author></entry><entry><title type="html"></title><link href="http://localhost:4000/2018/07/12/2018-06-25-Ubuntu-16.04-Install-Typescript/" rel="alternate" type="text/html" title="" /><published>2018-07-12T13:15:28+03:00</published><updated>2018-07-12T13:15:28+03:00</updated><id>http://localhost:4000/2018/07/12/2018-06-25-Ubuntu%2016.04%20-%20Install%20Typescript</id><content type="html" xml:base="http://localhost:4000/2018/07/12/2018-06-25-Ubuntu-16.04-Install-Typescript/">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update &amp;amp;&amp;amp; sudo apt install node-typescript -y&lt;/code&gt;&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author></entry><entry><title type="html"></title><link href="http://localhost:4000/2018/07/12/2018-06-19-undo-git-add/" rel="alternate" type="text/html" title="" /><published>2018-07-12T13:15:28+03:00</published><updated>2018-07-12T13:15:28+03:00</updated><id>http://localhost:4000/2018/07/12/2018-06-19-undo-git-add</id><content type="html" xml:base="http://localhost:4000/2018/07/12/2018-06-19-undo-git-add/">&lt;p&gt;Sometimes you will find yourself in a situation that you want to revert to the previous commit. In this tutorial I’m going to show you how to Undo a &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt; and remove files staged for a git commit. It’s pretty much simple as shown below:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git reset filename.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Will remove a file named &lt;code class=&quot;highlighter-rouge&quot;&gt;filename.txt&lt;/code&gt; from the current index, the “about to be committed” area, without changing anything else.&lt;/p&gt;
+
+&lt;p&gt;To undo &lt;code class=&quot;highlighter-rouge&quot;&gt;git add . &lt;/code&gt; use &lt;code class=&quot;highlighter-rouge&quot;&gt;git reset&lt;/code&gt;  (no dot).&lt;/p&gt;</content><author><name>philip mutua</name><email>pmutua@live.com</email></author></entry><entry><title type="html">Setting Up You Complete Me in Vim.</title><link href="http://localhost:4000/2018/07/06/set-up-ypu-complete-me-in-vim/" rel="alternate" type="text/html" title="Setting Up You Complete Me in Vim." /><published>2018-07-06T00:00:00+03:00</published><updated>2018-07-06T00:00:00+03:00</updated><id>http://localhost:4000/2018/07/06/set-up-ypu-complete-me-in-vim</id><content type="html" xml:base="http://localhost:4000/2018/07/06/set-up-ypu-complete-me-in-vim/">&lt;p&gt;It has several completion engines:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;an identifier-based engine that works with every programming language,&lt;/li&gt;
+  &lt;li&gt;a Clang-based engine that provides native semantic code completion for - - - C/C++/Objective-C/Objective-C++ (from now on referred to as “the C-family languages”),&lt;/li&gt;
+  &lt;li&gt;a Jedi-based completion engine for Python 2 and 3 (using the JediHTTP wrapper),&lt;/li&gt;
+  &lt;li&gt;an OmniSharp-based completion engine for C#,&lt;/li&gt;
+  &lt;li&gt;a combination of Gocode and Godef semantic engines for Go,&lt;/li&gt;
+  &lt;li&gt;a TSServer-based completion engine for TypeScript,&lt;/li&gt;
+  &lt;li&gt;a Tern-based completion engine for JavaScript,&lt;/li&gt;
+  &lt;li&gt;a racer-based completion engine for Rust,&lt;/li&gt;
+  &lt;li&gt;a jdt.ls-based experimental completion engine for Java.&lt;/li&gt;
+  &lt;li&gt;and an omnifunc-based completer that uses data from Vim’s omnicomplete system to provide - - semantic completions for many other languages (Ruby, PHP etc.).&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">It has several completion engines:</summary></entry><entry><title type="html">Basic Git commands</title><link href="http://localhost:4000/2018/07/06/basic-git-commands/" rel="alternate" type="text/html" title="Basic Git commands" /><published>2018-07-06T00:00:00+03:00</published><updated>2018-07-06T00:00:00+03:00</updated><id>http://localhost:4000/2018/07/06/basic-git-commands</id><content type="html" xml:base="http://localhost:4000/2018/07/06/basic-git-commands/">&lt;p&gt;Git commands.
+Command line instructions&lt;/p&gt;
+
+&lt;p&gt;Git global setup
+git config –global user.name “Bruce Wane”
+git config –global user.email “example@email.com”&lt;/p&gt;
+
+&lt;p&gt;Create a new repository
+git clone
+https://gitlab.com/pmutua/agiza.git&lt;/p&gt;
+
+&lt;p&gt;cd agiza
+touch README.md
+git add README.md
+git commit -m “add README”
+git push -u origin master&lt;/p&gt;
+
+&lt;p&gt;Existing folder
+cd existing_folder
+git init
+git remote add origin
+https://gitlab.com/pmutua/agiza.git&lt;/p&gt;
+
+&lt;p&gt;git add .
+git commit -m “Initial commit”
+git push -u origin master&lt;/p&gt;
+
+&lt;p&gt;Existing Git repository
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin
+https://gitlab.com/pmutua/agiza.git
+git push -u origin –all
+git push -u origin –tags&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Git commands. Command line instructions</summary></entry><entry><title type="html">How to Install and Configure GitLab on Ubuntu 16.04.</title><link href="http://localhost:4000/2018/07/06/How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04/" rel="alternate" type="text/html" title="How to Install and Configure GitLab on Ubuntu 16.04." /><published>2018-07-06T00:00:00+03:00</published><updated>2018-07-06T00:00:00+03:00</updated><id>http://localhost:4000/2018/07/06/How-to-Install-and-Configure-GitLab-on-Ubuntu-%2016.04</id><content type="html" xml:base="http://localhost:4000/2018/07/06/How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04/">&lt;p&gt;GitLab is an open source GIT repository manager based on Rails and developed by GitLab Inc. It is a web-based GIT repository manager that allows your team to work on code, track bugs and feature requests and to test and deploy applications. GitLab provides features like a wiki, issue tracking, code reviews, activity feeds and merge management. It is capable of hosting multiple projects.&lt;/p&gt;
+
+&lt;p&gt;GitLab is available in four editions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gitlab CE (Community Edition) - self-hosted, free and support from the Community forum.&lt;/li&gt;
+  &lt;li&gt;Gitlab EE (Enterprise Edition) - self-hosted, paid app, comes with additional features.&lt;/li&gt;
+  &lt;li&gt;GitLab.com - SaaS, free.&lt;/li&gt;
+  &lt;li&gt;GitLab.io - Private GitLab instance managed by GitLab Inc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In this tutorial, I will show you step-by-step how to install GitLab CE (Community Edition) on your own Ubuntu 16.04 Xenial Xerus server. In this tutorial, I will be using the ‘omnibus’ package provided by GitLab for easy installation.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-we-will-do&quot;&gt;What we will do:&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Install Packages&lt;/li&gt;
+  &lt;li&gt;Install GitLab&lt;/li&gt;
+  &lt;li&gt;Configure GitLab URL&lt;/li&gt;
+  &lt;li&gt;Generate SSL Let’s encrypt and DHPARAM Certificate&lt;/li&gt;
+  &lt;li&gt;Enable Nginx HTTPS for GitLab&lt;/li&gt;
+  &lt;li&gt;Configure UFW Firewall&lt;/li&gt;
+  &lt;li&gt;Perform the GitLab Installation&lt;/li&gt;
+  &lt;li&gt;Testing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ubuntu 16.04 Server - 64bit&lt;/li&gt;
+  &lt;li&gt;Min RAM 2GB&lt;/li&gt;
+  &lt;li&gt;Root Privileges&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;step-1---install-required-ubuntu-packages&quot;&gt;Step 1 - Install required Ubuntu Packages&lt;/h1&gt;
+
+&lt;p&gt;The first step is to install the packages needed for the GitLab installation. Please log in to the server as root user and upddate the Ubuntu repository.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh root@GitLabServer
+apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now install the packages including curl for downloading the GitLab repository, ca-certificates, and postfix for the SMTP configuration.&lt;/p&gt;
+
+&lt;p&gt;Install all packages with the apt command below.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install curl openssh-server ca-certificates postfix&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;During postfix installation, you will be prompted about the configuration, select ‘Internet Site’.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-1.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;and then enter the server domain name that shall be used for sending an email.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-2.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;step-2---install-gitlab&quot;&gt;Step 2 - Install Gitlab&lt;/h1&gt;
+
+&lt;p&gt;In this step, we will install GitLab using the omnibus packages. Omnibus will install all packages, services, and tools required for running GitLab on your server.&lt;/p&gt;
+
+&lt;p&gt;Add GitLab repository with the curl command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-term.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And then install GitLab CE Community Edition with the apt command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install gitlab-ce&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Wait for the server to download and install the gitlab package. When the installation is complete, you will see the results as below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-nano.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;step-3---configure-gitlab-main-url&quot;&gt;Step 3 - Configure Gitlab Main URL&lt;/h1&gt;
+
+&lt;p&gt;Now we should configure the URL that will be used to access our GitLab server. I will use the domain name ‘gitlab.hakase-labs.co’ for the GitLab URL here (please choose your own domain name) and I’ll use HTTPS for users access security.&lt;/p&gt;
+
+&lt;p&gt;The main configuration of GitLab is in the ‘/etc/gitlab’ directory. Go to that directory and edit the configuration file ‘gitlab.rb’ with vim.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd /etc/gitlab&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim gitlab.rb&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In the GitLab configuration go to line 9 ‘external_url’ and change the URL to your URL ‘gitlab.hakase-labs.co’.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;external_url 'http://gitlab.hakase-labs.co'&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Save the file and exit the editor. In the next step will enable HTTPS for GitLab.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-r.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;step-4---generate-ssl-lets-encrypt-and-dhparam-certificate&quot;&gt;Step 4 - Generate SSL Let’s encrypt and DHPARAM Certificate&lt;/h1&gt;
+
+&lt;p&gt;In this step, we will enable the HTTPS protocol for GitLab. I will use a free SSL certificates provided by let’s encrypt for the gitlab domain name.&lt;/p&gt;
+
+&lt;p&gt;Install letsencrypt command-line tool with apt command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install letsencrypt -y&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;When the installation is complete, generate a new certificate for the gitlab domain name with the command below.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;letsencrypt certonly -d gitlab.hakase-labs.co&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Enter your email address for the SSL certificate renew notification.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-image.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Choose ‘Agree’ for the Let’s Encrypt Terms of Services and wait.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-image-2.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When it’s done, you will see the result below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-0.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;New Let’s encrypt certificate files for GitLab have been generated. You can find the certificate files in the ‘/etc/letsencrypt/live’ directory.&lt;/p&gt;
+
+&lt;p&gt;Next, create a new directory named ‘ssl’ under the GitLab configuration directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir -p /etc/gitlab/ssl/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And generate dhparam pem files in the ssl directory with the openssl command.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo openssl dhparam -out /etc/gitlab/ssl/dhparams.pem 2048&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-8.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now change the permissions of the certificate files to 600.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;chmod 600 /etc/gitlab/ssl/*&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The SSL Let’s encrypt cert for GitLab and the DHPARAM certificate has been generated.&lt;/p&gt;
+
+&lt;h1 id=&quot;step-5---enable-nginx-https-for-gitlab&quot;&gt;Step 5 - Enable Nginx HTTPS for GitLab&lt;/h1&gt;
+
+&lt;p&gt;At this stage, we have the certificate files from Letsencrypt in ‘/etc/letsencrypt/live’ directory and the DHPARAM certificate in the ‘/etc/gitlab/ssl’ directory.&lt;/p&gt;
+
+&lt;p&gt;In this step, we will configure a GitLab to use our certificate files. Go to the ‘/etc/gitlab’ directory, then edit ‘gitlab.rb’ configuration with vim.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /etc/gitlab/
+vim gitlab.rb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Change the external url to use ‘https’ instead of ‘http’.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;external_url 'https://gitlab.hakase-labs.co'&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then add the new SSL configuration for gitlab as below.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+nginx[&lt;span class=&quot;s1&quot;&gt;'redirect_http_to_https'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true
+&lt;/span&gt;nginx[&lt;span class=&quot;s1&quot;&gt;'ssl_certificate'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/etc/letsencrypt/live/gitlab.hakase-labs.co/fullchain.pem&quot;&lt;/span&gt;
+nginx[&lt;span class=&quot;s1&quot;&gt;'ssl_certificate_key'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/etc/letsencrypt/live/gitlab.hakase-labs.co/privkey.pem&quot;&lt;/span&gt;
+nginx[&lt;span class=&quot;s1&quot;&gt;'ssl_dhparam'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/etc/gitlab/ssl/dhparams.pem&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+We will enable HTTP to HTTPS redirect in gitlab.gitlab-las.png
+
+Save the file and exit vim.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-las.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we need to run the command below as root to apply the new gitlab configuration.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo gitlab-ctl reconfigure&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You will see the results as below.
+&lt;img src=&quot;../assets/blog-img/gitlab-90.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;HTTPS Configuration for GitLab has been completed.&lt;/p&gt;
+
+&lt;h1 id=&quot;step-6---configure-ufw-firewall&quot;&gt;Step 6 - Configure UFW Firewall&lt;/h1&gt;
+
+&lt;p&gt;In this step, we will enable the UFW firewall. It’s already installed on the system, we just need to start the service. We will run GitLab behind the UFW firewall, so we must open the HTTP and HTTPS ports.&lt;/p&gt;
+
+&lt;p&gt;Enable UFW firewall with the command below.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw enable&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The command will run ufw service and add it to start automatically at the boot time.&lt;/p&gt;
+
+&lt;p&gt;Next, open new ports ssh, HTTP, and HTTPS.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;	ufw allow ssh
+	ufw allow http
+	ufw allow https
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/blog-img/gitlab-21.png&quot; alt=&quot;alt text&quot; title=&quot;Logo Title Text 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now check the firewall status and make sure ssh, http, and https ports is on the list.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ufw status&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;HTTP and HTTPS ports are configured.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">GitLab is an open source GIT repository manager based on Rails and developed by GitLab Inc. It is a web-based GIT repository manager that allows your team to work on code, track bugs and feature requests and to test and deploy applications. GitLab provides features like a wiki, issue tracking, code reviews, activity feeds and merge management. It is capable of hosting multiple projects.</summary></entry><entry><title type="html">How to create your first Django library.</title><link href="http://localhost:4000/2018/07/06/How-to-create-your-first-Django-library/" rel="alternate" type="text/html" title="How to create your first Django library." /><published>2018-07-06T00:00:00+03:00</published><updated>2018-07-06T00:00:00+03:00</updated><id>http://localhost:4000/2018/07/06/How%20to%20create%20your%20first%20Django%20library</id><content type="html" xml:base="http://localhost:4000/2018/07/06/How-to-create-your-first-Django-library/">&lt;p&gt;This is a guide how to create first third-party django library or application, attempting to be kindly. Django documentation tell you way to create django’s projects and applications. But there isn’t (perhaps) way to distribute applications like django-cms, django-blog-zinnia. So, I’ll show you it.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-create-your-first-django-library&quot;&gt;How to create your first Django library&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Create your application&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Packaging&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Way to run tests without projects&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Use tox
+        &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;On the end, the layout of the package will be like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;django-myapp
+|-- __init__.py
+|-- MANIFEST.in
+|-- README.rst
+|-- LICENSE
+|-- setup.py
+|-- test_settings.py
+|-- myapp
+|   |-- __init__.py
+|   |-- models.py
+|   |-- views.py
+|   &lt;span class=&quot;sb&quot;&gt;`-- tests.py
+`&lt;/span&gt;-- tox.ini
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Whole example project described on this page is on Github: &lt;a href=&quot;https://github.com/hirokiky/django-myapp&quot;&gt;django-myapp&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This guide includes about packaging or python environments. If you have created couple of python libraries, you can skip over some steps to &lt;a href=&quot;http://hirokiky.org/tech/create_django_library.html#way-to-run-django-app-tests&quot;&gt;3. Way to run tests without projects&lt;/a&gt;. But at least, I expect you to finish the tutorial of &lt;a href=&quot;https://docs.djangoproject.com/&quot;&gt;django’s document&lt;/a&gt; and create some apps.&lt;/p&gt;
+
+&lt;h1 id=&quot;1-create-your-application&quot;&gt;1. Create your application&lt;/h1&gt;
+
+&lt;p&gt;When you create third-party library, you won’t need to create a project. Just create your application by using startapp sub-command. But wait. you will distribute this application, so you need a parent directory to package it like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;django-myapp
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;django-myapp
+django-admin.py startapp myapp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;OK, just it. Write your codes as same as way you learned at tutorial. “Can’t run tests”…? Yeah, I know it. and I’ll show you about it later.&lt;/p&gt;
+
+&lt;p&gt;And you need to write README and LICENSE file to describe about your package. I won’t use packages without README or documentation:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;README.rst
+&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;LICENSE
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Also It’s good idea to manage packages by using some VCS like git:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git init&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;2-packaging&quot;&gt;2. Packaging&lt;/h1&gt;
+
+&lt;p&gt;To distribute your app/lib, make it as a package. Just thing you need to do is putting setup.py file under the django-myapp directory meaning next to myapp directory.&lt;/p&gt;
+
+&lt;p&gt;The contents of this file will contain information about your package, name, version, description, required packages, and so on:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;setuptools&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;here&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;abspath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__file__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;README&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;here&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'README.rst'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'django-myapp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'0.1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;packages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'myapp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A line of description'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;long_description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;README&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'yourname'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;author_email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'yourname@example.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'https://github.com/yourname/django-myapp/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;license&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'MIT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;install_requires&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'Django&amp;gt;=1.6,&amp;lt;1.7'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;It’s also possible that you might want to only support book updates, and not support creation, in which case, only include the update() method.&lt;/p&gt;
+&lt;p&gt;I recommend you to write them at least.&lt;/p&gt;
 
-&lt;p&gt;There are also various ways you could reduce the number of queries eg. using bulk create/deletion, but the above would do the job in a fairly straightforward way.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;name&lt;/strong&gt;
+	The name of package like django-cms. This name will use when you specify the package by pip. So if you name it as django-myapp, users will type pip install django-myapp.
+&lt;strong&gt;version&lt;/strong&gt;
+	Version of you package. I recommend to follow semantic versioning
+&lt;strong&gt;packages&lt;/strong&gt;
+	List of python modules you want to contain. Basically, It’s enough to specify the django application you created.
+&lt;strong&gt;description&lt;/strong&gt;
+	A line of description. It will be used, for example, on package list of PyPI.
+&lt;strong&gt;long_description&lt;/strong&gt;
+	Lines of description. Basically it’s good idea to use README file as long_description. This will be used the package page of PyPI like here django-reportmail
+&lt;strong&gt;author&lt;/strong&gt;
+	Your name.
+&lt;strong&gt;author_email&lt;/strong&gt;
+	Your email address
+&lt;strong&gt;url&lt;/strong&gt;
+	A URL for your web site of the package. Basically, it’s enough to put the URL for your repository on Github and so.
+&lt;strong&gt;license&lt;/strong&gt;
+	The name of license you want to use. I always specify ‘MIT’ meaning the MIT license
+&lt;strong&gt;install_requires&lt;/strong&gt;
+	A list of packages that your packages require. It’s django package, so it’s necessary to write ‘Django’ at least.&lt;/p&gt;
 
-&lt;p&gt;As you can see there are subtleties in the types of behavior you might want when dealing with nested data, so think carefully about exactly what behavior you’re expecting in various cases.&lt;/p&gt;
+&lt;p&gt;All right cool ;)&lt;/p&gt;
 
-&lt;p&gt;Also note that I’ve been using &lt;code class=&quot;highlighter-rouge&quot;&gt;Serializer&lt;/code&gt; in the above example rather than &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelSerializer&lt;/code&gt;. In this case it’s simpler just to include all the fields in the serializer class explicitly, rather than relying on the automatic set of fields that &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelSerializer&lt;/code&gt; generates by default.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">django-rest-framework 3.0 create or update in nested serializer</summary></entry><entry><title type="html">django 1.7 &amp;gt; 1.11 migrate gets error “table already exists”</title><link href="http://localhost:4000/%0A.md/2018/05/31/django-1/" rel="alternate" type="text/html" title="django 1.7 &gt; 1.11 migrate gets error “table already exists”" /><published>2018-05-31T00:00:00+03:00</published><updated>2018-05-31T00:00:00+03:00</updated><id>http://localhost:4000/%0A.md/2018/05/31/django-%201</id><content type="html" xml:base="http://localhost:4000/%0A.md/2018/05/31/django-1/">&lt;p&gt;&lt;a href=&quot;https://unity3d.com/&quot;&gt;Unity &lt;/a&gt; is a cross-platform game engine developed by Unity Technologies, which is primarily used to develop both three-dimensional and two-dimensional video games and simulations for computers, consoles, and mobile devices.&lt;/p&gt;
+&lt;p&gt;And then, It requires &lt;code class=&quot;highlighter-rouge&quot;&gt;MANIFEST.in&lt;/code&gt; file on the project directory to specify which files you want to distribute:&lt;/p&gt;
 
-&lt;p&gt;Most of the time when you are building something you will always come across bugs and issues that could make you try to figure out what could be the problem. This always consumes time you could find 
-yourself fixed at a bug that can consume your time. Apparently I have come across such challenges one of them is this kind of migration error below which I thought it would be nic to share.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;include &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.txt &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.ini &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.cfg &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.rst
+recursive-include myapp &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.ico &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.png &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.css &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.gif &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.jpg &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.txt &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.js &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.html &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.xml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt;
+&lt;p&gt;Without this file, templates of your application won’t be included the package. For more detail, refer &lt;a href=&quot;https://docs.python.org/3.3/distutils/sourcedist.html#specifying-the-files-to-distribute&quot;&gt;official doc about specifying the files to distribute&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;I am trying to apply a migration but am getting the error:&lt;/p&gt;
+&lt;p&gt;It’s over. After created &lt;code class=&quot;highlighter-rouge&quot;&gt;setup.py&lt;/code&gt;, run this command to register this new package for development:&lt;/p&gt;
 
-&lt;p&gt;```bash
-django.db.utils.OperationalError: (1050, “Table ‘customers_customer’ already exists”)&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python setup.py develop&lt;/code&gt;
+For more detail about setup.py, please refer another documents or packages. Python &lt;a href=&quot;http://python-packaging-user-guide.readthedocs.org/&quot;&gt;Packaging User Guide&lt;/a&gt; will help you. And I imitated setup.py of some another packages. Actually I haven’t read documents so much.&lt;/p&gt;
 
-&lt;p&gt;I get this by issuing the following command:&lt;/p&gt;
+&lt;p&gt;If you want to upload your package to PyPI. just register the application and upload:&lt;/p&gt;
 
-&lt;p&gt;```bash 
-python manage.py migrate&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python setup.py register
+python setup.py sdist upload
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;My customer table already exists, so what do I do to let the migration know this, not error out, and run my modification to my model?&lt;/p&gt;
+&lt;p&gt;From the second time, it’s enough to run the second line. Also you can refer the doc about uploading on Python Packaging User Guide&lt;/p&gt;
 
-&lt;p&gt;I ran this on my local environment with local database with no problem. It is when I pointed my database to production and ran migrate above that I get this error.&lt;/p&gt;
+&lt;h1 id=&quot;3-way-to-run-tests-without-projects&quot;&gt;3. Way to run tests without projects&lt;/h1&gt;
+&lt;p&gt;Basically django always requires ‘projects’ for all of actions. then how can we run tests? actually It’s easy, you can just use &lt;code class=&quot;highlighter-rouge&quot;&gt;django-admin.py&lt;/code&gt; command and specify settings file for testing. First, create the settings for testing on the project root:&lt;/p&gt;
 
-&lt;h1 id=&quot;solution&quot;&gt;Solution&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;touch test_settings.py&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;If you have the table created in the database, you can run&lt;/p&gt;
+&lt;p&gt;And the contents of the file will be like this:&lt;/p&gt;
 
-&lt;p&gt;```bash
-python manage.py migrate –fake &lt;appname&gt;&lt;/appname&gt;&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'myapp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.sqlite3'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;':memory:'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;SECRET_KEY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;secret_key_for_testing&quot;&lt;/span&gt;
 
-&lt;p&gt;&lt;strong&gt;Mark migrations as run without actually running them&lt;/strong&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Or if you want to avoid some actions in your migration, you can edit the migration file under the app/migrations directory and comment the operations you don’t want to do in the migrate execution.&lt;/p&gt;
+&lt;p&gt;Ya, it’s easy. Of cause you can put some additional settings to correspond to tests of your application. And this article about &lt;a href=&quot;http://www.machinalis.com/blog/optimizing-your-tests-in-django/&quot;&gt;optimizing your tests in Django&lt;/a&gt; will be helpful.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/1.8/topics/migrations/#upgrading-from-south&quot;&gt;Docs:&lt;/a&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;python manage.py help migrate&lt;/code&gt;&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Unity is a cross-platform game engine developed by Unity Technologies, which is primarily used to develop both three-dimensional and two-dimensional video games and simulations for computers, consoles, and mobile devices.</summary></entry><entry><title type="html">Solving Docker permission denied while trying to connect to the Docker daemon socket</title><link href="http://localhost:4000/2018/05/30/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/" rel="alternate" type="text/html" title="Solving Docker permission denied while trying to connect to the Docker daemon socket" /><published>2018-05-30T00:00:00+03:00</published><updated>2018-05-30T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/30/solving%20docker-permission-%20denied-while-trying-to-%20connect-to-the-docker-%20daemon-socket</id><content type="html" xml:base="http://localhost:4000/2018/05/30/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/">&lt;p&gt;Problem:
-You are trying to run a docker container or do the docker tutorial, but you only get an error message like this:&lt;/p&gt;
+&lt;p&gt;To run the test by using the setting, type this command at the project root:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;django-admin.py test --settings=test_settings&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;4-use-tox&quot;&gt;4. Use tox&lt;/h1&gt;
+
+&lt;p&gt;If you want the package to support multiple versions of Python or Django, It’s the best idea to use &lt;a href=&quot;https://pypi.python.org/pypi/tox&quot;&gt;tox&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ok, let’s consider a case which supporting two versions of Python, Python2.7 and Python3.3. Put a file name tox.ini on the package root:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;touch tox.ini&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And then, write setting like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;tox]
+envlist &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; py27, py33, flake8
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;testenv]
+commands &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+    pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+    django-admin.py &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--settings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;test_settings
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To run those tests, install tox and type like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;tox
+tox
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Three bunches of tests will run. tests with Python2.7, Python3.3 and flake8 testing to check syntax of your codes.&lt;/p&gt;
+
+&lt;p&gt;For more about tox and flake8, refer the official documentations.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tox.readthedocs.org/en/latest/&quot;&gt;tox documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pypi.python.org/pypi/flake8&quot;&gt;flake8&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;conclusion-1&quot;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;It’s over.&lt;/p&gt;
+
+&lt;p&gt;If you have some question or want to point out my mistake please Contact me on &lt;a href=&quot;http://twitter.com/itsphilipmutua&quot;&gt;twitter&lt;/a&gt;. I’ll answer and fix this page as soon as I can.&lt;/p&gt;
+
+&lt;p&gt;For more detail about git, refer the &lt;a href=&quot;http://git-scm.com/&quot;&gt;git official site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/go&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">This is a guide how to create first third-party django library or application, attempting to be kindly. Django documentation tell you way to create django’s projects and applications. But there isn’t (perhaps) way to distribute applications like django-cms, django-blog-zinnia. So, I’ll show you it.</summary></entry><entry><title type="html">How to Show your branch name on the Linux prompt.</title><link href="http://localhost:4000/2018/07/06/Git-tip-Show-your-branch-name-on-the-Linux-prompt/" rel="alternate" type="text/html" title="How to Show your  branch name on the Linux prompt." /><published>2018-07-06T00:00:00+03:00</published><updated>2018-07-06T00:00:00+03:00</updated><id>http://localhost:4000/2018/07/06/Git%20tip:Show-your-branch-name-on-the-Linux-prompt</id><content type="html" xml:base="http://localhost:4000/2018/07/06/Git-tip-Show-your-branch-name-on-the-Linux-prompt/">&lt;p&gt;Git is one of the most popular Source Control Management (SCM) software packages to provide revision control. Subversion (aka SVN) and Mercurial are other popular systems. These systems organize source code in branches and revisions that can be named by means of tagging.&lt;/p&gt;
+
+&lt;p&gt;Branches can be used to allow you to work on different versions of the software concurrently. A popular way of organizing is to create a branch for every major feature you are building. Another organization can be used to distinguish between a “development” and “production” version, so that you can easily apply a small code change in case of any bugs.&lt;/p&gt;
+
+&lt;p&gt;In any of the above schemes it is important to know which branch you are working on, when committing code to the repository. This post explains how you can add the branch name in red to the prompt.&lt;/p&gt;
+
+&lt;p&gt;Firstly, we have to turn on the colored prompt in “.bashrc”:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# uncomment for a colored prompt, if the terminal has the capability; turned&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# off by default to not distract the user: the focus in a terminal window&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# should be on the output of commands, not on the prompt&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#force_color_prompt=yes&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now add the following code to &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; for Git branch information:&lt;/p&gt;
 
 &lt;p&gt;```bash&lt;/p&gt;
 
-&lt;p&gt;docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.26/containers/create: dial unix /var/run/docker.sock: connect: permission denied.
-See ‘docker run –help’.&lt;/p&gt;
+&lt;h1 id=&quot;show-git-branch-name&quot;&gt;Show git branch name&lt;/h1&gt;
+&lt;p&gt;force_color_prompt=yes
+color_prompt=yes
+parse_git_branch() {
+ git branch 2&amp;gt; /dev/null | sed -e ‘/^[^&lt;em&gt;]/d’ -e ‘s/&lt;/em&gt; (.*)/(\1)/’
+}
+if [ “$color_prompt” = yes ]; then
+ PS1=’${debian_chroot:+($debian_chroot)}[\033[01;32m]\u@\h[\033[00m]:[\033[01;34m]\w[\033[01;31m]$(parse_git_branch)[\033[00m]$ ‘
+else
+ PS1=’${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)$ ‘
+fi
+unset color_prompt force_color_prompt
+``&lt;/p&gt;
 
-&lt;p&gt;Solution:
-The error message tells you that your current user can’t access the docker engine, because you’re lacking permissions to access the unix socket to communicate with the engine.&lt;/p&gt;
+&lt;p&gt;With this change you will be less likely to commit your code to the wrong branch. Enjoy!&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Git is one of the most popular Source Control Management (SCM) software packages to provide revision control. Subversion (aka SVN) and Mercurial are other popular systems. These systems organize source code in branches and revisions that can be named by means of tagging.</summary></entry><entry><title type="html">How to Undo a git add - remove files staged for a git commit</title><link href="http://localhost:4000/2018/06/28/How-To-Install-Git-on-Ubuntu-16.04/" rel="alternate" type="text/html" title="How to Undo a git add - remove files staged for a git commit" /><published>2018-06-28T00:00:00+03:00</published><updated>2018-06-28T00:00:00+03:00</updated><id>http://localhost:4000/2018/06/28/How%20To%20Install%20Git%20on%20Ubuntu%2016.04</id><content type="html" xml:base="http://localhost:4000/2018/06/28/How-To-Install-Git-on-Ubuntu-16.04/">&lt;p&gt;Introduction&lt;/p&gt;
 
-&lt;p&gt;As a temporary solution, you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; to run the failed command as root.
-However it is recommended to fix the issue by adding the current user to the &lt;code class=&quot;highlighter-rouge&quot;&gt;docke&lt;/code&gt; group:&lt;/p&gt;
+&lt;p&gt;An indispensable tool in modern software development is some kind of version control system. Version control systems allow you to keep track of your software at the source level. You can track changes, revert to previous stages, and branch to create alternate versions of files and directories.&lt;/p&gt;
 
-&lt;p&gt;Run this command in your favourite shell and then &lt;strong&gt;completely log out of your account and log back in&lt;/strong&gt; (if in doubt, reboot!):&lt;/p&gt;
+&lt;p&gt;One of the most popular version control systems is git, a distributed version control system. Many projects maintain their files in a git repository, and sites like GitHub and Bitbucket have made sharing and contributing to code simple and valuable.&lt;/p&gt;
 
-&lt;p&gt;```bash
-sudo usermod -a -G docker $USER&lt;/p&gt;
+&lt;p&gt;In this guide, we will demonstrate how to install and configure git on an Ubuntu 16.04 system. We will cover how to install the software in two different ways, each of which have benefits.&lt;/p&gt;
 
-&lt;p&gt;After doing that, you should be able to run the command without any issues. Run &lt;code class=&quot;highlighter-rouge&quot;&gt;docker run hello-world&lt;/code&gt; as a normal user in order to check if it works. Reboot if the issue still persists.&lt;/p&gt;
+&lt;p&gt;This tutorial assumes you are signed in as a non-root user which you can learn how to create here.
+How To Install Git with Apt&lt;/p&gt;
 
-&lt;p&gt;Logging out and logging back in is required because the group change will not have an effect unless your session is closed.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Problem: You are trying to run a docker container or do the docker tutorial, but you only get an error message like this:</summary></entry><entry><title type="html">How To Install and Use Docker on Ubuntu 16.04</title><link href="http://localhost:4000/2018/05/30/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/" rel="alternate" type="text/html" title="How To Install and Use Docker on Ubuntu 16.04" /><published>2018-05-30T00:00:00+03:00</published><updated>2018-05-30T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/30/How%20To%20Install%20and%20Use%20Docker%20on%20Ubuntu%2016.04%20.md</id><content type="html" xml:base="http://localhost:4000/2018/05/30/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/">&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+&lt;p&gt;By far the easiest way of getting git installed and ready to use is by using Ubuntu’s default repositories. This is the fastest method, but the version may be older than the newest version. If you need the latest release, consider following the steps to compile git from source.&lt;/p&gt;
 
-&lt;p&gt;To follow this tutorial, you will need the following:&lt;/p&gt;
+&lt;p&gt;You can use the apt package management tools to update your local package index. Afterwards, you can download and install the program:&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;64-bit Ubuntu 16.04 server&lt;/li&gt;
-  &lt;li&gt;Non-root user with sudo privileges Initial Setup Guide for Ubuntu 16.04 explains how to set this up.)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  Note: Docker requires a 64-bit version of Ubuntu as well as a kernel version equal to or greater than 3.10. The default 64-bit Ubuntu 16.04 server meets these requirements.
-&lt;/blockquote&gt;
-
-&lt;p&gt;All the commands in this tutorial should be run as a non-root user. If root access is required for the command, it will be preceded by &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt;. &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04&quot;&gt;Initial Setup Guide for Ubuntu 16.04&lt;/a&gt; explains how to add users and give them sudo access.&lt;/p&gt;
-
-&lt;h1 id=&quot;step-1--installing-docker&quot;&gt;Step 1 — Installing Docker&lt;/h1&gt;
-
-&lt;p&gt;The Docker installation package available in the official Ubuntu 16.04 repository may not be the latest version. To get the latest and greatest version, install Docker from the official Docker repository. This section shows you how to do just that.&lt;/p&gt;
-
-&lt;p&gt;First, add the GPG key for the official Docker repository to the system:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Add the Docker repository to APT sources:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Next, update the package database with the Docker packages from the newly added repo:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get update&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;You should see output similar to the follow:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output of apt-cache policy docker-ce
-
-docker-ce:
-  Installed: (none)
-  Candidate: 17.03.1~ce-0~ubuntu-xenial
-  Version table:
-     17.03.1~ce-0~ubuntu-xenial 500
-        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
-     17.03.0~ce-0~ubuntu-xenial 500
-        500 https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
-
-
-
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install git
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Notice that &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; is not installed, but the candidate for installation is from the Docker repository for Ubuntu 16.04. The &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-ce&lt;/code&gt; version number might be different.&lt;/p&gt;
+&lt;p&gt;This will download and install git to your system. You will still have to complete the configuration steps that we cover in the “setup” section, so feel free to skip to that section now.
+How To Install Git from Source&lt;/p&gt;
 
-&lt;p&gt;Finally, install Docker:&lt;/p&gt;
+&lt;p&gt;A more flexible method of installing git is to compile the software from source. This takes longer and will not be maintained through your package manager, but it will allow you to download the latest release and will give you some control over the options you include if you wish to customize.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$ sudo apt-get install -y docker-ce&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Before you begin, you need to install the software that git depends on. This is all available in the default repositories, so we can update our local package index and then install the packages:&lt;/p&gt;
 
-&lt;p&gt;Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Prerequisites</summary></entry><entry><title type="html">Paper Wallet Guide-How to Protect Your Cryptocurrency.</title><link href="http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/" rel="alternate" type="text/html" title="Paper Wallet Guide-How to Protect Your Cryptocurrency." /><published>2018-05-28T00:00:00+03:00</published><updated>2018-05-28T00:00:00+03:00</updated><id>http://localhost:4000/2018/05/28/Paper%20Wallet%20Guide:%20How%20to%20Protect%20Your%20Cryptocurrency</id><content type="html" xml:base="http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/">&lt;h1 id=&quot;what-is-a-cryptocurrency-wallet&quot;&gt;What is a cryptocurrency wallet?&lt;/h1&gt;
-
-&lt;p&gt;A cryptocurrency wallet is a digital wallet that you can use to store, send and receive various cryptocurrencies. The wallet doesn’t exactly “store” your money as a real-world wallet does. Instead, it saves your public and private keys which in turn helps you send and receive money.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-are-public-and-private-keys&quot;&gt;What are public and private keys?&lt;/h1&gt;
-
-&lt;p&gt;Let’s think of a real world situation before we understand what public and private keys are. Imagine a vending machine. Can anyone and put their money inside the machine right? But, they can’t take out the money because they don’t have the key, they can only put money in the machine. The only person who can take out the money is the owner of the machine who has the key.&lt;/p&gt;
-
-&lt;p&gt;In this example, the vending machine is the public address which anyone uses to send money to you. You are the machine owner, and the key that he is carrying is your private key. Using this private key only you can access your money and do what you please with it.&lt;/p&gt;
-
-&lt;p&gt;The public key is the address that anyone can use to send you the money, while the private key is what you will use to send money to anyone else. Remember, ONLY you should know what your private key is, otherwise anyone can use your wallet to send your money to any other addresses.&lt;/p&gt;
-
-&lt;p&gt;Under no circumstances should you ever lose your private key. Let’s put this in super simple terms. If you lose your private key, then you are SCREWED (yes, uppercase has been used to emphasize the gravity of the situation). You should use at least two different techniques to save and store your private keys. We will discuss these various techniques a little later in the article.&lt;/p&gt;
-
-&lt;p&gt;As of right now, let’s discuss the two methods of storage that you can use to store your cryptos, hot storage, and cold storage.&lt;/p&gt;
-
-&lt;h1 id=&quot;hot-storage-vs-cold-storage&quot;&gt;Hot Storage Vs Cold Storage&lt;/h1&gt;
-
-&lt;p&gt;Let’s understand the basic distinction between the two with a real-world example. Hot storage is like the wallets that you carry around in your pocket. The Cold storage is somewhat akin to your savings bank account. Keep this distinction in mind as we move forward. If you want to use your currency frequently then you must use hot storage. On the other hand, if you want to store your money for a long time then you must use cold storage.&lt;/p&gt;
-
-&lt;h1 id=&quot;hot-storage&quot;&gt;Hot Storage&lt;/h1&gt;
-
-&lt;p&gt;Hot storage, in simple terms, is when you keep your cryptocurrency in a device which is directly connected to the internet. This connection is what makes a device “hot”.&lt;/p&gt;
-
-&lt;p&gt;You should think of exchange wallets, desktop clients, and mobile wallets (any wallet that exists on a device that will ever connect to the internet) as a hot wallet. It’s easy to access funds on a hot wallet, and if you live somewhere that accepts cryptos for micropayments, there’s nothing wrong with using one for day-to-day spending. Think of it like fiat (government issued) currency. You might walk around with a portion of your wealth in a wallet for convenience but the majority you keep secured away. Your hot wallet should behave in the same way as a real-world wallet. You use it to carry a small amount of cash for ease of access. That is all.&lt;/p&gt;
-
-&lt;p&gt;While transacting with hot wallets is very simple, there is a huge drawback when it comes to them. They are easily hackable. The whole crypto-space has been gaining a lot of value recently and where there’s value, crime is never far behind. Recent ransomware attacks and previous compromises of large exchanges should be sufficient beacons to newcomers.&lt;/p&gt;
-
-&lt;p&gt;Even though you’ll not be storing a great deal of value on your hot wallet, it’s vital that you follow the backup steps within the restoration section of your wallet to avoid losing funds through human error. With your private key, and seed phrase intact, you should be able to restore any wallet painlessly enough.&lt;/p&gt;
-
-&lt;h2 id=&quot;pros-of-hot-storage&quot;&gt;Pros of hot storage&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Quick to access funds.&lt;/li&gt;
-  &lt;li&gt;A wide number of options, and support for different devices.&lt;/li&gt;
-  &lt;li&gt;User-friendly UIs make sending and receiving simple.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;cons-of-hot-storage&quot;&gt;Cons of hot storage&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Exposed to cybercrime. Sophisticated hackers, ransomware, and other malicious actors are a constant threat.&lt;/li&gt;
-  &lt;li&gt;Damaging the device could destroy the wallet. Without carefully backing up private keys, and seed words you could permanently lose your cryptocurrency investment.&lt;/li&gt;
-  &lt;li&gt;You could still lose/damage/have stolen the restoration details.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now let’s explore the different kinds of hot storage wallets that you can use.&lt;/p&gt;
-
-&lt;h1 id=&quot;online-wallets-aka-cloud-wallet&quot;&gt;Online Wallets aka Cloud Wallet&lt;/h1&gt;
-
-&lt;p&gt;These wallets are the easiest to use among all. The creation is super simple because it’s basically creating your own account on any of the exchange services. Furthermore, you can access this wallet from any server or any device in the world as long as it is connected to the net. Having said that, there is one big problem when it comes to online wallets. Your private key is going to be saved on another server. This is basically like serving up your key to hackers on a silver platter. Do NOT use online wallets to store huge amounts of your money. Store the bare minimum that you need for exchange purposes.&lt;/p&gt;
-
-&lt;h1 id=&quot;desktopmobile-wallets&quot;&gt;Desktop/Mobile Wallets&lt;/h1&gt;
-
-&lt;p&gt;Desktop or mobile wallets are also popular choices for a hot wallet. These represent a much better option in terms of security. Desktop wallets are downloaded and installed on a single PC or laptop and they are only accessible from that one device where it was downloaded. While it is a safer alternative than an online wallet, it can still be very inconvenient because you will not get access to your money unless you are on the device from which you downloaded the wallet. MultiBit and Armory are great examples of desktop wallets.&lt;/p&gt;
-
-&lt;p&gt;Mobile wallets are pretty convenient to use because all you need to do is to download an app into your phone.  MyCelium is a really popular app(for both Android and iPhone) that people use for their mobile wallets, CoPay is a great option as well.&lt;/p&gt;
-
-&lt;p&gt;The real problem with desktop/mobile wallets are the dangers associated with virus attacks. A hacker can easily put Trojans in your system to phish for your details. Apart from that, you can easily lose your cryptos if your desktop or mobile is damaged.&lt;/p&gt;
-
-&lt;h1 id=&quot;multi-signature-wallets&quot;&gt;Multi-Signature Wallets&lt;/h1&gt;
-
-&lt;p&gt;The easiest way of understanding how a multi-signature (multi-sig) wallet works like is by thinking of a safe which needs multiple keys to operate. A multi-signature wallet is great for 2 purposes:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;To create more security for your wallet and save yourself from human error.&lt;/li&gt;
-  &lt;li&gt;To create a more democratic wallet which can be used by one or more people.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How does multi-signature wallet save you from human error? Let’s take the example of BitGo, one of the premier multi-sig wallet service providers in the world. They issue 3 private keys. One is held by the company itself, one is held by the user and the third one is a backup that the user can keep for themselves or give to someone trustworthy for safe keeping To do any sort of transaction in a BitGo wallet you will need at least 2/3 keys to operate. So even if you have a hacker behind you, it will super difficult for them to get their hands on 2 private keys. And on top of that, even if you lose your private key for whatever reason, you still have that backup key that you had given to your friend.&lt;/p&gt;
-
-&lt;p&gt;Now, how does a multi-signature wallet create a more democratic environment? Imagine that you are working in a company with 10 people and you need 8 approvals in order to make a transaction. Using a software like Electrum you can simply create a custom multi-sig wallet with 10 keys. This way you can make seamless democratic transactions in your company.&lt;/p&gt;
-
-&lt;p&gt;Even with all its amazing features, at the end of the day, a multi-signature wallet is still a hot wallet so you must use it economically. The Bitfinex hack (more on it in a bit) happened despite the fact that it had multi-signature security. Plus, at the end of the day, the company whose wallet you are using still has one of the private keys. It completely depends on their ethics as to what they can do or not do to your funds.&lt;/p&gt;
-
-&lt;h1 id=&quot;risks-of-hot-storage&quot;&gt;Risks of Hot Storage&lt;/h1&gt;
-
-&lt;p&gt;Different hot wallets carry different security risks. The least secure are undoubtedly those hosted on Exchange sites. Leaving your currency where you bought it might seem like a great idea because “if it starts to crash, I can change it back to dollars quickly”. In reality, all you’re doing by leaving cryptos on an exchange is trusting an unlicensed entity with your money. They hold your private keys, and they ward off daily attacks. In the past, they’ve even succumbed to such threats. Exchanges are a huge target for criminals because they store a lot of value. If you’re day trading, this risk is part of the deal. If you’re holding long-term, you want to avoid it all together.&lt;/p&gt;
-
-&lt;p&gt;The Bitfinex hack is a great example of the dangers of hot storage. In early August 2016, the folks at Bitfinex noticed that several of their security measures were being compromised. Before long, over $72 million worth of BTC had been stolen by a hacker. It was so bad that the value of BTC fell 20% within a day:&lt;/p&gt;
-
-&lt;p&gt;So what do you do to your cryptocurrency to keep it safe from malicious attacks like this? You use cold storage. Let’s find out what that is all about.&lt;/p&gt;
-
-&lt;h1 id=&quot;cold-storage&quot;&gt;Cold Storage&lt;/h1&gt;
-
-&lt;p&gt;When you keep your currency in a device which is completely offline it’s called cold storage. For those seeking the most secure form of storage, cold wallets are the way to go. These are best suited to long-term holders, who don’t require access to their coins for months, or years at a time.&lt;/p&gt;
-
-&lt;p&gt;They aren’t without their own set of risks but if you follow the instructions correctly, and take every precaution possible, these are greatly minimized. Given the amount of attention that cryptocurrency has been receiving over the last few years, it has unfortunately piqued the interest of attackers. In the light of that, it’s a far more secure option to use cold storage as means of storing your money.&lt;/p&gt;
-
-&lt;p&gt;San Francisco-based bitcoin wallet and exchange service CoinBase holds up 97% of its coin reserves in hardware and paper wallets. What are hardware and paper wallets? You will get to know about it in a minute. For now, let’s check out the pros and cons of cold storage:&lt;/p&gt;
-
-&lt;h2 id=&quot;pros-of-cold-storage&quot;&gt;Pros of Cold Storage:&lt;/h2&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- A great place to hold large amounts of coin for a long period of time.
-- Provides a safety net against hackers and people with malicious intent since it is completely offline.
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;cons-of-cold-storage&quot;&gt;Cons of Cold Storage&lt;/h2&gt;
+&lt;p&gt;How To Set Up Git&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- It is still susceptible to external damage, theft and general human carelessness.
-- It is not ideal for quick and daily transactions.
-- Setting it up can be a little intimidating for beginners.
+&lt;p&gt;Now that you have git installed, you need to do a few things so that the commit messages that will be generated for you will contain your correct information.&lt;/p&gt;
+
+&lt;p&gt;The easiest way of doing this is through the git config command. Specifically, we need to provide our name and email address because git embeds this information into each commit we do. We can go ahead and add this information by typing:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;youremail@domain.com&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Now that we have seen both the pros and cons let’s take a look some cold storage wallets that you can use to store your coins&lt;/p&gt;
+&lt;p&gt;We can see all of the configuration items that have been set by typing:&lt;/p&gt;
 
-&lt;h1 id=&quot;hardware-wallets&quot;&gt;Hardware wallets&lt;/h1&gt;
-
-&lt;p&gt;Hardware wallets are physical devices where you can store your cryptocurrency. They come in a few forms but the most common is the USB stick style typified by the Nano Ledger series. Although many swear by them, hardware wallets are still prone to compromise. Firstly, you’re trusting that the company who made your wallet hasn’t logged all the private keys with a plan to raid wallets in the future. This applies to those bought from the company themselves, but particularly if a hardware wallet has been acquired second hand. Under no circumstances should anyone ever use a pre-owned hardware wallet.&lt;/p&gt;
-
-&lt;p&gt;Although loss or damage can spell disaster for the unprepared, hardware wallets can be restored. Therefore, it’s just as important to back up your hardware wallet, as it is your online hot wallets. You should keep restoration details in a safe place that only you, and anyone you plan to leave the money to know about. Remember, your restoration details open the wallet. Think very carefully about who (if anyone) you share them with. It’s also vitally important that you transfer all coins to a new wallet, should something unfortunate happen between you and anyone else who knows your private keys (spouse, etc.)&lt;/p&gt;
-
-&lt;p&gt;Here are some hardware wallets that you can use:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- Ledger Nano S.
-- Trezor.
-- Keepkey.
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;paper-wallets&quot;&gt;Paper wallets&lt;/h1&gt;
+&lt;p&gt;git configuration&lt;/p&gt;
 
-&lt;p&gt;Without a doubt, the safest way to store any cryptocurrency is using a paper wallet. By following a few pointers below, you can set one up entirely for free. This truly makes you the master of your investment, and if precautions are followed, there’s no possibility of your private keys being known by anyone else. Of course, this means that keeping a record of them is even more important. Losing private keys means you’ll forfeit the entire contents of your paper wallet (but then again, that’s true for every wallet out there.)&lt;/p&gt;
+&lt;p&gt;user.name=Your Name
+user.email=youremail@domain.com&lt;/p&gt;
 
-&lt;h1 id=&quot;what-is-a-paper-wallet&quot;&gt;What is a paper wallet?&lt;/h1&gt;
+&lt;p&gt;As you can see, this has a slightly different format. The information is stored in your git configuration file, which you can optionally edit by hand with your text editor like this:&lt;/p&gt;
 
-&lt;p&gt;To keep it very simple, paper wallets are an offline cold storage method of saving cryptocurrency. It includes printing out your public and private keys on a piece of paper which you then store and save in a secure place. The keys are printed in the form of QR codes which you can scan in the future for all your transactions. The reason why it is so safe is that it gives complete control to you, the user. You do not need to worry about the well-being of a piece of hardware, nor do you have to worry about hackers or any piece of malware. You just need to take care of a piece of paper.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano ~/.gitconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;do-you-need-a-paper-wallet&quot;&gt;Do you need a paper wallet?&lt;/h1&gt;
+&lt;p&gt;~/.gitconfig contents&lt;/p&gt;
 
-&lt;p&gt;The answer to this question will largely depend on your circumstances. If you plan to spend the summer day trading a few coins, perhaps you don’t. Alternatively, if you’re in for the long haul, and don’t intend to touch any portion of your stash, then a paper wallet is the most secure option available to you.&lt;/p&gt;
+&lt;p&gt;[user]
+    name = Your Name
+    email = youremail@domain.com&lt;/p&gt;
 
-&lt;h1 id=&quot;setting-up-a-paper-wallet&quot;&gt;Setting up a paper wallet&lt;/h1&gt;
+&lt;p&gt;There are many other options that you can set, but these are the two essential ones needed. If you skip this step, you’ll likely see warnings when you commit to git that are similar to this:
+Output when git username and email not set&lt;/p&gt;
 
-&lt;p&gt;Paper wallets are formed by using a program to randomly generate a public and private key. The keys will be unique, and the program that generates them is open source. Those with advanced knowledge of coding can check the backend of the program themselves for randomicity in results. What’s more, we’ll be generating our keys offline. This eradicates the exposure to online threats, and deleting the simple program after use will destroy any trace of them.&lt;/p&gt;
+&lt;p&gt;[master 0d9d21d] initial project version
+ Committer: root 
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:&lt;/p&gt;
 
-&lt;p&gt;Don’t worry if it sounds confusing, it’s not. You’ll need no specific knowledge of coding, or encryption. All you do need is a computer, an internet connection, something to record your keys on.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git config --global user.name &quot;Your Name&quot;
+git config --global user.email you@example.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Anyway, let’s create our paper wallet. Follow these steps:&lt;/p&gt;
+&lt;p&gt;After doing this, you may fix the identity used for this commit with:&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Ensure your computer is entirely free from any form of malicious software. A brand-new computer would be ideal but is often not feasible.&lt;/li&gt;
-  &lt;li&gt;Visit the page &lt;a href=&quot;WalletGenerator.net&quot;&gt;WalletGenerator.net&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git commit --amend --reset-author
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
+&lt;p&gt;This makes more work for you because you will then have to revise the commits you have done with the corrected information.
+Conclusion&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Download the zip file by clicking here:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Once downloaded open the “index.html” file but before that make sure that your internet is off. This entire process is done to make sure that your wallet is hacker free.
-How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Now it is time to generate your wallet. Keep hovering over the highlighted text and it will generate more characters. Or if you want, you can manually type in random characters. Just keep doing it until the counter goes to “0”.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The moment the count goes to zero your wallet will be generated.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Print the page or make multiple copies of the numbers from it. (Important: Ensure printer is not connected to Wi-Fi at this point).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Delete saved web page. You can now safely reconnect to the internet.&lt;/li&gt;
-  &lt;li&gt;Store your private keys in their long term, private, secure home.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;setting-up-a-paper-wallet-for-ethereum&quot;&gt;Setting up a paper wallet for Ethereum&lt;/h1&gt;
-
-&lt;p&gt;Now if you notice the list of cryptocurrencies supported by walletgenerator, you will see that Ethereum is missing from the list. So, what do you need to do to create a paper wallet for Ethereum? It is really easy, just follow these steps:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;First, go to &lt;a href=&quot;MyEtherWallet.com&quot;&gt;MyEtherWallet.com&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next, click on the help tab.
-How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Scroll down and click on option 5:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Now open the link highlighted here:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;After that download this zip file into your computer:&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Now open the zip file in your computer and click on the index.html file. Before doing that, switch off your internet so that you are offline.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Now create a new password and generate your wallet, be sure that you are putting in a strong password:
-Now you will have to download your keystore file which is basically your wallet file. Be sure to keep a backup of this file. - After you are done with that click on “I understand. Continue.”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;And there you go, your wallet has been generated. What you see here is your private key. DO NOT share this with anyone.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;cryptocurrency is so hot right now. Bitcoin’s price has been climbing for the better part of a year, topping $2,000 per coin for the first time in May, and rising to a record high above $2,500 — before dropping down just above $2,400 a coin as of Friday afternoon, per CoinDesk. Those numbers mean nothing to you? This one might: If you had made a small investment in bitcoin back in 2010 — buying just $100 worth, when each unit was worth a fraction of a cent — your stash would be valued today at more than $70 million. Talk about an early retirement! Even if you had been late to the party and bought bitcoin last year, you would be feeling pretty good. At one point, bitcoin prices were up roughly 180% for the year, as CNBC reported. Compare that with the broad stock market, which returned between 7.9% and 15%, depending on which index you look at.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;You should now print your wallet by clicking on the “Print” button. This is what you will get. Notice that you can see both your private and public keys here:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;How to Protect Your Cryptocurrency: Cold Storage &amp;amp; Paper Wallet Guide&lt;/p&gt;
-
-&lt;p&gt;And there you go. That is how you create an Ethereum paper wallet.&lt;/p&gt;
-
-&lt;h1 id=&quot;paper-wallet-risks&quot;&gt;Paper wallet risks&lt;/h1&gt;
-
-&lt;p&gt;While paper wallets substantially decrease the threat of compromise from the virtual world, they aren’t without their own set of risks.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Coercion&lt;/strong&gt;: There are always going to be people willing to break the law to get at something valuable. Just as crooks tear off in Lamborghinis after raiding a property, so too might they stumble upon your safe. They don’t know what’s in there but presumably, it’s valuable. Anyway, you get where this is going, and the moral of the story is simple: don’t go bragging about your crypto investments. It doesn’t matter if it’s online, or in person, it’s never a clever idea. Don’t make yourself a target.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Fragility&lt;/strong&gt;: At the end of the day, it is still paper. Paper can be easily damaged or it can get worn out over time. This is why you should always make multiple backups.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Stealing&lt;/strong&gt;: Since it is written on a piece of paper, anyone who can read it or take a photograph of it can steal your money.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Not immune to disasters&lt;/strong&gt;: It is just a piece of paper, it is not immune to natural disasters and can easily be destroyed if you have not taken any backups.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Type of printer used&lt;/strong&gt;: The quality of printer used can also have a detrimental effect. Non-laser printers may cause the ink to run if the paper gets wet.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Human Errors&lt;/strong&gt;: Humans are prone to mistakes and you can simply forget the location of your paper or accidentally tear it.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;importance-of-private-keys-and-restoration-methods&quot;&gt;Importance of private keys and restoration methods&lt;/h1&gt;
-
-&lt;p&gt;In the same way that we’ve mentioned restoration details previously, the private key to your paper wallet is its single most important detail. You must guard it with your life. If you lose it, you lose your money. It’s as simple as that. Then you should get it tattooed on your chest, right? Well, no. As well providing you access to your funds when you need them, anyone with the key can also get at them. It must be kept totally secret.&lt;/p&gt;
-
-&lt;p&gt;Owing to their importance, it’s wise to store your paper wallet in multiple secure locations. This will help alleviate against certain “acts of God” – think Hurricane, sudden evacuation, or similar. However, the more locations you use to store your keys, the higher the risk of compromise.&lt;/p&gt;
-
-&lt;h1 id=&quot;under-lock-and-key&quot;&gt;Under lock and key&lt;/h1&gt;
-
-&lt;p&gt;Some prefer to store their private keys in a physical location. A safe is usually favored for this. Only those allowed access to the funds must know the combination (and preferably existence) of your security box. Of course, small home safe deposit boxes are often much less durable than they’re made out to be, and will usually be a target for home invaders. If you have sole access to a high-quality safe, you should use this, otherwise risking a lower end model may be your best option. Either way, only those who have ownership of the coins stored on the paper wallet must know the combination to the lock.
-Cloud-Based Storage&lt;/p&gt;
-
-&lt;p&gt;In the (very near) future, self-encrypting, decentralized “cloud” based storage will likely be an option. Its reliability remains to be tested but it could alleviate warranted concerns over storing private keys digitally. Like exchanges, existing cloud-based storage services are hackable, and can fall victim to malicious attacks. Storing your most sensitive documents is usually not recommended. However, it’s possible to encrypt the data yourself and store it online. By encrypting it, you limit the number of people who can view a document in its raw state. Uploading an encrypted version of a private key to the web is a suitable option for some.&lt;/p&gt;
-
-&lt;h5 id=&quot;engraving-into-metal&quot;&gt;Engraving Into Metal&lt;/h5&gt;
-
-&lt;p&gt;You may also choose to engrave the keys to a metal and keep it safe somewhere. The quality of the metal that you choose will be paramount here because over time a low-quality metal may deteriorate very fast.&lt;/p&gt;
-
-&lt;h4 id=&quot;memory&quot;&gt;Memory&lt;/h4&gt;
-
-&lt;p&gt;It should go without saying that this isn’t ideal. It is possible and incredibly secure (potentially too secure) but the practical barrier of remembering 64 unique characters will discourage the majority. While I am sure there are some who favor this method. It is certainly not recommended.&lt;/p&gt;
-
-&lt;p&gt;Things to remember when considering storing private keys&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Only those that have access to the funds stored must have access to the private keys.&lt;/li&gt;
-  &lt;li&gt;Most ways of practically recording private keys are potentially lost. Think, fire, theft, water damage. If you can engrave metals yourself and can store it in a high-quality safe, this is ideal.&lt;/li&gt;
-  &lt;li&gt;Multiple safe locations are better than one. Additional locations must not compromise security.&lt;/li&gt;
-  &lt;li&gt;All storage has risks. Minimize them.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;restoring-a-cold-storage-wallet&quot;&gt;Restoring a cold storage wallet&lt;/h1&gt;
-
-&lt;p&gt;When you want to bring your cryptocurrency back out of cold storage, you need to import the private key into a suitable online wallet. Any wallet which supports importing private keys will work. The process is simple and intuitive for most wallets. The steps we have given below correspond to using the Bitcoin Unlimited wallet.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Open the client and click on “Help”.&lt;/li&gt;
-  &lt;li&gt;Select the Debug Window and click on the Console tab.&lt;/li&gt;
-  &lt;li&gt;Type in the field “importprivkey&lt;private key=&quot;&quot;&gt;” replace &lt;private key=&quot;&quot;&gt; with your private key and the remove quotation marks.&lt;/private&gt;&lt;/private&gt;&lt;/li&gt;
-  &lt;li&gt;Hit enter.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This will import all the data from your paper wallet to your online desktop client. Remember, you are now exposed to all the security risks that exist with hot wallets. It’s not recommended that you keep an amount of crypto in such storage for any more than the minimum time possible. If you’re trading to another crypto, or fiat do some immediately and then store appropriately. If you were using a portion of your balance to make a payment, and want the rest to return to cold storage, it is now recommended that you set up an entirely new paper wallet. Consider your original storage solution compromised.&lt;/p&gt;
-
-&lt;h1 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h1&gt;
-
-&lt;p&gt;Setting up a cold wallet is a straightforward way to help alleviate third-party risks associated with most other cryptocurrency storage methods. While no method is entirely free from threat, storing coins offline drastically reduces the chances of losing your investment through digital means – exchange compromise, exchange insolvency, ransomware attacks, other cybercriminal operations. It is still as important as ever to remain vigilant of real-world threats such as loss, theft, or damage of private keys. Always protect your private keys, and ensure to replace them (setup new cold storage) immediately if there is any indication that their privacy may have become compromised.&lt;/p&gt;
-
-&lt;p&gt;The best solution is diversification. As the old saying goes, “Do not keep all your eggs in one basket.” Always diversify. Keep a portion of your currency (a major portion), in paper wallets and have lots of backups to ensure that you are not going to get screwed. Keep some in hardware wallets and if you really must, keep a few in a hot wallet as well so that you can do quick transactions. Having said that, make sure that most of your money is in cold storage.&lt;/p&gt;
-
-&lt;p&gt;Remember, it is no one else’s responsibility to ensure your crypto investments are kept safe. You are your own master here. Do not take short cuts, and do not underestimate the importance of security. Plenty of people have already been frivolous enough to lose access to their cryptocurrencies through their own fault and others. Minimizing the risks effectively will drastically decrease the chances of you joining this number.&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="blog" /><summary type="html">What is a cryptocurrency wallet?</summary></entry></feed>
+&lt;p&gt;You should now have git installed and ready to use on your system. To learn more about how to use Git, check out these articles:&lt;/p&gt;</content><author><name>Philip Mutua</name><email>pmutua@live.com</email></author><category term="tutorial" /><summary type="html">Introduction</summary></entry></feed>

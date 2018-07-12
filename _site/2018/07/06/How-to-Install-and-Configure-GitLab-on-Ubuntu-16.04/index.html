@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en"><!--
+ __  __                __                                     __
+
+
+ :::    ::: :::   ::: :::::::::  :::::::::: :::::::::  :::    ::: :::   ::: :::        :::        
+ :+:    :+: :+:   :+: :+:    :+: :+:        :+:    :+: :+:    :+: :+:   :+: :+:        :+:        
+ +:+    +:+  +:+ +:+  +:+    +:+ +:+        +:+    +:+ +:+    +:+  +:+ +:+  +:+        +:+        
+ +#++:++#++   +#++:   +#+    +:+ +#++:++#   +#++:++#+  +#++:++#++   +#++:   +#+        +#+        
+ +#+    +#+    +#+    +#+    +#+ +#+        +#+        +#+    +#+    +#+    +#+        +#+        
+ #+#    #+#    #+#    #+#    #+# #+#        #+#        #+#    #+#    #+#    #+#        #+#        
+ ###    ###    ###    #########  ########## ###        ###    ###    ###    ########## ##########
+ 
+This is a Modified version I tweeked <https://github.com/pmutua> 
+
+>
+
+
+
+-->
+
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+  
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>How to Install and Configure GitLab on Ubuntu 16.04. | Philip Mutua</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="How to Install and Configure GitLab on Ubuntu 16.04." />
+<meta name="author" content="Philip Mutua" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Building solutions with technology." />
+<meta property="og:description" content="Building solutions with technology." />
+<link rel="canonical" href="http://hyde.getpoole.com/2012/02/06/whats-jekyll/" />
+<meta property="og:url" content="http://hyde.getpoole.com/2012/02/06/whats-jekyll/" />
+<meta property="og:site_name" content="Philip Mutua" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-06T00:00:00+03:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"How to Install and Configure GitLab on Ubuntu 16.04.","dateModified":"2018-07-06T00:00:00+03:00","url":"http://hyde.getpoole.com/2012/02/06/whats-jekyll/","datePublished":"2018-07-06T00:00:00+03:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/icons/icon.png"},"name":"Philip Mutua"},"author":{"@type":"Person","name":"Philip Mutua"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://hyde.getpoole.com/2012/02/06/whats-jekyll/"},"description":"Building solutions with technology.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  
+    <meta name="keywords" content="">
+  
+
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Philip Mutua">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="application-name" content="Philip Mutua">
+<meta name="msapplication-config" content="/assets/ieconfig.xml">
+
+
+<meta name="theme-color" content="#268bd2">
+
+
+<meta name="generator" content="Philip Mutua | Software Engineer">
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Philip Mutua" />
+
+
+
+<link rel="alternate" href="http://localhost:4000/2018/07/06/How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04/" hreflang="en">
+
+<link rel="shortcut icon" href="/assets/icons/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/icons/apple-icon-114x114.png">
+
+<link rel="manifest" href="/assets/manifest.json">
+
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+
+
+
+
+
+
+<link id="_katexJS"  rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.js">
+<link id="_katexCSS" rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.css">
+
+<script>
+  function stdOnEnd(n,e){n.onload=function(){this.onerror=this.onload=null,e(null,n)},n.onerror=function(){this.onerror=this.onload=null,e(new Error("Failed to load "+this.src),n)}}function ieOnEnd(n,e){n.onreadystatechange=function(){"complete"!=this.readyState&&"loaded"!=this.readyState||(this.onreadystatechange=null,e(null,n))}}window.setRelStylesheet=function(n){function e(){this.rel="stylesheet"}var o=document.getElementById(n);o.addEventListener?o.addEventListener("load",e,!1):o.onload=e},window._loaded=!1,window.loadJSDeferred=function(n,e){function o(){window._loaded=!0;var o=document.createElement("script");o.src=n,e&&(("onload"in o?stdOnEnd:ieOnEnd)(o,e),o.onload||stdOnEnd(o,e));var t=document.scripts[0];t.parentNode.insertBefore(o,t)}window._loaded?o():window.addEventListener?window.addEventListener("load",o,!1):window.onload=o};
+!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+
+  window._noPushState = false;
+  window._noDrawer = false;
+</script>
+
+<!--[if gt IE 8]><!-->
+
+
+<script>
+  WebFontConfig = {
+    
+    google: {
+      families: ['Roboto+Slab:700','Noto+Sans:400,400i,700,700i']
+    },
+    
+
+    custom: {
+      families: ['icomoon'],
+      urls: ['/assets/icomoon/style.css']
+    }
+  };
+  (function(d) {
+    var wf = d.createElement('script'), s = d.scripts[0];
+    wf.src = "/assets/bower_components/webfontloader/webfontloader.js";
+    s.parentNode.insertBefore(wf, s);
+  }(document));
+</script>
+<!--<![endif]-->
+
+<noscript>
+  
+  
+
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:700%7CNoto+Sans:400,400i,700,700i">
+    <style>
+      html { font-family: Noto Sans, Helvetica, Arial, sans-serif }
+      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: Roboto Slab, Helvetica, Arial, sans-serif }
+    </style>
+  
+
+  <link rel="stylesheet" href="/assets/icomoon/style.css">
+</noscript>
+
+<!--[if gt IE 8]><!-->
+
+
+
+  <link rel="stylesheet" href="/assets/css/hydejack-7.5.0.css">
+
+
+
+<style id="_pageStyle">
+
+.content a:not(.btn){color:#268bd2;border-color:rgba(38,139,210,0.2)}.content a:not(.btn):hover{border-color:#268bd2}:focus{outline-color:#268bd2}.btn-primary{color:#fff;background-color:#268bd2;border-color:#268bd2}.btn-primary:focus,.btn-primary.focus{box-shadow:0 0 0 3px rgba(38,139,210,0.5)}.btn-primary:hover,.btn-primary.hover{color:#fff;background-color:#2076b2;border-color:#2076b2}.btn-primary:disabled,.btn-primary.disabled{color:#fff;background-color:#268bd2;border-color:#268bd2}.btn-primary:active,.btn-primary.active{color:#fff;background-color:#2076b2;border-color:#2076b2}::selection{color:#fff;background:#268bd2}::-moz-selection{color:#fff;background:#268bd2}
+
+</style>
+
+<!--<![endif]-->
+
+
+
+
+  
+  <div class="navbar fixed-top">
+  <div class="content">
+    <div class="nav-btn-bar">
+      <span class="sr-only">Jump to:</span>
+      <a id="_menu" class="nav-btn no-hover" href="#_navigation">
+        <span class="sr-only">Navigation</span>
+        <span class="icon-menu"></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<hy-push-state>
+  <main
+    id="_main"
+    class="content fade-in layout-post"
+    role="main"
+    data-color="#268bd2"
+    data-theme-color=""
+    
+      data-background="#202020"
+      
+    
+    >
+    
+
+
+<article id="post-2018-07-06-How-to-Install-and-Configure-GitLab-on-Ubuntu- 16.04" class="page post" role="article">
+  <header>
+    <h1 class="post-title">
+      
+        How to Install and Configure GitLab on Ubuntu 16.04.
+      
+    </h1>
+
+    <p class="post-date heading">
+      
+      <time datetime="2018-07-06T00:00:00+03:00">06 Jul 2018</time>
+      
+      
+      
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+on <a href="/tag/tutorial/" class="flip-title">Tutorials</a>
+
+    </p>
+
+    
+
+
+
+  <div class="hr pb0"></div>
+
+
+  </header>
+
+  
+    <p>GitLab is an open source GIT repository manager based on Rails and developed by GitLab Inc. It is a web-based GIT repository manager that allows your team to work on code, track bugs and feature requests and to test and deploy applications. GitLab provides features like a wiki, issue tracking, code reviews, activity feeds and merge management. It is capable of hosting multiple projects.</p>
+
+<p>GitLab is available in four editions:</p>
+
+<ul>
+  <li>Gitlab CE (Community Edition) - self-hosted, free and support from the Community forum.</li>
+  <li>Gitlab EE (Enterprise Edition) - self-hosted, paid app, comes with additional features.</li>
+  <li>GitLab.com - SaaS, free.</li>
+  <li>GitLab.io - Private GitLab instance managed by GitLab Inc.</li>
+</ul>
+
+<p>In this tutorial, I will show you step-by-step how to install GitLab CE (Community Edition) on your own Ubuntu 16.04 Xenial Xerus server. In this tutorial, I will be using the ‘omnibus’ package provided by GitLab for easy installation.</p>
+
+<h1 id="what-we-will-do">What we will do:</h1>
+<ul>
+  <li>Install Packages</li>
+  <li>Install GitLab</li>
+  <li>Configure GitLab URL</li>
+  <li>Generate SSL Let’s encrypt and DHPARAM Certificate</li>
+  <li>Enable Nginx HTTPS for GitLab</li>
+  <li>Configure UFW Firewall</li>
+  <li>Perform the GitLab Installation</li>
+  <li>Testing</li>
+</ul>
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<ul>
+  <li>Ubuntu 16.04 Server - 64bit</li>
+  <li>Min RAM 2GB</li>
+  <li>Root Privileges</li>
+</ul>
+
+<h1 id="step-1---install-required-ubuntu-packages">Step 1 - Install required Ubuntu Packages</h1>
+
+<p>The first step is to install the packages needed for the GitLab installation. Please log in to the server as root user and upddate the Ubuntu repository.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh root@GitLabServer
+apt-get update
+</code></pre></div></div>
+
+<p>Now install the packages including curl for downloading the GitLab repository, ca-certificates, and postfix for the SMTP configuration.</p>
+
+<p>Install all packages with the apt command below.</p>
+
+<p><code class="highlighter-rouge">sudo apt install curl openssh-server ca-certificates postfix</code></p>
+
+<p>During postfix installation, you will be prompted about the configuration, select ‘Internet Site’.</p>
+
+<p><img src="../assets/blog-img/gitlab-1.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>and then enter the server domain name that shall be used for sending an email.</p>
+
+<p><img src="../assets/blog-img/gitlab-2.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<h1 id="step-2---install-gitlab">Step 2 - Install Gitlab</h1>
+
+<p>In this step, we will install GitLab using the omnibus packages. Omnibus will install all packages, services, and tools required for running GitLab on your server.</p>
+
+<p>Add GitLab repository with the curl command.</p>
+
+<p><code class="highlighter-rouge">curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash</code></p>
+
+<p><img src="../assets/blog-img/gitlab-term.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>And then install GitLab CE Community Edition with the apt command.</p>
+
+<p><code class="highlighter-rouge">sudo apt install gitlab-ce</code></p>
+
+<p>Wait for the server to download and install the gitlab package. When the installation is complete, you will see the results as below.</p>
+
+<p><img src="../assets/blog-img/gitlab-nano.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<h1 id="step-3---configure-gitlab-main-url">Step 3 - Configure Gitlab Main URL</h1>
+
+<p>Now we should configure the URL that will be used to access our GitLab server. I will use the domain name ‘gitlab.hakase-labs.co’ for the GitLab URL here (please choose your own domain name) and I’ll use HTTPS for users access security.</p>
+
+<p>The main configuration of GitLab is in the ‘/etc/gitlab’ directory. Go to that directory and edit the configuration file ‘gitlab.rb’ with vim.</p>
+
+<p><code class="highlighter-rouge">cd /etc/gitlab</code></p>
+
+<p><code class="highlighter-rouge">vim gitlab.rb</code></p>
+
+<p>In the GitLab configuration go to line 9 ‘external_url’ and change the URL to your URL ‘gitlab.hakase-labs.co’.</p>
+
+<p><code class="highlighter-rouge">external_url 'http://gitlab.hakase-labs.co'</code></p>
+
+<p>Save the file and exit the editor. In the next step will enable HTTPS for GitLab.</p>
+
+<p><img src="../assets/blog-img/gitlab-r.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<h1 id="step-4---generate-ssl-lets-encrypt-and-dhparam-certificate">Step 4 - Generate SSL Let’s encrypt and DHPARAM Certificate</h1>
+
+<p>In this step, we will enable the HTTPS protocol for GitLab. I will use a free SSL certificates provided by let’s encrypt for the gitlab domain name.</p>
+
+<p>Install letsencrypt command-line tool with apt command.</p>
+
+<p><code class="highlighter-rouge">sudo apt install letsencrypt -y</code></p>
+
+<p>When the installation is complete, generate a new certificate for the gitlab domain name with the command below.</p>
+
+<p><code class="highlighter-rouge">letsencrypt certonly -d gitlab.hakase-labs.co</code></p>
+
+<p>Enter your email address for the SSL certificate renew notification.</p>
+
+<p><img src="../assets/blog-img/gitlab-image.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>Choose ‘Agree’ for the Let’s Encrypt Terms of Services and wait.</p>
+
+<p><img src="../assets/blog-img/gitlab-image-2.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>When it’s done, you will see the result below.</p>
+
+<p><img src="../assets/blog-img/gitlab-0.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>New Let’s encrypt certificate files for GitLab have been generated. You can find the certificate files in the ‘/etc/letsencrypt/live’ directory.</p>
+
+<p>Next, create a new directory named ‘ssl’ under the GitLab configuration directory.</p>
+
+<p><code class="highlighter-rouge">mkdir -p /etc/gitlab/ssl/</code></p>
+
+<p>And generate dhparam pem files in the ssl directory with the openssl command.</p>
+
+<p><code class="highlighter-rouge">sudo openssl dhparam -out /etc/gitlab/ssl/dhparams.pem 2048</code></p>
+
+<p><img src="../assets/blog-img/gitlab-8.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>Now change the permissions of the certificate files to 600.</p>
+
+<p><code class="highlighter-rouge">chmod 600 /etc/gitlab/ssl/*</code></p>
+
+<p>The SSL Let’s encrypt cert for GitLab and the DHPARAM certificate has been generated.</p>
+
+<h1 id="step-5---enable-nginx-https-for-gitlab">Step 5 - Enable Nginx HTTPS for GitLab</h1>
+
+<p>At this stage, we have the certificate files from Letsencrypt in ‘/etc/letsencrypt/live’ directory and the DHPARAM certificate in the ‘/etc/gitlab/ssl’ directory.</p>
+
+<p>In this step, we will configure a GitLab to use our certificate files. Go to the ‘/etc/gitlab’ directory, then edit ‘gitlab.rb’ configuration with vim.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /etc/gitlab/
+vim gitlab.rb
+</code></pre></div></div>
+
+<p>Change the external url to use ‘https’ instead of ‘http’.</p>
+
+<p><code class="highlighter-rouge">external_url 'https://gitlab.hakase-labs.co'</code></p>
+
+<p>Then add the new SSL configuration for gitlab as below.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+nginx[<span class="s1">'redirect_http_to_https'</span><span class="o">]</span> <span class="o">=</span> <span class="nb">true
+</span>nginx[<span class="s1">'ssl_certificate'</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/etc/letsencrypt/live/gitlab.hakase-labs.co/fullchain.pem"</span>
+nginx[<span class="s1">'ssl_certificate_key'</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/etc/letsencrypt/live/gitlab.hakase-labs.co/privkey.pem"</span>
+nginx[<span class="s1">'ssl_dhparam'</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"/etc/gitlab/ssl/dhparams.pem"</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong></p>
+<blockquote>
+We will enable HTTP to HTTPS redirect in gitlab.gitlab-las.png
+
+Save the file and exit vim.
+</blockquote>
+
+<p><img src="../assets/blog-img/gitlab-las.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>Now we need to run the command below as root to apply the new gitlab configuration.</p>
+
+<p><code class="highlighter-rouge">sudo gitlab-ctl reconfigure</code></p>
+
+<p>You will see the results as below.
+<img src="../assets/blog-img/gitlab-90.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>HTTPS Configuration for GitLab has been completed.</p>
+
+<h1 id="step-6---configure-ufw-firewall">Step 6 - Configure UFW Firewall</h1>
+
+<p>In this step, we will enable the UFW firewall. It’s already installed on the system, we just need to start the service. We will run GitLab behind the UFW firewall, so we must open the HTTP and HTTPS ports.</p>
+
+<p>Enable UFW firewall with the command below.</p>
+
+<p><code class="highlighter-rouge">ufw enable</code></p>
+
+<p>The command will run ufw service and add it to start automatically at the boot time.</p>
+
+<p>Next, open new ports ssh, HTTP, and HTTPS.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	ufw allow ssh
+	ufw allow http
+	ufw allow https
+</code></pre></div></div>
+
+<p><img src="../assets/blog-img/gitlab-21.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>Now check the firewall status and make sure ssh, http, and https ports is on the list.</p>
+
+<p><code class="highlighter-rouge">ufw status</code></p>
+
+<p>HTTP and HTTPS ports are configured.</p>
+
+
+  
+</article>
+
+
+<hr class="dingbat related" />
+
+
+
+
+  
+     
+
+
+  <aside class="about related mt4 mb4" role="complementary">
+    
+    
+
+<div class="author mt4">
+  
+
+  
+    
+  
+
+  
+
+  
+  <img
+    src="/assets/img/sidebar-bg.jpg"
+    class="avatar"
+    alt="Philip Mutua"
+    srcset="/assets/img/prof.jpeg 1x,/assets/img/prof.jpeg 2x"
+    
+    
+  />
+
+
+  
+
+  
+  
+  <h2  class="page-title hr">
+    About
+  </h2>
+
+  <p>Hi, I’m <a href="https://twitter.com/itsphilipmutua">Philip</a> and I am a Software Engineer based in Nairobi, KE. Currently I’m helping build E-Health solutions for Xelpha Health as a Back End Engineer.
+When I’m not coding I enjoy making <a href="https://www.youtube.com/channel/UChbsFJAxAq9dDiSu3Q0ifhg">YouTube</a> coding tutorials. I also have a curiosity in audio engineering you will find me experimenting with LMMS and FLStudio.(<strong>spoiler alert</strong>) I’m not a pro though I can make sense in what I’m making.</p>
+
+
+  <div class="sidebar-social">
+    <span class="sr-only">Social:</span>
+<ul>
+  
+
+  
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="https://twitter.com/itsphilipmutua" title="Twitter" class="no-mark-external">
+    <span class="icon-twitter"></span>
+    <span class="sr-only">Twitter</span>
+  </a>
+</li>
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="https://github.com/pmutua" title="GitHub" class="no-mark-external">
+    <span class="icon-github"></span>
+    <span class="sr-only">GitHub</span>
+  </a>
+</li>
+
+  
+</ul>
+
+  </div>
+</div>
+
+  </aside>
+
+
+  
+
+  
+  
+
+  
+    
+
+
+
+
+<aside class="related mb4" role="complementary">
+  <h2 class="hr">Related Posts</h2>
+
+  <ul class="related-posts">
+    
+      
+
+
+<li>
+  <a href="/2018/07/06/set-up-ypu-complete-me-in-vim/" class="h4 flip-title">
+    <span>Setting Up You Complete Me in Vim.</span>
+  </a>
+  <time class="heading faded fine" datetime="2018-07-06T00:00:00+03:00">06 Jul 2018</time>
+</li>
+
+    
+      
+
+
+<li>
+  <a href="/2018/07/06/basic-git-commands/" class="h4 flip-title">
+    <span>Basic Git commands</span>
+  </a>
+  <time class="heading faded fine" datetime="2018-07-06T00:00:00+03:00">06 Jul 2018</time>
+</li>
+
+    
+      
+
+
+<li>
+  <a href="/2018/07/06/How-to-create-your-first-Django-library/" class="h4 flip-title">
+    <span>How to create your first Django library.</span>
+  </a>
+  <time class="heading faded fine" datetime="2018-07-06T00:00:00+03:00">06 Jul 2018</time>
+</li>
+
+    
+  </ul>
+</aside>
+
+
+  
+
+
+    
+
+
+    <footer role="contentinfo">
+  <hr/>
+  
+    <p><small class="copyright">© 2017. All rights reserved.
+</small></p>
+  
+  
+  <p><small>Powered by <a class="external" href="https://jekyllrb.com/">Jekyll</a> v<span id="_version">3.7.2 </span>
+      developed by <a class="external" href="https://twitter.com/itsphilipmutua"/>Philip Mutua</a></small></p>
+  <hr class="sr-only"/>
+</footer>
+
+  </main>
+  <hy-drawer>
+  <header id="_sidebar" class="sidebar" role="banner">
+    
+    <div class="sidebar-bg " style="background:#202020"></div>
+
+    <div class="sidebar-sticky">
+      <div class="sidebar-about">
+        <h2 class="h1"><a href="/">Philip Mutua</a></h2>
+        
+        
+          <p class="">
+            Building solutions with code.
+
+          </p>
+        
+      </div>
+
+      <nav class="sidebar-nav heading" role="navigation">
+        <span class="sr-only">Navigation:</span>
+<ul>
+  
+  
+  
+  
+    
+      <li>
+        <a
+          id="_navigation"
+          href="/tag/blog/"
+          class="sidebar-nav-item"
+          
+          >
+          Blog
+        </a>
+      </li>
+    
+  
+    
+      <li>
+        <a
+          
+          href="/tag/tutorial/"
+          class="sidebar-nav-item"
+          
+          >
+          Tutorials
+        </a>
+      </li>
+    
+  
+    
+      <li>
+        <a
+          
+          href="/projects/"
+          class="sidebar-nav-item"
+          
+          >
+          Portfolio*
+        </a>
+      </li>
+    
+  
+    
+      <li>
+        <a
+          
+          href="/about/"
+          class="sidebar-nav-item"
+          
+          >
+          About
+        </a>
+      </li>
+    
+  
+</ul>
+
+      </nav>
+
+      
+
+      <div class="sidebar-social">
+        <span class="sr-only">Social:</span>
+<ul>
+  
+
+  
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="https://twitter.com/itsphilipmutua" title="Twitter" class="no-mark-external">
+    <span class="icon-twitter"></span>
+    <span class="sr-only">Twitter</span>
+  </a>
+</li>
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="https://github.com/pmutua" title="GitHub" class="no-mark-external">
+    <span class="icon-github"></span>
+    <span class="sr-only">GitHub</span>
+  </a>
+</li>
+
+  
+</ul>
+
+      </div>
+    </div>
+  </header>
+</hy-drawer>
+
+</hy-push-state>
+
+
+  
+
+  <!--[if gt IE 9]><!-->
+  
+  <script>loadJSDeferred('/assets/js/hydejack-7.5.0.js');</script>
+  
+  <!--<![endif]-->
+
+
+
+  
+<hr class="sr-only"/>
+<h2 class="sr-only">Templates (for web app):</h2>
+
+<template id="_animation-template">
+  <div class="animation-main fixed-top">
+    <div class="content">
+      <div class="page"></div>
+    </div>
+  </div>
+</template>
+
+<template id="_loading-template">
+  <div class="loading">
+    <span class="sr-only">Loading…</span>
+    <span class="icon-cog"></span>
+  </div>
+</template>
+
+<template id="_error-template">
+  <div class="page">
+    <h1 class="page-title">Error</h1>
+    
+    
+    <p class="lead">
+      Sorry, an error occurred while loading <a class="this-link" href=""></a>.
+
+    </p>
+  </div>
+</template>
+
+<template id="_back-template">
+  <a id="_back" class="back nav-btn no-hover">
+    <span class="sr-only">Back</span>
+    <span class="icon-arrow-left2"></span>
+  </a>
+</template>
+
+<template id="_permalink-template">
+  <a href="#" class="permalink">
+    <span class="sr-only">Permalink</span>
+    <span class="icon-link"></span>
+  </a>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+  </html>
