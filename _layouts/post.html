@@ -22,7 +22,7 @@ custom_css:
                         </h1>
                      <div class="vote-info">
                         <i class="fa fa-book"></i> <a>{{ page.content | number_of_words | append: " Parole" }}</a>
-                        <i class="fa fa-clock-o"></i> <a>Tempo di lettura: {{ page.content | number_of_words | divided_by: 180 | append: " minuti" }}</a>
+                        <i class="fa fa-clock-o"></i> <a>Reading Time: {{ page.content | number_of_words | divided_by: 180 | append: " minutes" }}</a>
                      </div>
                     </div>
                     	{{ content }}
@@ -65,3 +65,6 @@ custom_css:
     </div>
 
 </div>
+
+
+
