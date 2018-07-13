@@ -4,6 +4,13 @@
   }
 }
 
+#particles-js {
+  height: 300px;
+  background-color: #1c1e1e;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+}
 button.dim {
   text-transform: uppercase;
 }
@@ -1889,7 +1896,7 @@ ul.clear-list:first-child {
 
 .article-title {
   text-align: center;
-  margin: 40px 0 100px;
+  margin: 40px 0 80px;
 }
 
 .article .ibox-content {
@@ -2628,7 +2635,7 @@ body {
     }
   }
   .social-icon a {
-    background: #3385FF;
+    background: #5c5c5a;
     color: #fff;
     padding: 4px 8px;
     height: 28px;

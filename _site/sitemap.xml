@@ -2,119 +2,119 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md.html</loc>
+        <loc>http://localhost:4000/blog/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/2018/06/03/How-to-install-sphinx.html</loc>
+        <loc>http://localhost:4000/blog/How-to-install-sphinx/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go.html</loc>
+        <loc>http://localhost:4000/blog/Consuming-JSON-APIs-with-Go/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2.html</loc>
+        <loc>http://localhost:4000/blog/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/%0A.md/2018/05/31/django-1.html</loc>
+        <loc>http://localhost:4000/blog/%0A.md/django-1/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/2018/05/30/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket.html</loc>
+        <loc>http://localhost:4000/blog/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/2018/05/30/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md.html</loc>
+        <loc>http://localhost:4000/blog/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency.html</loc>
+        <loc>http://localhost:4000/blog/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/python/2018/05/07/documenting-your-django-application-with-sphinx.html</loc>
+        <loc>http://localhost:4000/blog/python/documenting-your-django-application-with-sphinx/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/django/2018/04/04/how-to-use-celery-with-django.html</loc>
+        <loc>http://localhost:4000/blog/django/how-to-use-celery-with-django/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/git/2018/03/05/Git-tip-Show-your-branch-name-on-the-Linux-prompt.html</loc>
+        <loc>http://localhost:4000/blog/git/Git-tip-Show-your-branch-name-on-the-Linux-prompt/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/django/2018/02/21/How-to-create-your-first-Django-library.html</loc>
+        <loc>http://localhost:4000/blog/django/How-to-create-your-first-Django-library/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/django/2018/02/04/how-to-use-celery-with-django-part-1.html</loc>
+        <loc>http://localhost:4000/blog/django/how-to-use-celery-with-django-part-1/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/django/2018/02/04/how-to-reset-migrations-in-django.html</loc>
+        <loc>http://localhost:4000/blog/django/how-to-reset-migrations-in-django/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/django/2018/02/01/additional-field-while-serializing-django-rest-framework.html</loc>
+        <loc>http://localhost:4000/blog/django/additional-field-while-serializing-django-rest-framework/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/vim/2017/12/21/set-up-ypu-complete-me-in-vim.html</loc>
+        <loc>http://localhost:4000/blog/vim/set-up-ypu-complete-me-in-vim/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/git/gitlab/2017/12/21/How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04.html</loc>
+        <loc>http://localhost:4000/blog/git/gitlab/How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/nodejs/2017/12/21/How-To-Install-Node.js-on-Ubuntu-16.04.html</loc>
+        <loc>http://localhost:4000/blog/nodejs/How-To-Install-Node.js-on-Ubuntu-16.04/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/django%20rest%20framework/2017/12/21/serialization-in-django-rest-framework.html</loc>
+        <loc>http://localhost:4000/blog/django%20rest%20framework/serialization-in-django-rest-framework/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/django/2017/12/21/how-to-use-celery-with-django-part-2.html</loc>
+        <loc>http://localhost:4000/blog/django/how-to-use-celery-with-django-part-2/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/unity3d/2017/12/21/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux.html</loc>
+        <loc>http://localhost:4000/blog/unity3d/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/django/2017/12/21/best-practices-working-with-Django-models-in-Python.html</loc>
+        <loc>http://localhost:4000/blog/django/best-practices-working-with-Django-models-in-Python/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/typescript/2017/05/10/Ubuntu-16.04-Install-Typescript.html</loc>
+        <loc>http://localhost:4000/blog/typescript/Ubuntu-16.04-Install-Typescript/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/git/2017/05/10/undo-git-add.html</loc>
+        <loc>http://localhost:4000/blog/git/undo-git-add/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/git/2017/05/06/How-To-Install-Git-on-Ubuntu-16.04.html</loc>
+        <loc>http://localhost:4000/blog/git/How-To-Install-Git-on-Ubuntu-16.04/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/postgres/postgresql/2017/05/04/how-to-install-postgres.html</loc>
+        <loc>http://localhost:4000/blog/postgres/postgresql/how-to-install-postgres/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/git/2017/04/20/basic-git-commands.html</loc>
+        <loc>http://localhost:4000/blog/git/basic-git-commands/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/go/2017/01/31/simple-hello-world-in-go-lang.html</loc>
+        <loc>http://localhost:4000/blog/go/simple-hello-world-in-go-lang/</loc>
     </url>
 
     <url>
-        <loc>http://localhost:4000/python/2017/01/05/Set-Up-Virtual-Env.html</loc>
+        <loc>http://localhost:4000/blog/python/Set-Up-Virtual-Env/</loc>
     </url>
 
 

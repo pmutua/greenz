@@ -2,5 +2,5 @@
 
 label: Ability
 id : cs
-aspects: Python,Django,Django REST framework,Ruby,Rails,GIT,GitHub,HTML5,CSS,GO,Angular5,Dart,Flutter,Sleeping
-percentage: 80, 35, 65, 80, 70, 90, 50, 78, 88, 10, 19, 18, 12
+aspects: Python,Django,Django REST framework,Ruby,Rails,GIT,GitHub,HTML5/CSS,GO,Angular5,Dart,Flutter
+percentage: 99, 90, 85, 90, 85, 80, 85, 90, 65, 70, 65, 80

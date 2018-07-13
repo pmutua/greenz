@@ -4,7 +4,7 @@ title:  "Write a Simple Hello Worl Program in Go lang"
 date:   2017-01-31
 desc: "Write a Simple Hello Worl Program in Go lang"
 keywords: "Go,Programming,gh-pages,website,blog,easy"
-categories: [GO]
+categories: [Go]
 tags: [Go,Programming]
 icon: icon-html
 ---

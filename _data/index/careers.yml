@@ -21,9 +21,24 @@
     detail: I worked at Action Africa Help International...
     i18n: company_b_desc
   date:
-    detail: Jun. 2015
+    detail: Nov. 2017
     i18n: company_b_date
   job:
     detail: Systems Engineer
     i18n: company_b_job
   icon: fa-plus-square
+
+# - name:
+#     detail: National Bank of Kenya Ltd
+#     i18n: novomatic_b
+#   desc:
+#     detail: Coordinatore Office Automation Systems
+#     i18n: novomatic_b_desc
+#   date:
+#     detail: Gennaio 2017 - Presente
+#     i18n: novomatic_b_date
+#   job:
+#     detail: Coordinatore Office Automation Systems
+#     i18n: novomatic_b_job
+#   icon: fa-plus-square
+

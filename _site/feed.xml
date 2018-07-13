@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Philip Mutua</title>
-    <description>Philip's blog,use Jekyll and github pages.</description>
+    <description>Philip's Personal blog site</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 13 Jul 2018 15:30:35 +0300</pubDate>
-    <lastBuildDate>Fri, 13 Jul 2018 15:30:35 +0300</lastBuildDate>
+    <pubDate>Fri, 13 Jul 2018 17:10:16 +0300</pubDate>
+    <lastBuildDate>Fri, 13 Jul 2018 17:10:16 +0300</lastBuildDate>
     <generator>Jekyll v3.8.3</generator>
     
       <item>
@@ -68,8 +68,8 @@ docker-ce:
 &lt;p&gt;Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:&lt;/p&gt;
 </description>
         <pubDate>Sun, 03 Jun 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/03/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md.html</guid>
+        <link>http://localhost:4000/blog/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/</guid>
         
         <category>tutorial</category>
         
@@ -108,8 +108,8 @@ Installation&lt;/p&gt;
 
 </description>
         <pubDate>Sun, 03 Jun 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/2018/06/03/How-to-install-sphinx.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/03/How-to-install-sphinx.html</guid>
+        <link>http://localhost:4000/blog/How-to-install-sphinx/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/How-to-install-sphinx/</guid>
         
         <category>blog</category>
         
@@ -266,8 +266,8 @@ func main() {
 &lt;p&gt;Finally, we extract the information from our populated “Numverify” struct variable “record”.&lt;/p&gt;
 </description>
         <pubDate>Sat, 02 Jun 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/02/Consuming-JSON-APIs-with-Go.html</guid>
+        <link>http://localhost:4000/blog/Consuming-JSON-APIs-with-Go/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/Consuming-JSON-APIs-with-Go/</guid>
         
         <category>blog</category>
         
@@ -344,8 +344,8 @@ func main() {
 &lt;p&gt;Also note that I’ve been using &lt;code class=&quot;highlighter-rouge&quot;&gt;Serializer&lt;/code&gt; in the above example rather than &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelSerializer&lt;/code&gt;. In this case it’s simpler just to include all the fields in the serializer class explicitly, rather than relying on the automatic set of fields that &lt;code class=&quot;highlighter-rouge&quot;&gt;ModelSerializer&lt;/code&gt; generates by default.&lt;/p&gt;
 </description>
         <pubDate>Fri, 01 Jun 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/06/01/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2.html</guid>
+        <link>http://localhost:4000/blog/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/writable-nested-serializer-with-existing-objects-using-Django-Rest-Framework-3.2.2/</guid>
         
         <category>tutorial</category>
         
@@ -390,8 +390,8 @@ python manage.py migrate –fake &lt;appname&gt;&lt;/appname&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 31 May 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/%0A.md/2018/05/31/django-1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/%0A.md/2018/05/31/django-1.html</guid>
+        <link>http://localhost:4000/blog/%0A.md/django-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/%0A.md/django-1/</guid>
         
         <category>tutorial</category>
         
@@ -428,8 +428,8 @@ sudo usermod -a -G docker $USER&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 30 May 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/2018/05/30/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/05/30/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket.html</guid>
+        <link>http://localhost:4000/blog/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/solving-docker-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket/</guid>
         
         <category>tutorial</category>
         
@@ -495,8 +495,8 @@ docker-ce:
 &lt;p&gt;Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:&lt;/p&gt;
 </description>
         <pubDate>Wed, 30 May 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/2018/05/30/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/05/30/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md.html</guid>
+        <link>http://localhost:4000/blog/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/How-To-Install-and-Use-Docker-on-Ubuntu-16.04-.md/</guid>
         
         <category>tutorial</category>
         
@@ -823,8 +823,8 @@ Cloud-Based Storage&lt;/p&gt;
 &lt;p&gt;Remember, it is no one else’s responsibility to ensure your crypto investments are kept safe. You are your own master here. Do not take short cuts, and do not underestimate the importance of security. Plenty of people have already been frivolous enough to lose access to their cryptocurrencies through their own fault and others. Minimizing the risks effectively will drastically decrease the chances of you joining this number.&lt;/p&gt;
 </description>
         <pubDate>Mon, 28 May 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/05/28/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency.html</guid>
+        <link>http://localhost:4000/blog/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/Paper-Wallet-Guide-How-to-Protect-Your-Cryptocurrency/</guid>
         
         <category>blog</category>
         
@@ -899,8 +899,8 @@ Cloud-Based Storage&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Mon, 07 May 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/python/2018/05/07/documenting-your-django-application-with-sphinx.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2018/05/07/documenting-your-django-application-with-sphinx.html</guid>
+        <link>http://localhost:4000/blog/python/documenting-your-django-application-with-sphinx/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/python/documenting-your-django-application-with-sphinx/</guid>
         
         <category>Python</category>
         
@@ -979,8 +979,8 @@ export PATH=$PATH:/usr/local/sbin
 &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/2018/03/07/how-to-reset-migrations-in-django/&quot;&gt;Read Part 2&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 04 Apr 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/django/2018/04/04/how-to-use-celery-with-django.html</link>
-        <guid isPermaLink="true">http://localhost:4000/django/2018/04/04/how-to-use-celery-with-django.html</guid>
+        <link>http://localhost:4000/blog/django/how-to-use-celery-with-django/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/django/how-to-use-celery-with-django/</guid>
         
         <category>Django</category>
         
@@ -1029,8 +1029,8 @@ unset color_prompt force_color_prompt
 
 </description>
         <pubDate>Mon, 05 Mar 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/git/2018/03/05/Git-tip-Show-your-branch-name-on-the-Linux-prompt.html</link>
-        <guid isPermaLink="true">http://localhost:4000/git/2018/03/05/Git-tip-Show-your-branch-name-on-the-Linux-prompt.html</guid>
+        <link>http://localhost:4000/blog/git/Git-tip-Show-your-branch-name-on-the-Linux-prompt/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/git/Git-tip-Show-your-branch-name-on-the-Linux-prompt/</guid>
         
         <category>Git</category>
         
@@ -1257,8 +1257,8 @@ tox
 
 </description>
         <pubDate>Wed, 21 Feb 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/django/2018/02/21/How-to-create-your-first-Django-library.html</link>
-        <guid isPermaLink="true">http://localhost:4000/django/2018/02/21/How-to-create-your-first-Django-library.html</guid>
+        <link>http://localhost:4000/blog/django/How-to-create-your-first-Django-library/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/django/How-to-create-your-first-Django-library/</guid>
         
         <category>Django</category>
         
@@ -1334,8 +1334,8 @@ export PATH=$PATH:/usr/local/sbin
 &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/2018/04/26/how-to-use-celery-with-django-part-2/&quot;&gt;Continue To Read Part 2&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 04 Feb 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/django/2018/02/04/how-to-use-celery-with-django-part-1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/django/2018/02/04/how-to-use-celery-with-django-part-1.html</guid>
+        <link>http://localhost:4000/blog/django/how-to-use-celery-with-django-part-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/django/how-to-use-celery-with-django-part-1/</guid>
         
         <category>Django</category>
         
@@ -1382,8 +1382,8 @@ The project is still in the development environment and you want to perform a fu
 
 </description>
         <pubDate>Sun, 04 Feb 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/django/2018/02/04/how-to-reset-migrations-in-django.html</link>
-        <guid isPermaLink="true">http://localhost:4000/django/2018/02/04/how-to-reset-migrations-in-django.html</guid>
+        <link>http://localhost:4000/blog/django/how-to-reset-migrations-in-django/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/django/how-to-reset-migrations-in-django/</guid>
         
         <category>Django</category>
         
@@ -1464,8 +1464,8 @@ The project is still in the development environment and you want to perform a fu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Thu, 01 Feb 2018 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/django/2018/02/01/additional-field-while-serializing-django-rest-framework.html</link>
-        <guid isPermaLink="true">http://localhost:4000/django/2018/02/01/additional-field-while-serializing-django-rest-framework.html</guid>
+        <link>http://localhost:4000/blog/django/additional-field-while-serializing-django-rest-framework/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/django/additional-field-while-serializing-django-rest-framework/</guid>
         
         <category>django</category>
         
@@ -1496,8 +1496,8 @@ The project is still in the development environment and you want to perform a fu
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 21 Dec 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/vim/2017/12/21/set-up-ypu-complete-me-in-vim.html</link>
-        <guid isPermaLink="true">http://localhost:4000/vim/2017/12/21/set-up-ypu-complete-me-in-vim.html</guid>
+        <link>http://localhost:4000/blog/vim/set-up-ypu-complete-me-in-vim/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/vim/set-up-ypu-complete-me-in-vim/</guid>
         
         <category>Vim</category>
         
@@ -1709,8 +1709,8 @@ Save the file and exit vim.
 
 </description>
         <pubDate>Thu, 21 Dec 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/git/gitlab/2017/12/21/How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04.html</link>
-        <guid isPermaLink="true">http://localhost:4000/git/gitlab/2017/12/21/How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04.html</guid>
+        <link>http://localhost:4000/blog/git/gitlab/How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/git/gitlab/How-to-Install-and-Configure-GitLab-on-Ubuntu-16.04/</guid>
         
         <category>Git</category>
         
@@ -1966,8 +1966,8 @@ Conclusion&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 21 Dec 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/nodejs/2017/12/21/How-To-Install-Node.js-on-Ubuntu-16.04.html</link>
-        <guid isPermaLink="true">http://localhost:4000/nodejs/2017/12/21/How-To-Install-Node.js-on-Ubuntu-16.04.html</guid>
+        <link>http://localhost:4000/blog/nodejs/How-To-Install-Node.js-on-Ubuntu-16.04/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/nodejs/How-To-Install-Node.js-on-Ubuntu-16.04/</guid>
         
         <category>NodeJS</category>
         
@@ -2350,8 +2350,8 @@ HTTP/1.1 200 OK
 &lt;p&gt;Similarly, you can have the same json displayed by visiting these URLs in a web browser.&lt;/p&gt;
 </description>
         <pubDate>Thu, 21 Dec 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/django%20rest%20framework/2017/12/21/serialization-in-django-rest-framework.html</link>
-        <guid isPermaLink="true">http://localhost:4000/django%20rest%20framework/2017/12/21/serialization-in-django-rest-framework.html</guid>
+        <link>http://localhost:4000/blog/django%20rest%20framework/serialization-in-django-rest-framework/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/django%20rest%20framework/serialization-in-django-rest-framework/</guid>
         
         <category>REST</category>
         
@@ -2580,8 +2580,8 @@ stopwaitsecs &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 600
 
 </description>
         <pubDate>Thu, 21 Dec 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/django/2017/12/21/how-to-use-celery-with-django-part-2.html</link>
-        <guid isPermaLink="true">http://localhost:4000/django/2017/12/21/how-to-use-celery-with-django-part-2.html</guid>
+        <link>http://localhost:4000/blog/django/how-to-use-celery-with-django-part-2/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/django/how-to-use-celery-with-django-part-2/</guid>
         
         <category>Django</category>
         
@@ -2632,8 +2632,8 @@ wget http://beta.unity3d.com/download/f5287bef00ff/unity-editor_amd64-5.5.1xf1Li
 sudo apt-get remove unity-editor&lt;/p&gt;
 </description>
         <pubDate>Thu, 21 Dec 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/unity3d/2017/12/21/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux.html</link>
-        <guid isPermaLink="true">http://localhost:4000/unity3d/2017/12/21/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux.html</guid>
+        <link>http://localhost:4000/blog/unity3d/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/unity3d/How-to-install-Unity-5.5.1-Stable-Release-Update-on-Linux/</guid>
         
         <category>Unity3d</category>
         
@@ -2786,8 +2786,8 @@ Sometimes even a separate folder for each FileField will not be enough if a larg
 
 </description>
         <pubDate>Thu, 21 Dec 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/django/2017/12/21/best-practices-working-with-Django-models-in-Python.html</link>
-        <guid isPermaLink="true">http://localhost:4000/django/2017/12/21/best-practices-working-with-Django-models-in-Python.html</guid>
+        <link>http://localhost:4000/blog/django/best-practices-working-with-Django-models-in-Python/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/django/best-practices-working-with-Django-models-in-Python/</guid>
         
         <category>Django</category>
         
@@ -2805,8 +2805,8 @@ Sometimes even a separate folder for each FileField will not be enough if a larg
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt update &amp;amp;&amp;amp; sudo apt install node-typescript -y&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 May 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/typescript/2017/05/10/Ubuntu-16.04-Install-Typescript.html</link>
-        <guid isPermaLink="true">http://localhost:4000/typescript/2017/05/10/Ubuntu-16.04-Install-Typescript.html</guid>
+        <link>http://localhost:4000/blog/typescript/Ubuntu-16.04-Install-Typescript/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/typescript/Ubuntu-16.04-Install-Typescript/</guid>
         
         <category>Typescript</category>
         
@@ -2828,8 +2828,8 @@ Sometimes even a separate folder for each FileField will not be enough if a larg
 &lt;p&gt;To undo &lt;code class=&quot;highlighter-rouge&quot;&gt;git add . &lt;/code&gt; use &lt;code class=&quot;highlighter-rouge&quot;&gt;git reset&lt;/code&gt;  (no dot).&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 May 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/git/2017/05/10/undo-git-add.html</link>
-        <guid isPermaLink="true">http://localhost:4000/git/2017/05/10/undo-git-add.html</guid>
+        <link>http://localhost:4000/blog/git/undo-git-add/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/git/undo-git-add/</guid>
         
         <category>Git</category>
         
@@ -2925,8 +2925,8 @@ Conclusion&lt;/p&gt;
 &lt;p&gt;You should now have git installed and ready to use on your system. To learn more about how to use Git, check out these articles:&lt;/p&gt;
 </description>
         <pubDate>Sat, 06 May 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/git/2017/05/06/How-To-Install-Git-on-Ubuntu-16.04.html</link>
-        <guid isPermaLink="true">http://localhost:4000/git/2017/05/06/How-To-Install-Git-on-Ubuntu-16.04.html</guid>
+        <link>http://localhost:4000/blog/git/How-To-Install-Git-on-Ubuntu-16.04/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/git/How-To-Install-Git-on-Ubuntu-16.04/</guid>
         
         <category>Git</category>
         
@@ -3238,8 +3238,8 @@ Learn how to backup a Postgres database
 
 </description>
         <pubDate>Thu, 04 May 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/postgres/postgresql/2017/05/04/how-to-install-postgres.html</link>
-        <guid isPermaLink="true">http://localhost:4000/postgres/postgresql/2017/05/04/how-to-install-postgres.html</guid>
+        <link>http://localhost:4000/blog/postgres/postgresql/how-to-install-postgres/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/postgres/postgresql/how-to-install-postgres/</guid>
         
         <category>Postgresql</category>
         
@@ -3289,8 +3289,8 @@ git push -u origin –tags&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 20 Apr 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/git/2017/04/20/basic-git-commands.html</link>
-        <guid isPermaLink="true">http://localhost:4000/git/2017/04/20/basic-git-commands.html</guid>
+        <link>http://localhost:4000/blog/git/basic-git-commands/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/git/basic-git-commands/</guid>
         
         <category>Git</category>
         
@@ -3348,15 +3348,15 @@ If you have already installed &lt;code class=&quot;highlighter-rouge&quot;&gt;go
 
 </description>
         <pubDate>Tue, 31 Jan 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/go/2017/01/31/simple-hello-world-in-go-lang.html</link>
-        <guid isPermaLink="true">http://localhost:4000/go/2017/01/31/simple-hello-world-in-go-lang.html</guid>
+        <link>http://localhost:4000/blog/go/simple-hello-world-in-go-lang/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/go/simple-hello-world-in-go-lang/</guid>
         
         <category>Go</category>
         
         <category>Programming</category>
         
         
-        <category>GO</category>
+        <category>Go</category>
         
       </item>
     
@@ -3396,8 +3396,8 @@ If you have already installed &lt;code class=&quot;highlighter-rouge&quot;&gt;go
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;virtualenv -p python3.6 environment_file&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 Jan 2017 00:00:00 +0300</pubDate>
-        <link>http://localhost:4000/python/2017/01/05/Set-Up-Virtual-Env.html</link>
-        <guid isPermaLink="true">http://localhost:4000/python/2017/01/05/Set-Up-Virtual-Env.html</guid>
+        <link>http://localhost:4000/blog/python/Set-Up-Virtual-Env/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/python/Set-Up-Virtual-Env/</guid>
         
         <category>Python</category>
         
