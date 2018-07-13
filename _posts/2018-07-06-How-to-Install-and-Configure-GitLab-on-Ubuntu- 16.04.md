@@ -1,11 +1,12 @@
 ---
 layout: post
-title: How to Install and Configure GitLab on Ubuntu 16.04.
-description: >
-
-tags: [tutorial]
-author: author1
-canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
+title:  "How to Install and Configure GitLab on Ubuntu 16.04."
+date:   2017-12-21
+desc: "How to Install and Configure GitLab on Ubuntu 16.04."
+keywords: "Git,gitlab,blog,easy"
+categories: [Git,GitLab]
+tags: [Git,GitLab]
+icon: icon-html
 ---
 
 

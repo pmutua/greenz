@@ -1,12 +1,14 @@
 ---
 layout: post
-title: How to Use Celery and RabbitMQ with Django - PART 2
-description: >
-  Continuation.
+title:  "How to Use Celery and RabbitMQ with Django - PART 2"
+date:   2017-12-21
+desc: "Qontinuation."
+keywords: "Django,Celery,gh-pages,website,blog,easy"
+categories: [Django]
+tags: [Django,Celery]
+icon: icon-html
 
-tags: [tutorial,blog]
-author: author1
-canonical_url: http://docs.celeryproject.org/en/latest/getting-started/brokers/rabbitmq.html
+
 ---
 
 ## Table of Contents

@@ -1,9 +1,12 @@
 ---
 layout: post
-title: How to Reset Migrations in Django 
-  
-tags: [tutorial]
-author: author1
+title:  "How to Reset Migrations in Django "
+date:   2018-02-04
+desc: "How to Reset Migrations in Django "
+keywords: "Django,Django,gh-pages,website,blog,easy"
+categories: [Django]
+tags: [Django,Python]
+icon: icon-html
 
 ---
 

@@ -1,11 +1,12 @@
 ---
 layout: post
 title: How to Show your  branch name on the Linux prompt.
-description: >
-
-tags: [tutorial]
-author: author1
-canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
+date:   2018-03-05
+desc: "How to Show your  branch name on the Linux prompt"
+keywords: "Git,website,blog,easy"
+categories: [Git]
+tags: [Git]
+icon: icon-html
 ---
 
 Git is one of the most popular Source Control Management (SCM) software packages to provide revision control. Subversion (aka SVN) and Mercurial are other popular systems. These systems organize source code in branches and revisions that can be named by means of tagging.

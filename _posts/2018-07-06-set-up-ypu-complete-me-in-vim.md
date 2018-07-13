@@ -1,12 +1,15 @@
 ---
 layout: post
-title:  Setting Up You Complete Me in Vim.
-description: >
-  YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim.
-tags: [tutorial]
-author: author1
-canonical_url: https://github.com/Valloric/YouCompleteMe
+title:  "Setting Up You Complete Me Plug In in Vim."
+date:   2017-12-21
+desc: "Setting Up You Complete Me Plug In in Vim."
+keywords: "Vim,website,blog,easy"
+categories: [Vim]
+tags: [Vim]
+icon: icon-html
 ---
+
+https://github.com/Valloric/YouCompleteMe
 
 It has several completion engines:
 

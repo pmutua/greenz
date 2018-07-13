@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Best practices working with Django models in Python
-description: >
-  Here we go:
-tags: [blog]
-author: author1
-canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
+title:  "Best practices working with Django models in Python"
+date:   2017-12-21
+desc: "Best practices working with Django models in Python"
+keywords: "Django,Framework,gh-pages,website,blog,easy"
+categories: [Django]
+tags: [Django,Python]
+icon: icon-html
 ---
 
 [Django](https://django.com) is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From [the project's readme](https://github.com/mojombo/jekyll/blob/master/README.markdown):

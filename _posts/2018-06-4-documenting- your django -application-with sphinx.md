@@ -1,11 +1,13 @@
 ---
 layout: post
-title: Documenting Your Django Application with Sphinx.
-description: >
-  In this tutorial I'm going to show you how to start documenting your django application with sphinx.
-tags: [tutorial]
-author: author1
-canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
+title: how to start documenting your django application with sphinx
+date:   2018-05-07
+desc: "In this tutorial I'm going to show you how to start documenting your django application with sphinx."
+keywords: "Python,Sphinx"
+categories: [Python]
+tags: [Python]
+icon: icon-html
+
 ---
 
 install [sphinx]()

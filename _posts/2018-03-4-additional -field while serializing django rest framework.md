@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Additional field while serializing django rest framework
-
-description: >
-  Unity, a flexible and powerful development platform for creating multiplatform 3D and 2D games as well as an interactive experiences on 	 Linux. With Unity, you can target more devices easily, and with a single click you can deploy your game to mobile, VR, desktop, Web, 		Console as well as TV platforms.
-
-tags: [tutorial]
-author: author1
+title:  "Additional field while serializing django rest framework"
+date:   2018-02-01
+desc: "serilizers"
+keywords: "Unity,Jekyll,gh-pages,website,blog,easy"
+categories: [Django]
+tags: [django,web developement]
+icon: icon-html
 
 ---
 

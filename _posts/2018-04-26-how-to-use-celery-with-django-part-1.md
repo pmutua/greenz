@@ -1,12 +1,12 @@
 ---
 layout: post
-title: How to Use Celery and RabbitMQ with Django - Part 1
-description: >
-  Celery is an asynchronous task queue based on distributed message passing. Task queues are used as a strategy to distribute the workload between threads/machines. In this tutorial I will explain how to install and setup Celery + RabbitMQ to execute asynchronous in a Django application. To work with Celery, we also need to install RabbitMQ because Celery requires an external solution to send and receive messages. Those solutions are called message brokers. Currently, Celery supports RabbitMQ, Redis, and Amazon SQS as message broker solutions.
-
-tags: [tutorial,blog]
-author: author1
-canonical_url: http://docs.celeryproject.org/en/latest/getting-started/brokers/rabbitmq.html
+title:  "How to Use Celery and RabbitMQ with Django - Part 1"
+date:   2018-02-04
+desc: "Celery is an asynchronous task queue based on distributed message passing. Task queues are used as a strategy to distribute the workload between threads/machines. In this tutorial I will explain how to install and setup Celery + RabbitMQ to execute asynchronous in a Django application. To work with Celery, we also need to install RabbitMQ because Celery requires an external solution to send and receive messages. Those solutions are called message brokers. Currently, Celery supports RabbitMQ, Redis, and Amazon SQS as message broker solutions."
+keywords: "Django,Celery,gh-pages,website,blog,easy"
+categories: [Django]
+tags: [Django,Python,Celery]
+icon: icon-html
 ---
 
 ## Table of Contents
@@ -18,6 +18,7 @@ canonical_url: http://docs.celeryproject.org/en/latest/getting-started/brokers/r
 </ul>
 
 
+canonical_url: http://docs.celeryproject.org/en/latest/getting-started/brokers/rabbitmq.html
 
 
 

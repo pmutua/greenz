@@ -1,12 +1,13 @@
 ---
 layout: post
 title:  How To Install Node.js on Ubuntu 16.04 
-description: >
-	Node.js is a JavaScript platform for general-purpose programming that allows users to build network applications quickly. By leveraging JavaScript on both the front- and back-end, development can be more consistent and designed within the same system.
- projects.
-tags: [tutorial]
-author: author1
-canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
+date:   2017-12-21
+desc: "How To Install Node.js on Ubuntu 16.04 "
+keywords: "NodeJs,install nodejs,install"
+categories: [NodeJS]
+tags: [NodeJS]
+icon: icon-html
+
 ---
 
 

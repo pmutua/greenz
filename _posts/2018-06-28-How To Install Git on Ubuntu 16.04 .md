@@ -1,12 +1,12 @@
 ---
 layout: post
 title: How to Undo a git add - remove files staged for a git commit
-description: >
-
-
-tags: [tutorial]
-author: author1
-canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
+date:   2017-05-06
+desc: " How to Undo a git add - remove files staged for a git commit"
+keywords: "Git,reset commit"
+categories: [Git]
+tags: [Git]
+icon: icon-html
 ---
 
 Introduction

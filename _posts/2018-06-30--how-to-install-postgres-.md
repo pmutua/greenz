@@ -1,12 +1,12 @@
 ---
 layout: post
 title: How To Install and Use PostgreSQL on Ubuntu 16.04 
-description: >
-	Relational database management systems are a key component of many web sites and applications. They provide a structured way to store, organize, and access information.
-
-tags: [tutorial]
-author: author1
-canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
+date:   2017-05-04
+desc: "How To Install and Use PostgreSQL on Ubuntu 16.04 "
+keywords: "PostgreSQL,install postgres,postgres"
+categories: [Postgres,Postgresql]
+tags: [Postgresql]
+icon: icon-html
 ---
 PostgreSQL, or Postgres, is a relational database management system that provides an implementation of the SQL querying language. It is a popular choice for many small and large projects and has the advantage of being standards-compliant and having many advanced features like reliable transactions and concurrency without read locks.
 

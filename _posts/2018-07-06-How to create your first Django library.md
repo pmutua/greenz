@@ -1,13 +1,14 @@
 ---
 layout: post
 title: How to create your first Django library.
-description: >
+date:   2018-02-21
+desc: "Quick test on writing code snippets in a blog post"
+keywords: "Django,Python,gh-pages,website,blog,easy"
+categories: [Django]
+tags: [Django]
+icon: icon-html
 
-tags: [tutorial]
-author: author1
-canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
 ---
-
 
 This is a guide how to create first third-party django library or application, attempting to be kindly. Django documentation tell you way to create django’s projects and applications. But there isn’t (perhaps) way to distribute applications like django-cms, django-blog-zinnia. So, I’ll show you it.
 

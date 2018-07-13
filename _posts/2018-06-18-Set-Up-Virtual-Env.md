@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Setting Up a Virtual Environment in Python.
-description: >
-
-tags: [tutorial]
-author: author1
-canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
+date:   2017-01-05
+desc: "Setting Up a Virtual Environment in Python."
+keywords: "Python,Virtualenv,setting up virtualenv"
+categories: [Python]
+tags: [Python]
+icon: icon-html
 ---
 
 When you use virtualenv, you create an isolated environment with its own installation directories which your user has full permissions to. This allows you to install a custom version of Python and its different packages which is not connected to the global installation on the server. This also solves the issue with permissions when installing software.

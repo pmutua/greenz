@@ -1,11 +1,12 @@
 ---
 layout: post
 title: Basic Git commands
-description: >
-
-tags: [tutorial]
-author: author1
-canonical_url: http://hyde.getpoole.com/2012/02/06/whats-jekyll/
+date:   2017-04-20
+desc: "Basic Git commands"
+keywords: "Git,git,commands,website,blog,easy"
+categories: [Git]
+tags: [Git]
+icon: icon-html
 ---
 
 Git commands.
