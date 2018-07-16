@@ -1,14 +1,8 @@
-# Jalpc. [![Analytics](https://ga-beacon.appspot.com/UA-73784599-1/welcome-page)](https://github.com/jarrekk/Jalpc)
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badge/)
 
-<https://jarrekk.github.io/Jalpc/>
-
-<http://www.jarrekk.com>  -- Personal website
-
-![Blog](https://github.com/jarrekk/Jalpc/raw/master/readme_files/Jalpc.png)
 
 - [3 steps to setup this theme at your website!](#3-steps-to-setup-this-theme-at-your-website)
 - [Features](#features)
@@ -37,9 +31,6 @@ This is a simple, beautiful and swift theme for Jekyll. It's mobile first, fluid
 
 If you're completely new to Jekyll, I recommend checking out the documentation at <http://jekyllrb.com> or there's a tutorial by Smashing Magazine.
 
-# 3 steps to setup this theme at your website!
-
-Here is a [document](https://jarrekk.github.io/Jalpc/html/2017/01/31/3-steps-to-setup-website-with-Jalpc.html) of how to setup this theme with 3 steps and a [wiki](https://github.com/jarrekk/Jalpc/wiki/How-to-add-posts) of how to add posts. If you have any **questions** please ask me at [GitHub Issues](https://github.com/jarrekk/Jalpc/issues).
 
 # Features
 
@@ -152,49 +143,8 @@ OR
 
 Edit CSS files at `_sass` folder.
 
-# Put in a Jalpc Plug
 
-If you want to give credit to the Jalpc theme with a link to my personal website <http://www.jarrekk.com>, that'd be awesome. No worries if you don't.
 
-# Upgrading Jalpc
 
-Jalpc is always being improved by its users, so sometimes one may need to upgrade.
 
-## Ensure there's an upstream remote
-
-If `git remote -v` doesn't have an upstream listed, you can do the following to add it:
-
-```
-git remote add upstream https://github.com/jarrekk/Jalpc.git
-```
-
-## Pull in the latest changes
-
-```
-git pull upstream gh-pages
-```
-
-There may be merge conflicts, so be sure to fix the files that git lists if they occur. That's it!
-
-# Todo
-- [ ] `jekyll server --watch` mode need to use original CSS/JS files
-- [ ] User can customise index page's section title.
-- [x] Non-github projects also have links.
-- [ ] Add some custom color themes for selection(Nav bar, background, words, dominant hue).
-
-# Donate Jalpc
-If this project let you enjoy your blog time, you can give me a cup of coffee :)
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/jarrekk)
-
-# Wiki
-
-* [Multilingual Page](https://github.com/jarrekk/Jalpc/wiki/Multilingual-Page)
-* [How to add posts](https://github.com/jarrekk/Jalpc/wiki/How-to-add-posts)
-* [Change Log](https://github.com/jarrekk/Jalpc/wiki/Change-Log)
-* [Contributors](https://github.com/jarrekk/Jalpc/wiki/Contributors)
-* [Thanks to the following](https://github.com/jarrekk/Jalpc/wiki/Thanks-to-the-following)
-
-# Ad
-[Jalpc-A](https://github.com/Jack614/Jalpc-A): another Jekyll theme written by [AngularJS](https://angularjs.org/).
 
