@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en"><!--
+ __  __                __                                     __
+
+
+ :::    ::: :::   ::: :::::::::  :::::::::: :::::::::  :::    ::: :::   ::: :::        :::        
+ :+:    :+: :+:   :+: :+:    :+: :+:        :+:    :+: :+:    :+: :+:   :+: :+:        :+:        
+ +:+    +:+  +:+ +:+  +:+    +:+ +:+        +:+    +:+ +:+    +:+  +:+ +:+  +:+        +:+        
+ +#++:++#++   +#++:   +#+    +:+ +#++:++#   +#++:++#+  +#++:++#++   +#++:   +#+        +#+        
+ +#+    +#+    +#+    +#+    +#+ +#+        +#+        +#+    +#+    +#+    +#+        +#+        
+ #+#    #+#    #+#    #+#    #+# #+#        #+#        #+#    #+#    #+#    #+#        #+#        
+ ###    ###    ###    #########  ########## ###        ###    ###    ###    ########## ##########
+ 
+This is a Modified version I tweeked <https://github.com/pmutua> 
+
+>
+
+
+
+-->
+
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+  
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>How To Install and Use PostgreSQL on Ubuntu 16.04 | Philip Mutua</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="How To Install and Use PostgreSQL on Ubuntu 16.04" />
+<meta name="author" content="philip mutua" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="PostgreSQL, or Postgres, is a relational database management system that provides an implementation of the SQL querying language. It is a popular choice for many small and large projects and has the advantage of being standards-compliant and having many advanced features like reliable transactions and concurrency without read locks." />
+<meta property="og:description" content="PostgreSQL, or Postgres, is a relational database management system that provides an implementation of the SQL querying language. It is a popular choice for many small and large projects and has the advantage of being standards-compliant and having many advanced features like reliable transactions and concurrency without read locks." />
+<link rel="canonical" href="http://localhost:4000/postgres/postgresql/database/blog/2017/05/04/how-to-install-postgres/" />
+<meta property="og:url" content="http://localhost:4000/postgres/postgresql/database/blog/2017/05/04/how-to-install-postgres/" />
+<meta property="og:site_name" content="Philip Mutua" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-05-04T00:00:00+03:00" />
+<script type="application/ld+json">
+{"description":"PostgreSQL, or Postgres, is a relational database management system that provides an implementation of the SQL querying language. It is a popular choice for many small and large projects and has the advantage of being standards-compliant and having many advanced features like reliable transactions and concurrency without read locks.","author":{"@type":"Person","name":"philip mutua"},"@type":"BlogPosting","url":"http://localhost:4000/postgres/postgresql/database/blog/2017/05/04/how-to-install-postgres/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/icons/icon.png"},"name":"philip mutua"},"headline":"How To Install and Use PostgreSQL on Ubuntu 16.04","dateModified":"2017-05-04T00:00:00+03:00","datePublished":"2017-05-04T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/postgres/postgresql/database/blog/2017/05/04/how-to-install-postgres/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  
+    <meta name="keywords" content="PostgreSQL,install postgres,postgres,database">
+  
+
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Philip Mutua">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="application-name" content="Philip Mutua">
+<meta name="msapplication-config" content="/assets/ieconfig.xml">
+
+
+<meta name="theme-color" content="#4fb1ba">
+
+
+<meta name="generator" content="Philip Mutua | Software Engineer">
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Philip Mutua" />
+
+
+
+<link rel="alternate" href="http://localhost:4000/postgres/postgresql/database/blog/2017/05/04/how-to-install-postgres/" hreflang="en">
+
+<link rel="shortcut icon" href="/assets/icons/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/icons/icon.png">
+
+<link rel="manifest" href="/assets/manifest.json">
+
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+
+
+
+
+
+
+<link id="_katexJS"  rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.js">
+<link id="_katexCSS" rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.css">
+
+<script>
+  function stdOnEnd(n,e){n.onload=function(){this.onerror=this.onload=null,e(null,n)},n.onerror=function(){this.onerror=this.onload=null,e(new Error("Failed to load "+this.src),n)}}function ieOnEnd(n,e){n.onreadystatechange=function(){"complete"!=this.readyState&&"loaded"!=this.readyState||(this.onreadystatechange=null,e(null,n))}}window.setRelStylesheet=function(n){function e(){this.rel="stylesheet"}var o=document.getElementById(n);o.addEventListener?o.addEventListener("load",e,!1):o.onload=e},window._loaded=!1,window.loadJSDeferred=function(n,e){function o(){window._loaded=!0;var o=document.createElement("script");o.src=n,e&&(("onload"in o?stdOnEnd:ieOnEnd)(o,e),o.onload||stdOnEnd(o,e));var t=document.scripts[0];t.parentNode.insertBefore(o,t)}window._loaded?o():window.addEventListener?window.addEventListener("load",o,!1):window.onload=o};
+!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+
+  window._noPushState = false;
+  window._noDrawer = false;
+</script>
+
+<!--[if gt IE 8]><!-->
+
+
+<script>
+  WebFontConfig = {
+    
+    google: {
+      families: ['Roboto+Slab:700','Noto+Sans:400,400i,700,700i']
+    },
+    
+
+    custom: {
+      families: ['icomoon'],
+      urls: ['/assets/icomoon/style.css']
+    }
+  };
+  (function(d) {
+    var wf = d.createElement('script'), s = d.scripts[0];
+    wf.src = "/assets/bower_components/webfontloader/webfontloader.js";
+    s.parentNode.insertBefore(wf, s);
+  }(document));
+</script>
+<!--<![endif]-->
+
+<noscript>
+  
+  
+
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:700%7CNoto+Sans:400,400i,700,700i">
+    <style>
+      html { font-family: Noto Sans, Helvetica, Arial, sans-serif }
+      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: Roboto Slab, Helvetica, Arial, sans-serif }
+    </style>
+  
+
+  <link rel="stylesheet" href="/assets/icomoon/style.css">
+</noscript>
+
+<!--[if gt IE 8]><!-->
+
+
+
+  <link rel="stylesheet" href="/assets/css/hydejack-7.5.0.css">
+
+
+
+<style id="_pageStyle">
+
+.content a:not(.btn){color:#4fb1ba;border-color:rgba(79,177,186,0.2)}.content a:not(.btn):hover{border-color:#4fb1ba}:focus{outline-color:#4fb1ba}.btn-primary{color:#fff;background-color:#4fb1ba;border-color:#4fb1ba}.btn-primary:focus,.btn-primary.focus{box-shadow:0 0 0 3px rgba(79,177,186,0.5)}.btn-primary:hover,.btn-primary.hover{color:#fff;background-color:#409ba3;border-color:#409ba3}.btn-primary:disabled,.btn-primary.disabled{color:#fff;background-color:#4fb1ba;border-color:#4fb1ba}.btn-primary:active,.btn-primary.active{color:#fff;background-color:#409ba3;border-color:#409ba3}::selection{color:#fff;background:#4fb1ba}::-moz-selection{color:#fff;background:#4fb1ba}
+
+</style>
+
+<!--<![endif]-->
+
+
+
+
+  
+  <div class="navbar fixed-top">
+  <div class="content">
+    <div class="nav-btn-bar">
+      <span class="sr-only">Jump to:</span>
+      <a id="_menu" class="nav-btn no-hover" href="#_navigation">
+        <span class="sr-only">Navigation</span>
+        <span class="icon-menu"></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<hy-push-state>
+  <main
+    id="_main"
+    class="content fade-in layout-post"
+    role="main"
+    data-color="#4fb1ba"
+    data-theme-color=""
+    
+      data-image="/assets/img/sidebar-bg.jpg"
+      data-overlay
+    
+    >
+    
+
+
+<article id="post-postgres-postgresql-database-blog-2017-05-04--how-to-install-postgres-" class="page post" role="article">
+  <header>
+    <h1 class="post-title">
+      
+        How To Install and Use PostgreSQL on Ubuntu 16.04
+      
+    </h1>
+
+    <p class="post-date heading">
+      
+      <time datetime="2017-05-04T00:00:00+03:00">04 May 2017</time>
+      
+      
+      
+      
+      
+
+
+
+
+
+
+
+
+
+in <span>Postgres</span> / <span>Postgresql</span> / <span>Database</span> / <span>Blog</span>
+
+      
+
+
+
+
+
+
+
+
+
+on <span>Postgresql</span>, <span>Database</span>
+
+    </p>
+
+    
+
+
+
+  <div class="hr pb0"></div>
+
+
+  </header>
+
+  
+    <p>PostgreSQL, or Postgres, is a relational database management system that provides an implementation of the SQL querying language. It is a popular choice for many small and large projects and has the advantage of being standards-compliant and having many advanced features like reliable transactions and concurrency without read locks.</p>
+
+<p>In this guide, we will demonstrate how to install Postgres on an Ubuntu 16.04 VPS instance and go over some basic ways to use it.
+Installation</p>
+
+<p>Ubuntu’s default repositories contain Postgres packages, so we can install these easily using the apt packaging system.</p>
+
+<p>Since this is our first time using apt in this session, we need to refresh our local package index. We can then install the Postgres package and a -contrib package that adds some additional utilities and functionality:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">sudo </span>apt-get update
+    <span class="nb">sudo </span>apt-get <span class="nb">install </span>postgresql postgresql-contrib
+</code></pre></div></div>
+
+<p>Now that our software is installed, we can go over how it works and how it may be different from similar database management systems you may have used.
+Using PostgreSQL Roles and Databases</p>
+
+<p>By default, Postgres uses a concept called “roles” to handle in authentication and authorization. These are, in some ways, similar to regular Unix-style accounts, but Postgres does not distinguish between users and groups and instead prefers the more flexible term “role”.</p>
+
+<p>Upon installation Postgres is set up to use ident authentication, which means that it associates Postgres roles with a matching Unix/Linux system account. If a role exists within Postgres, a Unix/Linux username with the same name will be able to sign in as that role.</p>
+
+<p>There are a few ways to utilize this account to access Postgres.
+Switching Over to the postgres Account</p>
+
+<p>The installation procedure created a user account called postgres that is associated with the default Postgres role. In order to use Postgres, we can log into that account.</p>
+
+<p>Switch over to the postgres account on your server by typing:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`sudo -i -u postgres`
+</code></pre></div></div>
+
+<p>You can now access a Postgres prompt immediately by typing:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`psql`
+</code></pre></div></div>
+
+<p>You will be logged in and able to interact with the database management system right away.</p>
+
+<p>Exit out of the PostgreSQL prompt by typing:</p>
+
+<p><code class="highlighter-rouge">\q</code></p>
+
+<p>You should now be back in the postgres Linux command prompt.
+Accessing a Postgres Prompt Without Switching Accounts</p>
+
+<p>You can also run the command you’d like with the postgres account directly with <code class="highlighter-rouge">sudo</code>.</p>
+
+<p>For instance, in the last example, we just wanted to get to a Postgres prompt. We could do this in one step by running the single command psql as the postgres user with sudo like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`sudo -u postgres psql`
+</code></pre></div></div>
+
+<p>This will log you directly into Postgres without the intermediary bash shell in between.</p>
+
+<p>Again, you can exit the interactive Postgres session by typing:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`\q`
+</code></pre></div></div>
+
+<h1 id="create-a-new-role">Create a New Role</h1>
+
+<p>Currently, we just have the postgres role configured within the database. We can create new roles from the command line with the createrole command. The –interactive flag will prompt you for the necessary values.</p>
+
+<p>If you are logged in as the postgres account, you can create a new user by typing:</p>
+
+<p><code class="highlighter-rouge">createuser --interactive</code></p>
+
+<p>If, instead, you prefer to use sudo for each command without switching from your normal account, you can type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`sudo -u postgres createuser --interactive`
+</code></pre></div></div>
+
+<p>The script will prompt you with some choices and, based on your responses, execute the correct Postgres commands to create a user to your specifications.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Output
+Enter name of role to add: sammy
+Shall the new role be a superuser? <span class="o">(</span>y/n<span class="o">)</span> y
+</code></pre></div></div>
+
+<p>You can get more control by passing some additional flags. Check out the options by looking at the man page:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`man createuser`
+</code></pre></div></div>
+
+<h1 id="create-a-new-database">Create a New Database</h1>
+
+<p>By default, another assumption that the Postgres authentication system makes is that there will be an database with the same name as the role being used to login, which the role has access to.</p>
+
+<p>So if in the last section, we created a user called sammy, that role will attempt to connect to a database which is also called sammy by default. You can create the appropriate database with the createdb command.</p>
+
+<p>If you are logged in as the postgres account, you would type something like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`createdb sammy`
+</code></pre></div></div>
+
+<p>If, instead, you prefer to use sudo for each command without switching from your normal account, you would type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`sudo -u postgres createdb sammy`
+</code></pre></div></div>
+
+<p>Open a Postgres Prompt with the New Role</p>
+
+<p>To log in with ident based authentication, you’ll need a Linux user with the same name as your Postgres role and database.</p>
+
+<p>If you don’t have a matching Linux user available, you can create one with the adduser command. You will have to do this from an account with sudo privileges (not logged in as the postgres user):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`sudo adduser sammy`
+</code></pre></div></div>
+
+<p>Once you have the appropriate account available, you can either switch over and connect to the database by typing:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">sudo</span> <span class="nt">-i</span> <span class="nt">-u</span> sammy
+    psql
+</code></pre></div></div>
+
+<p>Or, you can do this inline:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`sudo -u sammy psql`
+</code></pre></div></div>
+
+<p>You will be logged in automatically assuming that all of the components have been properly configured.</p>
+
+<p>If you want your user to connect to a different database, you can do so by specifying the database like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`psql -d postgres`
+</code></pre></div></div>
+
+<p>Once logged in, you can get check your current connection information by typing:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`\conninfo`
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Output
+You are connected to database <span class="s2">"sammy"</span> as user <span class="s2">"sammy"</span> via socket <span class="k">in</span> <span class="s2">"/var/run/postgresql"</span> at port <span class="s2">"5432"</span><span class="nb">.</span>
+</code></pre></div></div>
+
+<p>This can be useful if you are connecting to non-default databases or with non-default users.
+Create and Delete Tables</p>
+
+<p>Now that you know how to connect to the PostgreSQL database system, we can to go over how to complete some basic tasks.</p>
+
+<p>First, we can create a table to store some data. Let’s create a table that describes playground equipment.</p>
+
+<p>The basic syntax for this command is something like this:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="p">(</span>
+    <span class="n">column_name1</span> <span class="n">col_type</span> <span class="p">(</span><span class="n">field_length</span><span class="p">)</span> <span class="n">column_constraints</span><span class="p">,</span>
+    <span class="n">column_name2</span> <span class="n">col_type</span> <span class="p">(</span><span class="n">field_length</span><span class="p">),</span>
+    <span class="n">column_name3</span> <span class="n">col_type</span> <span class="p">(</span><span class="n">field_length</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>As you can see, we give the table a name, and then define the columns that we want, as well as the column type and the max length of the field data. We can also optionally add table constraints for each column.</p>
+
+<p>You can learn more about how to create and manage tables in Postgres here.</p>
+
+<p>For our purposes, we’re going to create a simple table like this:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">playground</span> <span class="p">(</span>
+    <span class="n">equip_id</span> <span class="n">serial</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="k">type</span> <span class="n">varchar</span> <span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="n">color</span> <span class="n">varchar</span> <span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="k">location</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="k">check</span> <span class="p">(</span><span class="k">location</span> <span class="k">in</span> <span class="p">(</span><span class="s1">'north'</span><span class="p">,</span> <span class="s1">'south'</span><span class="p">,</span> <span class="s1">'west'</span><span class="p">,</span> <span class="s1">'east'</span><span class="p">,</span> <span class="s1">'northeast'</span><span class="p">,</span> <span class="s1">'southeast'</span><span class="p">,</span> <span class="s1">'southwest'</span><span class="p">,</span> <span class="s1">'northwest'</span><span class="p">)),</span>
+    <span class="n">install_date</span> <span class="n">date</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>We have made a playground table that inventories the equipment that we have. This starts with an equipment ID, which is of the serial type. This data type is an auto-incrementing integer. We have given this column the constraint of primary key which means that the values must be unique and not null.</p>
+
+<p>For two of our columns (equip_id and install_date), we have not given a field length. This is because some column types don’t require a set length because the length is implied by the type.</p>
+
+<p>We then give columns for the equipment type and color, each of which cannot be empty. We create a location column and create a constraint that requires the value to be one of eight possible values. The last column is a date column that records the date that we installed the equipment.</p>
+
+<p>We can see our new table by typing:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`\d`
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Output</span>
+                  <span class="n">List</span> <span class="k">of</span> <span class="n">relations</span>
+ <span class="k">Schema</span> <span class="o">|</span>          <span class="n">Name</span>           <span class="o">|</span>   <span class="k">Type</span>   <span class="o">|</span> <span class="k">Owner</span> 
+<span class="c1">--------+-------------------------+----------+-------</span>
+ <span class="k">public</span> <span class="o">|</span> <span class="n">playground</span>              <span class="o">|</span> <span class="k">table</span>    <span class="o">|</span> <span class="n">sammy</span>
+ <span class="k">public</span> <span class="o">|</span> <span class="n">playground_equip_id_seq</span> <span class="o">|</span> <span class="n">sequence</span> <span class="o">|</span> <span class="n">sammy</span>
+<span class="p">(</span><span class="mi">2</span> <span class="k">rows</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Our playground table is here, but we also have something called playground_equip_id_seq that is of the type sequence. This is a representation of the serial type we gave our equip_id column. This keeps track of the next number in the sequence and is created automatically for columns of this type.</p>
+
+<p>If you want to see just the table without the sequence, you can type:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>`\dt`
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Output</span>
+          <span class="n">List</span> <span class="k">of</span> <span class="n">relations</span>
+ <span class="k">Schema</span> <span class="o">|</span>    <span class="n">Name</span>    <span class="o">|</span> <span class="k">Type</span>  <span class="o">|</span> <span class="k">Owner</span> 
+<span class="c1">--------+------------+-------+-------</span>
+ <span class="k">public</span> <span class="o">|</span> <span class="n">playground</span> <span class="o">|</span> <span class="k">table</span> <span class="o">|</span> <span class="n">sammy</span>
+<span class="p">(</span><span class="mi">1</span> <span class="k">row</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Add, Query, and Delete Data in a Table</p>
+
+<p>Now that we have a table, we can insert some data into it.</p>
+
+<p>Let’s add a slide and a swing. We do this by calling the table we’re wanting to add to, naming the columns and then providing data for each column. Our slide and swing could be added like this:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">playground</span> <span class="p">(</span><span class="k">type</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="k">location</span><span class="p">,</span> <span class="n">install_date</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'slide'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'south'</span><span class="p">,</span> <span class="s1">'2014-04-28'</span><span class="p">);</span>
+    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">playground</span> <span class="p">(</span><span class="k">type</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="k">location</span><span class="p">,</span> <span class="n">install_date</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'swing'</span><span class="p">,</span> <span class="s1">'yellow'</span><span class="p">,</span> <span class="s1">'northwest'</span><span class="p">,</span> <span class="s1">'2010-08-16'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>You should take care when entering the data to avoid a few common hangups. First, keep in mind that the column names should not be quoted, but the column values that you’re entering do need quotes.</p>
+
+<p>Another thing to keep in mind is that we do not enter a value for the equip_id column. This is because this is auto-generated whenever a new row in the table is created.</p>
+
+<p>We can then get back the information we’ve added by typing:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```sql
+SELECT * FROM playground;
+```
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Output</span>
+ <span class="n">equip_id</span> <span class="o">|</span> <span class="k">type</span>  <span class="o">|</span> <span class="n">color</span>  <span class="o">|</span> <span class="k">location</span>  <span class="o">|</span> <span class="n">install_date</span> 
+<span class="c1">----------+-------+--------+-----------+--------------</span>
+        <span class="mi">1</span> <span class="o">|</span> <span class="n">slide</span> <span class="o">|</span> <span class="n">blue</span>   <span class="o">|</span> <span class="n">south</span>     <span class="o">|</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">28</span>
+        <span class="mi">2</span> <span class="o">|</span> <span class="n">swing</span> <span class="o">|</span> <span class="n">yellow</span> <span class="o">|</span> <span class="n">northwest</span> <span class="o">|</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span>
+<span class="p">(</span><span class="mi">2</span> <span class="k">rows</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>Here, you can see that our equip_id has been filled in successfully and that all of our other data has been organized correctly.</p>
+
+<p>If the slide on the playground breaks and we have to remove it, we can also remove the row from our table by typing:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">playground</span> <span class="k">WHERE</span> <span class="k">type</span> <span class="o">=</span> <span class="s1">'slide'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>If we query our table again, we will see our slide is no longer a part of the table:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">playground</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Output</span>
+ <span class="n">equip_id</span> <span class="o">|</span> <span class="k">type</span>  <span class="o">|</span> <span class="n">color</span>  <span class="o">|</span> <span class="k">location</span>  <span class="o">|</span> <span class="n">install_date</span> 
+<span class="c1">----------+-------+--------+-----------+--------------</span>
+        <span class="mi">2</span> <span class="o">|</span> <span class="n">swing</span> <span class="o">|</span> <span class="n">yellow</span> <span class="o">|</span> <span class="n">northwest</span> <span class="o">|</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span>
+<span class="p">(</span><span class="mi">1</span> <span class="k">row</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="how-to-add-and-delete-columns-from-a-table">How To Add and Delete Columns from a Table</h1>
+
+<p>If we want to modify a table after it has been created to add an additional column, we can do that easily.</p>
+
+<p>We can add a column to show the last maintenance visit for each piece of equipment by typing:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">playground</span> <span class="k">ADD</span> <span class="n">last_maint</span> <span class="n">date</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>If you view your table information again, you will see the new column has been added (but no data has been entered):</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">playground</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">Output</span>
+ <span class="n">equip_id</span> <span class="o">|</span> <span class="k">type</span>  <span class="o">|</span> <span class="n">color</span>  <span class="o">|</span> <span class="k">location</span>  <span class="o">|</span> <span class="n">install_date</span> <span class="o">|</span> <span class="n">last_maint</span> 
+<span class="c1">----------+-------+--------+-----------+--------------+------------</span>
+        <span class="mi">2</span> <span class="o">|</span> <span class="n">swing</span> <span class="o">|</span> <span class="n">yellow</span> <span class="o">|</span> <span class="n">northwest</span> <span class="o">|</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span>   <span class="o">|</span> 
+<span class="p">(</span><span class="mi">1</span> <span class="k">row</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>We can delete a column just as easily. If we find that our work crew uses a separate tool to keep track of maintenance history, we can get rid of the column here by typing:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">playground</span> <span class="k">DROP</span> <span class="n">last_maint</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h1 id="how-to-update-data-in-a-table">How To Update Data in a Table</h1>
+
+<p>We know how to add records to a table and how to delete them, but we haven’t covered how to modify existing entries yet.</p>
+
+<p>You can update the values of an existing entry by querying for the record you want and setting the column to the value you wish to use. We can query for the “swing” record (this will match every swing in our table) and change its color to “red”. This could be useful if we gave the swing set a paint job:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">UPDATE</span> <span class="n">playground</span> <span class="k">SET</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'red'</span> <span class="k">WHERE</span> <span class="k">type</span> <span class="o">=</span> <span class="s1">'swing'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>We can verify that the operation was successful by querying our data again:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">playground</span><span class="p">;</span>
+
+<span class="k">Output</span>
+ <span class="n">equip_id</span> <span class="o">|</span> <span class="k">type</span>  <span class="o">|</span> <span class="n">color</span> <span class="o">|</span> <span class="k">location</span>  <span class="o">|</span> <span class="n">install_date</span> 
+<span class="c1">----------+-------+-------+-----------+--------------</span>
+        <span class="mi">2</span> <span class="o">|</span> <span class="n">swing</span> <span class="o">|</span> <span class="n">red</span>   <span class="o">|</span> <span class="n">northwest</span> <span class="o">|</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">16</span>
+<span class="p">(</span><span class="mi">1</span> <span class="k">row</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>As you can see, our slide is now registered as being red.</p>
+
+  
+</article>
+
+
+<hr class="dingbat related" />
+
+
+
+
+  
+     
+
+
+  <aside class="about related mt4 mb4" role="complementary">
+    
+    
+
+<div class="author mt4">
+  
+
+  
+    
+  
+
+  
+
+  
+  <img
+    src="/assets/img/sidebar-bg.jpg"
+    class="avatar"
+    alt="Philip Mutua"
+    srcset="/assets/img/sidebar-bg.jpg 1x,/assets/img/sidebar-bg.jpg 2x"
+    
+    
+  />
+
+
+  
+
+  
+  
+  <h2  class="page-title hr">
+    About
+  </h2>
+
+  <p>Hi, I’m <a href="https://twitter.com/itsphilipmutua">Philip</a> and I am a Software Engineer based in Nairobi, KENYA.</p>
+
+<p>Currently I’m working at Xelpha Health as a Back End Engineer building E-Health solutions. My specialialty is with Python and  Django.</p>
+
+
+  <div class="sidebar-social">
+    <span class="sr-only">Social:</span>
+<ul>
+  
+
+  
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="https://twitter.com/itsphilipmutua" title="Twitter" class="no-mark-external">
+    <span class="icon-twitter"></span>
+    <span class="sr-only">Twitter</span>
+  </a>
+</li>
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="https://github.com/pmutua" title="GitHub" class="no-mark-external">
+    <span class="icon-github"></span>
+    <span class="sr-only">GitHub</span>
+  </a>
+</li>
+
+  
+</ul>
+
+  </div>
+</div>
+
+  </aside>
+
+
+  
+
+  
+  
+
+  
+    
+
+
+
+
+
+  
+
+
+    
+
+
+    <footer role="contentinfo">
+  <hr/>
+  
+    <p><small class="copyright">© 2017. All rights reserved.
+</small></p>
+  
+  
+  <p><small>Powered by <a class="external" href="https://jekyllrb.com/">Jekyll</a> v<span id="_version">3.7.2 </span>
+      developed by <a class="external" href="https://twitter.com/itsphilipmutua"/>Philip Mutua</a></small></p>
+  <hr class="sr-only"/>
+</footer>
+
+  </main>
+  <hy-drawer>
+  <header id="_sidebar" class="sidebar" role="banner">
+    
+    <div class="sidebar-bg sidebar-overlay" style="background-color:#4fb1ba;background-image:url(/assets/img/sidebar-bg.jpg)"></div>
+
+    <div class="sidebar-sticky">
+      <div class="sidebar-about">
+        <h2 class="h1"><a href="/">Philip Mutua</a></h2>
+        
+        
+          <p class="">
+            Building solutions with code.
+
+          </p>
+        
+      </div>
+
+      <nav class="sidebar-nav heading" role="navigation">
+        <span class="sr-only">Navigation:</span>
+<ul>
+  
+  
+  
+  
+    
+      <li>
+        <a
+          id="_navigation"
+          href="/tag/blog/"
+          class="sidebar-nav-item"
+          
+          >
+          Blog
+        </a>
+      </li>
+    
+  
+    
+      <li>
+        <a
+          
+          href="/tag/tutorial/"
+          class="sidebar-nav-item"
+          
+          >
+          Tutorials
+        </a>
+      </li>
+    
+  
+    
+      <li>
+        <a
+          
+          href="/about/"
+          class="sidebar-nav-item"
+          
+          >
+          About
+        </a>
+      </li>
+    
+  
+</ul>
+
+      </nav>
+
+      
+
+      <div class="sidebar-social">
+        <span class="sr-only">Social:</span>
+<ul>
+  
+
+  
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="https://twitter.com/itsphilipmutua" title="Twitter" class="no-mark-external">
+    <span class="icon-twitter"></span>
+    <span class="sr-only">Twitter</span>
+  </a>
+</li>
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="https://github.com/pmutua" title="GitHub" class="no-mark-external">
+    <span class="icon-github"></span>
+    <span class="sr-only">GitHub</span>
+  </a>
+</li>
+
+  
+</ul>
+
+      </div>
+    </div>
+  </header>
+</hy-drawer>
+
+</hy-push-state>
+
+
+  
+
+  <!--[if gt IE 9]><!-->
+  
+  <script>loadJSDeferred('/assets/js/hydejack-7.5.0.js');</script>
+  
+  <!--<![endif]-->
+
+
+
+  
+<hr class="sr-only"/>
+<h2 class="sr-only">Templates (for web app):</h2>
+
+<template id="_animation-template">
+  <div class="animation-main fixed-top">
+    <div class="content">
+      <div class="page"></div>
+    </div>
+  </div>
+</template>
+
+<template id="_loading-template">
+  <div class="loading">
+    <span class="sr-only">Loading…</span>
+    <span class="icon-cog"></span>
+  </div>
+</template>
+
+<template id="_error-template">
+  <div class="page">
+    <h1 class="page-title">Error</h1>
+    
+    
+    <p class="lead">
+      Sorry, an error occurred while loading <a class="this-link" href=""></a>.
+
+    </p>
+  </div>
+</template>
+
+<template id="_back-template">
+  <a id="_back" class="back nav-btn no-hover">
+    <span class="sr-only">Back</span>
+    <span class="icon-arrow-left2"></span>
+  </a>
+</template>
+
+<template id="_permalink-template">
+  <a href="#" class="permalink">
+    <span class="sr-only">Permalink</span>
+    <span class="icon-link"></span>
+  </a>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+  </html>

@@ -1,0 +1,12 @@
+{
+  "name": "hydejack-assets",
+  "homepage": "https://philipmutua.com/projects/hydephyll/",
+  "author": "Philip Mutua <mail@philipmutua.com> (https://philipmutua.com/)",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "webfontloader": "^1.6.28",
+    "html5shiv": "^3.7.3",
+    "katex": "^0.8.3"
+  }
+}
