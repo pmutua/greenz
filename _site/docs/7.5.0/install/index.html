@@ -31,9 +31,9 @@ This is a Modified version I tweeked <https://github.com/pmutua>
 
 
   
-<!-- Begin Jekyll SEO tag v2.4.0 -->
+<!-- Begin Jekyll SEO tag v2.5.0 -->
 <title>Install | Philip Mutua</title>
-<meta name="generator" content="Jekyll v3.7.3" />
+<meta name="generator" content="Jekyll v3.7.4" />
 <meta property="og:title" content="Install" />
 <meta name="author" content="philip mutua" />
 <meta property="og:locale" content="en" />
@@ -380,12 +380,12 @@ The advantage of this method is that you avoid cluttering your Jekyll repository
 It is located at <code class="highlighter-rouge">&lt;dowloaded zip&gt;/.ssh/hydejack_pro_customers</code>.
 You have to copy the key file to <code class="highlighter-rouge">~/.ssh</code> (or wherever your SSH keys are located), e.g.:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> ~/Downloads/hydejack-pro-v7.5.0/.ssh/hydejack_pro_customers ~/.ssh/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cp ~/Downloads/hydejack-pro-v7.5.0/.ssh/hydejack_pro_customers ~/.ssh/
 </code></pre></div></div>
 
 <p>It is required that your private key files are NOT accessible by others, e.g.:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">chmod </span>600 ~/.ssh/hydejack_pro_customers
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>chmod 600 ~/.ssh/hydejack_pro_customers
 </code></pre></div></div>
 
 <p>Then add the following to <code class="highlighter-rouge">.ssh/config</code>:</p>
@@ -412,7 +412,7 @@ You have to copy the key file to <code class="highlighter-rouge">~/.ssh</code> (
 <p>Make sure you’ve <code class="highlighter-rouge">cd</code>ed into the directory where <code class="highlighter-rouge">_config.yml</code> is located.
 Before running for the first time, dependencies need to be fetched from <a href="https://rubygems.org/">RubyGems</a>:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle <span class="nb">install</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle install
 </code></pre></div></div>
 
 <p class="message"><strong>NOTE</strong>: If you are missing the <code class="highlighter-rouge">bundle</code> command, you can install Bundler by running <code class="highlighter-rouge">gem install bundler</code>.</p>

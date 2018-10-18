@@ -31,9 +31,9 @@ This is a Modified version I tweeked <https://github.com/pmutua>
 
 
   
-<!-- Begin Jekyll SEO tag v2.4.0 -->
+<!-- Begin Jekyll SEO tag v2.5.0 -->
 <title>How to Show your branch name on the Linux prompt. | Philip Mutua</title>
-<meta name="generator" content="Jekyll v3.7.3" />
+<meta name="generator" content="Jekyll v3.7.4" />
 <meta property="og:title" content="How to Show your branch name on the Linux prompt." />
 <meta name="author" content="philip mutua" />
 <meta property="og:locale" content="en" />
@@ -260,12 +260,12 @@ on <span>Git</span>, <span>Tips</span>, <span>Linux</span>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c"># Show git branch name</span>
-<span class="nv">force_color_prompt</span><span class="o">=</span><span class="nb">yes
-</span><span class="nv">color_prompt</span><span class="o">=</span><span class="nb">yes
-</span>parse_git_branch<span class="o">()</span> <span class="o">{</span>
- git branch 2&gt; /dev/null | <span class="nb">sed</span> <span class="nt">-e</span> <span class="s1">'/^[^*]/d'</span> <span class="nt">-e</span> <span class="s1">'s/* \(.*\)/(\1)/'</span>
+<span class="nv">force_color_prompt</span><span class="o">=</span>yes
+<span class="nv">color_prompt</span><span class="o">=</span>yes
+parse_git_branch<span class="o">()</span> <span class="o">{</span>
+ git branch 2&gt; /dev/null | sed <span class="nt">-e</span> <span class="s1">'/^[^*]/d'</span> <span class="nt">-e</span> <span class="s1">'s/* \(.*\)/(\1)/'</span>
 <span class="o">}</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$color_prompt</span><span class="s2">"</span> <span class="o">=</span> <span class="nb">yes</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$color_prompt</span><span class="s2">"</span> <span class="o">=</span> yes <span class="o">]</span><span class="p">;</span> <span class="k">then
  </span><span class="nv">PS1</span><span class="o">=</span><span class="s1">'${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '</span>
 <span class="k">else
  </span><span class="nv">PS1</span><span class="o">=</span><span class="s1">'${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '</span>
@@ -428,7 +428,7 @@ on <span>Git</span>, <span>Tips</span>, <span>Linux</span>
 
 <li>
   <a href="/git/blog/2017/05/06/How-To-Install-Git-on-Ubuntu-16.04/" class="h4 flip-title">
-    <span>How to Undo a git add - remove files staged for a git commit</span>
+    <span>Introduction</span>
   </a>
   <time class="heading faded fine" datetime="2017-05-06T00:00:00+03:00">06 May 2017</time>
 </li>

@@ -31,10 +31,10 @@ This is a Modified version I tweeked <https://github.com/pmutua>
 
 
   
-<!-- Begin Jekyll SEO tag v2.4.0 -->
-<title>How To Install Node.js on Ubuntu 16.04 | Philip Mutua</title>
-<meta name="generator" content="Jekyll v3.7.3" />
-<meta property="og:title" content="How To Install Node.js on Ubuntu 16.04" />
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Introduction | Philip Mutua</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Introduction" />
 <meta name="author" content="philip mutua" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="Introduction" />
@@ -45,7 +45,7 @@ This is a Modified version I tweeked <https://github.com/pmutua>
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-12-21T00:00:00+03:00" />
 <script type="application/ld+json">
-{"description":"Introduction","author":{"@type":"Person","name":"philip mutua"},"@type":"BlogPosting","url":"http://localhost:4000/nodejs/blog/2017/12/21/How-To-Install-Node.js-on-Ubuntu-16.04/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/icons/icon.png"},"name":"philip mutua"},"headline":"How To Install Node.js on Ubuntu 16.04","dateModified":"2017-12-21T00:00:00+03:00","datePublished":"2017-12-21T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/nodejs/blog/2017/12/21/How-To-Install-Node.js-on-Ubuntu-16.04/"},"@context":"http://schema.org"}</script>
+{"description":"Introduction","author":{"@type":"Person","name":"philip mutua"},"@type":"BlogPosting","url":"http://localhost:4000/nodejs/blog/2017/12/21/How-To-Install-Node.js-on-Ubuntu-16.04/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/icons/icon.png"},"name":"philip mutua"},"headline":"Introduction","dateModified":"2017-12-21T00:00:00+03:00","datePublished":"2017-12-21T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/nodejs/blog/2017/12/21/How-To-Install-Node.js-on-Ubuntu-16.04/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -195,7 +195,7 @@ This is a Modified version I tweeked <https://github.com/pmutua>
   <header>
     <h1 class="post-title">
       
-        How To Install Node.js on Ubuntu 16.04
+        Introduction
       
     </h1>
 
@@ -242,8 +242,7 @@ on <span>Node.js</span>, <a href="/tag/blog/" class="flip-title">Blog</a>
   </header>
 
   
-    <h1 id="introduction">Introduction</h1>
-
+    
 <p>Node.js is a JavaScript platform for general-purpose programming that allows users to build network applications quickly. By leveraging JavaScript on both the front- and back-end, development can be more consistent and designed within the same system.</p>
 
 <p>In this guide, we’ll show you how to get started with Node.js on an Ubuntu 16.04 server.</p>
@@ -259,12 +258,12 @@ How To Install the Distro-Stable Version for Ubuntu</p>
 <p>In order to get this version, we just have to use the apt package manager. We should refresh our local package index first, and then install from the repositories:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">sudo </span>apt-get update
-    <span class="nb">sudo </span>apt-get <span class="nb">install </span>nodejs
+    <span class="nb">sudo </span>apt-get install nodejs
 </code></pre></div></div>
 
 <p>If the package in the repositories suits your needs, this is all you need to do to get set up with Node.js. In most cases, you’ll also want to also install npm, which is the Node.js package manager. You can do this by typing:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">sudo </span>apt-get <span class="nb">install </span>npm
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">sudo </span>apt-get install npm
 </code></pre></div></div>
 
 <p>This will allow you to easily install modules and packages to use with Node.js.</p>
@@ -301,7 +300,7 @@ How To Install the Distro-Stable Version for Ubuntu</p>
 
 <p>The PPA will be added to your configuration and your local package cache will be updated automatically. After running the setup script from nodesource, you can install the Node.js package in the same way you did above:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">sudo </span>apt-get <span class="nb">install </span>nodejs
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">sudo </span>apt-get install nodejs
 </code></pre></div></div>
 
 <p>To check which version of Node.js you have installed after these initial steps, type:</p>
@@ -325,7 +324,7 @@ Output
 
 <p>In order for some npm packages to work (those that require compiling code from source, for example), you will need to install the build-essential package:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">sudo </span>apt-get <span class="nb">install </span>build-essential
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">sudo </span>apt-get install build-essential
 
 </code></pre></div></div>
 
@@ -339,7 +338,7 @@ How To Install Using NVM</p>
 <p>To start off, we’ll need to get the software packages from our Ubuntu repositories that will allow us to build source packages. The nvm script will leverage these tools to build the necessary components:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nb">sudo </span>apt-get update
-    <span class="nb">sudo </span>apt-get <span class="nb">install </span>build-essential libssl-dev
+    <span class="nb">sudo </span>apt-get install build-essential libssl-dev
 
 </code></pre></div></div>
 
@@ -390,7 +389,7 @@ Output
 
 <p>As you can see, the newest LTS version at the time of this writing is <code class="highlighter-rouge">v8.9.4</code>. You can install that by typing:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    nvm <span class="nb">install </span>8.9.4
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    nvm install 8.9.4
 
 </code></pre></div></div>
 
@@ -429,12 +428,12 @@ v8.9.4
 
 <p>You can have npm install packages to the Node.js project’s ./node_modules directory by using the normal format. For example, for the express module:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    npm <span class="nb">install </span>express
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    npm install express
 </code></pre></div></div>
 
 <p>If you’d like to install it globally (making it available to the other projects using the same Node.js version), you can add the -g flag:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    npm <span class="nb">install</span> <span class="nt">-g</span> express
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    npm install <span class="nt">-g</span> express
 </code></pre></div></div>
 
 <p>This will install the package in:</p>
@@ -443,7 +442,7 @@ v8.9.4
 
 <p>Installing globally will let you run the commands from the command line, but you’ll have to link the package into your local sphere to require it from within a program:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    npm <span class="nb">link </span>express
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    npm link express
 </code></pre></div></div>
 
 <p>You can learn more about the options available to you with nvm by typing:</p>

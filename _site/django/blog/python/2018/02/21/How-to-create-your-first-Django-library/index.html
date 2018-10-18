@@ -31,9 +31,9 @@ This is a Modified version I tweeked <https://github.com/pmutua>
 
 
   
-<!-- Begin Jekyll SEO tag v2.4.0 -->
+<!-- Begin Jekyll SEO tag v2.5.0 -->
 <title>How to create your first Django library. | Philip Mutua</title>
-<meta name="generator" content="Jekyll v3.7.3" />
+<meta name="generator" content="Jekyll v3.7.4" />
 <meta property="og:title" content="How to create your first Django library." />
 <meta name="author" content="philip mutua" />
 <meta property="og:locale" content="en" />
@@ -286,7 +286,7 @@ on <span>Django</span>, <span>Python</span>
 
 <p>When you create third-party library, you won’t need to create a project. Just create your application by using startapp sub-command. But wait. you will distribute this application, so you need a parent directory to package it like this:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>django-myapp
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir django-myapp
 <span class="nb">cd </span>django-myapp
 django-admin.py startapp myapp
 </code></pre></div></div>
@@ -295,8 +295,8 @@ django-admin.py startapp myapp
 
 <p>And you need to write README and LICENSE file to describe about your package. I won’t use packages without README or documentation:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">touch </span>README.rst
-<span class="nb">touch </span>LICENSE
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>touch README.rst
+touch LICENSE
 </code></pre></div></div>
 
 <p>Also It’s good idea to manage packages by using some VCS like git:</p>
@@ -420,13 +420,13 @@ envlist <span class="o">=</span> py27, py33, flake8
 
 <span class="o">[</span>testenv]
 commands <span class="o">=</span>
-    pip <span class="nb">install</span> <span class="nt">-e</span> <span class="nb">.</span>
+    pip install <span class="nt">-e</span> <span class="nb">.</span>
     django-admin.py <span class="nb">test</span> <span class="nt">--settings</span><span class="o">=</span>test_settings
 </code></pre></div></div>
 
 <p>To run those tests, install tox and type like this:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>tox
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install tox
 tox
 </code></pre></div></div>
 
@@ -596,7 +596,7 @@ tox
 
 <li>
   <a href="/django/python/2018/04/04/how-to-use-celery-with-django/" class="h4 flip-title">
-    <span>How to Use Celery and RabbitMQ with Django</span>
+    <span>Table of Contents</span>
   </a>
   <time class="heading faded fine" datetime="2018-04-04T00:00:00+03:00">04 Apr 2018</time>
 </li>

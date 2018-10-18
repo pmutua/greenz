@@ -16,7 +16,8 @@ gem "jekyll"
 
 
 # If you have any plugins, put them here!
-group :jekyll_plugins do
+
+gem 'github-pages', group: :jekyll_plugins do
   # gem "jekyll-avatar"
   # gem "jekyll-default-layout"
   gem "jekyll-feed"
@@ -34,6 +35,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   # gem "jekyll-titles-from-headings"
 end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
