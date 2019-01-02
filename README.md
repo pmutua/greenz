@@ -1,84 +1,35 @@
-# Hydephyll
+# Brandi - OnePage Bootstrap Business Template
+
+Looking for something unique for your next business and corporate websites? Meet Brandi, the free responsive one page bootstrap business template. Twitter Bootstrap 3.x framework powers the template. No extra code, no additional feature which provides end users a dominant power to build any kind awesome website having ease in mind. The bootstrap based one page HTML template lightweight and fast loading perfectly suited for the site either they have high or low traffic. Business, corporate, portfolio, agency, blog, app showcase, photography, resume, creative agency, portfolio showcase, and creative platform are the perfect place to suit niches of this HTML theme.
+
+PSD credit: https://dribbble.com/themecurve
+
+<img src="https://cloud.githubusercontent.com/assets/10640964/5989549/0f93dfc8-a9b6-11e4-8f1e-75189f6a5759.jpg" alt="Free bootstrap business template by themefisher">
+
+**NOTE:** Please remember to **STAR** this project and **FOLLOW** [my Github](https://github.com/themefisher) to keep you update with this template.
+
+## Demo & Download 
+
+A fully functional demo is available at <a href="http://demo.themefisher.com/demos/?theme=brandi">Demo</a>
+You can visit our website to download this theme <a href="https://themefisher.com/products/brandi-responsive-one-page-bootstrap-business-template/">Download Now</a>
+ 
 
 
-**Hydephyll** is a Jekyll theme with JavaScript powers, combining the best of static sites and modern web apps.
-It features a suite of JavaScript that makes the page feel like an app, without sacrificing backwards-compatibility,
-page-load speed or SEO.
+## Bugs Reports
 
-> Your presence on the web — A [blog], a [portfolio] and a [resume].
+Have a bug or a feature request? Please open a new issue.
 
-**Hydephil** aims to be the complete package for professionals on the web.
-It features a blog suitable for both prose and technical documentation,
-a showcase for your projects, and a resume that fits with the rest of the design.
+## Copyright and license
 
+Copyright 2017 themefisher.com, <a target="_blank" href="https://themefisher.com/license">License</a>
 
-## Demo
-
-## Features
+## Support Themefisher Development
+This template is a MIT licensed open source project and completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by buying one of our [premium templates](https://themefisher.com/premium-templates/).
 
 
-* Full in-app page loading, powered by [hy-push-state]
-* A customizable sidebar that turns into a drawer menu on mobile, powered by [hy-drawer]
-* Advanced FLIP animations, inspired by Material Design
-* Good [Google PageSpeed Score][gpss][^3]
-* Higher *perceived speed* thanks to content pre-fetching
-* [Syntax highlighting][syntax], powered by [Rouge]
-* [LaTeX math blocks][latex], powered by [KaTeX]
-* Change the wording of built-in strings and possibly translate in other languages
-* Support for categories and tags
-* Built-in icons for many social networks
-* Simple and semantic HTML — can be viewed even with text-based browsers
-* Author section below each article and support for multiple authors
-* Progressive enhancement — sacrifice features, not content
-* Google Analytics and Google Fonts support
-* Disqus comments
-* Print layout — Used to render Hydejack's [PDF documentation][pdf]
-* Blog layout via `jekyll-paginate` (optional)
-* SEO meta tags via `jekyll-seo-tag` (optional)
-* Github avatars via `jekyll-avatar` (optional)
-* Gist support via `jekyll-gist` (optional)
+### Check out our FREE Bootstrap & HTML5 Templates
+Get More FREE Bootstrap templates from our store <a href="https://themefisher.com/free-bootstrap-templates">Bootstrap Templates Store</a>
+And if you want FREE HTML5 Templates then please visit our listing content <a href="https://themefisher.com/best-free-html5-templates-2016/">HTML5 Templates</a>
+Visit Our Website For More Amazing Works
+<a href="https://themefisher.com">Website</a>
 
-## Documentation
-<!-- Hydephil is well documented. You can read the docs [on the Jekyll site][docs], or [on GitHub][wiki], or [download the PDF][pdf].
-
- -->
-
-
-
-
-[^3]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
-
-~~~
-:::    ::: :::   ::: :::::::::  :::::::::: :::::::::  :::    ::: :::   ::: :::        :::        
-:+:    :+: :+:   :+: :+:    :+: :+:        :+:    :+: :+:    :+: :+:   :+: :+:        :+:        
-+:+    +:+  +:+ +:+  +:+    +:+ +:+        +:+    +:+ +:+    +:+  +:+ +:+  +:+        +:+        
-+#++:++#++   +#++:   +#+    +:+ +#++:++#   +#++:++#+  +#++:++#++   +#++:   +#+        +#+        
-+#+    +#+    +#+    +#+    +#+ +#+        +#+        +#+    +#+    +#+    +#+        +#+        
-#+#    #+#    #+#    #+#    #+# #+#        #+#        #+#    #+#    #+#    #+#        #+#        
-###    ###    ###    #########  ########## ###        ###    ###    ###    ########## ########## 
-
-~~~
-
-[blog]: https://pmutua.herokuapp.com/tag/blog/
-[portfolio]: https://pmutua.herokuapp.com/projects/
-[resume]: https://pmutua.herokuapp.com/resume
-[tutorials]: https://pmutua.herokuapp.com/tag/tutorial/
-[welcome]: https://pmutua.herokuapp.com/
-
-[syntax]: 
-[latex]: 
-
-[liense]: LICENSE.md
-
-[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v7.5.0.zip
-[src]: https://github.com/pmutua/pmutua.github.io
-[git]: https://github.com/qwtel/hydejack-starter-kit
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack
-[buy]: https://app.simplegoods.co/i/AQTTVBOE
-
-[hy-push-state]: https://qwtel.com/hy-push-state/
-[hy-drawer]: https://qwtel.com/hy-drawer/
-[rouge]: http://rouge.jneen.net
-[katex]: https://khan.github.io/KaTeX/
-
-*[FLIP]: First-Last-Invert-Play. A coding technique to achieve performant page transition animations.
