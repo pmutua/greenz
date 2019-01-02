@@ -1,7 +1,0 @@
----
-title: robots
----
-User-agent: *
-Disallow: /assets/
-Disallow: /donate/
-Sitemap: {{site.url}}/sitemap.xml
